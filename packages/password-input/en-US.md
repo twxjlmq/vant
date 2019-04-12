@@ -49,17 +49,28 @@ export default {
 }
 ```
 
+#### Without mask
+
+```html
+<van-password-input
+  :value="value"
+  :mask="false"
+  @focus="showKeyboard = true"
+/>
+```
+
 ### API
 
 | Attribute | Description | Type | Default |
-|-----------|-----------|-----------|-------------|
+|------|------|------|------|
 | value | Password value | `String` | `''` |
 | length | Maxlength of password | `Number` | `6` |
+| mask | Whether to mask value | `Boolean` | `true` |
 | info | Bottom info | `String` | - |
 | error-info | Bottom error info | `String` | - |
 
 ### Event
 
 | Event | Description | Arguments |
-|-----------|-----------|-----------|
+|------|------|------|
 | focus | Triggered when input get focused | - |

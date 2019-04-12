@@ -28,9 +28,9 @@ Use `type` prop to custom diffrent type fields.
     required
     clearable
     label="Username"
-    icon="question"
+    right-icon="question-o"
     placeholder="Username"
-    @click-icon="$toast('question')"
+    @click-right-icon="$toast('question')"
   />
 
   <van-field
@@ -114,10 +114,11 @@ Use button slot to insert button
 Field support all native properties of input tag，such as `maxlength`、`placeholder`、`autofocus`
 
 | Attribute | Description | Type | Default |
-|-----------|-----------|-----------|-------------|
+|------|------|------|------|
 | value | Field value | `String | Number` | - |
 | label | Field label | `String` | - |
 | type | Input type | `String` | `text` |
+| size | Size，can be set to `large` | `String` | - |
 | border | Whether to show inner border | `Boolean` | `true` |
 | disabled | Whether to disable field | `Boolean` | `false` |
 | readonly | Whether to be readonly | `Boolean` | `false` |
@@ -128,30 +129,36 @@ Field support all native properties of input tag，such as `maxlength`、`placeh
 | error-message | Error message | `String` | `''` |
 | label-align | Label text align, can be set to `center` `right` | `String` | `left` |
 | input-align | Input text align, can be set to `center` `right` | `String` | `left` |
+| error-message-align | Error message text align, can be set to `center` `right` | `String` | `left` |
 | autosize | Textarea auto resize，can accpet an object,<br>e.g. { maxHeight: 100, minHeight: 50 } | `Boolean | Object` | `false` |
-| icon | Right side icon name | `String` | - |
 | left-icon | Left side icon name | `String` | - |
+| right-icon | Right side icon name | `String` | - |
 
 ### Event
 
 Field support all native events of input tag，such as `focus`、`blur`、`keypress`
 
 | Event | Description | Parameters |
-|-----------|-----------|-----------|
-| click-icon | Triggered when click the icon of Field | - |
+|------|------|------|
+| input | Triggered when value changed | - |
+| clear | Triggered when click clear icon | - |
+| click-left-icon | Triggered when click the left icon of Field | - |
+| click-right-icon | Triggered when click the right icon of Field | - |
 
 ### Methods
 
 Use ref to get field instance and call instance methods
 
 | Name | Attribute | Return value | Description |
-|-----------|-----------|-----------|-------------|
+|------|------|------|------|
+| focus | - | - | Trigger input focus |
 | blur | - | - | Trigger input blur |
 
 ### Slot
 
 | name | Description |
-|-----------|-----------|
+|------|------|
 | label | Custom label |
-| icon | Custom icon |
+| left-icon | Custom left icon |
+| right-icon | Custom right icon |
 | button | Insert button |

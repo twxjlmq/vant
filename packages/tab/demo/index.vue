@@ -2,7 +2,11 @@
   <demo-section>
     <demo-block :title="$t('basicUsage')">
       <van-tabs v-model="active">
-        <van-tab :title="$t('tab') + index" v-for="index in tabs" :key="index">
+        <van-tab
+          :title="$t('tab') + index"
+          v-for="index in tabs"
+          :key="index"
+        >
           {{ $t('content') }} {{ index }}
         </van-tab>
       </van-tabs>
@@ -10,7 +14,11 @@
 
     <demo-block :title="$t('title2')">
       <van-tabs @scroll="onScroll">
-        <van-tab v-for="index in 8" :title="$t('tab') + index" :key="index">
+        <van-tab
+          v-for="index in 8"
+          :title="$t('tab') + index"
+          :key="index"
+        >
           {{ $t('content') }} {{ index }}
         </van-tab>
       </van-tabs>
@@ -18,7 +26,12 @@
 
     <demo-block :title="$t('title3')">
       <van-tabs @disabled="onClickDisabled">
-        <van-tab v-for="index in 4" :title="$t('tab') + index" :disabled="index === 2" :key="index">
+        <van-tab
+          v-for="index in 3"
+          :title="$t('tab') + index"
+          :disabled="index === 2"
+          :key="index"
+        >
           {{ $t('content') }} {{ index }}
         </van-tab>
       </van-tabs>
@@ -26,7 +39,11 @@
 
     <demo-block :title="$t('title4')">
       <van-tabs type="card">
-        <van-tab v-for="index in 4" :title="$t('tab') + index" :key="index">
+        <van-tab
+          v-for="index in 3"
+          :title="$t('tab') + index"
+          :key="index"
+        >
           {{ $t('content') }} {{ index }}
         </van-tab>
       </van-tabs>
@@ -34,15 +51,26 @@
 
     <demo-block :title="$t('title5')">
       <van-tabs @click="onClick">
-        <van-tab v-for="index in 4" :title="$t('tab') + index" :key="index">
+        <van-tab
+          v-for="index in 2"
+          :title="$t('tab') + index"
+          :key="index"
+        >
           {{ $t('content') }} {{ index }}
         </van-tab>
       </van-tabs>
     </demo-block>
 
     <demo-block :title="$t('title6')">
-      <van-tabs :active="active" sticky>
-        <van-tab :title="$t('tab') + index" v-for="index in tabs" :key="index">
+      <van-tabs
+        :active="active"
+        sticky
+      >
+        <van-tab
+          :title="$t('tab') + index"
+          v-for="index in tabs"
+          :key="index"
+        >
           {{ $t('content') }} {{ index }}
         </van-tab>
       </van-tabs>
@@ -50,7 +78,10 @@
 
     <demo-block :title="$t('title7')">
       <van-tabs :active="active">
-        <van-tab v-for="index in 2" :key="index">
+        <van-tab
+          v-for="index in 2"
+          :key="index"
+        >
           <div slot="title">
             <van-icon name="more-o" />{{ $t('tab') }}
           </div>
@@ -60,8 +91,29 @@
     </demo-block>
 
     <demo-block :title="$t('title8')">
-      <van-tabs :active="active" swipeable>
-        <van-tab :title="$t('tab') + index" v-for="index in tabs" :key="index">
+      <van-tabs
+        animated
+      >
+        <van-tab
+          :title="$t('tab') + index"
+          v-for="index in tabs"
+          :key="index"
+        >
+          {{ $t('content') }} {{ index }}
+        </van-tab>
+      </van-tabs>
+    </demo-block>
+
+    <demo-block :title="$t('title9')">
+      <van-tabs
+        :active="active"
+        swipeable
+      >
+        <van-tab
+          :title="$t('tab') + index"
+          v-for="index in tabs"
+          :key="index"
+        >
           {{ $t('content') }} {{ index }}
         </van-tab>
       </van-tabs>
@@ -73,14 +125,15 @@
 export default {
   i18n: {
     'zh-CN': {
-      tab: '选项 ',
+      tab: '标签 ',
       title2: '横向滚动',
       title3: '禁用标签',
       title4: '样式风格',
       title5: '点击事件',
       title6: '粘性布局',
       title7: '自定义标签',
-      title8: '滑动切换',
+      title8: '切换动画',
+      title9: '滑动切换',
       disabled: ' 已被禁用'
     },
     'en-US': {
@@ -92,7 +145,8 @@ export default {
       title5: 'Click Event',
       title6: 'Sticky',
       title7: 'Custom Tab',
-      title8: 'Swipeable',
+      title8: 'Switch Animation',
+      title9: 'Swipeable',
       disabled: ' is disabled'
     }
   },
@@ -120,7 +174,9 @@ export default {
 };
 </script>
 
-<style lang="postcss">
+<style lang="less">
+@import '../../style/var';
+
 .demo-tab {
   margin-bottom: 300px;
 
@@ -130,7 +186,7 @@ export default {
   }
 
   .van-tab__pane {
-    background-color: #fff;
+    background-color: @white;
     padding: 20px;
   }
 

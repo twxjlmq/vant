@@ -41,11 +41,11 @@ yarn add vant
 
 ```html
 <!-- import style -->
-<link rel="stylesheet" href="https://unpkg.com/vant/lib/vant-css/index.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@1.6/lib/index.css" />
 
 <!-- import script -->
-<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
-<script src="https://unpkg.com/vant/lib/vant.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vant@1.6/lib/vant.min.js"></script>
 ```
 
 ### Usage
@@ -94,8 +94,7 @@ import { Button } from 'vant';
 
 ```js
 import Button from 'vant/lib/button';
-import 'vant/lib/vant-css/base.css';
-import 'vant/lib/vant-css/button.css';
+import 'vant/lib/button/style';
 ```
  
 #### 3. Import all components
@@ -103,7 +102,7 @@ import 'vant/lib/vant-css/button.css';
 ```js
 import Vue from 'vue';
 import Vant from 'vant';
-import 'vant/lib/vant-css/index.css';
+import 'vant/lib/index.css';
 
 Vue.use(Vant);
 ```
@@ -125,7 +124,7 @@ module.exports = {
   plugins: {
     'autoprefixer': {
       browsers: ['Android >= 4.0', 'iOS >= 7']
-    }
+    },
     'postcss-pxtorem': {
       rootValue: 37.5,
       propList: ['*']

@@ -22,7 +22,8 @@ Vue.use(Card);
 ```
 
 #### 高级用法
-可以通过具名`slot`添加定制内容
+
+可以通过具名插槽添加定制内容
 
 ```html
 <van-card
@@ -43,33 +44,36 @@ Vue.use(Card);
 
 ### API
 
-| 参数 | 说明 | 类型 | 默认值 |
-|-----------|-----------|-----------|-------------|
-| thumb | 左侧图片 URL | `String` | - |
-| title | 标题 | `String` | - |
-| desc | 描述 | `String` | - |
-| tag | 标签 | `String` | - |
-| num | 商品数量 | `String | Number` | - |
-| price | 商品价格 | `String | Number` | - |
-| origin-price | 商品划线原价 | `String | Number` | - |
-| centered | 内容是否垂直居中 | `String` | `false` |
-| currency | 货币符号 |  `String` | `¥` |
-| thumb-link | 点击左侧图片后的跳转链接 | `String` | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+|------|------|------|------|------|
+| thumb | 左侧图片 URL | `String` | - | - |
+| title | 标题 | `String` | - | - |
+| desc | 描述 | `String` | - | - |
+| tag | 图片角标 | `String` | - | 1.3.4 |
+| num | 商品数量 | `String | Number` | - | - |
+| price | 商品价格 | `String | Number` | - | - |
+| origin-price | 商品划线原价 | `String | Number` | - | 1.3.6 |
+| centered | 内容是否垂直居中 | `Boolean` | `false` | - |
+| currency | 货币符号 |  `String` | `¥` | - |
+| thumb-link | 点击左侧图片后的跳转链接 | `String` | - | 1.3.4 |
+| lazy-load | 是否开启图片懒加载，须配合 [Lazyload](#/zh-CN/lazyload) 组件使用 | `Boolean` | `false` | 1.5.0 |
+
+### Event
+
+| 事件名 | 说明 | 参数 |
+|------|------|------|
+| click | 点击时触发 | - |
 
 ### Slot
 
 | 名称 | 说明 |
-|-----------|-----------|
+|------|------|
 | title | 自定义标题 |
 | desc | 自定义描述 |
-| tags | 自定义描述下方的内容 |
+| num | 自定义数量 |
+| price | 自定义价格 |
+| origin-price | 自定义商品原价 |
 | thumb | 自定义图片 |
+| tag | 自定义图片角标 |
+| tags | 自定义描述下方标签区域 |
 | footer | 自定义右下角内容 |
-
-### 更新日志
-
-| 版本 | 类型 | 内容 |
-|-----------|-----------|-----------|
-| 1.3.4 | feature | 新增 thumb-link 属性 |
-| 1.3.4 | feature | 新增 tag 属性 |
-| 1.3.6 | feature | 新增 origin-price 属性 |

@@ -38,15 +38,18 @@ ImagePreview({
 });
 ```
 
-#### 手动关闭
+#### 异步关闭
 
-通过实例上的 close 方法可以手动关闭图片预览
+通过`asyncClose`属性可以开启异步关闭，开启后异步关闭后，只能通过实例上的 close 方法关闭图片预览
 
 ```javascript
-const instance = ImagePreview([
-  'https://img.yzcdn.cn/1.jpg',
-  'https://img.yzcdn.cn/2.jpg'
-]);
+const instance = ImagePreview({
+  images: [
+    'https://img.yzcdn.cn/1.jpg',
+    'https://img.yzcdn.cn/2.jpg'
+  ],
+  asyncClose: true
+});
 
 setTimeout(() => {
   instance.close();
@@ -55,21 +58,23 @@ setTimeout(() => {
 
 ### 配置项
 
-| 参数名 | 说明 | 类型 | 默认值 |
-|-----------|-----------|-----------|-----------|
-| images | 需要预览的图片 URL 数组 | `Array` | `[]` | 
-| startPosition | 图片预览起始位置索引 | `Number` | `0` |
-| showIndex | 是否显示页码 | `Boolean` | `true` |
-| onClose | 关闭时的回调函数 | `Function` | - |
+| 参数名 | 说明 | 类型 | 默认值 | 版本 |
+|------|------|------|------|------|
+| images | 需要预览的图片 URL 数组 | `Array` | `[]` | 1.1.16 |
+| startPosition | 图片预览起始位置索引 | `Number` | `0` | 1.1.16 |
+| showIndex | 是否显示页码 | `Boolean` | `true` | 1.3.4 |
+| showIndicators | 是否显示轮播指示器 | `Boolean` | `false` | 1.3.10 |
+| loop | 是否开启循环播放 | `Boolean` | `true` | 1.4.4 |
+| onClose | 关闭时的回调函数 | `Function` | - | 1.1.16 |
+| asyncClose | 是否开启异步关闭 | `Boolean` | `false` | 1.4.8 |
+| className | 自定义类名 | `String | Array | Object` | - | 1.5.2 |
+| lazyLoad | 是否开启图片懒加载，须配合 [Lazyload](#/zh-CN/lazyload) 组件使用 | `Boolean` | `false` | 1.5.3 |
+| maxZoom | 手势缩放时，最大缩放比例 | `Number` | `3` | 1.6.14 |
+| minZoom | 手势缩放时，最小缩放比例 | `Number` | `1/3` | 1.6.14 |
 
-### 更新日志
+### onClose 回调参数
 
-| 版本 | 类型 | 内容 |
-|-----------|-----------|-----------|
-| 1.3.4 | feature | 新增 showIndex 属性 |
-| 1.1.16 | feature | 支持传入 onClose 回调函数
-| 1.1.13 | bugfix | 修复 startPosition 属性不生效的问题
-| 1.1.3 | improvement | 优化点击检测
-| 1.1.3 | bugfix | 修复只有一张图片时无法关闭的问题
-| 1.1.1 | bugfix | 修复 offset 计算错误
-| 1.0.5 | bugfix | 修复 close 方法失效的问题
+| 参数名 | 说明 | 类型 |
+|------|------|------|
+| url | 当前图片 URL | `String` |
+| index | 当前图片的索引值 | `Number` |

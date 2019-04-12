@@ -1,11 +1,11 @@
-import manager from './manager';
-import context from './context';
-import scrollUtils from '../../utils/scroll';
+import { context } from './context';
+import { TouchMixin } from '../touch';
 import { on, off } from '../../utils/event';
-import Touch from '../touch';
+import { openOverlay, closeOverlay, updateOverlay } from './overlay';
+import { getScrollEventTarget } from '../../utils/scroll';
 
-export default {
-  mixins: [Touch],
+export const PopupMixin = {
+  mixins: [TouchMixin],
 
   props: {
     // whether to show popup
@@ -48,8 +48,10 @@ export default {
 
   watch: {
     value(val) {
+      const type = val ? 'open' : 'close';
       this.inited = this.inited || this.value;
-      this[val ? 'open' : 'close']();
+      this[type]();
+      this.$emit(type);
     },
 
     getContainer() {
@@ -59,10 +61,6 @@ export default {
     overlay() {
       this.renderOverlay();
     }
-  },
-
-  created() {
-    this._popupId = 'popup-' + context.plusKey('id');
   },
 
   mounted() {
@@ -84,7 +82,7 @@ export default {
   beforeDestroy() {
     this.close();
 
-    if (this.getContainer) {
+    if (this.getContainer && this.$parent && this.$parent.$el) {
       this.$parent.$el.appendChild(this.$el);
     }
   },
@@ -101,7 +99,7 @@ export default {
         return;
       }
 
-      // 如果属性中传入了`zIndex`，则覆盖`context`中对应的`zIndex`
+      // cover default zIndex
       if (this.zIndex !== undefined) {
         context.zIndex = this.zIndex;
       }
@@ -112,6 +110,7 @@ export default {
       if (this.lockScroll) {
         on(document, 'touchstart', this.touchStart);
         on(document, 'touchmove', this.onTouchMove);
+
         if (!context.lockCount) {
           document.body.classList.add('van-overflow-hidden');
         }
@@ -128,20 +127,21 @@ export default {
         context.lockCount--;
         off(document, 'touchstart', this.touchStart);
         off(document, 'touchmove', this.onTouchMove);
+
         if (!context.lockCount) {
           document.body.classList.remove('van-overflow-hidden');
         }
       }
 
       this.opened = false;
-      manager.close(this._popupId);
+      closeOverlay(this);
       this.$emit('input', false);
     },
 
     move() {
       let container;
-
       const { getContainer } = this;
+
       if (getContainer) {
         container =
           typeof getContainer === 'string'
@@ -151,15 +151,19 @@ export default {
         container = this.$parent.$el;
       }
 
-      if (container) {
+      if (container && container !== this.$el.parentNode) {
         container.appendChild(this.$el);
+      }
+
+      if (this.overlay) {
+        updateOverlay();
       }
     },
 
     onTouchMove(e) {
       this.touchMove(e);
       const direction = this.deltaY > 0 ? '10' : '01';
-      const el = scrollUtils.getScrollEventTarget(e.target, this.$el);
+      const el = getScrollEventTarget(e.target, this.$el);
       const { scrollHeight, offsetHeight, scrollTop } = el;
       let status = '11';
 
@@ -182,18 +186,22 @@ export default {
     },
 
     renderOverlay() {
+      if (this.$isServer || !this.value) {
+        return;
+      }
+
       if (this.overlay) {
-        manager.open(this, {
-          zIndex: context.plusKey('zIndex'),
+        openOverlay(this, {
+          zIndex: context.zIndex++,
           className: this.overlayClass,
           customStyle: this.overlayStyle
         });
       } else {
-        manager.close(this._popupId);
+        closeOverlay(this);
       }
 
       this.$nextTick(() => {
-        this.$el.style.zIndex = context.plusKey('zIndex');
+        this.$el.style.zIndex = context.zIndex++;
       });
     }
   }

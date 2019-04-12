@@ -56,10 +56,14 @@ export default {
 ```html
 <van-collapse v-model="activeNames">
   <van-collapse-item name="1">
-    <div slot="title">Title1<van-icon name="question" /></div>
+    <div slot="title">Title1<van-icon name="question-o" /></div>
     Content
   </van-collapse-item>
-  <van-collapse-item title="Title2" name="2">
+  <van-collapse-item
+    title="Title2"
+    name="2"
+    icon="shop-o"
+  >
     Content
   </van-collapse-item>
 </van-collapse>
@@ -70,33 +74,38 @@ export default {
 ### Collapse API
 
 | Attribute | Description | Type | Default |
-|-----------|-----------|-----------|-------------|
+|------|------|------|------|
 | v-model | names of current active panels | `Array | String | Number` | - |
 | accordion | Whether to be accordion mode | `Boolean` | `false` |
+| border | Whether to show outer border | `Boolean` | `true` |
 
 ### Collapse Event
 
 | Event | Description | Arguments |
-|-----------|-----------|-----------|
+|------|------|------|
 | change | Triggered when switch panel | activeNames: `string | array` |
 
 ### CollapseItem API
 
 | Attribute | Description | Type | Default |
-|-----------|-----------|-----------|-------------|
+|------|------|------|------|
 | name | Name | `String | Number` | `index` |
 | icon | Left Icon | `String` | - |
+| size | Title size，can be set to `large` | `String` | - |
 | title | Title | `String | Number` | - |
 | value | Right text | `String | Number` | - |
 | label | Description below the title | `String` | - |
 | border | Whether to show inner border | `Boolean` | `true` |
 | disabled | Whether to disabled collapse | `Boolean` | `false` |
 | is-link | Whether to show link icon | `Boolean` | `true` |
+| title-class | Title className | `String` | - |
+| value-class | Value className | `String` | - |
+| label-class | Label className | `String` | - |
 
 ### CollapseItem Slot
 
 | name | Description |
-|-----------|-----------|
+|------|------|
 | - | Content |
 | value | Custom value |
 | icon | Custom icon |

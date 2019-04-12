@@ -3,13 +3,14 @@
  */
 const shell = require('shelljs');
 const signale = require('signale');
+
 const { Signale } = signale;
 const tasks = [
   'bootstrap',
   'lint',
   'build:entry',
   'build:components',
-  'build:vant-css',
+  'build:style',
   'build:style-entry',
   'build:vant'
 ];

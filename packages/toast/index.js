@@ -1,34 +1,42 @@
 import Vue from 'vue';
 import VueToast from './Toast';
-import { isObj, isServer } from '../utils';
+import { isObj, isServer, isInDocument } from '../utils';
 
 const defaultOptions = {
   type: 'text',
   mask: false,
-  message: '',
   value: true,
+  message: '',
+  className: '',
+  onClose: null,
   duration: 3000,
   position: 'middle',
-  loadingType: 'circular',
   forbidClick: false,
-  overlayStyle: {}
+  loadingType: 'circular',
+  getContainer: 'body',
+  overlayStyle: null
 };
-const parseOptions = message => isObj(message) ? message : { message };
+const parseOptions = message => (isObj(message) ? message : { message });
 
 let queue = [];
-let singleton = true;
+let multiple = false;
 let currentOptions = { ...defaultOptions };
 
 function createInstance() {
-  if (!queue.length || !singleton) {
+  /* istanbul ignore if */
+  if (isServer) {
+    return {};
+  }
+
+  if (!queue.length || multiple || !isInDocument(queue[0].$el)) {
     const toast = new (Vue.extend(VueToast))({
       el: document.createElement('div')
     });
-    document.body.appendChild(toast.$el);
     queue.push(toast);
   }
+
   return queue[queue.length - 1];
-};
+}
 
 // transform toast options to popup props
 function transformer(options) {
@@ -37,11 +45,6 @@ function transformer(options) {
 }
 
 function Toast(options = {}) {
-  /* istanbul ignore if */
-  if (isServer) {
-    return;
-  }
-
   const toast = createInstance();
 
   options = {
@@ -49,6 +52,22 @@ function Toast(options = {}) {
     ...parseOptions(options),
     clear() {
       toast.value = false;
+
+      if (options.onClose) {
+        options.onClose();
+      }
+
+      if (multiple && !isServer) {
+        clearTimeout(toast.timer);
+        queue = queue.filter(item => item !== toast);
+
+        const parent = toast.$el.parentNode;
+        if (parent) {
+          parent.removeChild(toast.$el);
+        }
+
+        toast.$destroy();
+      }
     }
   };
 
@@ -62,7 +81,7 @@ function Toast(options = {}) {
   }
 
   return toast;
-};
+}
 
 const createMethod = type => options => Toast({
   type, ...parseOptions(options)
@@ -79,7 +98,7 @@ Toast.clear = all => {
         toast.clear();
       });
       queue = [];
-    } else if (singleton) {
+    } else if (!multiple) {
       queue[0].clear();
     } else {
       queue.shift().clear();
@@ -95,8 +114,8 @@ Toast.resetDefaultOptions = () => {
   currentOptions = { ...defaultOptions };
 };
 
-Toast.allowMultiple = (allow = true) => {
-  singleton = !allow;
+Toast.allowMultiple = (value = true) => {
+  multiple = value;
 };
 
 Toast.install = () => {

@@ -1,20 +1,16 @@
-<p>
-    <a href="https://github.com/youzan/"><img alt="logo" width="36px" src="https://img.yzcdn.cn/public_files/2017/02/09/e84aa8cbbf7852688c86218c1f3bbf17.png" alt="youzan">
-    </a>
-</p>
 <p align="center">
     <img alt="logo" src="https://img.yzcdn.cn/public_files/2017/12/18/fd78cf6bb5d12e2a119d0576bedfd230.png" width="120" style="margin-bottom: 10px;">
 </p>
 <h3 align="center" style="margin: 30px 0 35px;">轻量、可靠的移动端 Vue 组件库</h3>
 
 <p align="center">
-    <img src="https://img.shields.io/npm/v/vant.svg?style=flat" alt="npm version" />
+    <img src="https://img.shields.io/npm/v/vant.svg?style=flat-square" alt="npm version" />
+    <img src="https://img.shields.io/codecov/c/github/youzan/vant/dev.svg?style=flat-square" alt="Coverage Status" />
     <img src="https://travis-ci.org/youzan/vant.svg?branch=master" alt="Build Status" />
-    <img src="https://img.shields.io/npm/dt/vant.svg" alt="downloads" />
+    <img src="https://img.shields.io/npm/dt/vant.svg?style=flat-square" alt="downloads" />
+    <img src="https://img.shields.io/npm/dm/vant.svg?style=flat-square" alt="downloads" />
     <img src="https://img.badgesize.io/https://unpkg.com/vant/lib/vant.min.js?compression=gzip&style=flat-square&label=JS%20gzip%20size" alt="JS Gzip Size" />
-    <img src="https://img.badgesize.io/https://unpkg.com/vant/lib/vant-css/index.css?compression=gzip&style=flat-square&label=CSS%20gzip%20size" alt="CSS Gzip Size" />
-    <img src="https://isitmaintained.com/badge/open/youzan/vant.svg" alt="issue" />
-    <img src="https://img.shields.io/codecov/c/github/youzan/vant/dev.svg" alt="Coverage Status" />
+    <img src="https://img.badgesize.io/https://unpkg.com/vant/lib/index.css?compression=gzip&style=flat-square&label=CSS%20gzip%20size" alt="CSS Gzip Size" />
 </p>
 
 <p align="center">
@@ -27,11 +23,13 @@
 
 ## 特性
 
-* 50+ 个经过有赞线上业务检验的组件
-* 单元测试覆盖率超过 80%
+* 50+ 个组件
+* 90% 单元测试覆盖率
 * 完善的中英文文档和示例
-* 支持 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import)
-* 支持 TypeScript
+* 支持按需引入
+* 支持主题定制
+* 支持国际化
+* 支持 TS
 * 支持 SSR
 
 ## 安装
@@ -50,15 +48,13 @@ yarn add vant
 
 #### CDN
 
-访问下面的文件 URL，会自动重定向至最新版本的 CDN 链接，建议使用固定版本的 CDN 链接，避免升级时受到非兼容性更新的影响。
-
 ```html
 <!-- 引入样式 -->
-<link rel="stylesheet" href="https://unpkg.com/vant/lib/vant-css/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@1.6/lib/index.css">
 
 <!-- 引入组件 -->
-<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
-<script src="https://unpkg.com/vant/lib/vant.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vant@1.6/lib/vant.min.js"></script>
 ```
 
 ## 快速上手
@@ -100,8 +96,7 @@ import { Button } from 'vant';
 
 ```js
 import Button from 'vant/lib/button';
-import 'vant/lib/vant-css/base.css';
-import 'vant/lib/vant-css/button.css';
+import 'vant/lib/button/style';
 ```
 
 #### 方式三. 导入所有组件
@@ -109,7 +104,7 @@ import 'vant/lib/vant-css/button.css';
 ```js
 import Vue from 'vue';
 import Vant from 'vant';
-import 'vant/lib/vant-css/index.css';
+import 'vant/lib/index.css';
 
 Vue.use(Vant);
 ```

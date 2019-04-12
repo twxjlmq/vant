@@ -1,4 +1,4 @@
-## GoodsAction 商品页行动点
+## GoodsAction 商品导航
 
 ### 使用指南
 ``` javascript
@@ -19,10 +19,25 @@ Vue
 
 ```html
 <van-goods-action>
-  <van-goods-action-mini-btn icon="chat" text="客服" @click="onClickMiniBtn" />
-  <van-goods-action-mini-btn icon="cart" text="购物车" @click="onClickMiniBtn" />
-  <van-goods-action-big-btn text="加入购物车" @click="onClickBigBtn" />
-  <van-goods-action-big-btn text="立即购买" @click="onClickBigBtn" primary />
+  <van-goods-action-mini-btn
+    icon="chat-o"
+    text="客服"
+    @click="onClickMiniBtn"
+  />
+  <van-goods-action-mini-btn
+    icon="cart-o"
+    text="购物车"
+    @click="onClickMiniBtn"
+  />
+  <van-goods-action-big-btn
+    text="加入购物车"
+    @click="onClickBigBtn"
+  />
+  <van-goods-action-big-btn
+    primary
+    text="立即购买"
+    @click="onClickBigBtn"
+  />
 </van-goods-action>
 ```
 
@@ -44,11 +59,24 @@ export default {
 
 ```html
 <van-goods-action>
-  <van-goods-action-mini-btn icon="chat" text="客服" />
-  <van-goods-action-mini-btn icon="cart" text="购物车" info="5" />
-  <van-goods-action-mini-btn icon="shop" text="店铺" />
+  <van-goods-action-mini-btn
+    icon="chat-o"
+    text="客服"
+  />
+  <van-goods-action-mini-btn
+    info="5"
+    icon="cart-o"
+    text="购物车"
+  />
+  <van-goods-action-mini-btn
+    icon="shop-o"
+    text="店铺"
+  />
   <van-goods-action-big-btn text="加入购物车" />
-  <van-goods-action-big-btn text="立即购买" primary />
+  <van-goods-action-big-btn
+    primary
+    text="立即购买"
+  />
 </van-goods-action>
 ```
 
@@ -56,29 +84,24 @@ export default {
 
 #### GoodsActionMiniBtn
 
-| 参数 | 说明 | 类型 | 默认值 |
-|-----------|-----------|-----------|-------------|
-| text | 按钮文字 | `String` | - |
-| icon | 图标 | `String` | - |
-| icon-class | 图标额外类名 | `String` | `''` |
-| info | 图标右上角提示信息 | `String | Number` | - |
-| url | 跳转链接 | `String` | - |
-| to | 路由跳转对象，同 `vue-router` 的 to | `String | Object` | - |
-| replace | 跳转时是否替换当前 history | `String` | `false` |
-
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+|------|------|------|------|------|
+| text | 按钮文字 | `String` | - | - |
+| icon | 图标 | `String` | - | - |
+| icon-class | 图标额外类名 | `any` | - | - |
+| info | 图标右上角提示信息 | `String | Number` | - | - |
+| url | 跳转链接 | `String` | - | - |
+| to | 路由跳转对象，同 `vue-router` 的 to | `String | Object` | - | - |
+| replace | 跳转时是否替换当前页面历史 | `Boolean` | `false` | - |
 
 #### GoodsActionBigBtn
 
-| 参数 | 说明 | 类型 | 默认值 |
-|-----------|-----------|-----------|-------------|
-| text | 按钮文字 | `String` | - |
-| primary | 是否主行动按钮，主行动按钮默认为红色 | `Boolean` | `false` |
-| url | 跳转链接 | `String` | - |
-| to | 路由跳转对象，同 `vue-router` 的 to | `String | Object` | - |
-| replace | 跳转时是否替换当前 history | `String` | `false` |
-
-### 更新日志
-
-| 版本 | 类型 | 内容 |
-|-----------|-----------|-----------|
-| 1.1.4 | bugfix | 修复 info 长度超过三位数时显示错误 |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+|------|------|------|------|------|
+| text | 按钮文字 | `String` | - | - |
+| primary | 是否为红色按钮 | `Boolean` | `false` | - |
+| disabled | 是否禁用按钮 | `Boolean` | `false` | - | 1.3.10 |
+| loading | 是否显示为加载状态 | `Boolean` | `false` | - | 1.3.10 |
+| url | 跳转链接 | `String` | - | - |
+| to | 路由跳转对象，同 `vue-router` 的 to | `String | Object` | - | - |
+| replace | 跳转时是否替换当前页面历史 | `Boolean` | `false` | - |

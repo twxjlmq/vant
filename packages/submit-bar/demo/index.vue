@@ -18,7 +18,7 @@
       />
     </demo-block>
 
-    <demo-block :title="$t('loading')">
+    <demo-block :title="$t('loadingStatus')">
       <van-submit-bar
         loading
         :price="3050"
@@ -35,7 +35,13 @@
       >
         <van-checkbox v-model="checked">{{ $t('check') }}</van-checkbox>
         <span slot="tip">
-          {{ $t('tip2') }}<span class="van-edit-address" @click="onClickLink">{{ $t('tip3') }}</span>
+          {{ $t('tip2') }}
+          <span
+            class="edit-address"
+            @click="onClickLink"
+          >
+            {{ $t('tip3') }}
+          </span>
         </span>
       </van-submit-bar>
     </demo-block>
@@ -47,8 +53,8 @@ export default {
   i18n: {
     'zh-CN': {
       submit: '提交订单',
-      tip1: '您的收货地址不支持同城送, 我们已为您推荐快递',
-      tip2: '您的收货地址不支持同城送, ',
+      tip1: '你的收货地址不支持同城送, 我们已为你推荐快递',
+      tip2: '你的收货地址不支持同城送, ',
       tip3: '修改地址',
       check: '全选',
       clickButton: '点击按钮',
@@ -82,14 +88,16 @@ export default {
 };
 </script>
 
-<style lang="postcss">
+<style lang="less">
+@import '../../style/var';
+
 .demo-submit-bar {
   .van-submit-bar {
     position: relative;
   }
 
-  .van-edit-address {
-    color: #38f;
+  .edit-address {
+    color: @blue;
   }
 
   .van-checkbox {

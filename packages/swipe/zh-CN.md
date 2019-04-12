@@ -13,7 +13,7 @@ Vue.use(Swipe).use(SwipeItem);
 通过`autoplay`属性设置自动轮播间隔
 
 ```html
-<van-swipe :autoplay="3000">
+<van-swipe :autoplay="3000" indicator-color="white">
   <van-swipe-item>1</van-swipe-item>
   <van-swipe-item>2</van-swipe-item>
   <van-swipe-item>3</van-swipe-item>
@@ -88,44 +88,74 @@ export default {
 </van-swipe>
 ```
 
+#### 自定义指示器
+
+```html
+<van-swipe @change="onChange">
+  <van-swipe-item>1</van-swipe-item>
+  <van-swipe-item>2</van-swipe-item>
+  <van-swipe-item>3</van-swipe-item>
+  <van-swipe-item>4</van-swipe-item>
+
+  <div class="custom-indicator" slot="indicator">
+    {{ current + 1 }}/4
+  </div>
+</van-swipe>
+```
+
+```js
+export default {
+  data() {
+    return {
+      current: 0
+    }
+  },
+  methods: {
+    onChange(index) {
+      this.current = index;
+    }
+  }
+}
+```
+
 ### API
 
-| 参数 | 说明 | 类型 | 默认值 |
-|-----------|-----------|-----------|-------------|
-| autoplay | 自动轮播间隔，单位为 ms | `Number` | - |
-| duration | 动画时长，单位为 ms | `Number` | `500` |
-| loop | 是否开启循环播放 | `Boolean` | `true` |
-| vertical | 是否为纵向滚动 | `Boolean` | `false` |
-| touchable | 是否可以通过手势滑动 | `Boolean` | `true` |
-| show-indicators | 是否显示指示器 | `Boolean` | `true` |
-| initial-swipe | 初始位置，从 0 开始算 | `Number` | `0` |
-| width | 设置滑块宽度 | `Number` | `0` |
-| height | 设置滑块高度 | `Number` | `0` |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+|------|------|------|------|------|
+| autoplay | 自动轮播间隔，单位为 ms | `Number` | - | - |
+| duration | 动画时长，单位为 ms | `Number` | `500` | - |
+| initial-swipe | 初始位置索引值 | `Number` | `0` | - |
+| loop | 是否开启循环播放 | `Boolean` | `true` | - |
+| show-indicators | 是否显示指示器 | `Boolean` | `true` | - |
+| indicator-color | 指示器颜色 | `String` | `#1989fa` | 1.4.5 |
+| vertical | 是否为纵向滚动 | `Boolean` | `false` | 1.1.1 |
+| touchable | 是否可以通过手势滑动 | `Boolean` | `true` | 1.1.1 |
+| width | 滑块宽度 | `Number` | `0` | 1.2.1 |
+| height | 滑块高度 | `Number` | `0` | 1.2.1 |
 
-### 事件
+### Swipe 事件
 
 | 事件名 | 说明 | 参数 |
-|-----------|-----------|-----------|
+|------|------|------|
 | change | 每一页轮播结束后触发 | index, 当前页的索引 |
+
+### SwipeItem 事件
+
+| 事件名 | 说明 | 参数 |
+|------|------|------|
+| click | 点击时触发 | - |
 
 ### 方法
 
 通过 ref 可以获取到 swipe 实例并调用实例方法
 
 | 方法名 | 参数 | 返回值 | 介绍 |
-|-----------|-----------|-----------|-------------|
+|------|------|------|------|
 | swipeTo | index: 目标位置的索引 | void | 滚动到目标位置 |
 
-### 更新日志
+### 插槽
 
-| 版本 | 类型 | 内容 |
-|-----------|-----------|-----------|
-| 1.3.0 | bugfix | 修复特定手势下可能出现位置错误的问题
-| 1.2.1 | feature | 新增 width、height 属性
-| 1.1.15 | feature | 新增 open 方法
-| 1.1.13 | bugfix | 修复多指触控时导致空白的问题
-| 1.1.12 | bugfix | 修复浏览器滚动时会触发轮播左右滚动的问题
-| 1.1.12 | feature | 屏幕大小变化时自动调整宽度
-| 1.1.7 | feature | 新增 swipeTo 方法
-| 1.1.1 | feature | 新增 touchable 属性
-| 1.1.1 | feature | 新增 vertical 属性，支持垂直布局
+| 名称 | 说明 |
+|------|------|
+| - | 轮播内容 |
+| indicator | 自定义指示器 |

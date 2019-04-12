@@ -11,13 +11,12 @@ Vue.use(Tabbar).use(TabbarItem);
 
 #### 基础用法
 
-
 ```html
 <van-tabbar v-model="active">
-  <van-tabbar-item icon="shop">标签</van-tabbar-item>
-  <van-tabbar-item icon="chat" dot>标签</van-tabbar-item>
-  <van-tabbar-item icon="records" info="5">标签</van-tabbar-item>
-  <van-tabbar-item icon="gold-coin" info="20">标签</van-tabbar-item>
+  <van-tabbar-item icon="home-o">标签</van-tabbar-item>
+  <van-tabbar-item icon="search" dot>标签</van-tabbar-item>
+  <van-tabbar-item icon="friends-o" info="5">标签</van-tabbar-item>
+  <van-tabbar-item icon="setting-o" info="20">标签</van-tabbar-item>
 </van-tabbar>
 ```
 
@@ -33,6 +32,7 @@ export default {
 
 
 #### 自定义图标
+
 通过 icon 插槽自定义图标，可以通过 `slot-scope` 判断标签是否选中
 
 ```html
@@ -45,8 +45,8 @@ export default {
       :src="props.active ? icon.active : icon.normal"
     >
   </van-tabbar-item>
-  <van-tabbar-item icon="chat">标签</van-tabbar-item>
-  <van-tabbar-item icon="records">标签</van-tabbar-item>
+  <van-tabbar-item icon="search">标签</van-tabbar-item>
+  <van-tabbar-item icon="setting-o">标签</van-tabbar-item>
 </van-tabbar>
 ```
 
@@ -64,44 +64,48 @@ export default {
 }
 ```
 
+#### 自定义颜色
+
+```html
+<van-tabbar
+  v-model="active"
+  active-color="#07c160"
+>
+  <van-tabbar-item icon="home-o">标签</van-tabbar-item>
+  <van-tabbar-item icon="search">标签</van-tabbar-item>
+  <van-tabbar-item icon="freinds-o">标签</van-tabbar-item>
+  <van-tabbar-item icon="setting-o">标签</van-tabbar-item>
+</van-tabbar>
+```
 
 ### Tabbar API
 
-| 参数 | 说明 | 类型 | 默认值 |
-|-----------|-----------|-----------|-------------|
-| v-model | 当前选中标签的索引 | `Number` | - |
-| fixed | 是否固定在底部 | `Boolean` | `true` |
-| z-index | 元素 z-index | `Number` | `1` |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+|------|------|------|------|------|
+| v-model | 当前选中标签的索引 | `Number` | - | - |
+| fixed | 是否固定在底部 | `Boolean` | `true` | - |
+| z-index | 元素 z-index | `Number` | `1` | 1.1.9 |
+| active-color | 选中标签的颜色 | `String` | `#1989fa` | 1.5.1 |
 
 ### Tabbar Event
 
 | 事件名 | 说明 | 参数 |
-|-----------|-----------|-----------|
+|------|------|------|
 | change | 切换标签时触发 | active: 当前选中标签 |
 
 ### TabbarItem API
 
-| 参数 | 说明 | 类型 | 默认值 |
-|-----------|-----------|-----------|-----------|
-| icon | 图标名称 (可选值见 Icon 组件) | `String` | - |
-| dot | 是否显示小红点 | `Boolean` | - |
-| info | 图标右上角提示信息 | `String | Number` | - |
-| url | 跳转链接 | `String` | - |
-| to | 路由跳转对象，同 `vue-router` 的 to | `String | Object` | - |
-| replace | 跳转时是否替换当前 history | `String` | `false` |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+|------|------|------|------|------|
+| icon | 图标名称或图片链接，可选值见 Icon 组件| `String` | - | - |
+| dot | 是否显示小红点 | `Boolean` | - | - |
+| info | 图标右上角提示信息 | `String | Number` | - | - |
+| url | 跳转链接 | `String` | - | - |
+| to | 路由跳转对象，同 `vue-router` 的 to | `String | Object` | - | - |
+| replace | 跳转时是否替换当前页面历史 | `Boolean` | `false` | - |
 
 ### TabbarItem Slot
 
 | 名称 | 说明 | slot-scope |
-|-----------|-----------|-----------|
+|------|------|------|
 | icon | 自定义图标 | active: 是否为选中标签 |
-
-### 更新日志
-
-| 版本 | 类型 | 内容 |
-|-----------|-----------|-----------|
-| 1.3.0 | bugfix | 修复使用 icon 插槽时 info 属性不生效的问题 |
-| 1.2.0 | improvement | 优化 DOM 结构 |
-| 1.1.15 | bugfix | 修复点击当前标签时依然会触发 change 事件的问题 |
-| 1.1.9 | feature | 新增 z-index 属性 |
-| 1.0.5 | improvement | info 属性支持 Number 类型 |

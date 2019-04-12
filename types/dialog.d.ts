@@ -5,15 +5,19 @@ export type DialogOptions = {
   title?: string;
   message?: string;
   overlay?: boolean;
-  className?: string;
+  className?: any;
   lockScroll?: boolean;
-  confirmButtonText?: string;
+  messageAlign?: string;
   cancelButtonText?: string;
+  cancelButtonColor?: string;
+  confirmButtonText?: string;
+  confirmButtonColor?: string;
   showConfirmButton?: boolean;
   showCancelButton?: boolean;
   closeOnClickOverlay?: boolean;
+  getContainer?: string | (() => HTMLElement);
   beforeClose?: (action: DialogAction, done: DialogDone) => void;
-}
+};
 
 export interface Dialog {
   (options: DialogOptions): Promise<DialogAction>;
@@ -27,7 +31,7 @@ export interface Dialog {
 
 declare module 'vue/types/vue' {
   interface Vue {
-    $dialog: Dialog
+    $dialog: Dialog;
   }
 }
 

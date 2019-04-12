@@ -1,11 +1,12 @@
-import Toast from '../';
+import Toast from '..';
 import { transitionStub, later } from '../../../test/utils';
 
 transitionStub();
 
-test('create a forbidClick toast', async() => {
+test('create a forbidClick toast', async () => {
   const toast = Toast({
-    forbidClick: true
+    forbidClick: true,
+    type: 'success'
   });
 
   expect(toast.$el.outerHTML).toMatchSnapshot();
@@ -18,7 +19,7 @@ test('create a forbidClick toast', async() => {
   expect(document.body.classList.contains('van-toast--unclickable')).toBeFalsy();
 });
 
-it('toast disappeared after duration', async() => {
+it('toast disappeared after duration', async () => {
   const toast = Toast({
     duration: 10
   });
@@ -71,4 +72,17 @@ test('toast duration 0', () => {
   });
   expect(toast.timer).toBeFalsy();
   Toast.allowMultiple(false);
+});
+
+test('onClose callback', () => {
+  Toast.allowMultiple();
+  const onClose = jest.fn();
+  const toast = Toast({
+    message: 'toast',
+    onClose
+  });
+
+  toast.clear();
+  Toast.allowMultiple(false);
+  expect(onClose).toHaveBeenCalledTimes(1);
 });

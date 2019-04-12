@@ -43,28 +43,7 @@ const Component = {
   }
 };
 
-test('autoplay', async() => {
-  const wrapper = mount(Component, {
-    propsData: {
-      autoplay: 20
-    }
-  });
-  const { swipe } = wrapper.vm.$refs;
-
-  await later(60);
-  expect(swipe.active).toEqual(1);
-  wrapper.setData({ autoplay: 0 });
-
-  await later(60);
-  expect(swipe.active).toEqual(1);
-  wrapper.setData({ autoplay: 20 });
-
-  await later(60);
-  expect(swipe.active).toEqual(2);
-  wrapper.destroy();
-});
-
-test('swipeTo', async() => {
+test('swipeTo', async () => {
   const wrapper = mount(Component);
   const { swipe } = wrapper.vm.$refs;
   swipe.swipeTo(2);

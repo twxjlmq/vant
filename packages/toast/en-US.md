@@ -84,12 +84,12 @@ toast2.clear();
 ### Methods
 
 | Methods | Attribute | Return value | Description |
-|-----------|-----------|-----------|-------------|
+|------|------|------|------|
 | Toast | `options | message` | toast instance | Show toast |
 | Toast.loading | `options | message` | toast instance | Show loading toast |
 | Toast.success | `options | message` | toast instance | Show success toast |
 | Toast.fail | `options | message` | toast instance | Show fail toast |
-| Toast.clear | `clearAll` | `void` | Close  |
+| Toast.clear | `clearAll` | `void` | Close toast |
 | Toast.allowMultiple | - | `void` | Allow multlple toast at the same time |
 | Toast.setDefaultOptions | `options` | `void` | Set default options of all toasts |
 | Toast.resetDefaultOptions | - | `void` | Reset default options of all toasts |
@@ -97,7 +97,7 @@ toast2.clear();
 ### Options
 
 | Attribute | Description | Type | Default |
-|-----------|-----------|-----------|-------------|
+|------|------|------|------|
 | type | Can be set to `loading` `success` `fail` `html` | `String` | `text` |
 | position | Can be set to `top` `middle` `bottom` | `String` | `middle` |
 | message | Message | `String` | `''` |
@@ -105,3 +105,6 @@ toast2.clear();
 | forbidClick | Whether to forbid click background | `Boolean` | `false` |
 | loadingType | Loading icon type, can be set to `spinner` | `String` | `circular` |
 | duration | Toast duration(ms), won't disappear if value is 0 | `Number` | `3000` |
+| className | Custom className | `String | Array | Object` | - |
+| onClose | onClose callback function | `Function` | - |
+| getContainer | Return the mount node for Toast | `String | () => HTMLElement` | `body` |

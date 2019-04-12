@@ -134,16 +134,22 @@ export default {
 ### ContactCard API
 
 | Attribute | Description | Type | Default |
-|-----------|-----------|-----------|-------------|
+|------|------|------|------|
 | type | Can be set to `add` `edit` | `String` | `add` |
 | name | Name | `String` | - |
 | tel | Phone | `String` | - |
 | add-text | Add card text | `String` | `Add contact info` |
 
+### ContactCard Event
+
+| Event | Description | Arguments |
+|------|------|------|
+| click | Triggered when clicked | - |
+
 ### ContactList API
 
 | Attribute | Description | Type | Default |
-|-----------|-----------|-----------|-------------|-------------|
+|------|------|------|------|------|
 | v-model | Id of chosen contact | `String | Number` | - |
 | list | Contact list | `Array` | `[]` |
 | add-text | Add button text | `String` | `Add new contact` |
@@ -151,14 +157,14 @@ export default {
 ### ContactList Event
 
 | Event | Description | Arguments |
-|-----------|-----------|-----------|
+|------|------|------|
 | add | Triggered when click add button | - |
 | edit | Triggered when click edit button | item: contact object，index |
 | select | Triggered when select contact | item: contact object |
 
 ### ContactEdit API
 | Attribute | Description | Type | Default |
-|-----------|-----------|-----------|-------------|-------------|
+|------|------|------|------|------|
 | contact-info | Contact Info | `Object` | `[]` |
 | is-edit | Whether is editing | `Boolean` | `false` |
 | is-saving | Whether to show save button loading status | `Boolean` | `false` |
@@ -168,14 +174,14 @@ export default {
 ### ContactEdit Event
 
 | Event | Description | Arguments |
-|-----------|-----------|-----------|
+|------|------|------|
 | save | Triggered when click save button | content：contact info |
 | delete | Triggered when click delete button | content：contact info |
 
 ### Contact Data Structure
 
 | key | Description | Type |
-|-----------|-----------|-----------|
+|------|------|------|
 | id | ID | `String | Number` |
 | name | Name | `String` |
 | tel | Phone | `String` |

@@ -47,18 +47,19 @@ export default {
 ### API
 
 | Attribute | Description | Type | Default |
-|-----------|-----------|-----------|-------------|
+|------|------|------|------|
 | title | Title | `String` | `''` |
 | left-text | Left Text | `String` | `''` |
 | right-text | Right Text | `String` | `''` |
 | left-arrow | Whether to show left arrow | `Boolean` | `false` |
 | fixed | Whether to fixed top | `Boolean` | `false` |
+| border | Whether to show bottom border | `Boolean` | `true` |
 | z-index | Z-index | `Number` | `1` |
 
 ### Slot
 
 | name | Description |
-|-----------|-----------|
+|------|------|
 | title | Custom title |
 | left | Custom left side content |
 | right | Custom right side content |
@@ -66,6 +67,6 @@ export default {
 ### Event
 
 | Event | Description | Arguments |
-|-----------|-----------|-----------|
+|------|------|------|
 | click-left | Triggered when click left button | - |
 | click-right | Triggered when click right button | - |

@@ -6,7 +6,8 @@
       <ul
         v-waterfall-lower="loadMore"
         waterfall-disabled="disabled"
-        waterfall-offset="400">
+        waterfall-offset="400"
+      >
         <li v-for="item in list">{{ item }}</li>
       </ul>
     </demo-block>
@@ -14,7 +15,7 @@
 </template>
 
 <script>
-import { Waterfall } from '../../../packages';
+import { Waterfall } from '../..';
 
 export default {
   i18n: {
@@ -28,15 +29,15 @@ export default {
     }
   },
 
+  directives: {
+    WaterfallLower: Waterfall('lower')
+  },
+
   data() {
     return {
       list: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
       disabled: false
     };
-  },
-
-  directives: {
-    WaterfallLower: Waterfall('lower')
   },
 
   methods: {
@@ -53,18 +54,20 @@ export default {
 };
 </script>
 
-<style lang="postcss">
+<style lang="less">
+@import '../../style/var';
+
 .demo-waterfall {
   ul {
     max-height: 360px;
     overflow: scroll;
-    border-top: 1px solid #e5e5e5;
+    border-top: 1px solid @gray-light;
   }
 
   li {
     line-height: 50px;
-    border-bottom: 1px solid #e5e5e5;
-    background: #fff;
+    border-bottom: 1px solid @gray-light;
+    background: @white;
     text-align: center;
   }
 
@@ -73,7 +76,7 @@ export default {
     line-height: 1.4;
     font-size: 14px;
     text-align: center;
-    color: #666;
+    color: @gray-darker;
   }
 }
 </style>

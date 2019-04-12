@@ -11,13 +11,11 @@
       <van-button @click="nextStep">{{ $t('nextStep') }}</van-button>
     </demo-block>
 
-    <demo-block :title="$t('title2')">
+    <demo-block :title="$t('customStyle')">
       <van-steps
         :active="active"
-        icon="logistics"
-        icon-class="steps-success"
-        :title="$t('title')"
-        :description="$t('desc')"
+        active-icon="success"
+        active-color="#38f"
       >
         <van-step>{{ $t('step1') }}</van-step>
         <van-step>{{ $t('step2') }}</van-step>
@@ -27,7 +25,10 @@
     </demo-block>
 
     <demo-block :title="$t('title3')">
-      <van-steps direction="vertical" :active="0" active-color="#f44">
+      <van-steps
+        :active="0"
+        direction="vertical"
+      >
         <van-step>
           <h3>{{ $t('status1') }}</h3>
           <p>2016-07-12 12:40</p>
@@ -58,7 +59,8 @@ export default {
       title3: '竖向步骤条',
       status1: '【城市】物流状态1',
       status2: '【城市】物流状态',
-      status3: '快件已发货'
+      status3: '快件已发货',
+      customStyle: '自定义样式'
     },
     'en-US': {
       nextStep: 'Next Step',
@@ -70,7 +72,8 @@ export default {
       title3: 'Vertical Steps',
       status1: '【City】Status1',
       status2: '【City】Status2',
-      status3: '【City】Status3'
+      status3: '【City】Status3',
+      customStyle: 'Custom Style'
     }
   },
 
@@ -88,11 +91,13 @@ export default {
 };
 </script>
 
-<style lang="postcss">
+<style lang="less">
+@import '../../style/var';
+
 .demo-steps {
   .steps-success,
   .van-icon-location {
-    color: #06bf04;
+    color: @green;
   }
 
   .van-button {

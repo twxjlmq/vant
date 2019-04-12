@@ -38,7 +38,7 @@ export default {
 
 ```html
 <van-tabs>
-  <van-tab v-for="index in 8" :title="'选项 ' + index">
+  <van-tab v-for="index in 8" :title="'标签 ' + index">
     内容 {{ index }}
   </van-tab>
 </van-tabs>
@@ -50,9 +50,9 @@ export default {
 
 ```html
 <van-tabs @disabled="onClickDisabled">
-  <van-tab v-for="index in 4" :title="'选项 ' + index" :disabled="index === 2">
-    内容 {{ index }}
-  </van-tab>
+  <van-tab title="标签 1">内容 1</van-tab>
+  <van-tab title="标签 2" disabled>内容 2</van-tab>
+  <van-tab title="标签 3">内容 3</van-tab>
 </van-tabs>
 ```
 
@@ -72,9 +72,9 @@ export default {
 
 ```html
 <van-tabs type="card">
-  <van-tab v-for="index in 4" :title="'选项 ' + index">
-    内容 {{ index }}
-  </van-tab>
+  <van-tab title="标签 1">内容 1</van-tab>
+  <van-tab title="标签 2">内容 2</van-tab>
+  <van-tab title="标签 3">内容 3</van-tab>
 </van-tabs>
 ```
 
@@ -84,9 +84,8 @@ export default {
 
 ```html
 <van-tabs @click="onClick">
-  <van-tab v-for="index in 4" :title="'选项 ' + index">
-    内容 {{ index }}
-  </van-tab>
+  <van-tab title="标签 1">内容 1</van-tab>
+  <van-tab title="标签 2">内容 2</van-tab>
 </van-tabs>
 ```
 
@@ -127,9 +126,21 @@ export default {
 </van-tabs>
 ```
 
+#### 切换动画
+
+通过`animated`属性可以开启切换标签内容时的转场动画
+
+```html
+<van-tabs v-model="active" animated>
+  <van-tab v-for="index in 4" :title="'选项 ' + index">
+    内容 {{ index }}
+  </van-tab>
+</van-tabs>
+```
+
 #### 滑动切换
 
-通过`swipeable`属性可以开启滑动切换tab
+通过`swipeable`属性可以开启滑动切换标签页
 
 ```html
 <van-tabs v-model="active" swipeable>
@@ -141,65 +152,51 @@ export default {
 
 ### Tabs API
 
-| 参数 | 说明 | 类型 | 默认值 |
-|-----------|-----------|-----------|-------------|
-| v-model | 当前激活标签的索引 | `String` `Number` | `0` |
-| color | 标签颜色 | `String` | `#f44` |
-| type | 样式类型，可选值为`card` | `String` | `line` |
-| duration | 动画时间 (单位秒) | `Number` | `0.2` |
-| line-width | 底部条宽度 (px) | `Number` | 与当前标签等宽 |
-| swipe-threshold | 滚动阈值，设置标签数量超过多少个可滚动 | `Number` | `4` |
-| sticky | 是否使用粘性定位布局 | `Boolean` | `false` |
-| offset-top | 粘性定位布局下与顶部的最小距离 (px) | `Number` | `0` |
-| swipeable | 是否可以滑动内容切换 | `Boolean` | `false` |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+|------|------|------|------|------|
+| v-model | 当前标签的索引 | `String` `Number` | `0` | 1.0.6 |
+| type | 样式类型，可选值为`card` | `String` | `line` | - |
+| duration | 动画时间，单位秒 | `Number` | `0.3` | - |
+| background | 标签栏背景色 | `String` | `white` | 1.6.5 |
+| line-width | 底部条宽度，单位 px | `Number` | - | 1.1.1 |
+| line-height | 底部条高度，单位 px | `Number` | 3 | 1.5.0 |
+| color | 标签主题色 | `String` | `#f44` | 1.2.0 |
+| title-active-color | 标题选中态颜色 | `String` | - | 1.6.5 |
+| title-inactive-color | 标题默认态颜色 | `String` | - | 1.6.5 |
+| swipeable | 是否开启手势滑动切换 | `Boolean` | `false` | 1.0.0 |
+| sticky | 是否使用粘性定位布局 | `Boolean` | `false` | - |
+| offset-top | 粘性定位布局下与顶部的最小距离，单位 px | `Number` | `0` | 1.1.15 |
+| swipe-threshold | 滚动阈值，标签数量超过多少个可滚动 | `Number` | `4` | - |
+| animated | 是否开启切换标签内容时的转场动画 | `Boolean` | `false` | 1.4.5 |
+| ellipsis | 是否省略过长的标题文字 | `Boolean` | `true` | 1.5.0 |
+| lazy-render | 是否开启标签页内容延迟渲染 | `Boolean` | `true` | 1.6.6 |
 
 ### Tab API
 
-| 参数 | 说明 | 类型 | 默认值 |
-|-----------|-----------|-----------|-------------|
-| title | 标题 | `String` | - |
-| disabled | 是否禁用标签 | `Boolean` | `false` |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+|------|------|------|------|------|
+| title | 标题 | `String` | - | - |
+| disabled | 是否禁用标签 | `Boolean` | `false` | - |
+
+### Tabs Slot
+
+| 名称 | 说明 |
+|------|------|
+| nav-left | 标题左侧内容 |
+| nav-right | 标题右侧内容 |
 
 ### Tab Slot
 
 | 名称 | 说明 |
-|-----------|-----------|
-| - | 标签页内容 |
+|------|------|
+| default | 标签页内容 |
 | title | 自定义标签 |
 
 ### Tabs Event
 
 | 事件名 | 说明 | 参数 |
-|-----------|-----------|-----------|
+|------|------|------|
 | click | 点击标签时触发 | index：标签索引，title：标题 |
 | change | 当前激活的标签改变时触发 | index：标签索引，title：标题 |
 | disabled | 点击被禁用的标签时触发 | index：标签索引，title：标题 |
-| scroll | 滚动时触发 | Object: { scrollTop: 距离顶部位置, isFixed: 是否吸顶 } |
-
-### 更新日志
-
-| 版本 | 类型 | 内容 |
-|-----------|-----------|-----------|
-| 1.3.2 | improvement | 优化点击反馈
-| 1.3.1 | bugfix | 修复使用 card 主题时 color 属性不生效的问题
-| 1.3.0 | feature | 新增 scroll 事件
-| 1.3.0 | bugfix | 修复能通过手势滑动至禁用标签的问题
-| 1.2.1 | bugfix | 修复使用 color 属性时下划线样式错误的问题
-| 1.2.0 | feature | 新增 color 属性
-| 1.1.15 | feature | 新增 offset-top 属性
-| 1.1.14 | feature | 新增 change 事件
-| 1.1.14 | bugfix | 修复路由切换时标签位置错误的问题
-| 1.1.14 | bugfix | 修复 sticky 属性在局部滚动元素下无法生效的问题
-| 1.1.12 | bugfix | 修复同时进行插入和删除时顺序错误的问题
-| 1.1.11 | improvement | 更新 card 风格样式
-| 1.1.11 | bugfix | 修复动态渲染时顺序错误的问题
-| 1.1.9 | bugfix | 修复屏幕尺寸变化时未重新渲染的问题
-| 1.1.8 | bugfix | 修复标题长度变化时底部条未重新渲染的问题
-| 1.1.6 | bugfix | 修复 title 插槽渲染无法更新的问题
-| 1.1.2 | bugfix | 修复初始化时的渲染问题
-| 1.1.1 | feature | 新增 line-width 属性
-| 1.0.6 | feature | 支持 v-model 绑定当前 active 标签
-| 1.0.3 | improvement | 布局方式由 table 升级为 flex-box
-| 1.0.3 | feature | click 事件回调新增 title 参数
-| 1.0.2 | bugfix | 修复内容无法点击的问题
-| 1.0.0 | feature | 支持通过滑动手势进行切换
+| scroll | 滚动时触发，仅在 sticky 模式下生效 | { scrollTop: 距离顶部位置, isFixed: 是否吸顶 } |

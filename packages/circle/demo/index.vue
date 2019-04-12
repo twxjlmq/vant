@@ -10,19 +10,29 @@
       />
       <van-circle
         v-model="currentRate2"
-        color="#13ce66"
+        color="#07c160"
         fill="#fff"
         :rate="rate"
         size="120px"
-        layer-color="#eee"
+        layer-color="#ebedf0"
         :speed="100"
         :stroke-width="60"
         :clockwise="false"
         :text="currentRate2.toFixed(0) + '%'"
       />
       <div>
-        <van-button :text="$t('add')" type="primary" size="small" @click="add" />
-        <van-button :text="$t('decrease')" type="danger" size="small" @click="reduce" />
+        <van-button
+          :text="$t('add')"
+          type="primary"
+          size="small"
+          @click="add"
+        />
+        <van-button
+          :text="$t('decrease')"
+          type="danger"
+          size="small"
+          @click="reduce"
+        />
       </div>
     </demo-block>
   </demo-section>
@@ -61,7 +71,7 @@ export default {
 };
 </script>
 
-<style lang="postcss">
+<style lang="less">
 .demo-circle {
   .van-circle {
     margin-left: 15px;

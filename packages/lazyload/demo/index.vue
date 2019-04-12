@@ -1,16 +1,25 @@
 <template>
   <demo-section>
     <demo-block :title="$t('basicUsage')">
-      <img v-for="img in imageList" v-lazy="img" >
+      <img
+        v-for="img in imageList"
+        v-lazy="img"
+      >
     </demo-block>
 
     <demo-block :title="$t('title2')">
-      <div v-for="img in backgroundImageList" v-lazy:background-image="img" />
+      <div
+        v-for="img in backgroundImageList"
+        v-lazy:background-image="img"
+      />
     </demo-block>
 
     <demo-block :title="$t('title3')">
       <lazy-component>
-        <img v-for="img in componentImageList" v-lazy="img" >
+        <img
+          v-for="img in componentImageList"
+          v-lazy="img"
+        >
       </lazy-component>
     </demo-block>
   </demo-section>
@@ -46,17 +55,11 @@ export default {
         'https://img.yzcdn.cn/public_files/2017/09/05/8a4f5be8289cb3a7434fc19a3de780a2.jpg'
       ]
     };
-  },
-
-  methods: {
-    handleComponentShow() {
-      console.log('component show');
-    }
   }
 };
 </script>
 
-<style lang="postcss">
+<style lang="less">
 .demo-lazyload {
   padding: 0 15px;
 

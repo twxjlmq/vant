@@ -1,39 +1,44 @@
 import Vue from 'vue';
 import VanDialog from './Dialog';
-import { isServer } from '../utils';
+import { isServer, isInDocument } from '../utils';
 
 let instance;
 
-const initInstance = () => {
+function initInstance() {
+  if (instance) {
+    instance.$destroy();
+  }
+
   instance = new (Vue.extend(VanDialog))({
-    el: document.createElement('div')
+    el: document.createElement('div'),
+    // avoid missing animation when first rendered
+    propsData: {
+      lazyRender: false
+    }
   });
 
   instance.$on('input', value => {
     instance.value = value;
   });
+}
 
-  document.body.appendChild(instance.$el);
-};
-
-const Dialog = options => {
+function Dialog(options) {
   /* istanbul ignore if */
   if (isServer) {
     return Promise.resolve();
   }
 
   return new Promise((resolve, reject) => {
-    if (!instance) {
+    if (!instance || !isInDocument(instance.$el)) {
       initInstance();
     }
 
-    Object.assign(instance, {
+    Object.assign(instance, Dialog.currentOptions, options, {
       resolve,
-      reject,
-      ...options
+      reject
     });
   });
-};
+}
 
 Dialog.defaultOptions = {
   value: true,
@@ -43,8 +48,12 @@ Dialog.defaultOptions = {
   className: '',
   lockScroll: true,
   beforeClose: null,
-  confirmButtonText: '',
+  messageAlign: '',
+  getContainer: 'body',
   cancelButtonText: '',
+  cancelButtonColor: null,
+  confirmButtonText: '',
+  confirmButtonColor: null,
   showConfirmButton: true,
   showCancelButton: false,
   closeOnClickOverlay: false,
@@ -53,13 +62,9 @@ Dialog.defaultOptions = {
   }
 };
 
-Dialog.alert = options => Dialog({
-  ...Dialog.currentOptions,
-  ...options
-});
+Dialog.alert = Dialog;
 
 Dialog.confirm = options => Dialog({
-  ...Dialog.currentOptions,
   showCancelButton: true,
   ...options
 });
@@ -78,11 +83,12 @@ Dialog.resetDefaultOptions = () => {
   Dialog.currentOptions = { ...Dialog.defaultOptions };
 };
 
+Dialog.resetDefaultOptions();
+
 Dialog.install = () => {
   Vue.use(VanDialog);
 };
 
 Vue.prototype.$dialog = Dialog;
-Dialog.resetDefaultOptions();
 
 export default Dialog;

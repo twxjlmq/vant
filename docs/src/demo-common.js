@@ -3,11 +3,10 @@
  */
 
 import Vue from 'vue';
-import i18n from '../../packages/mixins/i18n';
-import Vant, { Lazyload } from '../../packages';
-import VantDoc, { DemoBlock, DemoSection } from 'vant-doc';
 import VueRouter from 'vue-router';
-import { Locale } from '../../packages';
+import VantDoc, { DemoBlock, DemoSection } from '@vant/doc';
+import i18n from './utils/i18n';
+import Vant, { Lazyload, Locale } from '../../packages';
 import { camelize } from '../../packages/utils';
 
 Vue
@@ -43,11 +42,11 @@ Locale.add({
     custom: '自定义',
     username: '用户名',
     password: '密码',
-    loading: '加载状态',
     disabled: '禁用状态',
     uneditable: '不可编辑',
     basicUsage: '基础用法',
     advancedUsage: '高级用法',
+    loadingStatus: '加载状态',
     usernamePlaceholder: '请输入用户名',
     passwordPlaceholder: '请输入密码'
   },
@@ -71,7 +70,7 @@ Locale.add({
     custom: 'Custom',
     username: 'Username',
     password: 'Password',
-    loading: 'Loading',
+    loadingStatus: 'Loading',
     disabled: 'Disabled',
     uneditable: 'Uneditable',
     basicUsage: 'Basic Usage',
@@ -86,12 +85,12 @@ export function wrapper(promise, name) {
     component = component.default;
     name = 'demo-' + name;
     component.name = name;
-    const { i18n } = component;
-    if (i18n) {
+    const { i18n: config } = component;
+    if (config) {
       const formattedI18n = {};
       const camelizedName = camelize(name);
-      Object.keys(i18n).forEach(key => {
-        formattedI18n[key] = { [camelizedName]: i18n[key] };
+      Object.keys(config).forEach(key => {
+        formattedI18n[key] = { [camelizedName]: config[key] };
       });
       Locale.add(formattedI18n);
     }

@@ -66,17 +66,18 @@ export default {
 ### API
 
 | Attribute | Description | Type | Default |
-|-----------|-----------|-----------|-------------|
+|------|------|------|------|
 | v-model | Id of chosen address | String | - |
 | list | Address list | Array | `[]` |
 | disabled-list | Disabled address list | `Array` | `[]` |
 | disabled-text | Disabled text | `String` | - |
+| switchable | Whether to allow switch address | `Boolean` | `true` |
 | add-button-text | Add button text | String | `Add new address` |
 
 ### Event
 
 | Event | Description | Arguments |
-|-----------|-----------|-----------|
+|------|------|------|
 | add | Triggered when click add button | - |
 | edit | Triggered when edit address | item: address object，index |
 | select | Triggered when select address | item: address object，index |
@@ -86,15 +87,15 @@ export default {
 ### Address Data Structure
 
 | key | Description | Type |
-|-----------|-----------|-----------|
+|------|------|------|
 | id | Id | `String | Number` |
 | name | Name | `String` |
-| tel | Phone | `String` |
+| tel | Phone | `String | Number` |
 | address | Address | `String` |
 
 ### Slot
 
 | 名称 | 说明 |
-|-----------|-----------|
+|------|------|
 | - | Custom content after list |
 | top | Custom content before list |

@@ -40,7 +40,7 @@ Set `columns-num` with 2, you'll have a 2 level picker.
 ### API
 
 | Attribute | Description | Type | Default |
-|-----------|-----------|-----------|-------------|
+|------|------|------|------|
 | value | the `code` of selected area | `String` | - |
 | title | Toolbar title | `String` | - |
 | area-list | Area data | `Object` | - |
@@ -48,11 +48,13 @@ Set `columns-num` with 2, you'll have a 2 level picker.
 | item-height | Option height | `Number` | `44` |
 | loading | Whether to show loading prompt | `Boolean` | `false` |
 | visible-item-count | Count of visible columns | `Number` | `5` |
+| confirm-button-text | Text of confirm button | `String` | `Confirm` |
+| cancel-button-text | Text of cancel button | `String` | `Cancel` |
 
 ### Event
 
 | Event | Description | Arguments |
-|-----------|-----------|-----------|
+|------|------|------|
 | confirm | triggers when clicking the confirm button | an array |
 | cancel | triggers when clicking the cancel button | - |
 | change | Triggered when current option changed | Picker instance, current values，column index |
@@ -62,7 +64,7 @@ Set `columns-num` with 2, you'll have a 2 level picker.
 Use ref to get area instance and call instance methods
 
 | Name | Attribute | Return value | Description |
-|-----------|-----------|-----------|-------------|
+|------|------|------|------|
 | reset | - | - | Reset all options |
 
 ### Data Structure

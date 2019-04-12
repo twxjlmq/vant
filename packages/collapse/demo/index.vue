@@ -4,12 +4,20 @@
       <van-collapse v-model="active1">
         <van-collapse-item :title="$t('title1')">{{ $t('content1') }}</van-collapse-item>
         <van-collapse-item :title="$t('title2')">{{ $t('content2') }}</van-collapse-item>
-        <van-collapse-item :title="$t('title3')" disabled>{{ $t('content3') }}</van-collapse-item>
+        <van-collapse-item
+          :title="$t('title3')"
+          disabled
+        >
+          {{ $t('content3') }}
+        </van-collapse-item>
       </van-collapse>
     </demo-block>
 
     <demo-block :title="$t('accordion')">
-      <van-collapse v-model="active2" accordion>
+      <van-collapse
+        v-model="active2"
+        accordion
+      >
         <van-collapse-item :title="$t('title1')">{{ $t('content1') }}</van-collapse-item>
         <van-collapse-item :title="$t('title2')">{{ $t('content2') }}</van-collapse-item>
         <van-collapse-item :title="$t('title3')">{{ $t('content3') }}</van-collapse-item>
@@ -19,10 +27,14 @@
     <demo-block :title="$t('titleSlot')">
       <van-collapse v-model="active3">
         <van-collapse-item>
-          <div slot="title">{{ $t('title1') }}<van-icon name="question" /></div>
+          <div slot="title">{{ $t('title1') }}<van-icon name="question-o" /></div>
           {{ $t('content1') }}
         </van-collapse-item>
-        <van-collapse-item :title="$t('title2')" :value="$t('content')" icon="shop">
+        <van-collapse-item
+          :title="$t('title2')"
+          :value="$t('content')"
+          icon="shop-o"
+        >
           {{ $t('content2') }}
         </van-collapse-item>
       </van-collapse>
@@ -65,18 +77,12 @@ export default {
 };
 </script>
 
-<style lang="postcss">
-@import "../../../packages/vant-css/src/common/var.css";
+<style lang="less">
+@import '../../style/var';
 
 .demo-collapse {
-  .van-collapse-item__content {
-    font-size: 13px;
-    line-height: 1.5;
-    color: $gray-darker;
-  }
-
-  .van-icon-question {
-    color: $blue;
+  .van-icon-question-o {
+    color: @blue;
     vertical-align: -3px;
     margin-left: 5px;
     font-size: 15px;

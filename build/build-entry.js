@@ -3,13 +3,17 @@ const glob = require('fast-glob');
 const path = require('path');
 const uppercamelize = require('uppercamelcase');
 const Components = require('./get-components')();
-const version = process.env.VERSION || require('../package.json').version;
-const tips = '// This file is auto gererated by build/build-entry.js';
+const packageJson = require('../package.json');
+
+const version = process.env.VERSION || packageJson.version;
+const tips = `/* eslint-disable */
+// This file is auto gererated by build/build-entry.js`;
 const root = path.join(__dirname, '../');
 const join = dir => path.join(root, dir);
 
 function buildVantEntry() {
   const uninstallComponents = [
+    'Locale',
     'Lazyload',
     'Waterfall'
   ];
@@ -18,14 +22,21 @@ function buildVantEntry() {
   const exportList = Components.map(name => `${uppercamelize(name)}`);
   const intallList = exportList.filter(name => !~uninstallComponents.indexOf(uppercamelize(name)));
   const content = `${tips}
+import { VueConstructor } from 'vue/types';
 ${importList.join('\n')}
+
+declare global {
+  interface Window {
+    Vue?: VueConstructor;
+  }
+}
 
 const version = '${version}';
 const components = [
   ${intallList.join(',\n  ')}
 ];
 
-const install = Vue => {
+const install = (Vue: VueConstructor) => {
   components.forEach(Component => {
     Vue.use(Component);
   });
@@ -48,7 +59,7 @@ export default {
 };
 `;
 
-  fs.writeFileSync(path.join(__dirname, '../packages/index.js'), content);
+  fs.writeFileSync(path.join(__dirname, '../packages/index.ts'), content);
 }
 
 function buildDemoEntry() {
@@ -79,7 +90,7 @@ function buildDocsEntry() {
     ])
     .map(fullPath => {
       const name = getName(fullPath);
-      return `'${name}': () => import('${path.relative(join('docs/src'), fullPath)}')`;
+      return `'${name}': () => import('${path.relative(join('docs/src'), fullPath).replace(/\\/g, '/')}')`;
     });
 
   const content = `${tips}

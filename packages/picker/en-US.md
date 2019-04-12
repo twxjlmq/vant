@@ -31,24 +31,14 @@ export default {
 };
 ```
 
-#### Disable option
+#### Default Index
 
 ```html
-<van-picker :columns="columns" />
-```
-
-```javascript
-export default {
-  data() {
-    return {
-      columns: [
-        { text: 'Delaware', disabled: true },
-        { text: 'Florida' },
-        { text: 'Georqia' }
-      ]
-    };
-  }
-};
+<van-picker
+  :columns="columns"
+  :default-index="2"
+  @change="onChange"
+/>
 ```
 
 #### Show Toolbar
@@ -77,6 +67,26 @@ export default {
     onCancel() {
       Toast('Cancel');
     }
+  }
+};
+```
+
+#### Disable option
+
+```html
+<van-picker :columns="columns" />
+```
+
+```javascript
+export default {
+  data() {
+    return {
+      columns: [
+        { text: 'Delaware', disabled: true },
+        { text: 'Florida' },
+        { text: 'Georqia' }
+      ]
+    };
   }
 };
 ```
@@ -127,7 +137,7 @@ When Picker columns data is acquired asynchronously, use `loading` prop to show 
 ### API
 
 | Attribute | Description | Type | Default |
-|-----------|-----------|-----------|-------------|
+|------|------|------|------|
 | columns | Columns data | `Array` | `[]` |
 | show-toolbar | Whether to show toolbar | `Boolean` | `false` |
 | title | Toolbar title | `String` | `''` |
@@ -137,21 +147,27 @@ When Picker columns data is acquired asynchronously, use `loading` prop to show 
 | confirm-button-text | Text of confirm button | `String` | `Confirm` |
 | cancel-button-text | Text of cancel button | `String` | `Cancel` |
 | visible-item-count | Count of visible columns | `Number` | `5` |
+| default-index | Default value index of single column picker | `Number` | `0` |
 
 ### Event
 Picker events will pass different parameters according to the columns are single or multiple
 
 | Event | Description | Arguments |
-|-----------|-----------|-----------|
+|------|------|------|
 | confirm | Triggered when click confirm button | Single column：current value，current index<br>Multiple columns：current values，current indexes |
 | cancel | Triggered when click cancel button | Single column：current value，current index<br>Multiple columns：current values，current indexes |
 | change | Triggered when current option changed | Single column：Picker instance, current value，current index<br>Multiple columns：Picker instance, current values，column index |
 
+### Slot
+
+| name | Description |
+|------|------|
+| title | Custom title |
 
 ### Data struct of columns
 
 | key | Description |
-|-----------|-----------|
+|------|------|
 | values | Value of column |
 | defaultIndex | Default value index |
 | className | ClassName for this column |
@@ -161,7 +177,7 @@ Picker events will pass different parameters according to the columns are single
 Use ref to get picker instance and call instance methods
 
 | Name | Attribute | Return value | Description |
-|-----------|-----------|-----------|-------------|
+|------|------|------|------|
 | getValues | - | values | Get current values of all columns |
 | setValues | values | - |  Set current values of all columns |
 | getIndexes | - | indexes | Get current indexes of all columns |
@@ -171,4 +187,4 @@ Use ref to get picker instance and call instance methods
 | getColumnIndex | columnIndex | optionIndex | Get current index of the column |
 | setColumnIndex | columnIndex, optionIndex | - | Set current index of the column |
 | getColumnValues | columnIndex | values | Get columns data of the column |
-| setColumnValue | columnIndex, values | - | Set columns data of the column |
+| setColumnValues | columnIndex, values | - | Set columns data of the column |

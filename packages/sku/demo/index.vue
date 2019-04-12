@@ -1,5 +1,6 @@
 <template>
   <demo-section>
+    <!-- 基础用法 -->
     <demo-block :title="$t('basicUsage')">
       <div class="sku-container">
         <van-sku
@@ -19,13 +20,21 @@
           @buy-clicked="onBuyClicked"
           @add-cart="onAddCartClicked"
         />
-        <van-button type="primary" @click="showBase = true" block>{{ $t('basicUsage') }}</van-button>
+        <van-button
+          block
+          type="primary"
+          @click="showBase = true"
+        >
+          {{ $t('basicUsage') }}
+        </van-button>
       </div>
     </demo-block>
 
+    <!-- 自定义步进器 -->
     <demo-block :title="$t('title2')">
       <div class="sku-container">
         <van-sku
+          hide-quota-text
           v-model="showStepper"
           :sku="skuData.sku"
           :goods="skuData.goods_info"
@@ -38,7 +47,41 @@
           @buy-clicked="onBuyClicked"
           @add-cart="onAddCartClicked"
         />
-        <van-button type="primary" @click="showStepper = true" block>{{ $t('title2') }}</van-button>
+        <van-button
+          block
+          type="primary"
+          @click="showStepper = true"
+        >
+          {{ $t('title2') }}
+        </van-button>
+      </div>
+    </demo-block>
+
+    <!-- 隐藏售罄sku -->
+    <demo-block :title="$t('hideSoldoutSku')">
+      <div class="sku-container">
+        <van-sku
+          hide-quota-text
+          v-model="showSoldout"
+          :sku="skuData.sku"
+          :goods="skuData.goods_info"
+          :goods-id="skuData.goods_id"
+          :hide-stock="skuData.sku.hide_stock"
+          :quota="skuData.quota"
+          :quota-used="skuData.quota_used"
+          :custom-stepper-config="customStepperConfig"
+          :message-config="messageConfig"
+          :show-soldout-sku="false"
+          @buy-clicked="onBuyClicked"
+          @add-cart="onAddCartClicked"
+        />
+        <van-button
+          block
+          type="primary"
+          @click="showSoldout = true"
+        >
+          {{ $t('hideSoldoutSku') }}
+        </van-button>
       </div>
     </demo-block>
 
@@ -60,19 +103,42 @@
           @buy-clicked="onBuyClicked"
           @add-cart="onAddCartClicked"
         >
-          <template slot="sku-header-price" slot-scope="props">
+          <template
+            slot="sku-header-price"
+            slot-scope="props"
+          >
             <div class="van-sku__goods-price">
               <span class="van-sku__price-symbol">￥</span><span class="van-sku__price-num">{{ props.price }}</span>
             </div>
           </template>
-          <template slot="sku-actions" slot-scope="props">
+          <template
+            slot="sku-actions"
+            slot-scope="props"
+          >
             <div class="van-sku-actions">
-              <van-button bottom-action @click="onPointClicked">{{ $t('button1') }}</van-button>
-              <van-button type="primary" bottom-action @click="props.skuEventBus.$emit('sku:buy')">{{ $t('button2') }}</van-button>
+              <van-button
+                bottom-action
+                @click="onPointClicked"
+              >
+                {{ $t('button1') }}
+              </van-button>
+              <van-button
+                type="primary"
+                bottom-action
+                @click="props.skuEventBus.$emit('sku:buy')"
+              >
+                {{ $t('button2') }}
+              </van-button>
             </div>
           </template>
         </van-sku>
-        <van-button type="primary" @click="showCustom = true" block>{{ $t('advancedUsage') }}</van-button>
+        <van-button
+          block
+          type="primary"
+          @click="showCustom = true"
+        >
+          {{ $t('advancedUsage') }}
+        </van-button>
       </div>
     </demo-block>
   </demo-section>
@@ -80,18 +146,20 @@
 
 <script>
 import skuData from './data';
-import { LIMIT_TYPE } from '../../../packages/sku/constants';
+import { LIMIT_TYPE } from '../constants';
 
 export default {
   i18n: {
     'zh-CN': {
-      title2: '自定义步进器相关配置',
+      title2: '自定义步进器',
+      hideSoldoutSku: '隐藏售罄规格',
       stepperTitle: '我要买',
       button1: '积分兑换',
       button2: '买买买'
     },
     'en-US': {
       title2: 'Custom Stepper Related Config',
+      hideSoldoutSku: 'Hide Soldout Sku',
       stepperTitle: 'Stepper title',
       button1: 'Button',
       button2: 'Button'
@@ -104,14 +172,14 @@ export default {
       showBase: false,
       showCustom: false,
       showStepper: false,
+      showSoldout: false,
       closeOnClickOverlay: true,
       initialSku: {
         s1: '30349',
-        s2: '1193'
+        s2: '1193',
+        selectedNum: 3
       },
-      customSkuValidator: (component) => {
-        return '请选择xxx';
-      },
+      customSkuValidator: () => '请选择xxx',
       customStepperConfig: {
         quotaText: '单次限购100件',
         stockFormatter: (stock) => `剩余${stock}件`,
@@ -124,17 +192,15 @@ export default {
             if (limitType === LIMIT_TYPE.QUOTA_LIMIT) {
               this.$toast(`限购${quota}件`);
             } else {
-              this.$toast('库存不够了~~');
+              this.$toast('库存不够了');
             }
           }
         }
       },
       messageConfig: {
-        uploadImg: (file, img) => {
-          return new Promise(resolve => {
-            setTimeout(() => resolve(img), 1000);
-          });
-        },
+        uploadImg: (file, img) => new Promise(resolve => {
+          setTimeout(() => resolve(img), 1000);
+        }),
         uploadMaxSize: 3
       }
     };
@@ -142,11 +208,11 @@ export default {
 
   methods: {
     onBuyClicked(data) {
-      this.$toast(JSON.stringify(data));
+      this.$toast('buy:' + JSON.stringify(data));
     },
 
     onAddCartClicked(data) {
-      this.$toast(JSON.stringify(data));
+      this.$toast('add cart:' + JSON.stringify(data));
     },
 
     onPointClicked() {
@@ -156,7 +222,7 @@ export default {
 };
 </script>
 
-<style lang="postcss">
+<style lang="less">
 .demo-sku {
   .sku-container {
     padding: 0 15px;

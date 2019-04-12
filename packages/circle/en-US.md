@@ -40,10 +40,10 @@ export default {
 ```html
 <van-circle
   v-model="currentRate"
-  color="#13ce66"
+  color="#07c160"
   fill="#fff"
   size="120px"
-  layer-color="#eee"
+  layer-color="#ebedf0"
   :text="text"
   :rate="rate"
   :speed="100"
@@ -56,11 +56,11 @@ export default {
 ### API
 
 | Attribute | Description | Type | Default |
-|-----------|-----------|-----------|-------------|
+|------|------|------|------|
 | v-model | Current rate | `Number` | - |
 | rate | Target rate | `Number` | `100` |
 | size | Circle size | `String` | `100px` |
-| color | Progress bar color | `String` | `#38f` |
+| color | Progress bar color | `String` | `#1989fa` |
 | layer-color | Layer color | `String` | `#fff` |
 | fill | Fill color | `String` | `none` |
 | speed | Animate speed（rate/s）| `Number` | - |
@@ -71,5 +71,5 @@ export default {
 ### Cell Slot
 
 | name | Description |
-|-----------|-----------|
+|------|------|
 | - | custom text content |
