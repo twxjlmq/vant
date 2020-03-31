@@ -1,7 +1,0 @@
-{
-  "root": true,
-  "extends": ["@vant"],
-  "rules": {
-    "no-unused-vars": ["error", { "vars": "all", "args": "none" }]
-  }
-}

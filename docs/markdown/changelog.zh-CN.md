@@ -1,2230 +1,1513 @@
-## 更新日志
+# 更新日志
 
-## [v1.6.13](https://github.com/youzan/vant/tree/v1.6.13)
-`2019-04-06`
+### 介绍
 
-**Improvements**
+Vant 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范。
 
-- Uploader: 新增 name 属性 [\#3096](https://github.com/youzan/vant/pull/3096)
-- Slider: 新增 vertical 属性 [\#3078](https://github.com/youzan/vant/pull/3078)
-- Stepper: 新增 input-width 属性 [\#3076](https://github.com/youzan/vant/pull/3076)
-- Tag: 新增多个 Less 变量 [\#3087](https://github.com/youzan/vant/pull/3087)
-- Button: 新增多个 Less 变量 [\#3093](https://github.com/youzan/vant/pull/3093)
-- CellGroup: 新增多个 Less 变量 [\#3094](https://github.com/youzan/vant/pull/3094)
+**发布节奏**
 
-**Bug Fixes**
-
-- 修复 Tab 包裹在`keep-alive`内时底部条渲染错误的问题 [\#3097](https://github.com/youzan/vant/pull/3097)
-
-
-## [v1.6.12](https://github.com/youzan/vant/tree/v1.6.12)
-`2019-03-28`
-
-**Improvements**
-
-- Actionsheet: 新增 less 变量 [\#3049](https://github.com/youzan/vant/pull/3049)
-
-**Bug Fixes**
-
-- 修复 SwipeCell 展示时无法触发滚动事件的问题 [\#3056](https://github.com/youzan/vant/pull/3056)
-- 修复 Button 细边框状态下 square 属性失效的问题 [\#3058](https://github.com/youzan/vant/pull/3058)
-- 修复 Picker 使用 loading 属性时展示出现异常的问题 [\#3064](https://github.com/youzan/vant/pull/3064)
-
-
-## [v1.6.11](https://github.com/youzan/vant/tree/v1.6.11)
-`2019-03-22`
-
-**Improvements**
-
-- Icon: 更新店铺相关图标 [\#3044](https://github.com/youzan/vant/pull/3044)
-- Radio: 新增 click 事件 [\#2990](https://github.com/youzan/vant/pull/2990)
-- Checkbox: 新增 click 事件 [\#2990](https://github.com/youzan/vant/pull/2990)
-- Button: 新增 hairline 属性 [\#3031](https://github.com/youzan/vant/pull/3031)
-- Button: 新增 touchstart 属性 [\#3039](https://github.com/youzan/vant/pull/3039)
-- Dialog: 新增 getContainer 选项 [\#3040](https://github.com/youzan/vant/pull/3040)
-- NoticeBar: 新增 wrapable 属性 [\#2992](https://github.com/youzan/vant/pull/2992)
-- Field: 新增 error-message-align 属性 [\#3016](https://github.com/youzan/vant/pull/3016)
-- Sku: 支持在初始化时设置选中商品数量 [\#3045](https://github.com/youzan/vant/pull/3045)
-- Actionsheet: 支持同时设置默认插槽和 cancel-text [\#3021](https://github.com/youzan/vant/pull/3021)
-
-**Bug Fixes**
-
-- 修复 Swipe 在部分浏览器上文字模糊的问题 [\#3030](https://github.com/youzan/vant/pull/3030)
-- 修复 Steps 垂直方向 active-icon 样式错误的问题 [\#3007](https://github.com/youzan/vant/pull/3007)
-- 修复 Toast 在某些情况下遮罩层无法被清除的问题 [\#3025](https://github.com/youzan/vant/pull/3025)
-- 修复 Dialog 使用 getContainer 属性时遮罩层位置错误的问题 [\#3041](https://github.com/youzan/vant/pull/3041)
-- 修复 Collapse 在渲染较慢的情况下可能出现高度为 0 的问题 [\#2993](https://github.com/youzan/vant/pull/2993)
-
-
-## [v1.6.10](https://github.com/youzan/vant/tree/v1.6.10)
-`2019-03-17`
-
-**Improvements**
-
-- Icon: 新增 tag 属性 [\#2986](https://github.com/youzan/vant/pull/2986)
-- Cell: 新增 label 插槽 [\#2956](https://github.com/youzan/vant/pull/2956)
-- Toast: 新增 onClose 属性 [\#2964](https://github.com/youzan/vant/pull/2964)
-- AddressEdit: 新增 setAddressDetail 方法 [\#2984](https://github.com/youzan/vant/pull/2984)
-
-**Bug Fixes**
-
-- 修复 List 子元素 scoped 样式无法生效的问题 [\#2983](https://github.com/youzan/vant/pull/2983)
-- 修复 Steps 设置为 vertical 时样式错误的问题 [\#2981](https://github.com/youzan/vant/pull/2981)
-- 修复 Coupon 单独传入 value-desc 属性时不展示的问题 [\#2980](https://github.com/youzan/vant/pull/2980)
-- 修复 Uploader 使用 before-read 属性后重复上传同个文件不触发事件的问题 [\#2971](https://github.com/youzan/vant/pull/2971)
-
-
-## [v1.6.9](https://github.com/youzan/vant/tree/v1.6.9)
-`2019-03-11`
-
-**Improvements**
-
-- Field: 新增 size 属性 [\#2936](https://github.com/youzan/vant/pull/2936)
-- Collapse: 新增 size 属性 [\#2946](https://github.com/youzan/vant/pull/2946)
-- Collapse: 新增 border 属性 [\#2933](https://github.com/youzan/vant/pull/2933)
-- CellGroup: 新增 title 属性 [\#2928](https://github.com/youzan/vant/pull/2928)
-- Steps: 新增 active-icon 属性 [\#2934](https://github.com/youzan/vant/pull/2934)
-- Picker: 新增 default-index 属性 [\#2935](https://github.com/youzan/vant/pull/2935)
-- Actionsheet: 新增 index 作为 select 事件的回调参数 [\#2917](https://github.com/youzan/vant/pull/2917)
-
-**Bug Fixes**
-
-- 修复 Card origin-price 插槽未生效的问题 [\#2927](https://github.com/youzan/vant/pull/2927)
-- 修复 Swipe change 事件触发时机错误的问题 [\#2909](https://github.com/youzan/vant/pull/2909)
-
-
-## [v1.6.8](https://github.com/youzan/vant/tree/v1.6.8)
-`2019-03-02`
-
-**Improvements**
-
-- CouponList: 优化列表为空的样式 [\#2878](https://github.com/youzan/vant/pull/2878)
-- 支持在函数式组件上使用 ref 属性 [\#2863](https://github.com/youzan/vant/pull/2863)
-
-**Bug Fixes**
-
-- 修复 Field label 插槽未生效的问题 [\#2872](https://github.com/youzan/vant/pull/2872)
-- 修复 Icon new 图标无法展示的问题 [\#2887](https://github.com/youzan/vant/pull/2887)
-- 修复 AddressList 使用 switchable 属性时的样式错误 [\#2886](https://github.com/youzan/vant/pull/2886)
-- 修复 Tab 使用 offset-top 属性时切换标签未滚动到正确位置的问题 [\#2873](https://github.com/youzan/vant/pull/2873)
-
-
-## [v1.6.7](https://github.com/youzan/vant/tree/v1.6.7)
-`2019-02-26`
-
-**Improvements**
-
-- Button: 新增 loading-size 属性 [\#2854](https://github.com/youzan/vant/pull/2854)
-- Stepper: 新增 focus 事件 [\#2841](https://github.com/youzan/vant/pull/2841)
-- Sku: 支持自定义 Stepper 库存信息 [\#2839](https://github.com/youzan/vant/pull/2839)
-- Icon: 优化部分图标的圆角线条 [\#2856](https://github.com/youzan/vant/pull/2856)
-
-**Bug Fixes**
-
-- 修复 Actionsheet lazy-render 属性不生效的问题 [\#2840](https://github.com/youzan/vant/pull/2840)
-- 修复 Actionsheet get-container 属性不生效的问题 [\#2853](https://github.com/youzan/vant/pull/2853)
-- 修复 Tab 初始化时导航栏未自动滚动到当前标签位置的问题 [\#2857](https://github.com/youzan/vant/pull/2857)
-- 修复 Checkbox 与 Cell 组件嵌套用法在 Vue 2.6+ 上的兼容问题 [\#2855](https://github.com/youzan/vant/pull/2855)
-- 修复 CouponList 不可用券列表为空时展示错误的问题 [\#2845](https://github.com/youzan/vant/pull/2845)
-
-
-## [v1.6.6](https://github.com/youzan/vant/tree/v1.6.6)
-`2019-02-24`
-
-**Improvements**
-
-- Button: 新增 info 类型 [\#2831](https://github.com/youzan/vant/pull/2831)
-- Picker: 新增 title 插槽 [\#2811](https://github.com/youzan/vant/pull/2811)
-- Tab: 新增 lazy-render 属性 [\#2800](https://github.com/youzan/vant/pull/2800)
-- Tab: 新增 nav-left、nav-right 插槽 [\#2828](https://github.com/youzan/vant/pull/2828)
-- PasswordInput: 新增 mask 属性 [\#2796](https://github.com/youzan/vant/pull/2796)
-- Stepper: 样式升级 [\#2790](https://github.com/youzan/vant/pull/2790)
-- Search: 样式升级, 新增 shape、label 属性 [\#2788](https://github.com/youzan/vant/pull/2788)
-- Dialog: 支持在 message 中使用换行符 [\#2799](https://github.com/youzan/vant/pull/2799)
-- Notify: 支持在 message 中使用换行符 [\#2798](https://github.com/youzan/vant/pull/2798)
-
-**Bug Fixes**
-
-- 修复 Cell title-class 类型定义错误 [\#2780](https://github.com/youzan/vant/pull/2780)
-- 修复 Tab 在 card 类型中嵌套 line 类型时样式错误的问题 [\#2825](https://github.com/youzan/vant/pull/2825)
-
-
-## [v1.6.5](https://github.com/youzan/vant/tree/v1.6.5)
-`2019-02-17`
-
-**Improvements**
-
-- Button: 新增 url、to、replace 属性 [\#2754](https://github.com/youzan/vant/pull/2754)
-- Tabs: 新增 background 属性 [\#2772](https://github.com/youzan/vant/pull/2772)
-- Tabs: 新增 title-active-color、title-inactive-color 属性 [\#2773](https://github.com/youzan/vant/pull/2773)
-- CouponCell: 重构为函数式组件 [\#2759](https://github.com/youzan/vant/pull/2759)
-- AddressList: 重构为函数式组件 [\#2757](https://github.com/youzan/vant/pull/2757)
-- Sku: 部分重构为函数式组件 [\#2756](https://github.com/youzan/vant/pull/2756)
-
-**Bug Fixes**
-
-- 修复 Collapse title 插槽不生效的问题 [\#2753](https://github.com/youzan/vant/pull/2753)
-- 修复 Panel 使用 v-slot 不生效的问题 [\#2752](https://github.com/youzan/vant/pull/2752)
-
-
-## [v1.6.4](https://github.com/youzan/vant/tree/v1.6.4)
-`2019-02-14`
-
-**Bug Fixes**
-
-- 修复 Sku 购买事件错误地触发为加入购物车事件的问题 [\#2741](https://github.com/youzan/vant/pull/2741)
-
-
-## [v1.6.3](https://github.com/youzan/vant/tree/v1.6.3)
-`2019-02-14`
-
-**Improvements**
-
-- Toast: 新增 getContainer 属性 [\#2724](https://github.com/youzan/vant/pull/2724)
-- Button: 新增 loading-text 属性 [\#2732](https://github.com/youzan/vant/pull/2732)
-- Coupon: 新增 value-desc、unit-desc 属性 [\#2710](https://github.com/youzan/vant/pull/2710)
-- Card: 重构为函数式组件 [\#2740](https://github.com/youzan/vant/pull/2740)
-- Cell: 重构为函数式组件 [\#2729](https://github.com/youzan/vant/pull/2729)
-- Switch: 重构为函数式组件 [\#2736](https://github.com/youzan/vant/pull/2736)
-- GoodsAction: 重构为函数式组件 [\#2730](https://github.com/youzan/vant/pull/2730)
-
-**Bug Fixes**
-
-- 修复 Field 左侧内容较多时右侧按钮样式错误的问题 [\#2713](https://github.com/youzan/vant/pull/2713)
-- 修复 Field 设置为 datetime-local 类型时在 iOS 下高度错误的问题 [\#2720](https://github.com/youzan/vant/pull/2720)
-- 修复 Sku 在 iOS 12 下点击区域可能出现偏移的问题 [\#2722](https://github.com/youzan/vant/pull/2722)
-- 修复 SwipeCell left-width 设置为 0 时渲染错误的问题 [\#2737](https://github.com/youzan/vant/pull/2737)
-- 修复函数式组件传入多个同名事件导致错误的问题 [\#2717](https://github.com/youzan/vant/pull/2717)
-
-
-## [v1.6.2](https://github.com/youzan/vant/tree/v1.6.2)
-`2019-02-10`
-
-**Improvements**
-
-- Tag: 新增 click 事件 [\#2693](https://github.com/youzan/vant/pull/2693)
-- Swipe: 新增 click 事件 [\#2690](https://github.com/youzan/vant/pull/2690)
-- NoticeBar: 新增 close 事件 [\#2692](https://github.com/youzan/vant/pull/2692)
-- PullRefresh: 新增 success-text、success-duration 属性 [\#2709](https://github.com/youzan/vant/pull/2709)
-- 针对 Vue 2.6 优化插槽渲染效率  [\#2688](https://github.com/youzan/vant/pull/2688)
-
-**Bug Fixes**
-
-- 修复函数式组件未继承标签属性的问题 [\#2706](https://github.com/youzan/vant/pull/2706)
-- 修复 Swipe 内懒加载图片无法正确加载的问题 [\#2708](https://github.com/youzan/vant/pull/2708)
-- 修复 Collpase 在特定情况下高度计算错误的问题 [\#2702](https://github.com/youzan/vant/pull/2702)
-- 修复 Dialog 点击蒙层时无法触发 beforeClose 属性的问题 [\#2707](https://github.com/youzan/vant/pull/2707)
-- 修复 AddressList 在禁用状态下样式错误的问题 [\#2687](https://github.com/youzan/vant/pull/2687)
-- 修复 AddressEdit 在 Vue 2.6 版本下无法选择推荐地址的问题 [\#2689](https://github.com/youzan/vant/pull/2689)
-
-
-## [v1.6.1](https://github.com/youzan/vant/tree/v1.6.1)
-`2019-02-05`
-
-**Improvements**
-
-- 修复函数式组件无法继承指令和原生事件的问题 [\#2686](https://github.com/youzan/vant/pull/2686)
-
-
-## [v1.6.0](https://github.com/youzan/vant/tree/v1.6.0)
-`2019-02-04`
-
-**Breaking changes**
-
-- Radio: 重写了组件结构，现在提供和 Checkbox 一致的 UI 和 DOM 结构 [\#2651](https://github.com/youzan/vant/pull/2651)
-
-**Improvements**
-
-- 使用 JSX 重写了所有组件
-- 部分组件现在是函数式组件了，渲染性能更佳
-- Card: 新增 tag 插槽 [\#2636](https://github.com/youzan/vant/pull/2636)
-- Radio: 新增 icon 插槽 [\#2651](https://github.com/youzan/vant/pull/2651)
-- Radio: 新增 shape 属性 [\#2651](https://github.com/youzan/vant/pull/2651)
-- Icon: 新增 weapp-nav 图标 [\#2682](https://github.com/youzan/vant/pull/2682)
-- Toast: 新增 className 属性 [\#2680](https://github.com/youzan/vant/pull/2680)
-- Notify: 新增 className 属性 [\#2681](https://github.com/youzan/vant/pull/2681)
-- Popup: 新增 open/close 事件 [\#2649](https://github.com/youzan/vant/pull/2649)
-- Popup: 新增 opened/closed 事件 [\#2650](https://github.com/youzan/vant/pull/2650)
-
-**Bug Fixes**
-
-- 修复 SwipeCell 左侧内容滑动距离过大的问题 [\#2633](https://github.com/youzan/vant/pull/2633)
-- 修复 ContactList 列表内容较多时按钮位置错误的问题 [\#2634](https://github.com/youzan/vant/pull/2634)
-- 修复 Toast clear 方法在 multiple 模式下可能报错的问题 [\#2635](https://github.com/youzan/vant/pull/2635)
-- 修复 Popup 使用 get-container 属性后销毁时可能报错的问题 [\#2679](https://github.com/youzan/vant/pull/2679)
-
-
-## [v1.5.7](https://github.com/youzan/vant/tree/v1.5.7)
-`2019-01-24`
-
-**Improvements**
-
-- 新增 live 图标
-- 新增 lock 图标
-- 新增 audio 图标
-- 新增 column 图标
-- 新增 replay 图标
-- 新增 shrink 图标
-- 新增 graphic 图标
-- 新增 invition 图标
-- 新增 ascending 图标
-- 新增 descending 图标
-- 新增 play-circle 图标
-- 新增 stop-circle 图标
-- 新增 pause-circle 图标
-- 新增 play-circle-o 图标
-- 新增 stop-circle-o 图标
-- 新增 pause-circle-o 图标
-- Field: 新增 click-left-icon 事件 [\#2605](https://github.com/youzan/vant/pull/2605)
-
-## [v1.5.6](https://github.com/youzan/vant/tree/v1.5.6)
-`2019-01-22`
-
-**Improvements**
-
-- Card: 新增 origin-price slot [\#2588](https://github.com/youzan/vant/pull/2588)
-- Switch: 新增 active-value、inactive-value 属性 [\#2590](https://github.com/youzan/vant/pull/2590)
-- SwitchCell: 新增 active-value、inactive-value 属性 [\#2591](https://github.com/youzan/vant/pull/2591)
-
-**Bug Fixes**
-
-- 修复 Card centered 属性不生效的问题 [\#2589](https://github.com/youzan/vant/pull/2589)
-- 修复 Icon name 属性传入 URL 不生效的问题 [\#2585](https://github.com/youzan/vant/pull/2585)
-
-
-## [v1.5.5](https://github.com/youzan/vant/tree/v1.5.5)
-`2019-01-21`
-
-**Bug Fixes**
-
-- 修复 Field type 属性不生效的问题 [\#2579](https://github.com/youzan/vant/pull/2579)
-
-
-## [v1.5.4](https://github.com/youzan/vant/tree/v1.5.4)
-`2019-01-20`
-
-**Bug Fixes**
-
-- 修复缺少 @vue/babel-helper-vue-jsx-merge-props 依赖的问题 [\#2474](https://github.com/youzan/vant/issues/2474)
-
-
-## [v1.5.3](https://github.com/youzan/vant/tree/v1.5.3)
-`2019-01-20`
-
-**Improvements**
-
-- List: 新增 error-text 属性 [\#2568](https://github.com/youzan/vant/pull/2568)
-- Coupon: 新增 condition 属性 [\#2551](https://github.com/youzan/vant/pull/2551)
-- ImagePreview: 新增 lazyLoad 属性 [\#2569](https://github.com/youzan/vant/pull/2569)
-- NavBar: 新增样式相关 Less 变量 [\#2570](https://github.com/youzan/vant/pull/2570)
-- Dialog: 默认开启 lazy-render [\#2495](https://github.com/youzan/vant/pull/2495)
-- Toast: 支持在 message 中使用换行符 [\#2496](https://github.com/youzan/vant/pull/2496)
-- Area: 新增 confirm-button-text、cancel-button-text 属性 [\#2556](https://github.com/youzan/vant/pull/2556)
-
-**Bug Fixes**
-
-- 修复 Card 价格区域样式 [\#2549](https://github.com/youzan/vant/pull/2549)
-- 修复 Radio 未选中状态图标颜色错误 [\#2484](https://github.com/youzan/vant/pull/2484)
-- 修复 Radio label-position 类型定义错误 [\#2485](https://github.com/youzan/vant/pull/2485)
-- 修复 Dialog 按钮点击事件触发时机错误 [\#2571](https://github.com/youzan/vant/pull/2571)
-
-
-## [v1.5.2](https://github.com/youzan/vant/tree/v1.5.2)
-`2019-01-10`
-
-**Improvements**
-
-- Color: 基础绿色调整为微信绿 [\#2479](https://github.com/youzan/vant/pull/2479)
-- Icon: 新增 cart-circle 图标 [\#2480](https://github.com/youzan/vant/pull/2480)
-- Coupon: 新增 description 属性 [\#2458](https://github.com/youzan/vant/pull/2458)
-- ImagePreview: 新增 className 属性 [\#2433](https://github.com/youzan/vant/pull/2433)
-- Sku: 支持隐藏已售罄的规格 [\#2472](https://github.com/youzan/vant/pull/2472)
-
-**Bug Fixes**
-
-- 修复 Icon 部分图标的线条应使用圆角的问题 [\#2437](https://github.com/youzan/vant/pull/2437)
-- 修复 DatetimePicker time 类型 v-model 变化后未触发更新的问题 [\#2427](https://github.com/youzan/vant/pull/2427)
-- 修复 SubmitBar 未传 price 时无法隐藏价格和文本的问题 [\#2469](https://github.com/youzan/vant/pull/2469)
-- 修复 Swipe 在使用 swipeTo 时可能导致轮播空白的问题 [\#2471](https://github.com/youzan/vant/pull/2471)
-- 修复 Stepper 输入框为空且最小值为 0 时无法自动设置默认值的问题 [\#2470](https://github.com/youzan/vant/pull/2470)
-- 修复 Tab 首次渲染时会触发底部条动画的问题 [\#2459](https://github.com/youzan/vant/pull/2459)
-
-
-## [v1.5.1](https://github.com/youzan/vant/tree/v1.5.1)
-`2019-01-01`
-
-**Improvements**
-
-- Card: 新增 price、num 插槽 [\#2416](https://github.com/youzan/vant/pull/2416)
-- Slider: 新增 button 插槽 [\#2373](https://github.com/youzan/vant/pull/2373)
-- Slider: 新增 active-color、inactive-color 属性 [\#2374](https://github.com/youzan/vant/pull/2374)
-- Tabbar: 新增 active-color 属性 [\#2372](https://github.com/youzan/vant/pull/2372)
-- Sku: 新增 sku-selected 事件 [\#2386](https://github.com/youzan/vant/pull/2386)
-
-**Bug Fixes**
-
-- 修复 Card 描述过长时的样式问题 [\#2414](https://github.com/youzan/vant/pull/2414)
-- 修复 ContactList 未注册依赖的 button 组件的问题 [\#2415](https://github.com/youzan/vant/pull/2415)
-- 修复 Icon 在 file 协议网页下无法展示的问题 [\#2385](https://github.com/youzan/vant/pull/2385)
-
-
-## [v1.5.0](https://github.com/youzan/vant/tree/v1.5.0)
-`2018-12-22`
-
-**Breaking changes**
-
-在 1.5.0 版本中，我们统一图标规范并重绘了所有图标，同时增加约 100 个新图标。对于同一个图标，我们会提供`实底`和`线框`两种风格，以星星图标为例，`star`表示实底风格的星星，`star-o`表示线框风格的星星。
-
-<img width="375" height="124" src="//img.yzcdn.cn/vant/icon-style-1222.png">
-
-同时我们也对原有图标做了一定调整，具体改动如下：
-
-- 移除 edit-data
-- 移除 pending-deliver
-- 移除 pending-evaluate
-- 移除 points-mall
-- 移除 exchange-record
-- 重命名 warn 为 info
-- 重命名 check 为 circle
-- 重命名 add2 为 add-square
-- 重命名 question2 为 question
-- 重命名 password-view 为 eye
-- 重命名 password-not-view 为 closed-eye
-- 重命名 value-card 为 balance-o
-- 重命名 receive-gift 为 gift
-- 重命名 pending-orders 为 orders-o
-- 重命名 gift-card-pay 为 gift-card
-
-同时我们对下列组件的样式细节进行了优化：
-
-- Cell 单元格
-- Card 卡片
-- Checkbox 复选框
-- Collapse 折叠面板
-- Tab 标签页
-- Toast 轻提示
-- Switch 开关
-- Swipe 轮播
-- TreeSelect 分类选择
-
-**Improvements**
-
-- 支持通过 vetur 插件实现组件标签/属性名的提示和自动补全 [\#2261](https://github.com/youzan/vant/pull/2261)
-- 支持通过大驼峰格式的标签名使用组件 [\#2296](https://github.com/youzan/vant/pull/2296)
-- Tab: 新增 ellipsis 属性 [\#2299](https://github.com/youzan/vant/pull/2299)
-- Tab: 新增 line-height 属性 [\#2357](https://github.com/youzan/vant/pull/2357)
-- Tag: 新增 text-color 属性 [\#2277](https://github.com/youzan/vant/pull/2277)
-- Card: 新增 lazy-load 属性 [\#2301](https://github.com/youzan/vant/pull/2301)
-- Coupon: 新增 currency 属性 [\#2274](https://github.com/youzan/vant/pull/2274) [\#2256](https://github.com/youzan/vant/pull/2256)
-- Dialog: 新增 message-align 属性 [\#2259](https://github.com/youzan/vant/pull/2259)
-- Stepper: 新增 async-change 属性 [\#2318](https://github.com/youzan/vant/pull/2318)
-- SwitchCell: 新增 active-color、inactive-color 属性 [\#2273](https://github.com/youzan/vant/pull/2273)
-- NoticeBar: 支持使用内置图标 [\#2305](https://github.com/youzan/vant/pull/2305)
-- TreeSelect: 支持禁用左侧栏选项 [\#2308](https://github.com/youzan/vant/pull/2308)
-
-**Bug Fixes**
-
-- 修复 Dialog 在部分低端机型上文字模糊的问题 [\#2300](https://github.com/youzan/vant/pull/2300)
-- 修复 Checkbox 文字高度错误的问题 [\#2293](https://github.com/youzan/vant/pull/2293)
-- 修复 Field 使用 maxlength 属性后中文输入法截断的问题 [\#2295](https://github.com/youzan/vant/pull/2295)
-- 修复 Swipe 包裹在 keep-alive 组件内时未重新初始化的问题 [\#2297](https://github.com/youzan/vant/pull/2297)
-- 修复 Swipe 在边界情况下可能报错的问题 [\#2253](https://github.com/youzan/vant/pull/2253)
-- 修复 Swipe 事件冒泡导致无法嵌套使用的问题 [\#2355](https://github.com/youzan/vant/pull/2355)
-- 修复 Tab 在使用 animated 属性时标签内容无法展示的问题 [\#2238](https://github.com/youzan/vant/pull/2238) [\#2322](https://github.com/youzan/vant/pull/2322)
-- 修复 Tab 在禁用所有选项时报错的问题 [\#2356](https://github.com/youzan/vant/pull/2356)
-- 修复 Tab 在使用 color 属性时下划线初始颜色错误的问题 [\#2344](https://github.com/youzan/vant/pull/2344)
-- 修复 Tabbar 提示位置错误的问题 [\#2257](https://github.com/youzan/vant/pull/2257)
-- 修复 Toast 实例上缺少 clear 方法类型定义的问题 [\#2354](https://github.com/youzan/vant/pull/2354)
-- 修复 dev 命令在 node 10 环境下报错的问题 [\#2251](https://github.com/youzan/vant/pull/2251)
-- 修复 dev 命令在 windows 环境下报错的问题 [\#2229](https://github.com/youzan/vant/pull/2229)
-
-
-## [v1.4.8](https://github.com/youzan/vant/tree/v1.4.8)
-`2018-12-05`
-
-**Improvements**
-
-- Sku: 新增 hide-quota-text 属性 [\#2216](https://github.com/youzan/vant/pull/2216)
-- ImagePreview: 新增 asyncClose 属性 [\#2198](https://github.com/youzan/vant/pull/2198)
-- ImagePreview: 新增 onClose 回调参数 [\#2197](https://github.com/youzan/vant/pull/2197)
-- ImagePreview: 新增淡入淡出动画效果 [\#2196](https://github.com/youzan/vant/pull/2196)
-
-**Bug Fixes**
-
-- 修复 Notify TS 类型定义错误 [\#2210](https://github.com/youzan/vant/pull/2210)
-- 修复 Dialog 通过函数调用时默认值错误 [\#2208](https://github.com/youzan/vant/pull/2208)
-- 修复 ImagePreview 指示器颜色错误 [\#2187](https://github.com/youzan/vant/pull/2187)
-
-
-## [v1.4.7](https://github.com/youzan/vant/tree/v1.4.7)
-`2018-11-27`
-
-**Improvements**
-
-- 新增 Notify 消息通知组件 [\#2135](https://github.com/youzan/vant/pull/2135)
-- Cell: 新增 title-class、value-class、label-class 属性 [\#2138](https://github.com/youzan/vant/pull/2138)
-- Icon: 增加更多基础图标 [\#2159](https://github.com/youzan/vant/pull/2159) [\#2169](https://github.com/youzan/vant/pull/2169)
-- Icon: 支持传入图片链接作为图标展示 [\#2149](https://github.com/youzan/vant/pull/2149)
-- List: 新增 finished-text 属性 [\#2131](https://github.com/youzan/vant/pull/2131)
-- Rate: 新增 icon、void-icon 属性 [\#2148](https://github.com/youzan/vant/pull/2148)
-- NavBar: 新增 border 属性 [\#2143](https://github.com/youzan/vant/pull/2143)
-- Style: 新增多个内置 transition 动画 [\#2163](https://github.com/youzan/vant/pull/2163)
-- CouponCell: 移除了默认外边框 [\#2145](https://github.com/youzan/vant/pull/2145)
-- CDN 服务商更换为 jsdelivr，以提供更快的国内访问速度 [\#2167](https://github.com/youzan/vant/pull/2167)
-
-**Bug Fixes**
-
-- 修复 ImagePreview 页码出现 NaN 的问题 [\#2146](https://github.com/youzan/vant/pull/2146)
-- 修复 Toast 在 iOS 设备上文字错误换行的问题 [\#2142](https://github.com/youzan/vant/pull/2142)
-- 修复 GoodsAction 部分样式代码重复的问题 [\#2140](https://github.com/youzan/vant/pull/2140)
-- 修复 DatetimePicker 设置了 minDate 时初始 value 错误的问题 [\#2137](https://github.com/youzan/vant/pull/2137)
-
-PS: 不小心跳过了 1.4.6 版本  ^_^
-
-## [v1.4.5](https://github.com/youzan/vant/tree/v1.4.5)
-`2018-11-23`
-
-**Improvements**
-
-- Tab: 新增 animated 属性 [\#2126](https://github.com/youzan/vant/pull/2126)
-- Tab: 更新标题栏样式 [\#2120](https://github.com/youzan/vant/pull/2120)
-- Badge: 更新提示样式 [\#2122](https://github.com/youzan/vant/pull/2122)
-- Radio: 新增 checked-color 属性 [\#2129](https://github.com/youzan/vant/pull/2129)
-- Swipe: 新增 indica为r-color 属性 [\#2110](https://github.com/youzan/vant/pull/2110)
-- TreeSelect: 支持禁用选项 [\#2107](https://github.com/youzan/vant/pull/2107)
-
-**Bug Fixes**
-
-- 修复 Tab swipe-threshold 属性小于 4 时不生效的问题 [\#2128](https://github.com/youzan/vant/pull/2128)
-
-
-## [v1.4.4](https://github.com/youzan/vant/tree/v1.4.4)
-`2018-11-18`
-
-**Improvements**
-
-- Cell: 新增 size 属性 [\#2086](https://github.com/youzan/vant/pull/2086)
-- Icon: 新增 star、star-o 图标 [\#2092](https://github.com/youzan/vant/pull/2092)
-- ImagePreview: 新增 loop 属性 [\#2103](https://github.com/youzan/vant/pull/2103)
-- Rate: 更新星星图标样式 [\#2093](https://github.com/youzan/vant/pull/2093)
-- Dialog: 内容超过屏幕高度时展示滚动条 [\#2104](https://github.com/youzan/vant/pull/2104)
-
-**Bug Fixes**
-
-- 修复 Sku mobile 类型留言缺少 placeholder 的问题 [\#2098](https://github.com/youzan/vant/pull/2098)
-- 修复 Tab line-width 传入 0 时不生效的问题 [\#2081](https://github.com/youzan/vant/pull/2081)
-- 修复 Tab 在 sticky 模式下切换标签未自动滚动到顶部的问题 [\#2105](https://github.com/youzan/vant/pull/2105)
-- 修复 Toast 最大宽度错误的问题 [\#2074](https://github.com/youzan/vant/pull/2074)
-- 修复 Steps CSS 选择器优先级错误 [\#2072](https://github.com/youzan/vant/pull/2072)
-
-
-## [v1.4.3](https://github.com/youzan/vant/tree/v1.4.3)
-`2018-11-10`
-
-**Improvements**
-
-- Checkbox: 新增 checked-color 属性 [\#2057](https://github.com/youzan/vant/pull/2057)
-- NumberKeyboard: 新增 close-but为n-text 属性 [\#2051](https://github.com/youzan/vant/pull/2051)
-- Swipe: 优化手势操作体验 [\#2039](https://github.com/youzan/vant/pull/2039)
-- 文档：重新对组件进行了分类 [\#2032](https://github.com/youzan/vant/pull/2032)
-
-**Bug Fixes**
-
-- 修复 Circle 在部分安卓手机上样式错误的问题 [\#2062](https://github.com/youzan/vant/pull/2062)
-- 修复 DatetimePicker time 类型且使用 formatter 时获取当前值错误的问题 [\#2059](https://github.com/youzan/vant/pull/2059)
-- 修复 Tab 可以通过手势切换到禁用项的问题 [\#2064](https://github.com/youzan/vant/pull/2064)
-
-
-## [v1.4.2](https://github.com/youzan/vant/tree/v1.4.2)
-`2018-11-04`
-
-**Breaking changes**
+- 修订号：每周发布，包含新特性和问题修复。
+- 次版本号：每隔一至二个月发布，包含新特性和较大的功能更新，向下兼容。
+- 主版本号：发布时间不定，包含不兼容更新，预计下一个主版本会与 Vue 3.0 同期发布。
 
-- 优化引入样式的文件路径（仅影响手动引入样式的方式）详见[快速上手](#/zh-CN/quickstart). [\#2021](https://github.com/youzan/vant/pull/2021)
-- 支持基于 Less 变量的定制主题方式，不再支持原先的定制主题方式，详见[定制主题](#/en-US/theme). [\#2027](https://github.com/youzan/vant/pull/2027)
+### [v2.5.9](https://github.com/youzan/vant/compare/v2.5.8...v2.5.9)
 
-**Improvements**
+`2020-03-31`
 
-- Sku: 支持预览商品图片 [\#2019](https://github.com/youzan/vant/pull/2019)
-- i18n: 支持土耳其语 [\#1998](https://github.com/youzan/vant/pull/1998)
-- i18n: 支持繁体中文（台） [\#1999](https://github.com/youzan/vant/pull/1999)
-- Icon: 新增 question2 图标 [\#2005](https://github.com/youzan/vant/pull/2005)
-- Badge: 新增 change 事件 [\#2017](https://github.com/youzan/vant/pull/2017)
-- Switch: 新增 active-color 属性 [\#2013](https://github.com/youzan/vant/pull/2013)
-- Switch: 新增 inactive-color 属性 [\#2013](https://github.com/youzan/vant/pull/2013)
-- Radio: 选中态颜色调整为蓝色 [\#2018](https://github.com/youzan/vant/pull/2018)
-- Checkbox: 选中态颜色调整为蓝色 [\#2018](https://github.com/youzan/vant/pull/2018)
+**Feature**
 
+- AddressEdit: 新增 click-area 事件 [#5939](https://github.com/youzan/vant/issues/5939)
+- NavBar: 新增 placeholder 属性 [#5938](https://github.com/youzan/vant/issues/5938)
+- Steps: 新增 click-step 事件 [#5937](https://github.com/youzan/vant/issues/5937)
 
-## [v1.3.10](https://github.com/youzan/vant/tree/v1.3.10)
-`2018-10-29`
-
-**Improvements**
-
-- Field: 新增 focus 方法 [\#1987](https://github.com/youzan/vant/pull/1987)
-- Search: 新增 left-icon 插槽 [\#1974](https://github.com/youzan/vant/pull/1974)
-- CouponCell: 新增 border 属性 [\#1993](https://github.com/youzan/vant/pull/1993)
-- CouponCell: 优化优惠金额展示规则 [\#1976](https://github.com/youzan/vant/pull/1976)
-- ImagePreview: 新增 showIndica为rs 属性 [\#1992](https://github.com/youzan/vant/pull/1992)
-- GoodsAction: 新增 loading、disabled 属性 [\#1994](https://github.com/youzan/vant/pull/1994)
-
-**Bug Fixes**
-
-- 修复 Swipe height 属性不生效的问题 [\#1982](https://github.com/youzan/vant/pull/1982)
-- 修复 Toast 在多实例模式下未正确销毁导致无法点击的问题 [\#1991](https://github.com/youzan/vant/pull/1991)
-
-
-## [v1.3.9](https://github.com/youzan/vant/tree/v1.3.9)
-`2018-10-24`
-
-**Improvements**
-
-- Field: 新增 left-icon 插槽 [\#1973](https://github.com/youzan/vant/pull/1973)
-- Toast: 优化多实例模式下的 DOM 节点回收 [\#1959](https://github.com/youzan/vant/pull/1959)
-- AddressEdit: 新增 valida为r 属性 [\#1971](https://github.com/youzan/vant/pull/1971)
-- AddressEdit: 新增 change-default 事件 [\#1972](https://github.com/youzan/vant/pull/1972)
-
 **Bug Fixes**
 
-- 修复 ImagePreview 页码索引显示错误的问题 [\#1961](https://github.com/youzan/vant/pull/1961)
-- 修复 Sku 在部分浏览器下键盘弹出时遮挡输入框的问题 [\#1965](https://github.com/youzan/vant/pull/1965)
+- NumberKeyboard: 修复 show-delete-key 属性不生效的问题 [#5935](https://github.com/youzan/vant/issues/5935)
+- Toast: 修复在部分机型上高度错误的问题 [#5931](https://github.com/youzan/vant/issues/5931)
+- Sticky: 修复 SSR 时访问 window 对象导致报错的问题 [#5958](https://github.com/youzan/vant/issues/5958)
 
+### [v2.5.8](https://github.com/youzan/vant/compare/v2.5.7...v2.5.8)
 
-## [v1.3.8](https://github.com/youzan/vant/tree/v1.3.8)
-`2018-10-17`
+`2020-03-27`
 
-**Improvements**
+**Feature**
 
-- Tag: 新增 size 属性 [\#1949](https://github.com/youzan/vant/pull/1949)
-- Tag: 新增 color 属性 [\#1946](https://github.com/youzan/vant/pull/1946)
-- Tag: 新增 round 属性 [\#1947](https://github.com/youzan/vant/pull/1947)
-- Panel: 新增 icon 属性 [\#1942](https://github.com/youzan/vant/pull/1942)
-- Field: 新增 clear 事件 [\#1944](https://github.com/youzan/vant/pull/1944)
-- Icon: 新增 cart-o 图标 [\#1932](https://github.com/youzan/vant/pull/1932)
-- Rate: 支持手势滑动修改评分 [\#1951](https://github.com/youzan/vant/pull/1951)
-- AddressList: 新增 switchable 属性 [\#1938](https://github.com/youzan/vant/pull/1938)
+- 新增 Webstorm 的 web-types.json 定义文件，提供智能提示 [#5900](https://github.com/youzan/vant/issues/5900)
+- Form: 新增 show-error-message 属性 [#5927](https://github.com/youzan/vant/issues/5927)
+- ImagePreview: 开启延迟渲染，提高渲染性能 [#5879](https://github.com/youzan/vant/issues/5879)
+- Swipe: 新增 lazy-render 属性 [365f2b](https://github.com/youzan/vant/commit/365f2b16f7d9592f92413e206439585468a8a1c7)
 
-**Bug Fixes**
-
-- 修复 Card 描述过长时文字溢出的问题 [\#1935](https://github.com/youzan/vant/pull/1935)
-- 修复 SubmitBar 按钮文字过大时显示不全的问题 [\#1940](https://github.com/youzan/vant/pull/1940)
-
-
-## [v1.3.7](https://github.com/youzan/vant/tree/v1.3.7)
-`2018-10-12`
-
-**Improvements**
+**Improvement**
 
-- Swipe: 新增 indica为r 插槽 [\#1923](https://github.com/youzan/vant/pull/1923)
-- AddressEdit: 优化清除按钮颜色 [\#1919](https://github.com/youzan/vant/pull/1919)
+- Circle: 优化文字边距 [10f32d](https://github.com/youzan/vant/commit/10f32d6619199e99ff743cb5425db1e54e495fd0)
+- Sidebar: 新增 overflow-y: auto 样式 [#5921](https://github.com/youzan/vant/issues/5921)
+- Swipe: 调整为 flex 布局 [f701de](https://github.com/youzan/vant/commit/f701de9e58db5f88a582e3277c97a0c9ca99eec4)
 
 **Bug Fixes**
 
-- 修复 Toast 在 SSR 时未返回实例的问题 [\#1927](https://github.com/youzan/vant/pull/1927)
-- 修复 Tab 所有标签禁用时默认标签错误的问题 [\#1926](https://github.com/youzan/vant/pull/1926)
-- 修复 SubmitBar 文字颜色
+- Calendar: 修复 multiple 模式下 default-date 格式错误的问题 [#5907](https://github.com/youzan/vant/issues/5907)
+- PullRefresh: 修复内部元素高度未填满容器的问题 [#5878](https://github.com/youzan/vant/issues/5878)
+- Sticky: 修复切换显示状态时可能出现定位错误的问题 [#5888](https://github.com/youzan/vant/issues/5888)
+- Swipe: 修复屏幕 resize 后可能导致轮播位置错误的问题 [#5922](https://github.com/youzan/vant/issues/5922)
 
+### [v2.5.7](https://github.com/youzan/vant/compare/v2.5.6...v2.5.7)
 
-## [v1.3.6](https://github.com/youzan/vant/tree/v1.3.6)
-`2018-10-11`
+`2020-03-20`
 
-**Improvements**
-
-- Card: 新增 origin-price 属性，优化内部结构 [\#1916](https://github.com/youzan/vant/pull/1916)
-
 **Bug Fixes**
 
-- 修复 Toast 设置 forbidClick 后出现点击高亮背景色的问题 [\#1914](https://github.com/youzan/vant/pull/1914)
+- Locale: 修复日语配置文件命名错误的问题 [e8c88a](https://github.com/youzan/vant/commit/e8c88a380217eb48cef8aa7dc29d378a1031120a)
 
+### [v2.5.6](https://github.com/youzan/vant/compare/v2.5.5...v2.5.6)
 
-## [v1.3.5](https://github.com/youzan/vant/tree/v1.3.5)
-`2018-10-10`
+`2020-03-20`
 
-**Improvements**
+**Feature**
 
-- Tab: 样式升级 [\#1908](https://github.com/youzan/vant/pull/1908)
-- Badge: 样式升级 [\#1907](https://github.com/youzan/vant/pull/1907)
-- Dialog: 样式升级 [\#1906](https://github.com/youzan/vant/pull/1906)
-- NoticeBar: 样式升级 [\#1893](https://github.com/youzan/vant/pull/1893)
-- Collapse: 新增 disabled 属性 [\#1892](https://github.com/youzan/vant/pull/1892)
-- TreeSelect: 新增 height 属性 [\#1905](https://github.com/youzan/vant/pull/1905)
-- ImagePreview: 支持手势缩放图片 [\#1895](https://github.com/youzan/vant/pull/1895)
+- Calendar: 新增 allow-same-day 属性 [#5688](https://github.com/youzan/vant/issues/5688)
+- GoodsAction: 新增 badge 属性 [0dea9e](https://github.com/youzan/vant/commit/0dea9e2cb1562decc07ef4467d085247b91924fd)
+- GridItem: 新增 badge 属性 [db94b2](https://github.com/youzan/vant/commit/db94b20c8258ebb31bac99ea1f0c918d62de1059)
+- Icon: 新增 badge 属性 [575577](https://github.com/youzan/vant/commit/575577ed58a1e6daa36ffba7db8054556aa0d24d)
+- ImagePreview: 新增 closed 事件 [5b279a](https://github.com/youzan/vant/commit/5b279ab0dc862c0a3257d18fe17d04ed8dd8c1dd)
+- locale: 新增日语配置文件 [#5853](https://github.com/youzan/vant/issues/5853) [#5854](https://github.com/youzan/vant/issues/5854)
+- SidebarItem: 新增 badge 属性 [01482f](https://github.com/youzan/vant/commit/01482f20bc2150a7e4667fac062b4f129b0ac0c1)
+- Tab: 新增 badge 属性 [214b13](https://github.com/youzan/vant/commit/214b13b8fff411a401fe6ccfc9eb979a51df7461)
+- TabbarItem: 新增 badge 属性 [d61cbd](https://github.com/youzan/vant/commit/d61cbdd086c9050fa467803be676a1eb14d50f16)
+- TreeSelect: 新增 badge 选项 [0cc7a3](https://github.com/youzan/vant/commit/0cc7a305287f43314910f893092c09004cef5349)
+- Uploader: 新增 chooseFile 方法 [#5818](https://github.com/youzan/vant/issues/5818)
+- Uploader: 新增 show-upload 属性 [66c0b3](https://github.com/youzan/vant/commit/66c0b3c1b7d101f242071cf90e5c0b2b899edbdd)
+- Uploader: 支持在 before-read 中返回修改后的文件对象 [#5813](https://github.com/youzan/vant/issues/5813)
 
 **Bug Fixes**
 
-- 修复 Toast 在 SSR 时报错的问题 [\#1910](https://github.com/youzan/vant/pull/1910)
-- 修复 Swipe 多指触控时可能导致展示错误的问题 [\#1890](https://github.com/youzan/vant/pull/1890)
+- Calendar: 修复在 Form 内使用时错误触发表单提交的问题 [#5873](https://github.com/youzan/vant/issues/5873)
+- Field: 修复通过插槽使用 Uploader 时上传图片未展示的问题 [#5868](https://github.com/youzan/vant/issues/5868)
+- ImagePreview: 修复上次调用结果未清除的问题 [7fcfc5](https://github.com/youzan/vant/commit/7fcfc5f3270d3507a002247c53a29da211f1ecb6)
+- Picker: 修复 setValues、setIndexes 等方法未触发多列联动更新的问题 [#5807](https://github.com/youzan/vant/issues/5807)
+- Toast: 修复设置 forbidClick 后未锁定滚动的问题 [df8777](https://github.com/youzan/vant/commit/df877751b3497eb6477797ee1a52933067e57676)
 
+### [v2.5.5](https://github.com/youzan/vant/compare/v2.5.4...v2.5.5)
 
-## [v1.3.4](https://github.com/youzan/vant/tree/v1.3.4)
-`2018-10-02`
+`2020-03-11`
 
-**Improvements**
+**Feature**
 
-- But为n: 新增 round 属性 [\#1885](https://github.com/youzan/vant/pull/1885)
-- But为n: 优化禁用态样式 [\#1886](https://github.com/youzan/vant/pull/1886)
-- Card: 新增 tag 属性 [\#1878](https://github.com/youzan/vant/pull/1878)
-- Card: 新增 thumb-link 属性 [\#1879](https://github.com/youzan/vant/pull/1879)
-- ImagePreview: 新增 show-index 属性 [\#1889](https://github.com/youzan/vant/pull/1889)
-- Picker: 优化样式 [\#1887](https://github.com/youzan/vant/pull/1887)
-- SwipeCell: 新增 disabled 属性 [\#1884](https://github.com/youzan/vant/pull/1884)
+- Calendar: 新增 show-title 属性 [#5779](https://github.com/youzan/vant/issues/5779)
+- Calendar: 新增 show-subtitle 属性 [#5779](https://github.com/youzan/vant/issues/5779)
+- Field: 优化虚拟键盘，type="number" 调起数字键盘 [e89baa](https://github.com/youzan/vant/commit/e89baa12ae24dbd27466bd6ec694074ab99acf5d)
+- Stepper: 优化虚拟键盘，调起数字键盘 [58e74a](https://github.com/youzan/vant/commit/58e74a9e8bfc36f69103c6a301170c5f6ada03dd)
+- GoodsActionIcon: 新增 dot 属性 [b983ac](https://github.com/youzan/vant/commit/b983ac08919056e1095767d1deb3f78e5274b41c)
 
 **Bug Fixes**
 
-- 修复 Toast 类型定义错误 [\#1859](https://github.com/youzan/vant/pull/1859)
+- AddressEdit: 修复 showDetail 为 false 时仍然会校验地址的问题 [#5803](https://github.com/youzan/vant/issues/5803)
+- Calendar: 修复在 multiple 模式下 color 属性不生效的问题 [#5786](https://github.com/youzan/vant/issues/5786)
+- Field: 修复 button 插槽可能导致表单校验失败的问题 [#5785](https://github.com/youzan/vant/issues/5785)
+- GoodsActionIcon: 修复使用 icon 插槽时 info 属性不生效的问题 [#5788](https://github.com/youzan/vant/issues/5788)
+- Stepper: 修复在 Form 中使用时必须输入整数的问题 [#5792](https://github.com/youzan/vant/issues/5792)
+- Sticky: 修复 Sticky 切换显隐导致位置错误的问题 [41e5c0](https://github.com/youzan/vant/commit/41e5c035dcf75c1f1d4c04673d3db255e439d452)
 
+### [v2.5.4](https://github.com/youzan/vant/compare/v2.5.3...v2.5.4)
 
-## [v1.3.3](https://github.com/youzan/vant/tree/v1.3.3)
-`2018-09-23`
+`2020-03-08`
 
-**Improvements**
+**Feature**
 
-- SwipeCell: 新增 click 事件 [\#1848](https://github.com/youzan/vant/pull/1848)
-- Locale: 优化错误处理 [\#1835](https://github.com/youzan/vant/pull/1835)
-- 文档: 增加单个组件的更新日志 [\#1816](https://github.com/youzan/vant/pull/1816)
+- Calendar: 新增 multiple 类型 [#5705](https://github.com/youzan/vant/issues/5705)
+- Field: 输入框增加 `line-height: inherit` 样式 [#5737](https://github.com/youzan/vant/issues/5737)
+- Search: 新增 left 插槽 [#5771](https://github.com/youzan/vant/issues/5771)
+- Uploader: 新增 upload-icon 属性 [b3b46c](https://github.com/youzan/vant/commit/b3b46cde45f885b746a2a633e5fc0e87e1881abe)
+- Uploader: 圆角大小由 4px 调整为 8px [c67918](https://github.com/youzan/vant/commit/c6791841f4b06e699a684da0243526147438d852)
+- Uploader: 优化上传区域样式 [bd4e64](https://github.com/youzan/vant/commit/bd4e64190e63eea30c342ea5255d8603a70385f9)
 
 **Bug Fixes**
-
-- 修复 DatetimePicker 时间范围变化时未正确更新 value 的问题 [\#1825](https://github.com/youzan/vant/pull/1825)
-- 修复 Field 类型为 number 时 maxlength 属性不生效的问题 [\#1839](https://github.com/youzan/vant/pull/1839)
-- 修复 PullRefresh 在部分情况下提示 preventDefault 警告的问题 [\#1819](https://github.com/youzan/vant/pull/1819)
-- 修复 Tag 边框颜色错误的问题 [\#1834](https://github.com/youzan/vant/pull/1834)
-
-
-## [v1.3.2](https://github.com/youzan/vant/tree/v1.3.2)
-`2018-09-14`
 
-**Improvements**
+- Calendar: 修复 poppable 为 false 无法自动定位到当前日期的问题 [#5760](https://github.com/youzan/vant/issues/5760)
+- DropdownMenu: 修复个别情况下 scrollIntoView 报错的问题 [#5770](https://github.com/youzan/vant/issues/5770)
+- Tabs: 修复 scrollspy 在自定义的滚动容器中无法跳转的问题 [0993b3](https://github.com/youzan/vant/commit/0993b394b16fdbf92bdf02d39090e631bba1f471)
+- Tabs: 修复 scrollspy 开启时在 safari 上可能出现标签弹回的问题 [#5727](https://github.com/youzan/vant/issues/5727)
+- TimePicker: 修复动态设置 min-date 时可能出现选中项错误的问题 [#5767](https://github.com/youzan/vant/issues/5767)
 
-- AddressEdit: 优化地区展示 [\#1785](https://github.com/youzan/vant/pull/1785)
-- Dialog: 更新按钮颜色 [\#1774](https://github.com/youzan/vant/pull/1774)
-- List: 新增 loading 插槽 [\#1804](https://github.com/youzan/vant/pull/1804)
-- Tab: 优化点击反馈 [\#1775](https://github.com/youzan/vant/pull/1775)
-- 更新组件边框色值 [\#1773](https://github.com/youzan/vant/pull/1773)
+**Types**
 
-**Bug Fixes**
-
-- 修复 hairline 在 Chrome 69 下有时无法展示的问题 [\#1776](https://github.com/youzan/vant/pull/1776) [\#1805](https://github.com/youzan/vant/pull/1805)
-- 修复 AddressEdit 详细地址下边框未展示的问题 [\#1800](https://github.com/youzan/vant/pull/1800)
-- 修复 AddressList 详细地址未完全展示的问题 [\#1786](https://github.com/youzan/vant/pull/1786)
-- 修复 Dialog 缺少 className 类型定义的问题 [\#1799](https://github.com/youzan/vant/pull/1799)
+- Form: 修复缺少 scrollToField 方法类型定义的问题 [df4439](https://github.com/youzan/vant/commit/df4439e9f6759a446b522652233703601093e99d)
+- ImagePreview: 修复缺少 closeable 选项类型定义的问题 [d5438d](https://github.com/youzan/vant/commit/d5438dfe0dc9df22e94881b57def33207eca44e6)
+- Toast: 修复缺少 iconPrefix 选项类型定义的问题 [3237e5](https://github.com/youzan/vant/commit/3237e56561e1b6b80ea3431f3b8a9f30f61d4b08)
 
+### [v2.5.3](https://github.com/youzan/vant/compare/v2.5.2...v2.5.3)
 
-## [v1.3.1](https://github.com/youzan/vant/tree/v1.3.1)
-`2018-09-07`
+`2020-02-28`
 
-**Improvements**
+**Feature**
 
-- 增加 vue-cli 3 使用介绍 [\#1754](https://github.com/youzan/vant/pull/1754)
+- ActionSheet: 新增 close-on-popstate 属性 [#5716](https://github.com/youzan/vant/issues/5716)
+- Area: 新增 columns-top、columns-bottom 属性 [#5719](https://github.com/youzan/vant/issues/5719)
+- Area: 新增 title 插槽 [#5719](https://github.com/youzan/vant/issues/5719)
+- Button: 新增 icon-prefix 属性 [#5666](https://github.com/youzan/vant/issues/5666)
+- Cell: 新增 icon-prefix 属性 [#5666](https://github.com/youzan/vant/issues/5666)
+- Field: 新增 icon-prefix 属性 [#5666](https://github.com/youzan/vant/issues/5666)
+- Form: validator 新增 rule 参数 [#5704](https://github.com/youzan/vant/issues/5704)
+- Form: 支持将 message 定义为函数 [#5704](https://github.com/youzan/vant/issues/5704)
+- Form: 支持在 rule 中定义 pattern [#5700](https://github.com/youzan/vant/issues/5700)
+- Form: 支持在 rule 中定义 formatter [d87835](https://github.com/youzan/vant/commit/d878354ebf8eedf849764480c11a90c4cdd2fbe3)
+- GridItem: 新增 icon-prefix 属性 [#5666](https://github.com/youzan/vant/issues/5666)
+- Rate: 新增 icon-prefix 属性 [#5666](https://github.com/youzan/vant/issues/5666)
+- TabbarItem: 新增 icon-prefix 属性 [#5666](https://github.com/youzan/vant/issues/5666)
 
 **Bug Fixes**
 
-- 修复 But为n 加载图标颜色错误的问题 [\#1768](https://github.com/youzan/vant/pull/1768)
-- 修复 ImagePreview 类型定义错误 [\#1767](https://github.com/youzan/vant/pull/1767)
-- 修复 Tab 使用 card 主题时 color 属性不生效的问题 [\#1763](https://github.com/youzan/vant/pull/1763)
-- 修复 webpack 1 无法引入 babel-runtime 的问题 [\#1753](https://github.com/youzan/vant/pull/1753)
+- Calendar: 修复隐藏状态下 scrollIntoView 函数报错的问题 [#5708](https://github.com/youzan/vant/issues/5708)
+- DatetimePicker: 修复 getPicker 方法无法调用的问题 [#5710](https://github.com/youzan/vant/issues/5710)
+- Popup: 修复 close-on-popstate 在 keep-alive 下无效的问题 [f07077](https://github.com/youzan/vant/commit/f070773b42b86dd98d1f3989651e735895db78ee)
 
+### [v2.5.2](https://github.com/youzan/vant/compare/v2.5.1...v2.5.2)
 
-## [v1.3.0](https://github.com/youzan/vant/tree/v1.3.0)
-`2018-08-31`
+`2020-02-21`
 
-**Breaking changes**
+**Feature**
 
-- 升级至 babel 7, 同时组件库不再默认内置 Promise 兼容库 [\#1712](https://github.com/youzan/vant/pull/1712)
-- 考虑到可维护性和实际需求，Sku 组件不再支持 i18n 国际化 [\#1734](https://github.com/youzan/vant/pull/1734)
+- Calendar: 新增 close、closed 事件 [556f33](https://github.com/youzan/vant/commit/556f335cc224a40ab27bda863a67601c36339ea9)
+- Calendar: 新增 open、opened 事件 [a83082](https://github.com/youzan/vant/commit/a83082f599362456d85864904cb5f47b44138e43)
+- Form: 新增 scroll-to-error 属性 [#5680](https://github.com/youzan/vant/issues/5680)
+- Form: 新增 validate-trigger 属性 [c08db7](https://github.com/youzan/vant/commit/c08db724a3ed6440da5d5faebfa08561312f4d3a)
+- Form: 新增 scrollToField 方法 [#5680](https://github.com/youzan/vant/issues/5680)
+- Sku: 新增 preview-on-click-image 属性 [#5684](https://github.com/youzan/vant/issues/5684)
+- Sku: 新增 sku-header-image-extra 插槽 [#5696](https://github.com/youzan/vant/issues/5696)
 
-**Improvements**
-
-- 升级至 precss 3.0 [\#1696](https://github.com/youzan/vant/pull/1696)
-- AddressList: 支持禁用地址 [\#1729](https://github.com/youzan/vant/pull/1729)
-- Contact: 样式升级 [\#1693](https://github.com/youzan/vant/pull/1693)
-- Popup: 优化动画时长 [\#1694](https://github.com/youzan/vant/pull/1694)
-- Popup: get-container 属性支持传入 CSS 选择器 [\#1699](https://github.com/youzan/vant/pull/1699)
-- Rate: 新增 readonly 属性 [\#1731](https://github.com/youzan/vant/pull/1731)
-- Sku: 支持自定义 valida为r [\#1732](https://github.com/youzan/vant/pull/1732)
-- Sku: 增加对手机号留言的格式校验 [\#1732](https://github.com/youzan/vant/pull/1732)
-- Tab: 新增 scroll 事件 [\#1730](https://github.com/youzan/vant/pull/1730)
-- Loading: 支持配置为任意颜色 [\#1717](https://github.com/youzan/vant/pull/1717)
-
 **Bug Fixes**
 
-- 修复打包后版本号错误的问题 [\#1703](https://github.com/youzan/vant/pull/1703)
-- 修复 DatetimePicker 使用 minMinute 属性时初始值错误的问题 [\#1724](https://github.com/youzan/vant/pull/1724)
-- 修复 Swipe 在特定手势下可能出现位置错误的问题 [\#1723](https://github.com/youzan/vant/pull/1723)
-- 修复 Tab 能通过手势滑动至禁用标签的问题 [\#1704](https://github.com/youzan/vant/pull/1704)
-- 修复 Tabbar 使用 icon 插槽时 info 属性不生效的问题 [\#1705](https://github.com/youzan/vant/pull/1705)
+- Swipe: 修复容器宽度为小数时在部分安卓设备上出现换行的问题 [02afe7](https://github.com/youzan/vant/commit/02afe720c6aaeeb58036cde3072b6373e3b9254f)
 
+### [v2.5.1](https://github.com/youzan/vant/compare/v2.5.1-beta.0...v2.5.1)
 
-## [v1.2.1](https://github.com/youzan/vant/tree/v1.2.1)
-`2018-08-24`
+`2020-02-18`
 
-**Improvements**
+**Feature**
 
-- AddressEdit: 样式升级 [\#1676](https://github.com/youzan/vant/pull/1676)
-- ContactEdit: 样式升级 [\#1677](https://github.com/youzan/vant/pull/1677)
-- Collapse: 增加多个 props 和插槽 [\#1671](https://github.com/youzan/vant/pull/1671)
-- Field: 优化清除按钮颜色 [\#1678](https://github.com/youzan/vant/pull/1678)
-- Icon: 新增 class-prefix 属性 [\#1688](https://github.com/youzan/vant/pull/1688)
-- Swipe: 支持自定义 item 高度、宽度 [\#1664](https://github.com/youzan/vant/pull/1664)
+- Sku: 新增 initialMessages 字段
+- Calendar: 在调用 reset 方法后自动定位到当前月份 [407b7d](https://github.com/youzan/vant/commit/407b7ded43bc87c98605444dbbb829f5f05744b6)
+- Calendar: 在修改 default-date 属性后自动定位到当前月份 [#5664](https://github.com/youzan/vant/issues/5664)
 
 **Bug Fixes**
-
-- 修复 Stepper 初始值不能为 0 的问题 [\#1687](https://github.com/youzan/vant/pull/1687)
-- 修复 Tab 使用 color 属性时下划线样式错误的问题 [\#1686](https://github.com/youzan/vant/pull/1686)
-- 修复 share 图标加粗时样式错误的问题 [\#1670](https://github.com/youzan/vant/pull/1670)
-- 修复 Popup 使用 get-conntainer 属性时不能被正确销毁的问题 [\#1665](https://github.com/youzan/vant/pull/1665)
 
+- Calendar: 修复在个别情况下日历渲染为空白的问题 [#5640](https://github.com/youzan/vant/issues/5640)
+- Calendar: 修复在单选情况下使用 max-range 属性导致报错的问题 [79d2c3](https://github.com/youzan/vant/commit/79d2c344f9ee9945b09434b35cbe63a3816410ad)
+- Form: 修复 error-message-align 属性类型定义报错的问题 [#5674](https://github.com/youzan/vant/issues/5674)
+- Swipe: 修复在隐藏状态下触发浏览器缩放时元素宽度错误的问题 [#5678](https://github.com/youzan/vant/issues/5678)
 
-## [v1.2.0](https://github.com/youzan/vant/tree/v1.2.0)
-`2018-08-20`
+### [v2.5.0](https://github.com/youzan/vant/compare/v2.4.7...v2.5.0)
 
-**Breaking changes**
+`2020-02-15`
 
-- AddressEdit: 采用驼峰命名的数据结构 [\#1644](https://github.com/youzan/vant/pull/1644)
-- Coupon: 采用驼峰命名的数据结构 [\#1643](https://github.com/youzan/vant/pull/1643)
-- CellSwipe: 规范命名为 SwipeCell [\#1652](https://github.com/youzan/vant/pull/1652)
+**New Component**
 
-**Improvements**
+- 新增 [Form 表单](#/zh-CN/form)组件
 
-- Area: 更新省市区数据 [\#1653](https://github.com/youzan/vant/pull/1653)
-- AddressList: 样式优化升级 [\#1628](https://github.com/youzan/vant/pull/1628)
-- Coupon: 样式优化升级 [\#1636](https://github.com/youzan/vant/pull/1636)
-- SubmitBar: 样式优化升级 [\#1631](https://github.com/youzan/vant/pull/1631)
-- But为n: 新增 square 属性 [\#1627](https://github.com/youzan/vant/pull/1627)
-- Icon: 新增 aim 图标 [\#1655](https://github.com/youzan/vant/pull/1655)
-- Icon: 更新 edit 图标 [\#1635](https://github.com/youzan/vant/pull/1635)
-- Radio: 优化样式 [\#1626](https://github.com/youzan/vant/pull/1626)
-- Tab : 支持自定义颜色 [\#1622](https://github.com/youzan/vant/pull/1622)
-- Tabbar: 优化 DOM 结构 [\#1640](https://github.com/youzan/vant/pull/1640)
+**Feature**
 
-**Bug Fixes**
-
-- 修复 AddressEdit 删除按钮展示逻辑 [\#1648](https://github.com/youzan/vant/pull/1648)
-- 修复 Icon size 属性不生效的问题 [\#1634](https://github.com/youzan/vant/pull/1634)
+- Field: 新增 name 属性 [f3398d](https://github.com/youzan/vant/commit/f3398dc2cdd1191613b97454b4725275458bde1b)
+- Field: 新增 rules 属性 [0ed7aa](https://github.com/youzan/vant/commit/0ed7aaac88f769549b688259b8e6e1050a10cb99)
+- AddressEdit: 新增 disable-area 属性 [#5630](https://github.com/youzan/vant/issues/5630)
+- AddressList: 新增 item-bottom 插槽 [#5629](https://github.com/youzan/vant/issues/5629)
+- RadioGroup: 新增 direction 属性 [4dd41b](https://github.com/youzan/vant/commit/4dd41b23decbaf86c8812e0afcc1d72773f223f6)
+- CheckboxGroup: 新增 direction 属性 [153902](https://github.com/youzan/vant/commit/15390241d8d4252a828aa0e9d8c61377ba07512a)
+- ImagePreview: 新增 scale 事件 [#5658](https://github.com/youzan/vant/issues/5658)
+- ImagePreview: 新增 closeable 属性 [#5654](https://github.com/youzan/vant/issues/5654)
 
+**Style**
 
-## [v1.1.16](https://github.com/youzan/vant/tree/v1.1.16)
-`2018-08-10`
+- Field: input 插槽的内容默认在垂直方向居中 [03c826](https://github.com/youzan/vant/commit/03c826c4d44efd95a5ee509b5f183d8ded574fd7)
+- Field: 优化 label-position 为 right 时的右边距 [2d6445](https://github.com/youzan/vant/commit/2d64458776df87625db9e8b07d83a7044a2bcf53)
+- Uploader: 优化禁用态上传区域颜色 [#5628](https://github.com/youzan/vant/issues/5628)
 
-**Improvements**
-
-- Actionsheet: 新增 select 事件 [\#1594](https://github.com/youzan/vant/pull/1594)
-- ImagePreview: 支持传入 onClose 回调函数 [\#1589](https://github.com/youzan/vant/pull/1589)
-- List: 新增 check 方法 [\#1590](https://github.com/youzan/vant/pull/1590)
-- Search: 优化样式结构 [\#1603](https://github.com/youzan/vant/pull/1603)
-
 **Bug Fixes**
-
-- 修复 Actionsheet 选项加载中时仍然有点击态的问题 [\#1587](https://github.com/youzan/vant/pull/1587)
-- 修复 DatetimePicker 使用 formatter 时默认值错误的问题 [\#1591](https://github.com/youzan/vant/pull/1591)
 
+- Calendar: 修复特定情况下未正确渲染日历内容的问题 [#5640](https://github.com/youzan/vant/issues/5640)
+- Dialog: 修复 Dialog.Component 类型定义错误的问题 [#5646](https://github.com/youzan/vant/issues/5646)
+- Field: 修复子元素文字颜色错误的问题 [e17a4a](https://github.com/youzan/vant/commit/e17a4a24993822b0f35114dacbbb3bebc5b51a60)
+- Picker: 修复未触发弹性滚动时 change 事件不生效的问题 [#5662](https://github.com/youzan/vant/issues/5662)
+- Tabs: 修复自定义滚动容器时 scrollspy 属性无效的问题 [#5637](https://github.com/youzan/vant/issues/5637)
+- Calendar: 修复底部按钮会触发表单提交的问题 [e93fcb](https://github.com/youzan/vant/commit/e93fcb0603b988a2ffb5b1651588f7e4ad8aa92d)
 
-## [v1.1.15](https://github.com/youzan/vant/tree/v1.1.15)
-`2018-08-03`
+### [v2.4.7](https://github.com/youzan/vant/compare/v2.4.7-beta.0...v2.4.7)
 
-**Improvements**
+`2020-02-06`
 
-- But为n: 新增 warning 类型 [\#1558](https://github.com/youzan/vant/pull/1558)
-- SwipeCell: 新增 open 方法 [\#1546](https://github.com/youzan/vant/pull/1546)
-- DatetimePicker: 支持限制分钟范围 [\#1583](https://github.com/youzan/vant/pull/1583)
-- Icon: 新增 size 属性 [\#1555](https://github.com/youzan/vant/pull/1555)
-- Stepper: 优化禁用态样式 [\#1560](https://github.com/youzan/vant/pull/1560)
-- Stepper: 优化输入体验 [\#1534](https://github.com/youzan/vant/pull/1534)
-- Tab: 支持定义 sticky 时距离顶部的高度 [\#1519](https://github.com/youzan/vant/pull/1519)
+**Feature**
 
-**Bug Fixes**
-
-- 修复 But为n 在浏览器文字缩放时样式错误的问题 [\#1545](https://github.com/youzan/vant/pull/1545)
-- 修复 Field date 类型在 iOS 设备下显示错误的问题 [\#1586](https://github.com/youzan/vant/pull/1586)
-- 修复 van-clearfix 样式类未生效的问题 [\#1559](https://github.com/youzan/vant/pull/1559)
-- 修复 Tabbar 点击当前标签时依然会触发 change 事件的问题 [\#1571](https://github.com/youzan/vant/pull/1571)
+- Calendar: 优化无障碍访问 [2124cc](https://github.com/youzan/vant/commit/2124cc5261be4a7d666cf6f70d4295309f3705d9)
+- Field: 字数统计达到上限时高亮展示 [61093e](https://github.com/youzan/vant/commit/61093ef00f2dc421eb94ec7690093c1d565a296c)
+- Sku: 新增 sku-actions-top 插槽 [#5617](https://github.com/youzan/vant/issues/5617)
+- Uploader: 支持展示上传中状态 [#5625](https://github.com/youzan/vant/issues/5625)
+- Uploader: 支持展示上传失败状态 [#5624](https://github.com/youzan/vant/issues/5624)
 
-## [v1.1.14](https://github.com/youzan/vant/tree/v1.1.14)
-`2018-07-19`
+**Style**
 
-**Improvements**
+- ActionSheet: 新增 @action-sheet-close-icon-active-color 变量 [265bfe](https://github.com/youzan/vant/commit/265bfeaac756e05803858062ab1ece2092a08e17)
+- Popup: 新增 @popup-close-icon-active-color 变量 [660b03](https://github.com/youzan/vant/commit/660b0399512d3deddcdfb99af5cff1674617c515)
 
-- Collapse: 增加切换动画 [\#1500](https://github.com/youzan/vant/pull/1500)
-- CouponCell: 优化文案 [\#1499](https://github.com/youzan/vant/pull/1499)
-- Stepper: 优化输入体验  [\#1484](https://github.com/youzan/vant/pull/1484)
-- Tab: 新增 change 事件 [\#1503](https://github.com/youzan/vant/pull/1503)
-- DatetimePicker: 支持自定义选项文字 [\#1497](https://github.com/youzan/vant/pull/1497)
-
 **Bug Fixes**
-- 修复 Field 行高错误 [\#1486](https://github.com/youzan/vant/pull/1486)
-- 修复 AddressEdit 格式化字符串时报错的问题 [\#1487](https://github.com/youzan/vant/pull/1487)
-- 修复 Progress 与 Collapse 嵌套使用时无法正确渲染的问题 [\#1513](https://github.com/youzan/vant/pull/1513)
-- 修复 Stepper integer 属性在 Android 上无法生效的问题 [\#1482](https://github.com/youzan/vant/pull/1482)
-- 修复 Tab 在路由切换时标签位置错误的问题 [\#1512](https://github.com/youzan/vant/pull/1512)
-- 修复 Tab sticky 属性在局部滚动元素下无法生效的问题 [\#1496](https://github.com/youzan/vant/pull/1496)
 
+- Calendar: 修复选中日期 className 属性未生效的问题 [0b7c56](https://github.com/youzan/vant/commit/0b7c567a78c85fbf1c3d59fcd3ce76c691040ff1)
+- Popup: 修复使用 get-container 属性后 destroy 时抛出错误的问题
 
-## [v1.1.13](https://github.com/youzan/vant/tree/v1.1.13)
-`2018-07-13`
+### [v2.4.6](https://github.com/youzan/vant/compare/v2.4.5...v2.4.6)
 
-**Improvements**
+`2020-02-01`
 
-- But为n: 新增 plain 属性 [\#1444](https://github.com/youzan/vant/pull/1444)
-- Toast: 完善 TS 类型定义 [\#1468](https://github.com/youzan/vant/pull/1468)
-- Dialog: 完善 TS 类型定义 [\#1467](https://github.com/youzan/vant/pull/1467)
-- Radio: 新增 label-position 属性 [\#1446](https://github.com/youzan/vant/pull/1446)
-- Radio: 新增 label-disabled 属性 [\#1445](https://github.com/youzan/vant/pull/1445)
-- Search: 点击搜索按钮后收起键盘 [\#1448](https://github.com/youzan/vant/pull/1448)
-
 **Bug Fixes**
-
-- 修复 Swipe 多指触控时导致空白的问题 [\#1478](https://github.com/youzan/vant/pull/1478)
-- 修复 ImagePreview startPosition 属性不生效的问题 [\#1456](https://github.com/youzan/vant/pull/1456)
-- 修复 Picker 在部分安卓机型下选项高度错误的问题 [\#1449](https://github.com/youzan/vant/pull/1449)
-- 修复 vue-lazyload 1.2.6 版本出现不兼容更新的问题，暂时降级至 1.2.3 版本 [\#1481](https://github.com/youzan/vant/pull/1481)
 
+- Picker: 修复更新 columns 数据不生效的问题 [#5614](https://github.com/youzan/vant/issues/5614)
 
-## [v1.1.12](https://github.com/youzan/vant/tree/v1.1.12)
-`2018-07-06`
+### [v2.4.5](https://github.com/youzan/vant/compare/v2.4.4...v2.4.5)
 
-**Improvements**
+`2020-02-01`
 
-- Area: 新增 reset 方法 [\#1427](https://github.com/youzan/vant/pull/1427)
-- Checkbox: 支持自定义图标 [\#1414](https://github.com/youzan/vant/pull/1414)
-- Checkbox: 优化与 Cell 搭配使用的方式 [\#1430](https://github.com/youzan/vant/pull/1430)
-- Swipe: 屏幕滚动时不会左右滑动 [\#1425](https://github.com/youzan/vant/pull/1425)
-- Swipe: 屏幕大小变化时自动调整宽度 [\#1413](https://github.com/youzan/vant/pull/1413)
+**Feature**
 
-**Bug Fixes**
-
-- 修复 Progress 文字为空时样式错误的问题 [\#1411](https://github.com/youzan/vant/pull/1411)
-- 修复 Tab 同时进行插入和删除时顺序错误的问题 [\#1429](https://github.com/youzan/vant/pull/1429)
-- 修复 Vue.use 方法 TypeScript 类型错误 [\#1410](https://github.com/youzan/vant/pull/1410)
-- 修复 style 依赖丢失 [\#1426](https://github.com/youzan/vant/pull/1426)
+- Picker: 支持级联选择 [#4247](https://github.com/youzan/vant/issues/4247)
+- Slider: 新增 button-size 属性 [1e9b8c](https://github.com/youzan/vant/commit/1e9b8c846674562d56ab638a0982baab4bb6870e)
+- 优化 props 类型，原有 number 类型的 props 现在支持传入 string
 
+**Style**
 
-## [v1.1.11](https://github.com/youzan/vant/tree/v1.1.11)
-`2018-07-04`
+- DropdownItem: 新增 @dropdown-item-z-index 变量 [6f4c6f](https://github.com/youzan/vant/commit/6f4c6f5aa6614559cfc24bc361e68c9c938bbb61)
+- IndexBar: 新增 @index-anchor-z-index 变量 [89ee8e](https://github.com/youzan/vant/commit/89ee8e38723dadb2daa6ee31c325cdd2ad03ba99)
+- IndexBar: 新增 @index-bar-sidebar-z-index 变量 [89ee8e](https://github.com/youzan/vant/commit/89ee8e38723dadb2daa6ee31c325cdd2ad03ba99)
+- IndexBar: 新增 @index-bar-index-active-color 变量 [0011db](https://github.com/youzan/vant/commit/0011db75365b60699ae140d85e54b9e477f46a22)
+- Notify: 新增 @notify-text-color 变量 [9dcf57](https://github.com/youzan/vant/commit/9dcf57c65f5e046318e953f2e8ce87918b1cb312)
+- Overlay: 新增 @overlay-z-index 变量 [95d19f](https://github.com/youzan/vant/commit/95d19f70d1c90efc752074ff764b07787d89cf1e)
+- Rate: 新增 @rate-icon-disabled-color 变量 [8b8471](https://github.com/youzan/vant/commit/8b8471945c4313735a5fe59402212f37a31acfea)
+- Rate: 新增 @rate-icon-full-color 变量 [5c804c](https://github.com/youzan/vant/commit/5c804cf920b75c5bdf962fa49eae31363783f32f)
+- Rate: 新增 @rate-icon-void-color 变量 [f90015](https://github.com/youzan/vant/commit/f90015efe7619af055b9ebd4c8be7da1f17b8da0)
+- Slider: 新增 @slider-bar-height 变量 [a5819c](https://github.com/youzan/vant/commit/a5819c286e06469bc41e8aa9e0ed44cc21625dad)
+- Search: 新增 @search-content-background-color 变量 [ea7419](https://github.com/youzan/vant/commit/ea74194990314bd1ff1e8237c221be92fdb8ae37)
+- Step: 新增 @step-active-color 变量 [9e7a68](https://github.com/youzan/vant/commit/9e7a6874141fa05f0158ca8006c268d0a3d92679)
+- Tabbar: 新增 @tabbar-z-index 变量 [0441f7](https://github.com/youzan/vant/commit/0441f7ba098aca24b797de29d10af8f47cf32d15)
+- NavBar: 新增 @nav-bar-z-index 变量 [a2d870](https://github.com/youzan/vant/commit/a2d870ad8ee4912226ec8871cc4c2d56ef870902)
+- NumberKeyboard: 新增 @number-keyboard-z-index 变量 [760938](https://github.com/youzan/vant/commit/760938962399e0589b4a258ff29e7fe2f3ba90f1)
 
-**Improvements**
-
-- Actionsheet: 支持 lazy-render [\#1365](https://github.com/youzan/vant/pull/1365)
-- AddressEdit: 优化事件触发顺序 [\#1402](https://github.com/youzan/vant/pull/1402)
-- SwitchCell: 新增 size 属性 [\#1371](https://github.com/youzan/vant/pull/1371)
-- Checkbox: 新增 label-position 属性 [\#1394](https://github.com/youzan/vant/pull/1394)
-- Picker: 优化渲染性能 [\#1391](https://github.com/youzan/vant/pull/1391)
-- Tab: 更新 card 风格样式 [\#1364](https://github.com/youzan/vant/pull/1364)
-- Document: 完善 Dialog before-close 用法 [\#1383](https://github.com/youzan/vant/pull/1383)
-
 **Bug Fixes**
-
-- 修复 Area city_list 为空时报错的问题 [\#1374](https://github.com/youzan/vant/pull/1374)
-- 修复 DatetimePicker change 事件回调参数不正确的问题 [\#1370](https://github.com/youzan/vant/pull/1370)
-- 修复 Field readonly 状态下在 safari 上出现光标的问题 [\#1399](https://github.com/youzan/vant/pull/1399)
-- 修复 Field readonly 状态下仍然会显示清除按钮的问题 [\#1395](https://github.com/youzan/vant/pull/1395)
-- 修复 Tab 动态渲染时顺序错误的问题 [\#1372](https://github.com/youzan/vant/pull/1372)
 
+- ImagePreview: 修复双击缩放时 max-zoom 属性不生效的问题 [1baa60](https://github.com/youzan/vant/commit/1baa60f2244b4605dc82f6dcf564671f5c623023)
+- Popup: 修复 position 为 center 时 duration 属性不生效的问题 [44072e](https://github.com/youzan/vant/commit/44072e8c3f548cff78401780213ab7ef213372c3)
+- Step: 修复 active-color 未改变分隔线颜色的问题 [cfadce](https://github.com/youzan/vant/commit/cfadcefb0a1c29dfb1d940fbb7add746595158bd)
 
-## [v1.1.10](https://github.com/youzan/vant/tree/v1.1.10)
-`2018-06-28`
+### [v2.4.4](https://github.com/youzan/vant/compare/v2.4.3...v2.4.4) 🐭
 
-**Breaking changes**
+`2020-01-24`
 
-- Icon: 移除 birthday-privilege、member-day-privilege、balance-details [\#1331](https://github.com/youzan/vant/pull/1331)
+**Feature**
 
-**Improvements**
+- Card: 优化图片拉伸模式 [e766d5](https://github.com/youzan/vant/commit/e766d5d5743e7f492b3601ce4010b8524fb2b016)
+- Calendar: 新增 get-contaienr 属性 [#5609](https://github.com/youzan/vant/issues/5609)
+- Calendar: 新增 close-on-popstate 属性 [2b82dc](https://github.com/youzan/vant/commit/2b82dcc3dd2dba678aba5e0533e0ff6af7c55b11)
+- CountDown: 新增 change 事件 [#5599](https://github.com/youzan/vant/issues/5599)
+- GoodsActionButton: 新增 icon 属性 [b83bed](https://github.com/youzan/vant/commit/b83bed3b6c41d0896386b3c4b6380c9568bd3ef2)
 
-- Cell: 新增 arrow-direction 属性 [\#1323](https://github.com/youzan/vant/pull/1323)
-- Field: 新增 is-link 属性 [\#1347](https://github.com/youzan/vant/pull/1347)
-- Field: 新增 input-align 属性 [\#1352](https://github.com/youzan/vant/pull/1352)
-- Field: 新增 label-align 属性 [\#1353](https://github.com/youzan/vant/pull/1353)
-- Icon: 新增 idcard 图标 [\#1331](https://github.com/youzan/vant/pull/1331)
-- Sku: 新增 stepper-change 事件 [\#1349](https://github.com/youzan/vant/pull/1349)
-- PullRefresh: 新增 disabled 属性 [\#1336](https://github.com/youzan/vant/pull/1336)
-
 **Bug Fixes**
-
-- 修复 List 不可见时依旧会触发 load 事件的问题 [\#1345](https://github.com/youzan/vant/pull/1345)
-- 修复 Sku 图片截断问题 [\#1334](https://github.com/youzan/vant/pull/1334)
-
-
-## [v1.1.9](https://github.com/youzan/vant/tree/v1.1.9)
-`2018-06-22`
-
-**Improvements**
 
-- Actionsheet: 支持禁用选项 [\#1293](https://github.com/youzan/vant/pull/1293)
-- Field: 支持展示清除控件 [\#1309](https://github.com/youzan/vant/pull/1309)
-- Layout: 支持 Flex 布局 [\#1305](https://github.com/youzan/vant/pull/1305)
-- Locale: 新增 TS 类型定义 [\#1294](https://github.com/youzan/vant/pull/1294)
-- Tabbar: 新增 z-index 属性 [\#1310](https://github.com/youzan/vant/pull/1310)
-- Stepper: 输入框失焦且内容为空时，自动补全为最小值 [\#1316](https://github.com/youzan/vant/pull/1316)
+- Sku: 修复 get-container 属性不能为 string 类型的问题 [#5608](https://github.com/youzan/vant/issues/5608)
 
-**Bug Fixes**
+### [v2.4.3](https://github.com/youzan/vant/compare/v2.4.3-beta.0...v2.4.3)
 
-- 修复 DatetimePicker visible-item-count 属性拼写错误 [\#1312](https://github.com/youzan/vant/pull/1312)
-- 修复 Tab 在屏幕尺寸变化时未重新渲染的问题 [\#1304](https://github.com/youzan/vant/pull/1304)
+`2020-01-19`
 
+**Feature**
 
-## [v1.1.8](https://github.com/youzan/vant/tree/v1.1.8)
-`2018-06-14`
+- Swipe: 页面隐藏时暂停自动轮播 [113157](https://github.com/youzan/vant/commit/11315787ec980767973a3fded50fb5858e51e298)
+- Stepper: 新增 long-press 属性 [2f3ec6](https://github.com/youzan/vant/commit/2f3ec6a3d48a9d56f8127d27d51c3337f6e72cab)
+- Calendar: 新增 max-range、range-prompt 属性 [#5583](https://github.com/youzan/vant/issues/5583)
+- ImagePreview: 新增 @image-preview-index-text-shadow 变量 [e2f302](https://github.com/youzan/vant/commit/e2f30242eaaebd36d9816e2746fe6c44323e6aca)
 
-**Improvements**
+**Improvement**
 
-- AddressEdit: 支持配置按钮文字 [\#1287](https://github.com/youzan/vant/pull/1287)
-- AddressEdit: 简化内部代码结构 [\#1274](https://github.com/youzan/vant/pull/1274)
-- Area: 优化默认选项 [\#1272](https://github.com/youzan/vant/pull/1272)
-- Dialog: 支持单独传入 title 属性 [\#1270](https://github.com/youzan/vant/pull/1270)
-- Field: 新增 blur 方法 [\#1264](https://github.com/youzan/vant/pull/1264)
-- Field: 更新右侧按钮默认颜色 [\#1262](https://github.com/youzan/vant/pull/1262)
-- Sku: 限制留言最大长度 [\#1271](https://github.com/youzan/vant/pull/1271)
-- Build: 新增 stylelint 格式校验 [\#1280](https://github.com/youzan/vant/pull/1280)
-- Document: 新增示例源码链接 [\#1266](https://github.com/youzan/vant/pull/1266)
-- Document: 新增代码风格指引 [\#1245](https://github.com/youzan/vant/pull/1245)
+- Icon: 更新 share 图标 [2f77ac](https://github.com/youzan/vant/commit/2f77acfc6cef23ea664defc38c4cd806ceca1ee4)
+- Field: 优化 readonly 状态下的光标类型 [60173d](https://github.com/youzan/vant/commit/60173dd6bc004339333c50218d7c6b2f6c1bc07b)
+- Stepper: 优化 disable-input 状态下的输入框颜色 [959eca](https://github.com/youzan/vant/commit/959eca136c4ca6a39e22d36512db74b93ad100c6)
 
 **Bug Fixes**
 
-- 修复 Actionsheet 在 rem 布局下标题文字大小错误的问题 [\#1267](https://github.com/youzan/vant/pull/1267)
-- 修复 CheckboxGroup v-model 类型检查错误 [\#1254](https://github.com/youzan/vant/pull/1254)
-- 修复 Tab 标题长度变化时底部条未重新渲染的问题 [\#1260](https://github.com/youzan/vant/pull/1260)
-- 修复 Popup 内容过高时超出屏幕可视范围的问题 [\#1256](https://github.com/youzan/vant/pull/1256)
+- GoodsAction: 修复未设置容器高度的问题 [#5593](https://github.com/youzan/vant/issues/5593)
 
+**Types**
 
-## [v1.1.7](https://github.com/youzan/vant/tree/v1.1.7)
-`2018-06-06`
+- Calendar: 新增类型定义 [dac60c](https://github.com/youzan/vant/commit/dac60c8a37d3b2b3686dc25c1c34b4029a963d1b)
+- Toast: 修复 setDefaultOptions 方法参数定义错误 [#5582](https://github.com/youzan/vant/issues/5582)
 
-**Improvements**
+### [v2.4.2](https://github.com/youzan/vant/compare/v2.4.2-beta.1...v2.4.2)
 
-- Dialog: 支持 className 定制 [\#1224](https://github.com/youzan/vant/pull/1224)
-- Dialog: 优化内容为空时的样式 [\#1233](https://github.com/youzan/vant/pull/1233)
-- Field: 支持 v-model.number [\#1221](https://github.com/youzan/vant/pull/1221)
-- Swipe: 新增 swipeTo 方法 [\#1222](https://github.com/youzan/vant/pull/1222)
-- Document: 新增 ts-import-plugin 指引 [\#1230](https://github.com/youzan/vant/pull/1230)
+`2020-01-14`
 
+**Feature**
 
-## [v1.1.6](https://github.com/youzan/vant/tree/v1.1.6)
-`2018-06-01`
+- Sku: 新增 properties 属性 [#5525](https://github.com/youzan/vant/issues/5525)
+- Field: 新增 digit 类型 [#5524](https://github.com/youzan/vant/issues/5524)
+- Field: 新增 formatter 属性 [#5534](https://github.com/youzan/vant/issues/5534)
+- Image: 新增 error-icon 属性 [#5470](https://github.com/youzan/vant/issues/5470)
+- Image: 新增 loading-icon 属性 [#5469](https://github.com/youzan/vant/issues/5469)
+- Swipe: 新增 prev、next 方法 [#5548](https://github.com/youzan/vant/issues/5548)
+- GoodsAcitonIcon: 新增 color 属性 [#5576](https://github.com/youzan/vant/issues/5576)
 
-**Improvements**
+**Improvement**
 
-- Dialog: 新增 get-container 属性 [\#1176](https://github.com/youzan/vant/pull/1176)
-- Dialog: beforeClose 支持通过回调参数控制关闭动作 [\#1166](https://github.com/youzan/vant/pull/1166)
-- Icon: 更新 wechat 图标 [\#1156](https://github.com/youzan/vant/pull/1156)
-- Picker: 支持 html 类型的选项 [\#1213](https://github.com/youzan/vant/pull/1213)
-- SubmitBar: 优化渲染结构 [\#1184](https://github.com/youzan/vant/pull/1184)
-- Test: 增加大量单元测试用例 [\#1202](https://github.com/youzan/vant/pull/1202)
-- Doc: 完善快速上手文档 [\#1187](https://github.com/youzan/vant/pull/1187)
+- AddressList: 优化样式细节 [#5507](https://github.com/youzan/vant/issues/5507)
+- AddressEdit: 优化错误提示展示方式 [#5479](https://github.com/youzan/vant/issues/5479)
+- ActionSheet: 优化关闭按钮样式 [#5574](https://github.com/youzan/vant/issues/5574)
+- CouponList: 优化样式细节 [#5501](https://github.com/youzan/vant/issues/5501)
+- Calendar: 弹出时自动滚动到当前选中的日期 [#5526](https://github.com/youzan/vant/issues/5526)
+- ImagePreview: 优化图片加载失败提示样式 [#5570](https://github.com/youzan/vant/issues/5570)
+- 优化所有组件的光标类型 [c1a535](https://github.com/youzan/vant/commit/c1a535b0dd9470f8eb526e86aa59cf6dec022f3a)
 
 **Bug Fixes**
 
-- 修复 Tab title 插槽渲染无法更新的问题 [\#1212](https://github.com/youzan/vant/pull/1212)
-- 修复 AddressEdit 省市区弹层样式错误的问题 [\#1211](https://github.com/youzan/vant/pull/1211)
+- Button: 修复加载状态下仍会有点击反馈的问题 [0a70d3](https://github.com/youzan/vant/commit/0a70d344124ef756a73ea9edfee07303f394d880)
+- Card: 修复图片圆角样式未生效的问题 [#5480](https://github.com/youzan/vant/issues/5480)
+- Calendar: 修复选中的日期无法展示提示信息的问题 [#5536](https://github.com/youzan/vant/issues/5536)
+- Checkbox: 修复设置 label-disabled 后空白区域仍然可以点击的问题 [3d10d4](https://github.com/youzan/vant/commit/3d10d42fccadd1b9df46860d758a91f7825073e9)
+- CouponList: 修复点击反馈区域错误的问题 [#5521](https://github.com/youzan/vant/issues/5521)
+- Field: 修复 type 为 number 时在 iOS 上仍然能输入非数字字符的问题 [#5520](https://github.com/youzan/vant/issues/5520)
+- ImagePreview: 修复在桌面端使用时无法拖拽的问题 [#4487](https://github.com/youzan/vant/issues/4487)
+- Picker: 修复点击事件偶尔会丢失的问题 [5cbb9e](https://github.com/youzan/vant/commit/5cbb9e29989ac58d44a4ec503cbb984269c8f18e)
+- PullRefresh:修复 head-height 属性未正确设置高度的问题 [028747](https://github.com/youzan/vant/commit/028747c35471f33e8c2b0baa6fb8915510daac22)
+- Tabs: 修复容器设置 fixed 布局时无法渲染底部条的问题 [#5496](https://github.com/youzan/vant/issues/5496)
 
+### [v2.4.1](https://github.com/youzan/vant/compare/v2.4.0...v2.4.1)
 
-## [v1.1.5](https://github.com/youzan/vant/tree/v1.1.5)
-`2018-05-24`
+`2020-01-02`
 
-**Improvements**
+**Feature**
 
-- Rate: 新增 change 事件 [\#1102](https://github.com/youzan/vant/pull/1102)
-- Popup: 新增 lazyRender 属性 [\#1138](https://github.com/youzan/vant/pull/1138)
-- NumberKeyboard: 新增 close 事件 [\#1127](https://github.com/youzan/vant/pull/1127)
-- Sku: 优化错误提示 [\#1100](https://github.com/youzan/vantpull/1100)
-- Dialog: 优化按钮文字选中 [\#1148](https://github.com/youzan/vant/pull/1148)
-- Picker: 优化未选中项的颜色 [\#1142](https://github.com/youzan/vant/pull/1142)
-- AddressEdit: 优化空值校验 [\#1150](https://github.com/youzan/vant/pull/1150)
-- TreeSelect: 支持 string 类型 id [\#1126](https://github.com/youzan/vant/pull/1126)
-- Utils: 移除未使用的 scroll 方法 [\#1112](https://github.com/youzan/vant/pull/1112)
+- ContactEdit: 优化错误提示展示方式 [#5437](https://github.com/youzan/vant/issues/5437)
+- CouponCell: 优先展示 value 字段的数值 [#5438](https://github.com/youzan/vant/issues/5438)
 
 **Bug Fixes**
-
-- 修复 Toast 使用 forbidClick 属性时导致其他弹层的蒙层失效的问题 [\#1154](https://github.com/youzan/vant/pull/1154)
-- 修复 Field 在 safari 上不正确的 margin [\#1147](https://github.com/youzan/vant/pull/1147)
-- 修复 Progress 文字超出边界的问题 [\#1135](https://github.com/youzan/vant/pull/1135)
-
-
-## [v1.1.4](https://github.com/youzan/vant/tree/v1.1.4)
-`2018-05-18`
-
-**Improvements**
 
-- AddressEdit: 适配小屏手机 [\#1082](https://github.com/youzan/vant/pull/1082)
-- Cell: 支持 number 类型的 title、value [\#1073](https://github.com/youzan/vant/pull/1073)
-- Field: 新增 left-icon 属性 [\#1092](https://github.com/youzan/vant/pull/1092)
-- Progress: 支持渐变色 [\#1098](https://github.com/youzan/vant/pull/1098)
-- Build: 升级 webpack-serve [\#1056](https://github.com/youzan/vant/pull/1056)
-- 调整示例的目录结构 [\#1052](https://github.com/youzan/vant/pull/1052)
-- 调整文档的目录结构 [\#1066](https://github.com/youzan/vant/pull/1066)
-- 使用 Jest 重构单元测试 [\#1051](https://github.com/youzan/vant/pull/1051)
+- Calendar: 修复日期对应的星期数展示错误的问题 [#5452](https://github.com/youzan/vant/issues/5452)
+- List: 修复 direction 为 up 时加载事件触发时机错误的问题 [#5439](https://github.com/youzan/vant/issues/5439)
 
-**Bug Fixes**
-
-- 修复 DatetimePicker 初始值错误的问题 [\#1093](https://github.com/youzan/vant/pull/1093)
-- 修复 GoodsAction info 长度超过三位数时显示错误 [\#1074](https://github.com/youzan/vant/pull/1074)
-- 修复 icon 样式模板错误 [\#1091](https://github.com/youzan/vant/pull/1091)
+### [v2.4.0](https://github.com/youzan/vant/compare/v2.3.3...v2.4.0)
 
+`2020-01-01`
 
-## [v1.1.3](https://github.com/youzan/vant/tree/v1.1.3)
-`2018-05-12`
+**New Component**
 
-**Improvements**
+- 新增 Calendar 日历组件
 
-- AddressEdit: 新增 cancel-delete 事件 [\#1047](https://github.com/youzan/vant/pull/1047)
-- Field: 新增 label 插槽 [\#1048](https://github.com/youzan/vant/pull/1048)
-- Icon: 更新 search 图标 [\#1025](https://github.com/youzan/vant/pull/1025)
-- Icon: 新增 color 属性 [\#1031](https://github.com/youzan/vant/pull/1031)
-- ImagePreview: 优化点击检测 [\#1042](https://github.com/youzan/vant/pull/1042)
-- NoticeBar: 优化 ref 检测 [\#1037](https://github.com/youzan/vant/pull/1037)
-- Search: 样式更新 [\#1027](https://github.com/youzan/vant/pull/1027)
-- Toast: 新增 loadingType 选项 [\#1049](https://github.com/youzan/vant/pull/1049)
+![](https://img.yzcdn.cn/vant/calendar-12282.png)
 
-**Bug Fixes**
+**Feature**
 
-- 修复 Cell 默认宽度 [\#1029](https://github.com/youzan/vant/pull/1029)
-- 修复 ImagePreview 只有一张图片时无法关闭的问题 [\#1046](https://github.com/youzan/vant/pull/1046)
+- List: 新增 error 插槽 [e9a938](https://github.com/youzan/vant/commit/e9a938820232194ad5f62b2b6588fa5d604016ae)
+- List: 新增 finished 插槽 [8a0705](https://github.com/youzan/vant/commit/8a0705d7610890c0da47e9e7eb0ef5665a3dca0d)
+- Picker: 新增 confirm 方法 [5eb2a4](https://github.com/youzan/vant/commit/5eb2a4012ae3e9d90a29a924ae454e54408b1235)
+- PullRefresh: 新增 success 插槽 [56e450](https://github.com/youzan/vant/commit/56e450f29e67a5e66b26cf9937c458270f462bdc)
+- CouponList: 更新底部按钮样式 [#5368](https://github.com/youzan/vant/issues/5368)
+- DatetimePicker: 新增 getPicker 方法 [1dc1fe](https://github.com/youzan/vant/commit/1dc1feae40b8ca11df980aa1d5ecf108151938e4)
+- TreeSelect: 新增 @tree-select-item-selected-size 变量 [373159](https://github.com/youzan/vant/commit/37315975203f28d36634d9ad8388a7f4dc8a44ea)
+- Image: 新增 @image-loading-icon-size、@image-error-icon-size 变量 [d7ae8c](https://github.com/youzan/vant/commit/d7ae8c5a26dcb6b7b79b4ca7a2ed3842673c2ea0)
 
+**Compatibility**
 
-## [v1.1.2](https://github.com/youzan/vant/tree/v1.1.2)
-`2018-05-08`
+在之前的版本中，有较多同学反馈在 iOS 10 ~ 11 上会偶现组件无法操作的情况，该问题的原因是 Vue 2.6.x 版本在绑定事件时存在事件无法冒泡的兼容性问题。[相关 issue](https://github.com/youzan/vant/issues/3015)
 
-**Improvements**
+从 2.4 版本开始，我们通过手动绑定事件的方式来规避这个问题，涉及以下组件：
 
-- 新增 Rate 评分组件 [\#901](https://github.com/youzan/vant/pull/901) [\#1002](https://github.com/youzan/vant/pull/1002) [\#1010](https://github.com/youzan/vant/pull/1010) [\#1011](https://github.com/youzan/vant/pull/1011)
-- Area: 新增 change 事件 [\#1019](https://github.com/youzan/vant/pull/1019)
-- But为n: 更新边框样式 [\#998](https://github.com/youzan/vant/pull/998)
-- Locale: 新增错误提示 [\#1012](https://github.com/youzan/vant/pull/1012)
-- Stepper: 更新禁用状态样式 [\#997](https://github.com/youzan/vant/pull/997)
-- 优化组件 watch 写法 [\#1001](https://github.com/youzan/vant/pull/1001)
-- 优化文档 API 展示 [\#990](https://github.com/youzan/vant/pull/990) [\#991](https://github.com/youzan/vant/pull/991)
+- Area
+- DatetimePicker
+- ImagePreview
+- Rate
+- Slider
+- Swipe
+- SwipeCell
+- NumberKeyboard
+- Picker
+- PullRefresh
 
 **Bug Fixes**
 
-- 修复 Search 错误展示边框的问题 [\#1000](https://github.com/youzan/vant/pull/1000)
-- 修复 Tab 初始化时的渲染问题 [\#978](https://github.com/youzan/vant/pull/978) ([jerryni](https://github.com/jerryni))
-- 修复 Stepper integer 属性拼写错误 [\#992](https://github.com/youzan/vant/pull/992)
+- Icon: 修复 medel-o 图标不展示的问题 [7b905a](https://github.com/youzan/vant/commit/7b905a6de85b895e2226c35875ee3633c2ae7e79)
+- ImagePreview: 修复 close 事件重复触发的问题 [#5410](https://github.com/youzan/vant/issues/5410)
+- PullRefresh: 修复下拉到顶部时可能不触发下拉刷新的问题 [e00058](https://github.com/youzan/vant/commit/e00058b681d8796feaaaa4a9f2c4083a18b61fe9)
+- Tag: 修复动态设置 closeable 时动画错误的问题 [fe6e2f](https://github.com/youzan/vant/commit/fe6e2f29ba289206138fe17df046a55000b218ad)
+- Tag: 修复 close 时会触发 click 事件的问题 [#5351](https://github.com/youzan/vant/issues/5351)
+- Toast: 修复同时存在多个 Toast 时 forbidClick 可能失效的问题 [#5398](https://github.com/youzan/vant/issues/5398)
+- Picker: 修复在桌面端使用时拖动后回弹的问题 [#5430](https://github.com/youzan/vant/issues/5430)
+- Stepper: 修复在 safari 上禁用时文字颜色不正确的问题 [#5428](https://github.com/youzan/vant/issues/5428)
+- IndexBar: 修复 IndexAnchor 没有父容器时定位错误的问题 [#5429](https://github.com/youzan/vant/issues/5429)
 
+**Types**
 
-## [v1.1.1](https://github.com/youzan/vant/tree/v1.1.1)
-`2018-05-04`
+- AddressEdit: 新增 setAddressDetail 方法的类型定义 [#5352](https://github.com/youzan/vant/issues/5352)
+- Area: 新增 reset 方法的类型定义 [#5353](https://github.com/youzan/vant/issues/5353)
+- Checkbox: 新增 toggle 方法的类型定义 [#5354](https://github.com/youzan/vant/issues/5354)
+- CountDown: 新增 start、end、reset 方法的类型定义 [0438bd](https://github.com/youzan/vant/commit/0438bdbc97a81ad8b7de18ef8784d9907ce641c6)
+- DropdownItem: 新增 toggle 方法的类型定义 [5c1883](https://github.com/youzan/vant/commit/5c1883f77c36d5026c60c873197dab98d4ca42f5)
+- Field: 新增 focus、blur 方法的类型定义 [0b5c8e](https://github.com/youzan/vant/commit/0b5c8e5f3df570292e8599e7c2ff997fbee120ce)
+- List: 新增 check 方法的类型定义 [285bce](https://github.com/youzan/vant/commit/285bce677c8997d55515a760f4d12b05349ebd3f)
+- Picker: 新增 getValues 等方法的类型定义 [46d2b0](https://github.com/youzan/vant/commit/46d2b094477b52a96e85d18ec6fc42051a832e10)
+- Sku: 新增 methods types [d2bb9f](https://github.com/youzan/vant/commit/d2bb9fa81b401e429296003e4c2ec8c0e544d2af)
+- Swipe: 新增 swipeTo、resize 方法的类型定义 [a1831b](https://github.com/youzan/vant/commit/a1831b86387f1127325b9952d2d18349d41dc5c7)
+- SwipeCell: 新增 open、close 方法的类型定义 [9a9676](https://github.com/youzan/vant/commit/9a9676d6af7d29ac2221761ad680cecd4e929a39)
+- Tabs: 新增 resize 方法的类型定义 [3c526e](https://github.com/youzan/vant/commit/3c526ec1a26b5a38bc6a6ba2ded7a3db94bbcced)
+- Uploader: 新增 closeImagePreview 方法的类型定义 [cf191e](https://github.com/youzan/vant/commit/cf191e09cbc8093bb72f5d1e9381b263cdf9f0d2)
 
-**Improvements**
+### [v2.3.3](https://github.com/youzan/vant/tree/v2.3.3)
 
-* Contact: 优化背景图 [\#972](https://github.com/youzan/vant/pull/972)
-* List: 新增 loading-text 属性 [\#948](https://github.com/youzan/vant/pull/948)
-* Swipe: 优化轮播性能 [\#985](https://github.com/youzan/vant/pull/985)
-* Swipe: 新增 为uchable 属性 [\#975](https://github.com/youzan/vant/pull/975)
-* Swipe: 新增 vertical 属性，支持垂直布局 [\#938](https://github.com/youzan/vant/pull/938)
-* Slider: 增加滑动触摸区域 [\#977](https://github.com/youzan/vant/pull/977)
-* Stepper: 新增 interger 属性 [\#951](https://github.com/youzan/vant/pull/951)
-* Tab: 新增 line-width 属性 [\#988](https://github.com/youzan/vant/pull/988)
+`2019-12-21`
 
 **Bug Fixes**
-* 修复 ImagePreview offset 计算错误[\#980](https://github.com/youzan/vant/pull/980)
-* 修复 Search 在 iOS 下文字被遮挡的问题 [\#974](https://github.com/youzan/vant/pull/974)
 
+- 修复 babel-plugin-import 按需引入部分组件时编译报错的问题
 
-## [v1.1.0](https://github.com/youzan/vant/tree/v1.1.0)
-`2018-04-25`
+### [v2.3.2](https://github.com/youzan/vant/tree/v2.3.2)
 
-**Improvements**
+`2019-12-20`
 
-* 新增 Slider 滑块组件 [\#897](https://github.com/youzan/vant/pull/897) [\#915](https://github.com/youzan/vant/pull/915)
-* 新增 BEM mixin，规范 BEM 命名格式 [\#921](https://github.com/youzan/vant/pull/921) [\#924](https://github.com/youzan/vant/pull/924) [\#932](https://github.com/youzan/vant/pull/932) [\#934](https://github.com/youzan/vant/pull/934)
-* Cell: 优化 flex 结构 [\#919](https://github.com/youzan/vant/pull/919)
-* Panel: 优化结构，使用 Cell 代替部分样式 [\#927](https://github.com/youzan/vant/pull/927)
-* Build: 升级至 vue-loader 15 [\#937](https://github.com/youzan/vant/pull/937)
-* Build: 使用 ChromeHeadless 代替 Phan为mJS 作为测试运行环境 [\#913](https://github.com/youzan/vant/pull/913)
-* Build: 使用 MiniCssExtractPlugin 代替 ExtractTextPlugin [\#936](https://github.com/youzan/vant/pull/936)
-* Build: 增加针对 webpack4 优化的 sideEffects 配置 [\#926](https://github.com/youzan/vant/pull/926)
-* 文档: 新增 rem 指引 [\#928](https://github.com/youzan/vant/pull/928)
-* 文档: 移除 Loading circle 类型，不推荐使用 [\#941](https://github.com/youzan/vant/pull/941)
-
 **Bug Fixes**
-
-* 修复 Uploader 在安卓下无法上传图片的问题 [\#929](https://github.com/youzan/vant/pull/929)
-* 修复 Checkbox 内容为空时渲染了空 label 元素的问题 [\#920](https://github.com/youzan/vant/pull/920)
-* 修复 Dialog TS 类型定义错误 [\#918](https://github.com/youzan/vant/pull/918)
-* 修复 Popup 多层级关闭时未正确移除 lock-scroll 导致无法滚动的问题 [\#912](https://github.com/youzan/vant/pull/912)
-* 修复 Picker 在系统字体大小缩放时布局错乱的问题 [\#916](https://github.com/youzan/vant/pull/916)
 
+- 修复 Area 未自动引入依赖的 Picker 样式的问题
+- 修复 DatetimePicker 未自动引入依赖的 Picker 样式的问题
+- 修复 CountDown 在特定情况下内部计时器未清除的问题 [\#5340](https://github.com/youzan/vant/pull/5340)
+- 修复 ImagePreview 在特定情况下会重复 onClose 回调的问题 [\#5341](https://github.com/youzan/vant/pull/5341)
 
-## [v1.0.8](https://github.com/youzan/vant/tree/v1.0.8)
-`2018-04-20`
+### [v2.3.1](https://github.com/youzan/vant/tree/v2.3.1)
 
-**Improvements**
-- 新增 git hook, 提交代码时进行格式校验 [\#883](https://github.com/youzan/vant/pull/883)
+`2019-12-20`
 
 **Bug Fixes**
-- 修复构建结果中未完全使用 es module 的问题 [\#885](https://github.com/youzan/vant/pull/885)
-- 修复 Cell 文字垂直不对齐的问题 [\#893](https://github.com/youzan/vant/pull/893)
-- 修复 Field number 类型无法输入负数的问题 [\#889](https://github.com/youzan/vant/pull/889)
-- 修复 Popup lock-scroll 属性在 iOS 下无效的问题 [\#891](https://github.com/youzan/vant/pull/891)
 
+- 修复全量引入组件时，入口文件中存在未编译的 ES6 代码的问题
 
-## [v1.0.7](https://github.com/youzan/vant/tree/v1.0.7)
-`2018-04-17`
+### [v2.3.0](https://github.com/youzan/vant/tree/v2.3.0)
 
-**Bug Fixes**
-
-* 修复构建结果 lib 目录下样式丢失的问题
+`2019-12-20`
 
-## [v1.0.6](https://github.com/youzan/vant/tree/v1.0.6)
-`2018-04-17`
+**Style**
 
-**Improvements**
-
-* 支持 ES module 引入 [\#875](https://github.com/youzan/vant/pull/875)
-* Dialog: 新增 before-close 属性, 支持异步关闭 [\#854](https://github.com/youzan/vant/pull/854) [\#881](https://github.com/youzan/vant/pull/881)
-* SubmitBar: 支持自定义金额符号 [\#876](https://github.com/youzan/vant/pull/876)
-* Tab: 支持 v-model 绑定当前 active 标签 [\#879](https://github.com/youzan/vant/pull/879)
-
-**Bug Fixes**
+在 2.3.0 版本中，我们对业务组件的样式进行了全新升级，涉及以下组件：
 
-* 修复 DatetimePicker change 事件参数错误 [\#878](https://github.com/youzan/vant/pull/878)
+- AddressEdit
+- Card
+- CouponList
+- ContactList
+- ContactCard
+- ContactEdit
+- SubmitBar
 
-## [v1.0.5](https://github.com/youzan/vant/tree/v1.0.5)
-`2018-04-13`
+![](https://b.yzcdn.cn/vant/style-update-2.3.0-2.png)
 
-**Improvements**
+**Features**
 
-- 抽象 为uch 通用 mixin [\#869](https://github.com/youzan/vant/pull/869)
-- Tabbar: 支持 Number 类型的 info [\#845](https://github.com/youzan/vant/pull/845)
-- Radio: name 属性支持任意类型 [\#863](https://github.com/youzan/vant/pull/863)
+- 内部构建流程升级，使用 [@vant/cli](https://github.com/youzan/vant/tree/dev/packages/vant-cli) 进行构建
+- AddressList: 新增 default-tag-text 属性 [\#5106](https://github.com/youzan/vant/pull/5106)
+- Card: 新增 price-top 插槽 [\#5134](https://github.com/youzan/vant/pull/5134)
+- Checkbox: 优化 toggleAll 性能 [\#5285](https://github.com/youzan/vant/pull/5285)
+- Circle: 新增 stroke-linecap 属性 [\#5087](https://github.com/youzan/vant/pull/5087)
+- CouponList: 新增 show-count 属性 [\#5139](https://github.com/youzan/vant/pull/5139)
+- ContactList: 新增 default-tag-text 属性 [\#5089](https://github.com/youzan/vant/pull/5089)
+- ContactCard: 新增 show-set-default 属性 [\#5083](https://github.com/youzan/vant/pull/5083)
+- ContactCard: 新增 set-default-label 属性 [\#5083](https://github.com/youzan/vant/pull/5083)
+- CountDown: 支持 SS 和 S 格式 [\#5154](https://github.com/youzan/vant/pull/5154)
+- Sku: 新增 new startSaleNum 属性 [\#5105](https://github.com/youzan/vant/pull/5105)
+- Sku: 新增 resetSelectedSku 方法 [\#5318](https://github.com/youzan/vant/pull/5318)
+- SubmitBar: 新增 text-align 属性 [\#5130](https://github.com/youzan/vant/pull/5130)
+- SwipeCell: 新增 open 事件 [\#5324](https://github.com/youzan/vant/pull/5324)
+- SwipeCell: 新增 before-close 属性 [\#5320](https://github.com/youzan/vant/pull/5320)
+- Tab: 新增 dot 属性 [\#5272](https://github.com/youzan/vant/pull/5272)
+- Tab: 新增 info 属性 [\#5274](https://github.com/youzan/vant/pull/5274)
+- Tab: 新增 rendered 事件 [\#5315](https://github.com/youzan/vant/pull/5315)
+- Tab: 新增 scrollspy 属性 [\#5273](https://github.com/youzan/vant/pull/5273)
+- Toast: 完善 TS 类型定义 [\#5086](https://github.com/youzan/vant/pull/5086)
 
 **Bug Fixes**
 
-- 修复 NavBar 标题长度未限制的问题 [\#867](https://github.com/youzan/vant/pull/867)
-- 修复 But为n loading 状态下无法水平对齐的问题 [\#858](https://github.com/youzan/vant/pull/858)
-- 修复 SwipeCell 在垂直滑动时也会触发 Swipe 的问题 [\#866](https://github.com/youzan/vant/pull/866)
-- 修复 ImagePreview close 方法失效的问题 [\#864](https://github.com/youzan/vant/pull/864)
-- 修复 SubmitBar 字体大小继承错误的问题 [\#857](https://github.com/youzan/vant/pull/857)
-- 修复 SwitchCell 文字未垂直居中的问题 [\#852](https://github.com/youzan/vant/pull/852)
-- 修复 Swipe 为uch 事件冒泡问题 [\#846](https://github.com/youzan/vant/pull/846)
+- 修复 ActionSheet 按钮会提交表单的问题 [\#5181](https://github.com/youzan/vant/pull/5181)
+- 修复 Card 在未使用 price 属性的情况下 bottom 插槽不生效的问题 [\#5116](https://github.com/youzan/vant/pull/5116)
+- 修复 Dialog 快速点击按钮时可能重复触发 before-close 的问题 [\#5267](https://github.com/youzan/vant/pull/5267)
+- 修复 DropdownMenu 在页面滚动时菜单位置错误的问题 [\#5313](https://github.com/youzan/vant/pull/5313)
+- 修复 Icon medal 图标名称拼写错误的问题 [\#5242](https://github.com/youzan/vant/pull/5242)
+- 修复 NumberKeyboard 在隐藏状态下也会触发 blur 事件的问题 [\#5110](https://github.com/youzan/vant/pull/5110)
+- 修复 Picker 按钮会提交表单的问题 [\#5182](https://github.com/youzan/vant/pull/5182)
+- 修复 Popup 在 activated 后未重新打开的问题 [\#5286](https://github.com/youzan/vant/pull/5286)
+- 修复 Switch size 属性未定义 Number 类型的问题 [\#5229](https://github.com/youzan/vant/pull/5229)
+- 修复 SubmitBar 价格为整数时显示错误的问题 [\#5224](https://github.com/youzan/vant/pull/5224)
+- 修复 Sku 重置时未校验数量的问题 [\#5231](https://github.com/youzan/vant/pull/5231)
+- 修复 Sku 步进器可能输入小数的问题 [\#5202](https://github.com/youzan/vant/pull/5202)
+- 修复 Sku 步进器事件可能抛出小数的问题 [\#5210](https://github.com/youzan/vant/pull/5210)
+- 修复 Stepper 按钮会提交表单的问题 [\#5183](https://github.com/youzan/vant/pull/5183)
+- 修复 Stepper 在 max、min 属性变化时未更新输入框值的问题 [\#5257](https://github.com/youzan/vant/pull/5257)
+- 修复 TreeSelect 事件触发顺序错误的问题 [\#5153](https://github.com/youzan/vant/pull/5153)
+- 修复 TouchEmulator 在 Firefox 上的兼容性问题 [\#5118](https://github.com/youzan/vant/pull/5118)
+- 修复 Uploader 重复上传同张图片时不会触发 oversize 事件的问题 [\#5177](https://github.com/youzan/vant/pull/5177)
+- 修复主题定制时使用低版本 Less 会报错的问题 [\#5157](https://github.com/youzan/vant/pull/5157)
 
+### [v2.2.16](https://github.com/youzan/vant/tree/v2.2.16)
 
-## [v1.0.4](https://github.com/youzan/vant/tree/v1.0.4)
-`2018-04-10`
+`2019-12-03`
 
-**Improvements**
+**Features**
 
-- Actionsheet: 新增 cancel 事件 [\#796](https://github.com/youzan/vant/pull/796)
-- Actionsheet: 增加最大高度限制 [\#777](https://github.com/youzan/vant/pull/777)
-- DatetimePicker: 支持所有 picker 组件配置 [\#788](https://github.com/youzan/vant/pull/788)
-- SubmitBar: 统一文字大小 [\#774](https://github.com/youzan/vant/pull/774)
-- i18n: 支持 zh-HK 语言 [\#812](https://github.com/youzan/vant/pull/812)
+- Stepper: 新增 disable-plus 属性 [\#5180](https://github.com/youzan/vant/pull/5180)
+- Stepper: 新增 disable-minus 属性 [\#5180](https://github.com/youzan/vant/pull/5180)
 
-**Bug Fixes**
-
-- 修复 But为n 加载状态下可点击的问题 [\#779](https://github.com/youzan/vant/pull/779)
-- 修复 Dialog 未初始化时 close 方法报错的问题 [\#841](https://github.com/youzan/vant/pull/841)
-- 修复 Popup 多层弹出时 lockScroll 失效的问题 [\#842](https://github.com/youzan/vant/pull/842)
-- 修复 SubmitBar 金额保留位数错误的问题 [\#820](https://github.com/youzan/vant/pull/820)
-- 修复 Sku row 行高错误 [\#840](https://github.com/youzan/vant/pull/840)
-
-
-## [v1.0.3](https://github.com/youzan/vant/tree/v1.0.3)
-`2018-03-26`
-
-**Improvements**
+### [v2.2.15](https://github.com/youzan/vant/tree/v2.2.15)
 
-- Cell: 新增 center 属性 [\#771](https://github.com/youzan/vant/pull/771)
-- Cell: 布局方式由 table 升级为 flex-box [\#770](https://github.com/youzan/vant/pull/770)
-- Field: 新增 but为n 插槽，支持插入按钮 [\#772](https://github.com/youzan/vant/pull/772)
-- Tab: click 事件回调新增 title 参数 [\#761](https://github.com/youzan/vant/pull/761)
+`2019-11-28`
 
 **Bug Fixes**
-- 修复 Tag 文字在部分安卓手机上未垂直居中的问题 [\#773](https://github.com/youzan/vant/pull/773)
-- 修复 Toast 蒙层在某些情况下无法收起的问题 [\#762](https://github.com/youzan/vant/pull/762)
 
-## [v1.0.2](https://github.com/youzan/vant/tree/v1.0.2)
-`2018-03-22`
+- 修复 List 组件在部分情况下加载状态未重置的问题
 
-**Improvements**
+### [v2.2.14](https://github.com/youzan/vant/tree/v2.2.14)
 
-* DatetimePicker: 新增 show-为olbar 属性以及 month-year 类型 [\#736](https://github.com/youzan/vant/pull/736)
-* NavBar: 移除顶部 border [\#744](https://github.com/youzan/vant/pull/744)
-* NoticeBar: 修正内边距 [\#737](https://github.com/youzan/vant/pull/737)
-* Doc: 新增自定义图标指引 [\#754](https://github.com/youzan/vant/pull/754)
+`2019-11-22`
 
-**Bug Fixes**
-
-* 修复 AddressEdit 初始化时省市区未正确选中的问题 [\#748](https://github.com/youzan/vant/pull/748)
-* 修复 List 隐藏时依然会触发 load 事件的问题 [\#751](https://github.com/youzan/vant/pull/751)
-* 修复 Sku 默认选中不生效的问题 [\#752](https://github.com/youzan/vant/pull/752)
-* 修复 Toast 蒙层被其他元素遮挡的问题 [\#740](https://github.com/youzan/vant/pull/740)
-* 修复 Tab 内容无法点击的问题 [\#749](https://github.com/youzan/vant/pull/749)
+**Features**
 
+- Tabs: 新增 title-style 属性 [\#5048](https://github.com/youzan/vant/pull/5048)
+- Tabs: 新增 resize 方法 [\#5071](https://github.com/youzan/vant/pull/5071)
+- Swipe: 新增 resize 方法 [\#5070](https://github.com/youzan/vant/pull/5070)
 
-## [v1.0.1](https://github.com/youzan/vant/tree/v1.0.1)
-`2018-03-19`
-
 **Bug Fixes**
-
-* 修复 create 模块循环引用导致某些情况下编译错误的问题 [\#728](https://github.com/youzan/vant/pull/728)
-
 
-## [v1.0.0](https://github.com/youzan/vant/tree/v1.0.0)
-`2018-03-19`
+- 修复 Cell value 过长时不换行的问题 [\#5029](https://github.com/youzan/vant/pull/5029)
+- 修复 SwipeCell 在桌面端无法使用的问题 [\#5077](https://github.com/youzan/vant/pull/5077)
+- 修复 Field 在 Safari 下输入换行符时字数统计错误的问题 [\#5049](https://github.com/youzan/vant/pull/5049)
+- 修复 Tabbar 设置 safe-area-inset-bottom 后可能出现样式错位的问题 [\#5079](https://github.com/youzan/vant/pull/5079)
+- 修复 DropdownMenu 使用 get-container 属性时点击后会立即关闭的问题 [\#5047](https://github.com/youzan/vant/pull/5047)
 
-**Breaking changes**
+### [v2.2.13](https://github.com/youzan/vant/tree/v2.2.13)
 
-* 新增 List 组件 [\#682](https://github.com/youzan/vant/pull/682)
-* 新增 Collapse 组件 [\#674](https://github.com/youzan/vant/pull/674)
-* 构建: 升级至 webpack 4，优化构建配置 [\#693](https://github.com/youzan/vant/pull/693)
-* Popup: 新增 lock-scroll 属性，废弃 lock-on-scroll、prevent-scroll 属性 [\#688](https://github.com/youzan/vant/pull/688)
-* Waterfall 组件不再维护，推荐使用 List 组件代替 [\#683](https://github.com/youzan/vant/pull/683)
+`2019-11-14`
 
-**Improvements**
+**Features**
 
-* AddressEdit: 新增 show-delete 属性 [\#716](https://github.com/youzan/vant/pull/716)
-* SwipeCell: 优化 Swipe 动画流畅度 [\#685](https://github.com/youzan/vant/pull/685)
-* Field: 支持配置 au为size 最大/最小高度 [\#718](https://github.com/youzan/vant/pull/718)
-* Locale: 精简 i18n 配置文档 [\#701](https://github.com/youzan/vant/pull/701)
-* PullRefresh: 支持手动触发 loading 动画 [\#684](https://github.com/youzan/vant/pull/684)
-* Switch: 新增 size 属性，支持自定义尺寸 [\#723](https://github.com/youzan/vant/pull/723)
-* Sku: 新增头部金额插槽 [\#705](https://github.com/youzan/vant/pull/705)
-* Sku: 优化 DOM 结构 [\#704](https://github.com/youzan/vant/pull/704)
-* Tab: 支持通过滑动手势进行切换 [\#694](https://github.com/youzan/vant/pull/694) [\#695](https://github.com/youzan/vant/pull/695)
-* Tag: 调整标签样式 [\#689](https://github.com/youzan/vant/pull/689)
-* Toast: 支持通过 Vue.use 注册 [\#690](https://github.com/youzan/vant/pull/690)
+- Area: 新增 swipe-duration 属性 [\#5014](https://github.com/youzan/vant/pull/5014)
+- Swipe: 新增 stop-propagation 属性 [\#4972](https://github.com/youzan/vant/pull/4972)
+- Toast: 新增 overlay 选项 [\#4969](https://github.com/youzan/vant/pull/4969)
+- Toast: 新增 clickOnClickOverlay 选项 [\#4967](https://github.com/youzan/vant/pull/4967)
+- SwipeCell: 新增 opened 事件 [\#4986](https://github.com/youzan/vant/pull/4986)
+- ActionSheet: 新增 close-icon 属性 [\#5016](https://github.com/youzan/vant/pull/5016)
+- DropdownItem: 新增 title 插槽 [\#4975](https://github.com/youzan/vant/pull/4975)
+- DatetimePicker: 新增 swipe-duration 属性 [\#5015](https://github.com/youzan/vant/pull/5015)
 
-
-**Bug Fixes**
-
-* 修复 Actionsheet 下边框未展示的问题 [\#686](https://github.com/youzan/vant/pull/686)
-* 修复 AddressEdit 在数据变更时未正确选中省市区的问题 [\#680](https://github.com/youzan/vant/pull/680)
-* 修复 Stepper value 溢出的问题 [\#691](https://github.com/youzan/vant/issues/691)
-* 修复 Badge 选中时字体粗细 [\#687](https://github.com/youzan/vant/pull/687)
-
-## [v0.12.14](https://github.com/youzan/vant/tree/v0.12.14)
-`2018-03-09`
-
 **Bug Fixes**
-* Area: 修复 area-list 更新时未正确选中省市区的问题 [\#678](https://github.com/youzan/vant/pull/678)
 
+- 修复 Tab name 设置为 0 时无法正确匹配的问题 [\#5017](https://github.com/youzan/vant/pull/5017)
+- 修复 Indexbar 隐藏时可能出现锚点位置错误的问题 [\#5012](https://github.com/youzan/vant/pull/5012)
+- 修复 Indexbar 设置 sticky-offset-top 后可能出现锚点位置错误的问题 [\#5012](https://github.com/youzan/vant/pull/5012)
+- 修复 DatetimePicker 使用 filter 并返回空数组时无法切换时间的问题 [\#4973](https://github.com/youzan/vant/pull/4973)
+- 修复 DateTimePicker 动态设置 max-hour 并小于 v-model 绑定的时间时出现错误的问题 [\#5006](https://github.com/youzan/vant/pull/5006)
+- 修复 ImagePreview 类型中定义缺少 swipeDuration 选项的问题 [\#4968](https://github.com/youzan/vant/pull/4968)
 
-## [v0.12.13](https://github.com/youzan/vant/tree/v0.12.13)
-`2018-03-09`
+### [v2.2.12](https://github.com/youzan/vant/tree/v2.2.12)
 
-**Improvements**
+`2019-11-07`
 
-* AddressEdit: 支持自定义手机号校验函数 [\#673](https://github.com/youzan/vant/pull/673)
-* Sku: 新增 close-on-click-overlay 属性 [\#676](https://github.com/youzan/vant/pull/676)
+**Features**
 
-**Bug Fixes**
-* 修复 CouponList 文字截断的问题 [\#675](https://github.com/youzan/vant/pull/675)
-
-
-## [v0.12.12](https://github.com/youzan/vant/tree/v0.12.12)
-`2018-03-06`
+- Stepper: 新增 name 属性 [\#4931](https://github.com/youzan/vant/pull/4931)
+- Uploader: 新增 deletable 属性 [\#4925](https://github.com/youzan/vant/pull/4925)
 
-**Improvements**
-
-* Swipe: 新增 loop 属性，支持禁用循环滚动 [\#670](https://github.com/youzan/vant/pull/670)
-* Document: 新增 change 事件示例 [\#666](https://github.com/youzan/vant/pull/666)
-* 更新静态资源 CDN 域名 [\#652](https://github.com/youzan/vant/pull/652)
-
 **Bug Fixes**
-
-* 修复 Field 在 safari 下禁用态颜色过浅的问题 [\#669](https://github.com/youzan/vant/pull/669)
-* 修复 Swipe au为play 设置为 0 时不会立刻取消的问题 [\#660](https://github.com/youzan/vant/pull/660)
 
-## [v0.12.11](https://github.com/youzan/vant/tree/v0.12.11)
-`2018-02-27`
+- 修复 Sku 内容最小高度错误的问题 [\#4942](https://github.com/youzan/vant/pull/4942)
+- 修复 List 在初始化时可能同时触发两次 load 事件的问题 [\#4953](https://github.com/youzan/vant/pull/4953)
+- 修复 @border-color 变量无法定制某些组件边框颜色的问题 [\#4939](https://github.com/youzan/vant/pull/4939)
 
-**Improvements**
+### [v2.2.11](https://github.com/youzan/vant/tree/v2.2.11)
 
-* Checkbox: 新增 label-disabled 属性，支持禁用 label 点击 [\#644](https://github.com/youzan/vant/pull/644)
-* Popup: 新增 click-overlay 事件 [\#647](https://github.com/youzan/vant/pull/647)
-* Icon: 新增 warn 图标 [\#651](https://github.com/youzan/vant/pull/651)
-* Icon: 新增 info-o 图标, 优化 checked & underway 图标 [\#648](https://github.com/youzan/vant/pull/648)
+`2019-11-04`
 
-**Bug Fixes**
-
-* 修复 But为n loading 样式未居中的问题 [\#645](https://github.com/youzan/vant/pull/645)
+**Features**
 
-## [v0.12.10](https://github.com/youzan/vant/tree/v0.12.10)
-`2018-02-12`
+- Switch: 新增 click 事件 [\#4915](https://github.com/youzan/vant/pull/4915)
+- Switch: size 属性支持 number 类型 [\#4913](https://github.com/youzan/vant/pull/4913)
+- Toast: 默认持续时间由 3 秒调整为 2 秒 [\#4886](https://github.com/youzan/vant/pull/4886)
+- Uploader: 新增 closeImagePreview 方法 [\#4901](https://github.com/youzan/vant/pull/4901)
 
-**Improvements**
-
-* 新增内置样式文档 [\#633](https://github.com/youzan/vant/pull/633)
-* Checkbox: 优化 DOM 结构 [\#636](https://github.com/youzan/vant/pull/636)
-* Checkbox: 支持设置最大可选数 [\#631](https://github.com/youzan/vant/pull/631)
-
 **Bug Fixes**
-
-*  Stepper: 修复清空输入框时 change 事件未正确触发的问题 [\#635](https://github.com/youzan/vant/pull/635)
 
-## [v0.12.9](https://github.com/youzan/vant/tree/v0.12.9)
-`2018-02-08`
+- 修复 Button 加载图标颜色不正确的问题 [\#4868](https://github.com/youzan/vant/pull/4868)
+- 修复 CountDown 在销毁时未清除定时器的问题 [\#4918](https://github.com/youzan/vant/pull/4918)
+- 修复 CountDown 在 keep-alive 状态下未暂停定时器的问题 [\#4919](https://github.com/youzan/vant/pull/4919)
+- 修复 Grid 使用 icon 插槽时 info、dot 属性不生效的问题 [\#4902](https://github.com/youzan/vant/pull/4902)
 
-**Improvements**
+### [v2.2.10](https://github.com/youzan/vant/tree/v2.2.10)
 
-* PullRefresh: 新增 refersh 事件 [\#625](https://github.com/youzan/vant/pull/625)
-* Circle: 优化线条圆角 [\#624](https://github.com/youzan/vant/pull/624)
-* Picker: 新增 loading 属性 [\#619](https://github.com/youzan/vant/pull/619)
-* Loading: 新增 size 属性 [\#620](https://github.com/youzan/vant/pull/620)
-* Loading: 新增 circular 类型 [\#618](https://github.com/youzan/vant/pull/618)
-* Loading: 默认类型调整为 circular [\#623](https://github.com/youzan/vant/pull/623)
+`2019-10-27`
 
-**Bug Fixes**
-* 修复 Sku message 更新时未重新渲染的问题 [\#627](https://github.com/youzan/vant/pull/627)
-
+**Features**
 
-## [v0.12.8](https://github.com/youzan/vant/tree/v0.12.8)
-`2018-02-07`
+- Icon: 新增 font-display: auto 样式 [\#4831](https://github.com/youzan/vant/pull/4831)
+- Popup: 新增 close-on-popstate 属性 [\#4845](https://github.com/youzan/vant/pull/4845)
+- Picker: 新增 swipe-duration 属性 [\#4816](https://github.com/youzan/vant/pull/4816)
+- Toast: 支持针对指定类型的 Toast 修改默认配置 [\#4848](https://github.com/youzan/vant/pull/4848)
 
-**Improvements**
-* 新增 Circle 组件 [\#608](https://github.com/youzan/vant/pull/608)
-* Tab: 新增 title 插槽 [\#603](https://github.com/youzan/vant/pull/603)
-* Toast: 加深背景色 [\#601](https://github.com/youzan/vant/pull/601)
-* Popup: 新增 getContaienr 属性 [\#611](https://github.com/youzan/vant/pull/611)
-* Sku: 支持图片上传 [\#612](https://github.com/youzan/vant/pull/612)
-* Sku: 支持自定义 Stepper [\#600](https://github.com/youzan/vant/pull/600)
-
 **Bug Fixes**
-* 修复 Picker 在部分设备下的样式问题 [\#609](https://github.com/youzan/vant/pull/609)
-* 修复 TreeSelect 箭头位置错误 [\#605](https://github.com/youzan/vant/pull/605)
-
-
-## [v0.12.7](https://github.com/youzan/vant/tree/v0.12.7)
-`2018-01-31`
 
-**Improvements**
-* Area: 新增 item-height、visible-item-count 属性 [\#591](https://github.com/youzan/vant/pull/591)
-* Dialog: 支持以组件形式调用 [\#593](https://github.com/youzan/vant/pull/593)
-* Toast: 支持同时弹出多个 Toast [\#586](https://github.com/youzan/vant/pull/586)
-* Sku: 新增 getSkuData 方法 [\#585](https://github.com/youzan/vant/pull/585)
+- 修复 Uploader 文件预览圆角样式错误的问题 [\#4846](https://github.com/youzan/vant/pull/4846)
+- 修复 DatetimePicker 同时使用 min-date 和 filter 时初始值错误的问题 [\#4837](https://github.com/youzan/vant/pull/4837)
 
-**Bug Fixes**
-* 修复 Field label 多行时样式错误的问题 [\#583](https://github.com/youzan/vant/pull/583)
-
+### [v2.2.9](https://github.com/youzan/vant/tree/v2.2.9)
 
-## [v0.12.6](https://github.com/youzan/vant/tree/v0.12.6)
-`2018-01-25`
+`2019-10-20`
 
-**Improvements**
+**Features**
 
-- AddressEdit: 增加默认插槽 [\#573](https://github.com/youzan/vant/pull/573)
-- Uploader: 新增 maxSize 属性 [\#575](https://github.com/youzan/vant/pull/575)
-- Sku: 新增 sku-body-为p 插槽、resetSelectedSkuOnHide 属性 [\#568](https://github.com/youzan/vant/pull/568)
+- Tag: 新增 closeable 属性 [\#4763](https://github.com/youzan/vant/pull/4763)
+- Loading: 新增若干个 Less 变量 [\#4781](https://github.com/youzan/vant/pull/4781)
+- Progress: 新增若干个 Less 变量 [\#4790](https://github.com/youzan/vant/pull/4790)
+- Progress: 新增 track-color 属性 [\#4789](https://github.com/youzan/vant/pull/4789)
+- Toast: 新增 @toast-loading-icon-color 变量 [\#4782](https://github.com/youzan/vant/pull/4782)
+- Picker: 新增 @picker-loading-icon-color 变量 [\#4787](https://github.com/youzan/vant/pull/4787)
+- ImagePreview: 新增 cover 插槽 [\#4766](https://github.com/youzan/vant/pull/4766)
 
 **Bug Fixes**
-
-- 修复 Toast 文案换行 [\#567](https://github.com/youzan/vant/pull/567)
-- 修复 Sku 限购情况下，未超出限购数时的错误文案显示 [\#568](https://github.com/youzan/vant/pull/568)
-- 修复 Tab active 在初始化时未生效的问题 [\#572](https://github.com/youzan/vant/pull/572)
-
-
-## [v0.12.5](https://github.com/youzan/vant/tree/v0.12.5)
-`2018-01-23`
 
-**Improvements**
+- 修复 Tag 圆角不够圆的问题 [\#4762](https://github.com/youzan/vant/pull/4762)
+- 修复 Sku 重置时不触发 sku-selected 事件的问题 [\#4755](https://github.com/youzan/vant/pull/4755)
+- 修复 ImagePreview 点击索引时会关闭预览的问题 [\#4764](https://github.com/youzan/vant/pull/4764)
+- 修复 AddressEdit 设置 area-placeholder 后无法选择海外地址的问题 [\#4769](https://github.com/youzan/vant/pull/4769)
 
-* But为n: 新增 text 属性 [\#563](https://github.com/youzan/vant/pull/563)
-* CouponList: 支持 v-model、exchangeBut为nLoading、exchangeMinLength [\#556](https://github.com/youzan/vant/pull/556) [\#566](https://github.com/youzan/vant/pull/566)
-* Icon: 更新 share 图标 [\#562](https://github.com/youzan/vant/pull/562)
-* Sku: 优化渲染性能 [\#550](https://github.com/youzan/vant/pull/550)
+### [v2.2.8](https://github.com/youzan/vant/tree/v2.2.8)
 
-**Bug Fixes**
-* Area: 修复未选中省份时市区展示错误的问题 [\#560](https://github.com/youzan/vant/pull/560)
-* Cell: 修复 required 样式错误的问题 [\#553](https://github.com/youzan/vant/pull/553)
-
+`2019-10-17`
 
-## [v0.12.4](https://github.com/youzan/vant/tree/v0.12.4)
-`2018-01-18`
+**Features**
 
-**Improvements**
+- Slider: 优化点击区域 [\#4701](https://github.com/youzan/vant/pull/4701)
+- Slider: 增加过渡动画 [\#4700](https://github.com/youzan/vant/pull/4700)
+- Dialog: 更新圆角样式 [\#4730](https://github.com/youzan/vant/pull/4730)
+- Uploader: 更新删除图标样式，添加图片圆角样式 [\#4712](https://github.com/youzan/vant/pull/4712)
+- Field: 新增 show-word-limit 属性 [\#4721](https://github.com/youzan/vant/pull/4721)
+- ActionSheet: 新增 description 属性 [\#4691](https://github.com/youzan/vant/pull/4691)
+- Stepper: 设置 decimal-length 属性后会在输入过程中进行校验 [\#4747](https://github.com/youzan/vant/pull/4747)
+- 新增渐变色相关的 Less 变量 [\#4752](https://github.com/youzan/vant/pull/4752)
+- 新增多行文字省略的内置样式 [\#4690](https://github.com/youzan/vant/pull/4690)
 
-* Picker: 新增 confirmBut为nText、cancelBut为nText 属性 [\#548](https://github.com/youzan/vant/pull/548)
-* Toast: 新增 setDefaultOptions 方法 [\#541](https://github.com/youzan/vant/pull/541)
-* Dialog: 新增 setDefaultOptions 方法 [\#539](https://github.com/youzan/vant/pull/539)
-
 **Bug Fixes**
-
-* Stepper: 修改 value 值时不触发 change 事件 [\#546](https://github.com/youzan/vant/pull/546)
-* Picker: 修复 visibleItemCount 属性拼写错误 [\#549](https://github.com/youzan/vant/pull/549)
-
-## [v0.12.3](https://github.com/youzan/vant/tree/v0.12.3)
 
-`2018-01-12`
+- 修复 Slider 宽度异常的问题 [\#4699](https://github.com/youzan/vant/pull/4699)
+- 修复 Rate 由于 inline-block 导致的错误高度 [\#4693](https://github.com/youzan/vant/pull/4693)
+- 修复 AddressEdit 省市区未选择完全时能够保存的问题 [\#4724](https://github.com/youzan/vant/pull/4724)
 
-**Improvements**
+### [v2.2.7](https://github.com/youzan/vant/tree/v2.2.7)
 
-* NavBar: 新增 zIndex 属性 [\#525](https://github.com/youzan/vant/pull/525)
-* Cell: 调整右侧箭头位置 [\#531](https://github.com/youzan/vant/pull/531)
+`2019-10-11`
 
-**Bug Fixes**
-
-* 修复 Area 传空 AreaList 时报错的问题 [\#520](https://github.com/youzan/vant/pull/520)
-* 修复 AddressEdit 的 setAreaCode 方法失效的问题 [\#524](https://github.com/youzan/vant/pull/524)
-* 修复 Picker 点击选项时无法触发 change 事件的问题 [\#532](https://github.com/youzan/vant/pull/532)
-* 修复 PullRefresh 在横向滑动时也会触发的问题 [\#521](https://github.com/youzan/vant/pull/521)
+**Features**
 
-## [v0.12.2](https://github.com/youzan/vant/tree/v0.12.2)
+- Dialog: 新增 width 属性 [\#4687](https://github.com/youzan/vant/pull/4687)
+- Dialog: 新增 overlay-class 属性 [\#4683](https://github.com/youzan/vant/pull/4683)
+- Dialog: 新增 overlay-style 属性 [\#4682](https://github.com/youzan/vant/pull/4682)
+- Uploader: 新增 file 类型的 result-type [\#4680](https://github.com/youzan/vant/pull/4680)
+- TreeSelect: 新增 className 选项 [\#4671](https://github.com/youzan/vant/pull/4671)
 
-`2018-01-08`
-
 **Bug Fixes**
 
-* Swipe: 使用 translate2d 代替 translate3d, 避免 iOS11 下的 crash 问题 [\#518](https://github.com/youzan/vant/pull/518)
-* Picker: change 事件只在用户操作后触发 [\#517](https://github.com/youzan/vant/pull/517)
-* NoticeBar: 修复 text 属性变化时未重新计算的问题 [\#515](https://github.com/youzan/vant/pull/515)
-* AddressEdit: 修复搜索结果样式错误 [\#514](https://github.com/youzan/vant/pull/514)
+- 修复 Dialog 可能出现文字模糊的问题 [\#4686](https://github.com/youzan/vant/pull/4686)
+- 修复 Stepper 的 step 值很小时无法生效的问题 [\#4675](https://github.com/youzan/vant/pull/4675)
+- 修复 DatetimePicker 动态修改时间范围时, confirm 事件无法获取到正确结果的问题 [\#4676](https://github.com/youzan/vant/pull/4676)
+- 修复 Field 同时设置 error 和 disabled 属性时文字颜色错误的问题 [\#4666](https://github.com/youzan/vant/pull/4666)
 
-## [v0.12.1](https://github.com/youzan/vant/tree/v0.12.1)
+### [v2.2.6](https://github.com/youzan/vant/tree/v2.2.6)
 
-`2018-01-05`
+`2019-10-08`
 
-**Improvements**
+**Features**
 
-* But为n: 调整 small 按钮内边距 [\#511](https://github.com/youzan/vant/pull/511)
+- Grid: 新增 icon-size 属性 [\#4656](https://github.com/youzan/vant/pull/4656)
+- Toast: 新增 transition 属性 [\#4638](https://github.com/youzan/vant/pull/4638)
+- Dialog: 新增 transition 属性 [\#4636](https://github.com/youzan/vant/pull/4636)
+- Dialog: 新增 open、close 事件 [\#4633](https://github.com/youzan/vant/pull/4633)
+- Dialog: 新增 opened、closed 事件 [\#4634](https://github.com/youzan/vant/pull/4634)
+- NumberKeyboard: 新增 extra-key 插槽 [\#4644](https://github.com/youzan/vant/pull/4644)
+- CheckboxGroup: 新增 toggleAll 方法 [\#4640](https://github.com/youzan/vant/pull/4640)
 
 **Bug Fixes**
-
-* 修复 Cell 标题为空时 icon 属性无法生效的问题 [\#508](https://github.com/youzan/vant/pull/508)
-* 修复 Cell 内边框宽度错误的问题 [\#506](https://github.com/youzan/vant/pull/506)
-* 修复 CouponList 行高错误的问题 [\#507](https://github.com/youzan/vant/pull/507)
-* 修复 CouponList 输入框样式错误 [\#502](https://github.com/youzan/vant/pull/502)
-* 修复 Radio 图标无法点击的问题 [\#505](https://github.com/youzan/vant/pull/505)
-
-## [v0.12.0](https://github.com/youzan/vant/tree/v0.12.0)
 
-`2017-12-29`
+- 修复 GoodsAction 圆角错误的问题 [\#4653](https://github.com/youzan/vant/pull/4653)
+- 修复 Tabs 类型为 card 时上边距错误的问题 [\#4658](https://github.com/youzan/vant/pull/4658)
+- 修复 AddressList input 事件重复触发的问题 [\#4659](https://github.com/youzan/vant/pull/4659)
+- 修复 NumberKeyboard 在 Vue 2.6 下的兼容问题 [\#4632](https://github.com/youzan/vant/pull/4632)
 
-**Breaking changes**
+### [v2.2.5](https://github.com/youzan/vant/tree/v2.2.5)
 
-* Cell: CellGroup 左内边距移至 Cell 内, 新增 'border'、'clickable' 属性 [\#497](https://github.com/youzan/vant/pull/497)
-* 调整编码规范, 使用官方推荐的 kebab-case 属性命名 [\#482](https://github.com/youzan/vant/pull/482)
+`2019-09-28`
 
-**Improvements**
+**Features**
 
-* Field: 新增 error-message 属性 [\#492](https://github.com/youzan/vant/pull/492)
-* Document: 更新到新版文档样式 [\#490](https://github.com/youzan/vant/pull/490)
+- Picker: 新增 columns-top 插槽 [\#4607](https://github.com/youzan/vant/pull/4607)
+- Picker: 新增 columns-bottom 插槽 [\#4607](https://github.com/youzan/vant/pull/4607)
+- Overlay: 新增 default 插槽 [\#4571](https://github.com/youzan/vant/pull/4571)
+- Overlay: 新增 custom-style 属性 [\#4572](https://github.com/youzan/vant/pull/4572)
+- Checkbox: 新增 bind-group 属性 [\#4600](https://github.com/youzan/vant/pull/4600)
+- DropdownItem: 新增 get-container 属性 [\#4611](https://github.com/youzan/vant/pull/4611)
+- Area: 新增 columns-placeholder 属性 [\#4580](https://github.com/youzan/vant/pull/4580)
+- AddressEdit: 新增 area-columns-placeholder 属性 [\#4584](https://github.com/youzan/vant/pull/4584)
 
 **Bug Fixes**
 
-* 修复 Tab 使用 sticky 时高度计算错误的问题 [\#493](https://github.com/youzan/vant/pull/493)
-* 修复组件使用 $attrs 时继承的问题 [\#488](https://github.com/youzan/vant/pull/488)
+- 修复 Overlay 未添加 TypeScript 定义的问题 [\#4601](https://github.com/youzan/vant/pull/4601)
+- 修复 Swipe swipeTo 方法在某些边界情况下过渡动画不正确的问题 [\#4570](https://github.com/youzan/vant/pull/4570)
+- 修复 Uploader 预览 URL 相同的图片时索引错误的问题 [\#4577](https://github.com/youzan/vant/pull/4577)
 
-## [v0.11.15](https://github.com/youzan/vant/tree/v0.11.15)
-
-`2017-12-25`
-
-**Improvements**
-
-* Uploader: 支持多文件上传 [\#480](https://github.com/youzan/vant/pull/480)
-* NumberKeyboard: 增加一种键盘样式 [\#472](https://github.com/youzan/vant/pull/472)
-* Icon: 更新 search 图标样式 [\#474](https://github.com/youzan/vant/pull/474)
-* 支持 passive 事件 [\#478](https://github.com/youzan/vant/pull/478)
-
-**Bug Fixes**
+### [v2.2.4](https://github.com/youzan/vant/tree/v2.2.4) [已废弃]
 
-* 修复 popup 销毁时未解绑事件的问题 [\#477](https://github.com/youzan/vant/pull/477)
-* 修复使用 popup mixin 的组件未设定 props 类型的问题 [\#468](https://github.com/youzan/vant/pull/468)
-* 修复 package.json 配置中未包含 types 目录的问题 [\#462](https://github.com/youzan/vant/pull/462)
+`2019-09-28` 🇨🇳
 
-## [v0.11.14](https://github.com/youzan/vant/tree/v0.11.14)
+**Tips**
 
-`2017-12-21`
+- 本版本存在样式丢失问题，请使用 2.2.5 版本
 
-**Improvements**
+### [v2.2.3](https://github.com/youzan/vant/tree/v2.2.3)
 
-* NumberKeyboard: 新增 hideOnClickOutside & closeBut为nText 属性 [\#458](https://github.com/youzan/vant/pull/458)
-* Area: 优化性能 [\#457](https://github.com/youzan/vant/pull/457)
-* 优化代码格式检查命令 [\#455](https://github.com/youzan/vant/pull/455) [\#453](https://github.com/youzan/vant/pull/453)
+`2019-09-24`
 
-**Bug Fixes**
+**Features**
 
-* 修复全局引入样式时 Cell 箭头错位的问题
+- Cell: 优化无障碍访问 [\#4519](https://github.com/youzan/vant/pull/4519)
+- Popup: 优化无障碍访问 [\#4516](https://github.com/youzan/vant/pull/4516)
+- Search: 优化无障碍访问 [\#4522](https://github.com/youzan/vant/pull/4522)
+- Picker: 优化无障碍访问 [\#4521](https://github.com/youzan/vant/pull/4521)
+- GridItem: 优化无障碍访问 [\#4517](https://github.com/youzan/vant/pull/4517)
+- ActionSheet: 优化无障碍访问 [\#4525](https://github.com/youzan/vant/pull/4525)
+- Sku: 新增 previewImgUrl 字段 [\#4562](https://github.com/youzan/vant/pull/4562)
+- RadioGroup: 新增 icon-size 属性 [\#4529](https://github.com/youzan/vant/pull/4529)
+- RadioGroup: 新增 checked-color 属性 [\#4532](https://github.com/youzan/vant/pull/4532)
+- CheckboxGroup: 新增 icon-size 属性 [\#4530](https://github.com/youzan/vant/pull/4530)
+- CheckboxGroup: 新增 checked-color 属性 [\#4531](https://github.com/youzan/vant/pull/4531)
+- ActionSheet: 默认开启 round 属性 [\#4542](https://github.com/youzan/vant/pull/4542)
+- ActionSheet: 默认开启 safe-area-inset-bottom 属性 [\#4524](https://github.com/youzan/vant/pull/4524)
+- NumberKeyboard: 默认开启 safe-area-inset-bottom 属性 [\#4544](https://github.com/youzan/vant/pull/4544)
 
-## [v0.11.13](https://github.com/youzan/vant/tree/v0.11.13)
+### [v2.2.2](https://github.com/youzan/vant/tree/v2.2.2)
 
-`2017-12-19`
+`2019-09-19`
 
-**Improvements**
+**Features**
 
-* Area: 新增 'title' prop [\#450](https://github.com/youzan/vant/pull/450)
-* Icon: 新增 'info' prop [\#447](https://github.com/youzan/vant/pull/447)
-* Picker: 优化性能 [\#450](https://github.com/youzan/vant/pull/450)
-* Search: 支持 input 原生事件 [\#451](https://github.com/youzan/vant/pull/451)
-* GoodsAction: 新增 'info' 属性，支持路由跳转 [\#448](https://github.com/youzan/vant/pull/448)
-* Area & Sku: 支持多语言切换 [\#439](https://github.com/youzan/vant/pull/439) [\#440](https://github.com/youzan/vant/pull/440)
+- Dialog: 优化文字换行 [\#4506](https://github.com/youzan/vant/pull/4506)
+- Search: 新增 action-text 属性 [\#4501](https://github.com/youzan/vant/pull/4501)
+- Popup: 新增 close-icon-position 属性 [\#4507](https://github.com/youzan/vant/pull/4507)
+- Uploader: 回调函数增加 index 参数 [\#4460](https://github.com/youzan/vant/pull/4460)
+- GoodsActionButton: 加大按钮高度 [\#4461](https://github.com/youzan/vant/pull/4461)
+- AddressList: 新增 @address-list-item-radio-icon-color 变量 [\#4481](https://github.com/youzan/vant/pull/4481)
 
 **Bug Fixes**
 
-* 修复 GoodsAction 在小屏下文字显示不全的问题 [\#446](https://github.com/youzan/vant/pull/446)
+- 修复 Field 禁用状态在 safari 上文字颜色过浅的问题 [\#4508](https://github.com/youzan/vant/pull/4508)
+- 修复 DatetimePicker 选项为纯文字时陷入死循环的问题 [\#4485](https://github.com/youzan/vant/pull/4485)
+- 修复 ImagePreview 手势缩放时可能出现缩放比例异常的问题 [\#4477](https://github.com/youzan/vant/pull/4477)
 
-## [v0.11.12](https://github.com/youzan/vant/tree/v0.11.12)
+### [v2.2.1](https://github.com/youzan/vant/tree/v2.2.1)
 
-`2017-12-15`
+`2019-09-12`
 
-**Improvements**
+**Features**
 
-* ContactCard: 新增 'editable' 属性 [\#435](https://github.com/youzan/vant/pull/435)
-* Coupon: 支持英文语言 [\#431](https://github.com/youzan/vant/pull/431)
+- Icon: 新增 dot 属性 [\#4425](https://github.com/youzan/vant/pull/4425)
+- Icon: 新增 down、wap-home 图标 [\#4404](https://github.com/youzan/vant/pull/4404)
+- GridItem: 新增 dot 属性 [\#4426](https://github.com/youzan/vant/pull/4426)
+- GridItem: 新增 info 属性 [\#4424](https://github.com/youzan/vant/pull/4424)
+- TreeSelect: 新增 dot 选项 [\#4433](https://github.com/youzan/vant/pull/4433)
+- Tab: 新增 to、url、replace 属性 [\#4422](https://github.com/youzan/vant/pull/4422)
+- Progress: 新增 stroke-width 属性 [\#4397](https://github.com/youzan/vant/pull/4397)
+- Popup: 新增 safe-area-inset-bottom 属性 [\#4419](https://github.com/youzan/vant/pull/4419)
+- Stepper: 新增 decimal-length 属性 [\#4443](https://github.com/youzan/vant/pull/4443)
+- Sku: 新增 stock-threshold 属性 [\#4444](https://github.com/youzan/vant/pull/4444)
+- Sku: 新增 safe-area-inset-bottom 属性 [\#4428](https://github.com/youzan/vant/pull/4428)
+- SidebarItem: 新增 dot 属性 [\#4432](https://github.com/youzan/vant/pull/4432)
+- Sku: 优化样式细节 [\#4437](https://github.com/youzan/vant/pull/4437)
+- Circle: 优化文本样式 [\#4401](https://github.com/youzan/vant/pull/4401)
 
 **Bug Fixes**
 
-* 修复 Popup preventScroll 属性失效的问题 [\#429](https://github.com/youzan/vant/pull/429)
-* 修复 Picker 滑动时未禁止页面滚动的问题 [\#432](https://github.com/youzan/vant/pull/432)
-* 修复 Picker 底部区域无法滑动的问题 [\#433](https://github.com/youzan/vant/pull/433)
-* 修复 PullRefresh 顶部内容遮挡的问题 [\#436](https://github.com/youzan/vant/pull/436)
+- 修复 Sku 按钮位置可能错误的问题 [\#4427](https://github.com/youzan/vant/pull/4427)
+- 修复 Uploader 删除时会触发 click-preview 事件的问题 [\#4407](https://github.com/youzan/vant/pull/4407)
+- 修复 Progress 文字位置不准确的问题 [\#4396](https://github.com/youzan/vant/pull/4396)
 
-## [v0.11.11](https://github.com/youzan/vant/tree/v0.11.11)
+### [v2.2.0](https://github.com/youzan/vant/tree/v2.2.0)
 
-`2017-12-13`
+`2019-09-06`
 
-**Improvements**
+**Features**
 
-* Field: 支持 input 标签原生事件 [\#421](https://github.com/youzan/vant/pull/421)
-* Search: 支持 input 标签原生属性 [\#418](https://github.com/youzan/vant/pull/418)
-* CellGroup: 新增 'border' 属性 [\#420](https://github.com/youzan/vant/pull/420)
-* AddressEdit: 新增 focus、change-area、select-search 事件 [\#426](https://github.com/youzan/vant/pull/426)
-* Badge、CouponList、ContactCard: 增加点击反馈 [\#419](https://github.com/youzan/vant/pull/419)
+- Style: 更新基础红色为 #ee0a24 [\#4368](https://github.com/youzan/vant/pull/4368)
+- Rate: 新增 touchable 属性 [\#4361](https://github.com/youzan/vant/pull/4361)
+- Rate: 布局调整为 inline-block [\#4334](https://github.com/youzan/vant/pull/4334)
+- Rate: 优化手势滑动的流畅度 [\#4336](https://github.com/youzan/vant/pull/4336)
+- Popup: 新增 closeable 属性 [\#4362](https://github.com/youzan/vant/pull/4362)
+- Popup: 新增 close-icon 属性 [\#4366](https://github.com/youzan/vant/pull/4366)
+- Sidebar: 移除了内外边框 [\#4382](https://github.com/youzan/vant/pull/4382)
+- SidebarItem 新增 disabled 属性 [\#4325](https://github.com/youzan/vant/pull/4325)
+- TreeSelect: 新增 max 属性 [\#4323](https://github.com/youzan/vant/pull/4323)
+- TreeSelect: 支持通过 info 展示徽标 [\#4384](https://github.com/youzan/vant/pull/4384)
+- Uploader: 新增 close-preview 事件 [\#4376](https://github.com/youzan/vant/pull/4376)
+- ImagePreview: 新增图片加载过程的提示 [\#4378](https://github.com/youzan/vant/pull/4378)
 
 **Bug Fixes**
 
-* 修复 Checkbox 在 CheckboxGroup 内时 disabled 属性无法生效的问题 [\#425](https://github.com/youzan/vant/pull/425)
-* 修复 AddressEdit 搜索结果展示错误 [\#417](https://github.com/youzan/vant/pull/417)
+- 修复 Field 在 Safari 浏览器上样式异常的问题 [\#4380](https://github.com/youzan/vant/pull/4380)
+- 修复 Button 在 color 属性中传入渐变色时边框颜色错误的问题 [\#4342](https://github.com/youzan/vant/pull/4342)
+- 修复 Dialog 关闭时未重置按钮加载状态的问题 [\#4352](https://github.com/youzan/vant/pull/4352)
+- 修复 Slider 初始值超出范围时展示错误的问题 [\#4337](https://github.com/youzan/vant/pull/4337)
+- 修复 Sidebar 徽标位置错误的问题 [\#4324](https://github.com/youzan/vant/pull/4324)
+- 修复 DropdownItem 选项选中态颜色丢失的问题 [\#4330](https://github.com/youzan/vant/pull/4330)
+- 修复 NumberKeyboard 在 iphoneX 上右侧按钮位置错误的问题 [\#4304](https://github.com/youzan/vant/pull/4304)
+- 修复 ImagePreview 在关闭后未重置图片缩放状态的问题 [\#4319](https://github.com/youzan/vant/pull/4319)
+- 修复 ImagePreview 在某些情况下页码不正确的问题 [\#4320](https://github.com/youzan/vant/pull/4320)
 
-## [v0.11.10](https://github.com/youzan/vant/tree/v0.11.10)
+### [v2.1.8](https://github.com/youzan/vant/tree/v2.1.8)
 
-`2017-12-12`
+`2019-08-29`
 
-**Improvements**
+**Features**
 
-* 支持通过 Vue.use 来全局注册组件 [\#401](https://github.com/youzan/vant/pull/401)
-* 统一组件间的 fade 动画，优化过渡效果 [\#410](https://github.com/youzan/vant/pull/410)
+- Picker: 新增 allow-html 属性 [\#4278](https://github.com/youzan/vant/pull/4278)
+- PasswordInput: 新增 focused 属性 [\#4279](https://github.com/youzan/vant/pull/4279)
+- GoodsActionButton: 新增 color 属性 [\#4255](https://github.com/youzan/vant/pull/4255)
+- Button: color 属性支持传入 linear-gradient 渐变色 [\#4252](https://github.com/youzan/vant/pull/4252)
 
 **Bug Fixes**
-
-* Icon: 修复 'shopping-cart' 图标高度不居中的问题 [\#415](https://github.com/youzan/vant/pull/415)
 
-## [v0.11.9](https://github.com/youzan/vant/tree/v0.11.9)
+- 修复 Circle stroke-width 超过 60 时样式错误的问题 [\#4256](https://github.com/youzan/vant/pull/4256)
+- 修复 Picker 滑动暂停时位置错误的问题 [\#4277](https://github.com/youzan/vant/pull/4277)
+- 修复 Picker 滑动结束时触发点击会跳动的问题 [\#4273](https://github.com/youzan/vant/pull/4273)
 
-`2017-12-11`
+### [v2.1.7](https://github.com/youzan/vant/tree/v2.1.7)
 
-**Improvements**
+`2019-08-26`
 
-* Icon: 新增 share & arrow-left 图标 [\#407](https://github.com/youzan/vant/pull/407)
-* Icon: 支持使用本地字体文件 [\#408](https://github.com/youzan/vant/pull/408)
-
 **Bug Fixes**
 
-* 修复 raf SSR 报错的问题 [\#405](https://github.com/youzan/vant/pull/405)
-* 修复 NoticeBar animationend 事件兼容问题 [\#402](https://github.com/youzan/vant/pull/402)
+- 修复 RadioGroup 设置 disabled 属性后仍能切换的问题 [\#4242](https://github.com/youzan/vant/pull/4242)
+- 修复 CheckboxGroup 设置 disabled 属性后仍能切换的问题 [\#4242](https://github.com/youzan/vant/pull/4242)
 
-## [v0.11.8](https://github.com/youzan/vant/tree/v0.11.8)
+### [v2.1.6](https://github.com/youzan/vant/tree/v2.1.6)
 
-`2017-12-08`
+`2019-08-26`
 
-**Improvements**
+**Features**
 
-* Icon: 新增两个图标 [\#396](https://github.com/youzan/vant/pull/396)
-* But为n: 调整默认按钮边框颜色 [\#392](https://github.com/youzan/vant/pull/392)
+- Tag: 新增 warning 类型 [\#4232](https://github.com/youzan/vant/pull/4232)
+- Image: 新增 radius 属性 [\#4230](https://github.com/youzan/vant/pull/4230)
+- Notify: 新增 type 属性 [\#4237](https://github.com/youzan/vant/pull/4237)
+- CellGroup: 新增 title 插槽 [\#4227](https://github.com/youzan/vant/pull/4227)
+- Sku: 支持动态设置 initial-sku 属性 [\#4214](https://github.com/youzan/vant/pull/4214)
+- Sku: 支持预览更高层级的规格类目图片 [\#4236](https://github.com/youzan/vant/pull/4236)
+- Locale: 支持西班牙语 [\#4235](https://github.com/youzan/vant/pull/4235)
 
 **Bug Fixes**
 
-* Tab: 修复 safari 下的滚动条问题 [\#390](https://github.com/youzan/vant/pull/390)
-* Tab: 修复 active 标签不能自动居中的问题 [\#394](https://github.com/youzan/vant/pull/394)
+- 修复 Tabbar 在 route 模式下选中样式错误的问题 [\#4229](https://github.com/youzan/vant/pull/4229)
+- 修复 NumberKeyboard 使用 title 属性时按钮位置错误的问题 [\#4228](https://github.com/youzan/vant/pull/4228)
+- 修复 IndexBar 在 sticky 模式下锚点位置可能超出元素边界的问题 [\#4218](https://github.com/youzan/vant/pull/4218)
 
-## [v0.11.7](https://github.com/youzan/vant/tree/v0.11.7)
+### [v2.1.5](https://github.com/youzan/vant/tree/v2.1.5)
 
-`2017-12-07`
+`2019-08-23`
 
-**Improvements**
+**Features**
 
-* Tab: 传入 sticky 属性且切换标签时，自动滚动至顶部 [\#389](https://github.com/youzan/vant/pull/389) [chenjiahan](https://github.com/chenjiahan)
+- Toast: 新增 closeOnClick 选项 [\#4192](https://github.com/youzan/vant/pull/4192)
+- Uploader: 新增 image-fit 属性 [\#4189](https://github.com/youzan/vant/pull/4189)
+- Uploader: 新增 click-preview 事件 [\#4206](https://github.com/youzan/vant/pull/4206)
+- Uploader: 新增 preview-full-image 属性 [\#4205](https://github.com/youzan/vant/pull/4205)
+- DropdownMenu: 新增 @dropdown-menu-title-active-text-color less 变量 [\#4208](https://github.com/youzan/vant/pull/4208)
 
 **Bug Fixes**
 
-* 修复 Tab 初始标签滚动位置 [\#389](https://github.com/youzan/vant/pull/389) [chenjiahan](https://github.com/chenjiahan)
+- 修复 Area 无法选中部分海外地址的问题 [\#4195](https://github.com/youzan/vant/pull/4195)
+- 修复 IndexBar 在局部滚动容器内计算错误的问题 [\#4184](https://github.com/youzan/vant/pull/4184)
+- 修复 NumberKeyboard 按键边框颜色错误的问题 [\#4183](https://github.com/youzan/vant/pull/4183)
 
-## [v0.11.6](https://github.com/youzan/vant/tree/v0.11.6)
+### [v2.1.4](https://github.com/youzan/vant/tree/v2.1.4)
 
-`2017-12-07`
+`2019-08-21`
 
-**Improvements**
+**Features**
 
-* Picker: 支持点击切换选项、禁用选项 [\#370](https://github.com/youzan/vant/pull/370)
-* Tab: 新增 sticky 属性 [\#382](https://github.com/youzan/vant/pull/382)
-* Tab: 优化动画流畅度 [\#379](https://github.com/youzan/vant/pull/379)
+- Col: 新增 click 事件 [\#4169](https://github.com/youzan/vant/pull/4169)
+- Row: 新增 click 事件 [\#4170](https://github.com/youzan/vant/pull/4170)
+- Area: 新增 is-oversea-code 属性 [\#4163](https://github.com/youzan/vant/pull/4163)
+- Circle: 支持渐变色 [\#4157](https://github.com/youzan/vant/pull/4157)
+- Circle: 支持传入 number 类型的 size 属性 [\#4160](https://github.com/youzan/vant/pull/4160)
+- Tabbar: 支持通过 to.name 匹配路由 [\#4148](https://github.com/youzan/vant/pull/4148)
+- Sku: 页面返回时自动关闭图片预览 [\#4152](https://github.com/youzan/vant/pull/4152)
+- Uploader: 页面返回时自动关闭图片预览 [\#4151](https://github.com/youzan/vant/pull/4151)
+- Uploader: 图片预览支持更多图片格式 [\#4140](https://github.com/youzan/vant/pull/4140)
+- TreeSelect: 支持多选 [\#4130](https://github.com/youzan/vant/pull/4130)
+- TreeSelect: 支持在 active-id 属性上使用 sync 修饰符 [\#4133](https://github.com/youzan/vant/pull/4133)
+- TreeSelect: 支持在 main-active-index 属性上使用 sync 修饰符 [\#4132](https://github.com/youzan/vant/pull/4132)
 
 **Bug Fixes**
 
-* 修复 Popup overlayClass 类型错误 [\#374](https://github.com/youzan/vant/pull/374)
-* 修复 Field number 类型输入值过滤 [\#386](https://github.com/youzan/vant/pull/386)
-* 修复 Icon 'new' 显示问题 [\#381](https://github.com/youzan/vant/pull/381)
-* 修复 Sku 按钮圆角问题 [\#378](https://github.com/youzan/vant/pull/378)
-* 修复 Radio & Checkbox 禁用态样式 [\#383](https://github.com/youzan/vant/pull/383)
-* 修复 Field disabled 在安卓下的显示问题 [\#388](https://github.com/youzan/vant/pull/388)
+- 修复 Sku 部分文案不支持国际化修改的问题 [\#4172](https://github.com/youzan/vant/pull/4172)
+- 修复 Field 按钮在 Firefox 上宽度变小的问题 [\#4144](https://github.com/youzan/vant/pull/4144)
+- 修复 Tabbar 触发 vue-router 路由重复跳转提示的问题 [\#4147](https://github.com/youzan/vant/pull/4147)
+- 修复 Picker 样式可能被重复引入的 base 样式覆盖的问题 [\#4136](https://github.com/youzan/vant/pull/4136)
 
-## [v0.11.5](https://github.com/youzan/vant/tree/v0.11.5)
+### [v2.1.3](https://github.com/youzan/vant/tree/v2.1.3)
 
-`2017-12-04`
+`2019-08-15`
 
-**Improvements**
+**Features**
 
-* Coupon：调整 Cell 右侧文案 [\#371](https://github.com/youzan/vant/pull/371)
-* GoodsAction: 支持国际化 [\#367](https://github.com/youzan/vant/pull/367)
-* 增加 Props 命名规范相关文档 [\#366](https://github.com/youzan/vant/pull/366)
+- Sku: 支持国际化 [\#4123](https://github.com/youzan/vant/pull/4123)
+- Button: 新增 color 属性 [\#4124](https://github.com/youzan/vant/pull/4124)
+- Uploader: 新增 before-delete 属性 [\#4118](https://github.com/youzan/vant/pull/4118)
+- Collapse: 新增 value 属性类型错误时的提示 [\#4122](https://github.com/youzan/vant/pull/4122)
+- TreeSelect: 新增 content 插槽 [\#4105](https://github.com/youzan/vant/pull/4105)
+- TreeSelect: 支持 string 类型的 height 属性 [\#4107](https://github.com/youzan/vant/pull/4107)
+- NumberKeyboard: 优化点击体验 [\#4116](https://github.com/youzan/vant/pull/4116)
 
 **Bug Fixes**
-
-* 修复 Tab 删除时未自动切换 active 值的问题 [\#372](https://github.com/youzan/vant/pull/372)
-
-## [v0.11.4](https://github.com/youzan/vant/tree/v0.11.4)
-
-`2017-11-30`
-
-**Improvements**
-
-* 新增类型定义文件，增强对 TypeScript 支持 [\#361](https://github.com/youzan/vant/pull/361)
-* Toast/Dialog 自动挂载至 Vue.pro为type, 支持 this.$为ast 等方式调用 [\#363](https://github.com/youzan/vant/pull/363)
-
-## [v0.11.3](https://github.com/youzan/vant/tree/v0.11.3)
-
-`2017-11-28`
 
-**Breaking changes**
+- 修复 DropdownMenu 嵌套在 NavBar 内时样式错误的问题 [\#4098](https://github.com/youzan/vant/pull/4098)
+- 修复 Tab 动态插入标签页时下划线位置未更新的问题 [\#4091](https://github.com/youzan/vant/pull/4091)
+- 修复 Icon service-o 图标不完整的问题 [\#4088](https://github.com/youzan/vant/pull/4088)
+- 修复 Icon gift-o、refund-o 图标不完整的问题 [\#4089](https://github.com/youzan/vant/pull/4089)
+- 修复 Slider 位置未改变时也会触发 change 事件的问题 [\#4087](https://github.com/youzan/vant/pull/4087)
 
-* NavBar: 规范事件命名, 由 'clickLeft' 改为 'click-left' [\#354](https://github.com/youzan/vant/pull/354)
+### [v2.1.2](https://github.com/youzan/vant/tree/v2.1.2)
 
-**Improvements**
+`2019-08-10`
 
-* SwipeCell: 新增 onClose 属性，支持异步控制 [\#356](https://github.com/youzan/vant/pull/356)
-* Uploader: 支持继承原生属性 [\#357](https://github.com/youzan/vant/pull/357)
-* 优化本地构建速度 [\#355](https://github.com/youzan/vant/pull/355)
+**Features**
 
-## [v0.11.2](https://github.com/youzan/vant/tree/v0.11.2)
+- ActionSheet: 新增 color 选项 [\#4073](https://github.com/youzan/vant/pull/4073)
+- AddressEdit: 新增 postal-validator 属性 [\#4067](https://github.com/youzan/vant/pull/4067)
+- Stepper: 新增 show-plus、show-minus 属性 [\#4056](https://github.com/youzan/vant/pull/4056)
+- Icon: 新增 warning、good-job、good-job-o 图标 [\#4038](https://github.com/youzan/vant/pull/4038)
+- Icon: 新增 smile、music、thumb-circle、phone-circle 图标 [\#4048](https://github.com/youzan/vant/pull/4048)
+- Picker: 优化事件冒泡 [\#4043](https://github.com/youzan/vant/pull/4043)
+- Field: 优化图标点击区域 [\#4058](https://github.com/youzan/vant/pull/4058)
+- Divider: 优化无障碍访问 [\#4069](https://github.com/youzan/vant/pull/4069)
+- List: 优化底部文字大小 [\#4077](https://github.com/youzan/vant/pull/4077)
+- Image: img 标签继承圆角 [\#4032](https://github.com/youzan/vant/pull/4032)
+- Uploader: 支持 isImage 标记 [\#4072](https://github.com/youzan/vant/pull/4072)
+- DropdownMenu: 新增多个 Less 变量 [\#4071](https://github.com/youzan/vant/pull/4071)
+- 支持在 module 类型的 script 标签中引入 CDN 包 [\#4080](https://github.com/youzan/vant/pull/4080)
 
-`2017-11-24`
-
-**Improvements**
-
-* Icon: 增加 7 个新图标 [\#351](https://github.com/youzan/vant/pull/351)
-
-## [v0.11.1](https://github.com/youzan/vant/tree/v0.11.1)
-
-`2017-11-24`
-
-**Improvements**
-
-* Actionsheet: 更新关闭按钮样式 [\#340](https://github.com/youzan/vant/pull/340)
-* Popup: 新增 overlayClass、overlayStyle 属性 [\#349](https://github.com/youzan/vant/pull/349) [\#343](https://github.com/youzan/vant/pull/343)
-* Icon: 调整 unicode，避免展示特殊字符 [\#330](https://github.com/youzan/vant/pull/330)
-* ImagePreview: 支持手动关闭 [\#346](https://github.com/youzan/vant/pull/346)
-* Tabbar: 支持通过 slot-scope 判断 active 状态 [\#347](https://github.com/youzan/vant/pull/347)
-* SubmitBar: 新增左侧内容插槽 [\#345](https://github.com/youzan/vant/pull/345)
-* 优化组件 staticClass 渲染效率 [\#337](https://github.com/youzan/vant/pull/337)
-* 优化文字截取相关样式 [\#334](https://github.com/youzan/vant/pull/334)
-* 优化按钮 css layer 及 GPU 开销 [\#336](https://github.com/youzan/vant/pull/336)
-
 **Bug Fixes**
-
-* 修复 SSR 过程中报错的问题 [\#344](https://github.com/youzan/vant/pull/344)
-* 修复 DateTimePicker 接受非法参数时卡死的问题 [\#333](https://github.com/youzan/vant/pull/333)
-
-## [v0.11.0](https://github.com/youzan/vant/tree/v0.11.0)
-
-`2017-11-17`
 
-**Breaking changes**
+- 修复 Sticky 在局部滚动容器内位置错误的问题 [\#4055](https://github.com/youzan/vant/pull/4055)
 
-* 组件支持国际化 [\#310](https://github.com/youzan/vant/pull/310)
-* 移除部分无用的 props 及有效性检测 [\#323](https://github.com/youzan/vant/pull/323)
+### [v2.1.1](https://github.com/youzan/vant/tree/v2.1.1)
 
-**Improvements**
+`2019-08-02`
 
-* 新增 Pagination 组件 [\#327](https://github.com/youzan/vant/pull/327) [\#328](https://github.com/youzan/vant/pull/328)
-* 新增 Locale 组件 [\#310](https://github.com/youzan/vant/pull/310)
-* 新增国际化文档 [\#321](https://github.com/youzan/vant/pull/321)
-* Icon: add-o 图标更正为圆角 [\#326](https://github.com/youzan/vant/pull/326)
-
-## [v0.10.9](https://github.com/youzan/vant/tree/v0.10.9)
-
-`2017-11-15`
-
-**Improvements**
-
-* Icon: 增加几个新 icons [\#315](https://github.com/youzan/vant/pull/315)
-
 **Bug Fixes**
 
-* Search: 修复 box-sizing 错误 [\#312](https://github.com/youzan/vant/pull/312)
+- 修复 DatetimePicker 事件无法触发的问题 [\#4027](https://github.com/youzan/vant/pull/4027)
+- 修复 Popup 设置 z-index 顺序错误的问题 [\#4026](https://github.com/youzan/vant/pull/4026)
 
-## [v0.10.8](https://github.com/youzan/vant/tree/v0.10.8)
+### [v2.1.0](https://github.com/youzan/vant/tree/v2.1.0)
 
-`2017-11-11`
+`2019-08-01` 🇨🇳
 
-**Improvements**
+**Features**
 
-* Tabbar: 支持 vue-router [\#305](https://github.com/youzan/vant/pull/305)
-* Stepper: 新增 plus & minus 事件 [\#294](https://github.com/youzan/vant/pull/294)
-* Progress: 新增 showPivot 属性 [\#300](https://github.com/youzan/vant/pull/300)
-* Loading: 新增 spinner 类型 [\#297](https://github.com/youzan/vant/pull/297)
-* Toast: 新增 mask 选项 [\#296](https://github.com/youzan/vant/pull/296)
-* 新增 Tab 英文文档 [\#308](https://github.com/youzan/vant/pull/308)
-* 新增 Toast 英文文档 [\#307](https://github.com/youzan/vant/pull/307)
+- Sku: UI 升级，采用更圆润的视觉风格 [\#3875](https://github.com/youzan/vant/pull/3875) [\#3922](https://github.com/youzan/vant/pull/3922)
+- GoodsAction: UI 升级，采用更圆润的视觉风格 [\#3967](https://github.com/youzan/vant/pull/3967)
+- Sku: 新增 price-tag 属性 [\#3875](https://github.com/youzan/vant/pull/3875)
+- Sku: 新增 hide-selected-text 属性 [\#3875](https://github.com/youzan/vant/pull/3875)
+- Sku: 新增 sku-header-origin-price 插槽 [\#3958](https://github.com/youzan/vant/pull/3958)
+- Dialog: 新增 title 插槽 [\#3985](https://github.com/youzan/vant/pull/3985)
+- Dialog: 优化垂直居中位置 [\#3905](https://github.com/youzan/vant/pull/3905)
+- Uploader: 新增多个 less 变量 [\#3907](https://github.com/youzan/vant/pull/3907)
+- ActionSheet: 新增多个 less 变量 [\#3908](https://github.com/youzan/vant/pull/3908)
+- AddressList: 新增 click-item 事件 [\#3942](https://github.com/youzan/vant/pull/3942)
+- CouponList: 新增 empty-image 属性 [\#3941](https://github.com/youzan/vant/pull/3941)
+- ImagePreview: 新增 swipe-duration 属性 [\#3963](https://github.com/youzan/vant/pull/3963)
+- SwipeCell: 新增 stop-propagation 属性 [\#3952](https://github.com/youzan/vant/pull/3952)
 
 **Bug Fixes**
 
-* 修复 npm run dist 在 windows 下报错的问题 [\#301](https://github.com/youzan/vant/pull/301)
+- 修复 Tabs 在特定情况下出现下划线位置错误的问题 [\#3961](https://github.com/youzan/vant/pull/3961)
+- 修复 AddressList 点击空白区域时无法选中的问题 [\#3909](https://github.com/youzan/vant/pull/3909)
+- 修复 IndexBar 在 index-list 变化时未更新高亮选项的问题 [\#3943](https://github.com/youzan/vant/pull/3943)
+- 修复 ImagePreview 图片较长时遮挡索引的问题 [\#4002](https://github.com/youzan/vant/pull/4002)
+- 修复 ImagePreview onClose 和 onChange 选项未被重置的问题 [\#3960](https://github.com/youzan/vant/pull/3960)
+- 修复 Radio 和 Checkbox 点击中间空白区域时无法选中的问题 [\#4007](https://github.com/youzan/vant/pull/4007)
+- 修复 SwipeCell 在打开的情况下阻止事件冒泡的问题 [\#3982](https://github.com/youzan/vant/pull/3982)
+- 修复 Tabs 在 sticky 模式下滚动回到顶部时存在 1 像素偏差的问题 [\#3949](https://github.com/youzan/vant/pull/3949)
+- 修复 DatetimePicker 使用 formatter 且为 time 类型时 confirm 事件参数错误的问题 [\#3969](https://github.com/youzan/vant/pull/3969)
 
-## [v0.10.7](https://github.com/youzan/vant/tree/v0.10.7)
+### [v2.0.9](https://github.com/youzan/vant/tree/v2.0.9)
 
-`2017-11-08`
+`2019-07-19`
 
-**Improvements**
+**Features**
 
-* 修正了所有图标尺寸，保持大小统一 [\#292](https://github.com/youzan/vant/pull/292)
-* ImagePreview 支持自定义初始位置 [\#286](https://github.com/youzan/vant/pull/286)
+- 新增 Sticky 粘性布局组件 [\#3888](https://github.com/youzan/vant/pull/3888)
+- Grid: 优化文字换行 [\#3897](https://github.com/youzan/vant/pull/3897)
+- Toast: 优化图片图标展示 [\#3895](https://github.com/youzan/vant/pull/3895)
+- Image: 新增 round 属性 [\#3838](https://github.com/youzan/vant/pull/3838)
+- Image: 新增 show-error 属性 [\#3896](https://github.com/youzan/vant/pull/3896)
+- Image: 新增 show-loading 属性 [\#3893](https://github.com/youzan/vant/pull/3893)
+- Toast: 新增 iconPrefix 选项 [\#3872](https://github.com/youzan/vant/pull/3872)
+- Uploader: 支持预览网络图片 [\#3899](https://github.com/youzan/vant/pull/3899)
+- ActionSheet: 新增 round 属性 [\#3874](https://github.com/youzan/vant/pull/3874)
+- TreeSelect: 新增 click-nav、click-item 事件 [\#3892](https://github.com/youzan/vant/pull/3892)
 
 **Bug Fixes**
 
-* 修复 Sku 滚动锁定问题 [\#291](https://github.com/youzan/vant/pull/291)
-* 修复 Steps 超过四项时样式错误 [\#287](https://github.com/youzan/vant/pull/287)
+- 修复 SwipeCell 与 Swipe 嵌套时无法使用的问题 [\#3898](https://github.com/youzan/vant/pull/3898)
+- 修复 Dialog closeOnPopstate 无法被禁用的问题 [\#3868](https://github.com/youzan/vant/pull/3868)
+- 修复 DropdownMenu toggle 方法无法打开菜单的问题 [\#3876](https://github.com/youzan/vant/pull/3876)
 
-## [v0.10.6](https://github.com/youzan/vant/tree/v0.10.6)
+### [v2.0.8](https://github.com/youzan/vant/tree/v2.0.8)
 
-`2017-11-06`
+`2019-07-16`
 
-**Improvements**
+**Features**
 
-* 新增 Swipe initialSwipe 属性 [\#279](https://github.com/youzan/vant/pull/279)
+- Sku: 支持自定义留言占位文本 [\#3864](https://github.com/youzan/vant/pull/3864)
+- DropdownMenu: 新增 icon 选项 [\#3855](https://github.com/youzan/vant/pull/3855)
+- DropdownMenu: 标题过长时自动截断 [\#3847](https://github.com/youzan/vant/pull/3847)
+- ImagePreview: 支持双击缩放手势 [\#3839](https://github.com/youzan/vant/pull/3839)
 
 **Bug Fixes**
 
-* 修复 Dialog 按钮文字未重置的问题 [\#278](https://github.com/youzan/vant/pull/278)
-* 修复 Tab 动态生成问题 [\#284](https://github.com/youzan/vant/pull/284)
-* 修复 NoticeBar 在页面返回时文字消失的问题 [\#280](https://github.com/youzan/vant/pull/280)
+- 修复 Tab 点击事件参数丢失的问题 [\#3866](https://github.com/youzan/vant/pull/3866)
+- 修复 List 在 body 标签添加滚动样式时异常的问题 [\#3844](https://github.com/youzan/vant/pull/3844)
+- 修复 IndexBar 在某些情况下 active 锚点失效的问题 [\#3832](https://github.com/youzan/vant/pull/3832)
 
-## [v0.10.5](https://github.com/youzan/vant/tree/v0.10.5)
+### [v2.0.7](https://github.com/youzan/vant/tree/v2.0.7)
 
-`2017-10-30`
+`2019-07-11`
 
-**Improvements**
+**Features**
 
-* Cell 支持 vue-router 路由跳转 [\#268](https://github.com/youzan/vant/pull/268)
+- 新增 CountDown 倒计时组件 [\#3805](https://github.com/youzan/vant/pull/3805)
+- Popup: 新增 round 属性 [\#3781](https://github.com/youzan/vant/pull/3781)
+- IndexBar: 新增 sticky-offset-top 属性 [\#3791](https://github.com/youzan/vant/pull/3791)
+- PullRefresh: 新增 distance 插槽参数 [\#3829](https://github.com/youzan/vant/pull/3829)
+- Swipe: swipeTo 方法新增 immediate 参数 [\#3821](https://github.com/youzan/vant/pull/3821)
+- Slider: bar-height 属性支持 number 类型 [\#3794](https://github.com/youzan/vant/pull/3794)
+- DropdownMenu: 新增 close-on-click-outside 属性 [\#3824](https://github.com/youzan/vant/pull/3824)
 
 **Bug Fixes**
 
-* 修复 Tabbar 使用 icon 插槽时 info prop 失效的问题 [\#269](https://github.com/youzan/vant/pull/269)
-* 修复 Uploader input 类型错误 [\#265](https://github.com/youzan/vant/pull/265)
+- 修复 Popup 蒙层在某些情况下遮挡元素的问题 [\#3831](https://github.com/youzan/vant/pull/3831)
+- 修复 Stepper 在 iOS 12 下滚动位置错误的问题 [\#3804](https://github.com/youzan/vant/pull/3804)
+- 修复 Dialog closeOnPopstate 方法缺少类型定义的问题 [\#3789](https://github.com/youzan/vant/pull/3789)
+- 修复 DatetimePicker 使用 filter 属性且为 time 类型时 confirm 事件参数错误的问题 [\#3816](https://github.com/youzan/vant/pull/3816)
 
-## [v0.10.4](https://github.com/youzan/vant/tree/v0.10.4)
+### [v2.0.6](https://github.com/youzan/vant/tree/v2.0.6)
 
-`2017-10-26`
+`2019-07-05`
 
-**Improvements**
+**Features**
 
-* 新增多个图标 [\#253](https://github.com/youzan/vant/pull/253)
-* 新增定制主题文档 [\#251](https://github.com/youzan/vant/pull/251)
-* 新增多个组件的按钮点击态提示 [\#248](https://github.com/youzan/vant/pull/248)
-* NoticeBar：增加多个 props [\#254](https://github.com/youzan/vant/pull/254)
+- 新增 Divider 分割线组件 [\#3755](https://github.com/youzan/vant/pull/3755)
+- Tab: 新增 name 属性 [\#3762](https://github.com/youzan/vant/pull/3762)
+- Sku: 新增 add-cart-text 属性 [\#3725](https://github.com/youzan/vant/pull/3725)
 
 **Bug Fixes**
 
-* 修复 Swipe 在某些情况下宽度计算错误的问题 [\#258](https://github.com/youzan/vant/pull/258)
-* 修复 PullRefreash 父元素可滚动时无法正常运行的问题 [\#247](https://github.com/youzan/vant/pull/247)
-* 修复 CouponList 空列表样式一直存在的问题 [\#246](https://github.com/youzan/vant/pull/246)
+- 修复 Grid gutter 属性不能传入 String 类型的问题 [\#3741](https://github.com/youzan/vant/pull/3741)
+- 修复 Swipe 使用 width 属性后出现空白区域的问题 [\#3751](https://github.com/youzan/vant/pull/3751)
+- 修复 PullRefresh 同步修改 loading 时状态错误的问题 [\#3719](https://github.com/youzan/vant/pull/3719)
+- 修复 Collapse 在 safari 浏览器上渲染内容较多时高度错误的问题 [\#3723](https://github.com/youzan/vant/pull/3723)
 
-## [v0.10.3](https://github.com/youzan/vant/tree/v0.10.3)
+### [v2.0.5](https://github.com/youzan/vant/tree/v2.0.5)
 
-`2017-10-25`
+`2019-07-02`
 
-**Improvements**
+**Features**
 
-* 新增 Tabbar info 属性 [\#245](https://github.com/youzan/vant/pull/245)
-* 新增 Toast position 属性 [\#244](https://github.com/youzan/vant/pull/244)
-* 新增 Coupon showExchangeBar 属性 [\#243](https://github.com/youzan/vant/pull/243)
-* 新增高阶组件英文文档 [\#236](https://github.com/youzan/vant/pull/236)
-* 新增示例页面文档 [\#237](https://github.com/youzan/vant/pull/237)
+- Stepper: 支持长按手势 [\#3711](https://github.com/youzan/vant/pull/3711)
+- Stepper: 新增 button-size 属性 [\#3714](https://github.com/youzan/vant/pull/3714)
+- Dialog: 新增 close-on-popstate 属性 [\#3709](https://github.com/youzan/vant/pull/3709)
 
 **Bug Fixes**
 
-* 修复 Address & Contact 列表底部遮挡问题 [\#230](https://github.com/youzan/vant/pull/230)
-* 修复 popup 被依赖时未自动引入样式的问题 [\#231](https://github.com/youzan/vant/pull/231)
-* 修复 PullRefresh 为uchcancel 事件名拼写错误 [\#239](https://github.com/youzan/vant/pull/239)
+- 修复 postcss 配置对 vant 不生效的问题
 
-## [v0.10.2](https://github.com/youzan/vant/tree/v0.10.2)
+### [v2.0.4](https://github.com/youzan/vant/tree/v2.0.4) 🇨🇳
 
-`2017-10-20`
+`2019-07-01`
 
-**Improvements**
+**Features**
 
-* Sku: sku-group 插槽增加 event bus [\#226](https://github.com/youzan/vant/pull/226)
-* 新增基础英文文档 [\#220](https://github.com/youzan/vant/pull/220)
+- 新增 Grid、GridItem 组件 [\#3669](https://github.com/youzan/vant/pull/3669) [\#3682](https://github.com/youzan/vant/pull/3682) [\#3683](https://github.com/youzan/vant/pull/3683)
+- Field: 新增 arrow-direction 属性 [\#3679](https://github.com/youzan/vant/pull/3679)
+- Sidebar: 新增 to、replace 属性 [\#3696](https://github.com/youzan/vant/pull/3696)
+- Sidebar: 支持通过 v-model 绑定当前项索引 [\#3698](https://github.com/youzan/vant/pull/3698)
+- IndexBar: 新增选中状态的类名，用于定制样式 [\#3692](https://github.com/youzan/vant/pull/3692)
+- Uploader: 支持 Number 类型的 name 属性 [\#3681](https://github.com/youzan/vant/pull/3681)
+- SwipeCell: 新增 name 属性 [\#3680](https://github.com/youzan/vant/pull/3680)
+- AddressEdit: 新增 detail-maxlength 属性 [\#3707](https://github.com/youzan/vant/pull/3707)
+- GoodsActionIcon: 新增 icon 插槽 [\#3705](https://github.com/youzan/vant/pull/3705)
 
 **Bug Fixes**
 
-* 修复组件间样式依赖分析遗漏的问题 [\#224](https://github.com/youzan/vant/pull/224)
+- 修复 Collapse 在 safari 浏览器上动画可能闪烁的问题 [\#3686](https://github.com/youzan/vant/pull/3686)
+- 修复 Picker 在低版本 Android 机器上的兼容性问题 [\#3688](https://github.com/youzan/vant/pull/3688)
 
-## [v0.10.1](https://github.com/youzan/vant/tree/v0.10.1)
+### [v2.0.3](https://github.com/youzan/vant/tree/v2.0.3)
 
-`2017-10-18`
+`2019-06-27`
 
-**Improvements**
+**Features**
 
-* 升级 Vue 依赖至 2.5.0 版本
-* 新增 Tabs swipeThreshold 属性 [\#206](https://github.com/youzan/vant/pull/206)
+- ActionSheet: 新增 duration 属性 [\#3608](https://github.com/youzan/vant/pull/3608)
+- ActionSheet: 新增 open、opened 事件 [\#3639](https://github.com/youzan/vant/pull/3639)
+- ActionSheet: 新增 close、closed 事件 [\#3639](https://github.com/youzan/vant/pull/3639)
+- ImagePreview: 新增 onChange 选项 [\#3630](https://github.com/youzan/vant/pull/3630)
+- Popup: 优化蒙层动画时长 [\#3610](https://github.com/youzan/vant/pull/3610)
+- Uploader: 支持点击查看大图 [\#3603](https://github.com/youzan/vant/pull/3603)
+- Uploader: 支持预览非图片文件 [\#3604](https://github.com/youzan/vant/pull/3604)
+- Stepper: 新增多个 Less 变量 [\#3599](https://github.com/youzan/vant/pull/3599)
+- Icon: 更新 checked、comment、comment-o 图标 [\#3615](https://github.com/youzan/vant/pull/3615)
 
 **Bug Fixes**
-
-* 修复 Swipe 组件 destroyed 时未清除 au为play timer 的问题 [\#218](https://github.com/youzan/vant/pull/218)
-* 修复 Tab 组件插槽 text 文本换行问题 [\#217](https://github.com/youzan/vant/pull/217)
-* 修复 TreeSelect 依赖路径错误 [\#216](https://github.com/youzan/vant/pull/216)
-* 修复 Checkbox 在微信浏览器下的边框渲染错误 [\#214](https://github.com/youzan/vant/pull/214)
-* 修复 Popup modal 层在某些情况下无法展示的问题 [\#211](https://github.com/youzan/vant/pull/211)
-* 修复 Waterfall 重复绑定事件的问题
-
-## [v0.10.0](https://github.com/youzan/vant/tree/v0.10.0)
-
-`2017-10-13`
-
-**Breaking changes**
-
-* 移除 style 中对 reset.css 的默认引用 [\#192](https://github.com/youzan/vant/issues/192) [\#196](https://github.com/youzan/vant/pull/196)
-* 重写 Swipe 组件，调整部分 API [#174](https://github.com/youzan/vant/issues/174) [#180](https://github.com/youzan/vant/issues/180) [\#194](https://github.com/youzan/vant/pull/194) [\#200](https://github.com/youzan/vant/pull/200)
-* 优化 Search 组件，修改原有结构 [\#198](https://github.com/youzan/vant/pull/198)
 
-**Improvements**
+- 修复 Icon 传入图片时被拉伸的问题 [\#3667](https://github.com/youzan/vant/pull/3667)
+- 修复 ImagePreview 滚动穿透问题 [\#3645](https://github.com/youzan/vant/pull/3645)
+- 修复 Tab 使用 title slot 时可能报错的问题 [\#3631](https://github.com/youzan/vant/pull/3631)
+- 修复 vetur 插件自动补全组件属性不生效的问题 [\#3617](https://github.com/youzan/vant/pull/3617)
 
-* 新增 Tabbar 组件 [#157](https://github.com/youzan/vant/issues/157) [\#204](https://github.com/youzan/vant/pull/204)
-* 新增表单相关组件英文文档 [\#199](https://github.com/youzan/vant/pull/199)
-* 优化 Sku 样式 [\#205](https://github.com/youzan/vant/pull/205)
+### [v2.0.2](https://github.com/youzan/vant/tree/v2.0.2)
 
-**Bug Fixes**
-
-* 修复 ImagePreview 图片加载过程中跳动的问题 [\#201](https://github.com/youzan/vant/pull/201)
-* 修复 Field 组件 type 为 textarea 且 display none 时高度计算错误的问题 [\#181](https://github.com/youzan/vant/issues/181)
+`2019-06-21`
 
-## [v0.9.12](https://github.com/youzan/vant/tree/v0.9.12)
+**Features**
 
-`2017-10-11`
+- Picker: 优化滚动速率 [\#3556](https://github.com/youzan/vant/pull/3556)
+- Card: 新增 click-thumb 事件 [\#3586](https://github.com/youzan/vant/pull/3586)
+- CouponList: 新增 enabled-title、disabled-title 属性 [\#3578](https://github.com/youzan/vant/pull/3578)
+- Slider: 支持传入任意范围的 min、max 值 [\#3566](https://github.com/youzan/vant/pull/3566)
+- Uploader: 支持 before-read 属性返回 Promise [\#3572](https://github.com/youzan/vant/pull/3572)
+- NumberKeyboard: 支持 v-model 绑定输入值 [\#3531](https://github.com/youzan/vant/pull/3531)
+- NumberKeyboard: 新增 maxlength 属性 [\#3532](https://github.com/youzan/vant/pull/3532)
+- 新增 sideEffects 配置以支持 tree shaking [\#3530](https://github.com/youzan/vant/pull/3530)
 
 **Bug Fixes**
 
-* 修复 Search 样式问题 [\#191](https://github.com/youzan/vant/pull/191)
+- 修复 Sku 图片预览可能报错的问题 [\#3569](https://github.com/youzan/vant/pull/3569)
+- 修复 Button 在 safari 浏览器上存在外边距的问题 [\#3577](https://github.com/youzan/vant/pull/3577)
+- 修复 Toast clear 方法类型定义缺少参数的问题 [\#3542](https://github.com/youzan/vant/pull/3542)
 
-## [v0.9.11](https://github.com/youzan/vant/tree/v0.9.11)
+### [v2.0.1](https://github.com/youzan/vant/tree/v2.0.1)
 
-`2017-10-11`
+`2019-06-15`
 
-**Improvements**
+**Features**
 
-* 新增 Contribute 相关文档 [\#182](https://github.com/youzan/vant/pull/182)
+- Toast: 新增 icon 属性 [\#3485](https://github.com/youzan/vant/pull/3485)
+- DropdownMenu: 新增 direction 属性 [\#3490](https://github.com/youzan/vant/pull/3490)
+- NumberKeyboard: 新增 delete 属性 [\#3499](https://github.com/youzan/vant/pull/3499)
+- Icon: 使用 Image 组件优化图片布局 [\#3515](https://github.com/youzan/vant/pull/3515)
+- Tab: 支持 string 类型的 line-width 和 line-height [\#3514](https://github.com/youzan/vant/pull/3514)
 
 **Bug Fixes**
-
-* 修正 AddressEdit 组件姓名字段的键名为 name [\#187](https://github.com/youzan/vant/pull/187)
-* 修复 Field type 为 textarea 且 display none 时高度计算错误的问题 [\#188](https://github.com/youzan/vant/pull/188)
-* 修复 windows 下项目编译失败的问题 [\#185](https://github.com/youzan/vant/pull/182)
-
-## [v0.9.10](https://github.com/youzan/vant/tree/v0.9.10)
-
-`2017-10-09`
 
-**Improvements**
+- 修复 Image 组件 TS 定义缺失的问题 [\#3520](https://github.com/youzan/vant/pull/3520)
+- 修复 SwitchCell 加载图标偏移的问题 [\#3501](https://github.com/youzan/vant/pull/3501)
+- 修复 Locale 函数类型文案无法修改的问题 [\#3498](https://github.com/youzan/vant/pull/3498)
+- 修复 Toast 在 multiple 模式下没有淡出动画的问题 [\#3504](https://github.com/youzan/vant/pull/3504)
 
-* 新增 Contact 组件 [\#160](https://github.com/youzan/vant/pull/160)
-* 新增 AddressEdit 组件 [\#147](https://github.com/youzan/vant/pull/147)
-* 新增英文文档支持 [\#170](https://github.com/youzan/vant/pull/170)
-* 去除 zan-utils 依赖 [\#168](https://github.com/youzan/vant/pull/168)
-* 去除 transition 中冗余的兼容代码 [\#162](https://github.com/youzan/vant/pull/162)
-* 使用 clean-css 代替 gulp-cssmin
+### [v2.0.0](https://github.com/youzan/vant/tree/v2.0.0)
 
-**Bug Fixes**
+`2019-06-12`
 
-* 修复 Tab props 修改后未同步至父组件的问题 [\#148](https://github.com/youzan/vant/pull/148)
-* 修复 But为n active 状态下边框样式问题 [\#150](https://github.com/youzan/vant/issues/150)
-* 修复 Stepper 组件输入框样式错误 [\#159](https://github.com/youzan/vant/pull/159)
-* 修复 Waterfall 未显示时 disable 属性无法生效的问题 [\#166](https://github.com/youzan/vant/pull/166)
-* 修复 style 构建过程中未编译 calc 属性的问题
-* 修复 MacOS 下 npm run dev 报错的问题 [\#152](https://github.com/youzan/vant/issues/152)
-* 修复文档在部分低版本浏览器路由失效的问题 [\#158](https://github.com/youzan/vant/pull/158)
-* 修复文档中遗漏 SwipeItem 组件引入方式的问题 [\#167](https://github.com/youzan/vant/pull/167)
+#### 主要变动
 
-## [v0.9.9](https://github.com/youzan/vant/tree/v0.9.9)
+- 增加四个新组件
+- 增加数十个 API
+- 优化无障碍访问
+- 全新的卡片风格文档，支持文档搜索
+- 所有组件支持通过`less`变量自定义样式
+- 调整了部分不合理的命名，废弃少量 API
 
-`2017-09-26`
+#### 新组件
 
-**Improvements**
+在 2.0 版本中，我们引入了社区中呼声最高的四个组件，分别是：
 
-* Sku：支持禁用 Stepper [\#146](https://github.com/youzan/vant/pull/146)
+- <b>Image 图片</b>，类似于小程序原生的 Image 标签，支持多种图片裁剪模式
+- <b>IndexBar 索引栏</b>，通讯录中的字母索引栏，用于长列表快速索引
+- <b>Skeleton 骨架屏</b>，在待加载区域展示的占位区块，提供界面加载过程中的过渡效果
+- <b>DropdownMenu 下拉菜单</b>，用于列表的分类选择、筛选及排序
 
-**Bug Fixes**
+![](https://img.yzcdn.cn/public_files/2019/06/10/141ac9b67c06be0811c86c4c1c571c9d.png)
 
-* 修复 packages.json 中 license 标注错误 [\#144](https://github.com/youzan/vant/pull/144)
-* 修复 Waterfall 滚动计算错误的问题 [\#145](https://github.com/youzan/vant/pull/145)
+#### 新文档
 
-## [v0.9.8](https://github.com/youzan/vant/tree/v0.9.8)
+文档方面，我们重新设计了文档站点，用<b>卡片</b>的方式组织段落，更加直观。对一些较为复杂的组件，我们对示例进行细粒度的拆分，添加更多的用法介绍，以帮助大家更快地上手使用。
 
-`2017-09-24`
+此外，文档站点也支持了<b>搜索</b>和<b>版本切换</b>。
 
-**Improvements**
+![](https://img.yzcdn.cn/public_files/2019/06/10/63b666fa52493402c87db6146a715341.png)
 
-* 新增 AddressList 组件 [\#138](https://github.com/youzan/vant/pull/138)
-* 优化 changelog 结构 [\#140](https://github.com/youzan/vant/pull/140)
+#### 样式定制
 
-**Bug Fixes**
+移动端 UI 风格多变，对组件的可定制性要求较高。从 2.0 版本开始，Vant 中的所有组件都支持通过 <b>Less 变量</b>进行样式定制。同时我们新增了较多样式相关的 Props，便于快速定制组件风格。
 
-* 修复 Sku 留言渲染错误 [\#142](https://github.com/youzan/vant/pull/142)
+![](https://img.yzcdn.cn/public_files/2019/06/11/9a066c1a212264c7ae56065e1f13d317.png)
 
-## [v0.9.7](https://github.com/youzan/vant/tree/v0.9.7)
+#### 更轻量
 
-`2017-09-21`
+轻量化是 Vant 的核心开发理念之一。在过去一年多时间里，我们新增了若干个组件和数百项功能，而<b>代码包体积从 1.0 版本的 169kb 降低到了 2.0 版本的 161kb</b>（45kb gzipped），平均每个组件体积下降 13%，这主要得益于组件内部逻辑的重构和复用。
 
-**Improvements**
+在未来的 Vue 3.0 版本中，会提供 Function-based API 这一更优的逻辑复用方式，预计能帮助 Vant 进一步优化代码包体积。
 
-* Checkbox: 支持 shape 属性 [\#137](https://github.com/youzan/vant/pull/137)
+#### 不兼容更新
 
-## [v0.9.6](https://github.com/youzan/vant/tree/v0.9.6)
+2.0 版本中包含少量不兼容更新，主要是调整命名和移除个别属性。对于正在使用 1.x 版本的项目，请按照下方的列表依次检查，大部分项目可以<b>无痛升级</b>。
 
-`2017-09-20`
+##### Actionsheet
 
-**Improvements**
+- 重命名为`ActionSheet`
 
-* Sku：移除大部分 Lodash 函数 [\#135](https://github.com/youzan/vant/pull/135)
-* Icon：增加会员余额图标 [\#133](https://github.com/youzan/vant/pull/133)
+##### Button
 
-**Bug Fixes**
+- 移除`bottom-action`属性，请使用`square`和`size`代替
 
-* 修复 ImagePreview 滑动后无法展示图片的问题 [\#126](https://github.com/youzan/vant/issues/126)
-* 修复 reset.css 编译失败的问题 [\#136](https://github.com/youzan/vant/pull/136)
+##### Field
 
-## [v0.9.4](https://github.com/youzan/vant/tree/v0.9.4)
+- 移除`on-icon-click`属性，请使用`click-right-icon`事件代替
+- `icon`属性重命名为`right-icon`
+- `icon`插槽重命名为`right-icon`
+- `click-icon`事件重命名为`click-right-icon`
 
-`2017-09-15`
+##### GoodsAction
 
-**Improvements**
+- `GoodsActionBigBtn`重命名为`GoodsActionButton`
+- `GoodsActionMiniBtn`重命名为`GoodsActionIcon`
+- `GoodsActionBigBtn`移除`primary`属性，请使用`type`属性代替
 
-* Icon: 增加已完成图标 [\#129](https://github.com/youzan/vant/pull/129)
+##### Step
 
-**Bug Fixes**
+- 移除`icon`属性
+- 移除`title`属性
+- 移除`icon-class`属性
+- 移除`description`属性
+- 移除`message-extra`插槽
 
-* 修复 But为n 同时使用 disabled 和 bot为mAction 属性时颜色错误的问题 [\#131](https://github.com/youzan/vant/pull/131)
-* 修复 But为n 不可用状态下 acitive 背景色错误的问题 [\#132](https://github.com/youzan/vant/pull/132)
+##### Badge
 
-## [v0.9.3](https://github.com/youzan/vant/tree/v0.9.3)
+- `BadgeGroup`重命名为`Sidebar`
+- `Badge`重命名为`SlidebarItem`
 
-`2017-09-13`
+##### Loading
 
-**Improvements**
+- 移除`circle`类型
+- 移除`gradient-circle`类型
 
-* 新增 PasswordInput 组件 [\#124](https://github.com/youzan/vant/pull/124)
-* 新增 NumberKeyboard 组件 [\#122](https://github.com/youzan/vant/pull/122)
-* 新增文档底部 issue 入口 [\#127](https://github.com/youzan/vant/issues/127)
+##### Checkbox
 
-**Bug Fixes**
+- 调整为`flex`布局，可能对原有布局产生影响
 
-* 修复部分组件样式依赖 reset.css 的问题 [\#128](https://github.com/youzan/vant/pull/128)
+##### Radio
 
-## [v0.9.2](https://github.com/youzan/vant/tree/v0.9.2)
+- 调整为`flex`布局，可能对原有布局产生影响
 
-`2017-09-08`
+##### Waterfall
 
-**Breaking changes**
+- 移除在 1.0 版本废弃的 Waterfall 组件，请使用`List`组件代替，或使用独立的[@vant/waterfall](https://github.com/youzan/vant/tree/dev/packages/vant-waterfall)包。
 
-* 内置 van-hairline 类，用于添加 0.5px 边框 [\#110](https://github.com/youzan/vant/pull/110)
-* Quantity：重命名为 Stepper [\#120](https://github.com/youzan/vant/pull/120)
-* PayOrder 重命名为 SubmitBar [\#120](https://github.com/youzan/vant/pull/120)
-* DeepSelect: 重命名为 TreeSelect [\#120](https://github.com/youzan/vant/pull/120)
-* OrderCoupon: 拆分为 CouponList 和 CouponCell 组件 [\#120](https://github.com/youzan/vant/pull/120)
+---
 
-**Bug Fixes**
+#### 无障碍访问
 
-* 修复 Tabs 动画过渡效果 [\#111](https://github.com/youzan/vant/pull/111)
-* 修复 Swipe 页数为一时指示器未隐藏的问题 [\#106](https://github.com/youzan/vant/pull/106)
-* 修复 Toast 背景色值错误的问题 [\#118](https://github.com/youzan/vant/pull/118)
-* 修复自动引入组件样式时未引入内部依赖组件样式的问题 [\#115](https://github.com/youzan/vant/pull/115)
+对以下组件增加了无障碍访问的支持：
 
-**Improvements**
+- Accordion
+- Checkbox
+- Dialog
+- DropdownMenu
+- GoodsAction
+- List
+- NoticeBar
+- NumberKeyboard
+- Radio
+- Rate
+- Stepper
+- Tab
+- Slider
+- Switch
 
-* 新增 Sku 组件 [\#123](https://github.com/youzan/vant/pull/123)
-* 新增 Area 组件 [\#113](https://github.com/youzan/vant/pull/113)
-* 新增 NavBar 组件 [\#121](https://github.com/youzan/vant/pull/121)
-* 新增 PullRefresh 组件 [\#117](https://github.com/youzan/vant/pull/117)
-* 新增 OrderCoupon 组件 [\#108](https://github.com/youzan/vant/pull/108)
-* 优化文档加载速度 [\#107](https://github.com/youzan/vant/pull/107)
-* 优化 Popup 文档 [\#109](https://github.com/youzan/vant/pull/109)
-* Card：支持 num 和 price 属性 [\#112](https://github.com/youzan/vant/pull/112)
-* Toast: 支持 loading 和 text 属性同时使用，优化渲染性能 [\#114](https://github.com/youzan/vant/pull/114)
-* Toast：布局方式改为 Flex 布局 [\#114](https://github.com/youzan/vant/pull/114)
+#### 新特性
 
-## [v0.8.8](https://github.com/youzan/vant/tree/v0.8.8)
+##### ActionSheet
 
-`2017-09-01`
+- 新增`lock-scroll`属性
+- 新增`click-overlay`事件
+- 新增`close-on-click-action`属性
+- 支持同时使用`title`和`actions`属性
 
-**Improvements**
+##### Area
 
-* 新增 DeepSelect 组件 [\#103](https://github.com/youzan/vant/pull/103)
-* 新增 GoodsAction 组件 [\#102](https://github.com/youzan/vant/pull/102)
-* 新增 OrderGoods 组件 [\#99](https://github.com/youzan/vant/pull/99)
-* 新增 PayOrder 组件 [\#98](https://github.com/youzan/vant/pull/98)
-* 优化 Step、Loading、Tag、Badge 文档 [\#101](https://github.com/youzan/vant/pull/101)
-* Checkbox: 支持 change 事件 [\#104](https://github.com/youzan/vant/pull/104)
+- 支持`reset`方法传入`code`参数
 
-**Bug Fixes**
+##### Button
 
-* 修复 make init 命令报错的问题 [\#97](https://github.com/youzan/vant/pull/97)
+- 新增`icon`属性
+- 新增`loading-type`属性
 
-## [v0.8.7](https://github.com/youzan/vant/tree/v0.8.7)
+##### Checkbox
 
-`2017-08-29`
+- 新增`icon-size`属性
 
-**Improvements**
+##### DatetimePicker
 
-* 新增 NoticeBar 组件 [\#94](https://github.com/youzan/vant/pull/94)
-* 新增 CellSwitch 组件 [\#95](https://github.com/youzan/vant/pull/95)
-* Dialog: 支持通过组件的方式进行调用 [\#93](https://github.com/youzan/vant/pull/93)
-* Progress: 简化 DOM 结构 [\#90](https://github.com/youzan/vant/pull/90)
-* SwipeCell: 性能优化，补充单元测试 [\#91](https://github.com/youzan/vant/pull/91)
+- 新增`filter`属性
 
-## [v0.8.6](https://github.com/youzan/vant/tree/v0.8.6)
+##### Field
 
-`2017-08-24`
+- 新增`input`插槽
+- 新增`click`事件
+- 新增`clickable`属性
+- 新增`label-class`属性
+- 优化输入体验，输入法拼写过程中不再会触发`v-model`更新
 
-**Improvements**
+##### GoodsActionButton
 
-* 去除对 merge 和 class 操作方法的依赖 [\#88](https://github.com/youzan/vant/pull/88)
-* 目录结构简化，去除 index.js 文件 [\#87](https://github.com/youzan/vant/pull/87)
-* But为n: 精简部分样式 [\#86](https://github.com/youzan/vant/pull/86)
-* Layout: 文档优化 [\#85](https://github.com/youzan/vant/pull/85)
+- 新增`type`属性
 
-**Bug Fixes**
+##### Icon
 
-* 修复 DatetimePicker 初始值错误的问题 [\#89](https://github.com/youzan/vant/pull/89)
+- 支持`Number`类型的`size`属性
 
-## [v0.8.5](https://github.com/youzan/vant/tree/v0.8.5)
+##### ImagePreview
 
-`2017-08-21`
+- 新增`close-on-popstate`属性
 
-**Breaking changes**
+##### List
 
-* 优化单个组件构建方式, 减少文件体积 [\#74](https://github.com/youzan/vant/pull/74)
+- 优化滚动判断逻辑
 
-**Improvements**
+##### Loading
 
-* 新增文档组件使用指南 [\#83](https://github.com/youzan/vant/pull/83)
-* 新增文档加载动效 [\#83](https://github.com/youzan/vant/pull/83)
-* Field：新增 icon 插槽 [\#76](https://github.com/youzan/vant/pull/76)
+- 新增`default`插槽
+- 新增`vertical`属性
+- 新增`text-size`属性
+- 支持`Number`类型的`size`属性
 
-**Bug Fixes**
+##### Notify
 
-* 修复 Popup 默认开启 preventScroll 导致无法局部滚动的问题 [\#84](https://github.com/youzan/vant/pull/84)
-* 修复 Field au为size 高度错误的问题 [\#78](https://github.com/youzan/vant/pull/78)
-* 修复 Dialog z-index 错误的问题 [\#77](https://github.com/youzan/vant/pull/77)
+- 新增`onClick`选项
+- 新增`onClose`选项
+- 新增`onOpened`选项
 
-## [v0.7.8](https://github.com/youzan/vant/tree/v0.7.8)
+##### NoticeBar
 
-`2017-08-10`
+- 新增`left-icon`插槽
+- 新增`right-icon`插槽
 
-**Improvements**
+##### PasswordInput
 
-* 新增 README 英文文档 [\#66](https://github.com/youzan/vant/pull/66)
-* 新增 babel-plugin-import 使用教程 [\#71](https://github.com/youzan/vant/pull/71)
-* 新增多个 Icon 类型 [\#69](https://github.com/youzan/vant/pull/69)
+- 新增`gutter`属性
 
-**Bug Fixes**
+##### Picker
 
-* 修复 Swipe 组件报错的问题 [\#70](https://github.com/youzan/vant/pull/70)
-* 修复 DatetimePicker cancel 事件无法触发的问题 [\#45](https://github.com/youzan/vant/issues/45)
-* 修复 utils 编译时未转成 ES5 的问题 [\#67](https://github.com/youzan/vant/pull/67)
+- 支持惯性滚动
+- 新增`toolbar-position`属性
 
-## [v0.7.2](https://github.com/youzan/vant/tree/v0.7.2)
+##### Popup
 
-`2017-07-31`
+- 新增`click`事件
+- 新增`duration`属性
 
-**Breaking changes**
+##### Radio
 
-* 文档站点样式改版 [\#55](https://github.com/youzan/vant/pull/55)
-* 支持 babel-plugin-import [\#62](https://github.com/youzan/vant/pull/62)
+- 新增`icon-size`属性
 
-**Bug Fixes**
+##### Rate
 
-* 修复 Popup 多层级 modal 未插入到正确的位置的问题 [\#63](https://github.com/youzan/vant/pull/63)
-* 修复 Tabs 组件为空报错的问题 [\#61](https://github.com/youzan/vant/pull/61)
+- 新增`gutter`属性
+- 支持`String`类型的`size`属性
 
-**Improvements**
+##### Search
 
-* Switch：增加过渡动画效果 [\#59](https://github.com/youzan/vant/pull/59) [BosenY](https://github.com/BosenY)
-* Card：支持 centered 属性 [\#54](https://github.com/youzan/vant/pull/54)
+- 新增`clearable`属性
+- 新增`left-icon`属性
+- 新增`right-icon`属性
+- 新增`right-icon`插槽
+- 优化输入体验，输入法拼写过程中不再会触发`v-model`更新
 
-## [v0.6.6](https://github.com/youzan/vant/tree/v0.6.6)
+##### Slider
 
-`2017-07-15`
+- 新增`drag-start`事件
+- 新增`drag-end`事件
 
-**Improvements**
+##### Steps
 
-* Tabs：支持滑动 [\#52](https://github.com/youzan/vant/pull/52)
-* Steps：新增 direction 和 activeColor 属性，支持竖向展示 [\#49](https://github.com/youzan/vant/pull/49)
-* Card：支持 thumb 插槽 [\#48](https://github.com/youzan/vant/pull/48)
-* Field：支持 blur 事件，新增 icon 插槽 [\#53](https://github.com/youzan/vant/pull/53)
+- 新增`inactive-icon`属性
+- 新增`inactive-icon`插槽
 
-## [v0.6.2](https://github.com/youzan/vant/tree/v0.6.2)
+##### Stepper
 
-`2017-06-26`
+- 支持`Number`类型的`input-width`属性
 
-**Improvements**
+##### SubmitBar
 
-* Field 组件：支持 time 类型 [\#43](https://github.com/youzan/vant/pull/43)
+- 新增`tip-icon`属性
+- 新增`suffix-label`属性
 
-**Bug Fixes**
+##### SwipeCell
 
-* 修复 Toast 样式问题 [\#42](https://github.com/youzan/vant/pull/42)
-* 修复人民币符号在 iOS 下显示问题 [\#44](https://github.com/youzan/vant/pull/44)
+- 支持自动计算`left-width`和`right-width`
 
-## [v0.6.0](https://github.com/youzan/vant/tree/v0.6.0)
+##### Switch
 
-`2017-06-15`
+- 加载图标颜色现在会跟随背景色变化
 
-**Improvements**
+##### SwitchCell
 
-* 支持 SSR [\#40](https://github.com/youzan/vant/pull/40)
-* 新增多个 Icon 类型 [\#40](https://github.com/youzan/vant/pull/40)
-* 新增 SwipeCell 组件 [\#39](https://github.com/youzan/vant/pull/39)
-* 新增 Search 组件微杂志样式 [\#38](https://github.com/youzan/vant/pull/38)
+- 新增`border`属性
+- 新增`cell-size`属性
 
-## [v0.5.8](https://github.com/youzan/vant/tree/v0.5.8)
+##### Sku
 
-`2017-05-25`
+- 新增`preview-open`事件
+- 新增`preview-close`事件
 
-**Improvements**
+##### Tab
 
-* 新增多个 Icon 类型 [\#29](https://github.com/youzan/vant/pull/29)
-* 新增打包后的 amd 模块名称 [\#28](https://github.com/youzan/vant/pull/28)
-* 移除 postcss-reset 插件 [\#35](https://github.com/youzan/vant/pull/35)
-* Picker：支持 title 属性 [\#30](https://github.com/youzan/vant/pull/30)
+- 新增`border`属性
+- 优化`animated`动画性能
+- 修复开启`animated`后高度错误的问题
 
-**Bug Fixes**
+##### Tabbar
 
-* 修复长按图片后隐藏的问题 [\#32](https://github.com/youzan/vant/pull/32)
+- 新增`route`属性
+- 新增`border`属性
+- 新增`inactive-color`属性
 
-## [v0.5.4](https://github.com/youzan/vant/tree/v0.5.4)
+##### TabbarItem
 
-`2017-05-09`
+- 新增`name`属性
 
-**Bug Fixes**
+##### Toast
 
-* 修复 Cell 同时设置 title 和 label 时 value 不居中的问题 [\#26](https://github.com/youzan/vant/pull/26)
-* 修复 Popup zIndex 类型错误 [\#24](https://github.com/youzan/vant/pull/24)
-* 修复 Picker 状态更新错误 [\#23](https://github.com/youzan/vant/pull/23)
+- 新增`onOpened`选项
 
-**Improvements**
+##### Uploader
 
-* 新增 reset.css [\#27](https://github.com/youzan/vant/pull/27)
-* Cell: 新增 right-icon 插槽 [\#27](https://github.com/youzan/vant/pull/27)
+- 新增上传区域默认样式
+- 新增`delete`事件
+- 新增`upload-text`属性
+- 新增`max-count`属性
+- 新增`preview-size`属性
+- 新增`preview-image`属性
+- 支持通过`v-model`绑定文件列表
+- `oversize`事件增加`detail`参数
 
-## [v0.5.2](https://github.com/youzan/vant/tree/v0.5.2)
+---
 
-`2017-04-26`
+#### 后续计划
 
-**Improvements**
+我们计划在今年下半年推出 <b>VantWeapp 1.0 版本</b>，目标是对标 Vant 2.0 版本，将大部分新组件和新功能同步到小程序端。
 
-* 新增 Picker 组件测试用例 [\#20](https://github.com/youzan/vant/pull/20)
-* 新增 Col & Row 组件测试用例 [\#16](https://github.com/youzan/vant/pull/16)
-* 新增 Uploader 单元测试 [\#9](https://github.com/youzan/vant/pull/9)
+同时，Vant 3.0 版本也在酝酿当中，不出意外的话，<b>3.0 版本会基于 Vue 3.0 实现，并争取和 Vue 3.0 同期发布</b>。
 
-**Bug Fixes**
+对于 Vant 1.x 版本，后续会进入维护期，跟进问题修复，但不再引入功能性改动。
 
-* 修复 Webpack 打包错误 [\#21](https://github.com/youzan/vant/pull/21)
-* 修复 Toast 关闭时未移除 Dom 节点的问题 [\#19](https://github.com/youzan/vant/pull/19)
-* 修复组件样式问题 [\#5](https://github.com/youzan/vant/pull/5)
+![](https://img.yzcdn.cn/public_files/2019/06/11/4e7202acbfc399622e428eb1485e1591.png)
