@@ -1,17 +1,25 @@
 @import '../style/var';
+@import '../style/mixins/hairline';
 
 .van-action-sheet {
+  display: flex;
+  flex-direction: column;
   max-height: @action-sheet-max-height;
+  overflow: hidden;
   color: @action-sheet-item-text-color;
+
+  &__content {
+    flex: 1 auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 
   &__item,
   &__cancel {
     display: block;
     width: 100%;
-    padding: 0;
+    padding: 14px @padding-md;
     font-size: @action-sheet-item-font-size;
-    line-height: @action-sheet-item-height;
-    text-align: center;
     background-color: @action-sheet-item-background;
     border: none;
     cursor: pointer;
@@ -22,7 +30,7 @@
   }
 
   &__item {
-    height: @action-sheet-item-height;
+    line-height: @action-sheet-item-line-height;
 
     &--loading,
     &--disabled {
@@ -42,20 +50,27 @@
     }
   }
 
-  &__subname {
-    margin-left: @padding-base;
-    color: @action-sheet-subname-color;
-    font-size: @action-sheet-subname-font-size;
+  &__cancel {
+    flex-shrink: 0;
+    box-sizing: border-box;
+    color: @action-sheet-cancel-text-color;
   }
 
-  &__cancel::before {
+  &__subname {
+    margin-top: @padding-xs;
+    color: @action-sheet-subname-color;
+    font-size: @action-sheet-subname-font-size;
+    line-height: @action-sheet-subname-line-height;
+  }
+
+  &__gap {
     display: block;
     height: @action-sheet-cancel-padding-top;
     background-color: @action-sheet-cancel-padding-color;
-    content: ' ';
   }
 
   &__header {
+    flex-shrink: 0;
     font-weight: @font-weight-bold;
     font-size: @action-sheet-header-font-size;
     line-height: @action-sheet-header-height;
@@ -63,11 +78,22 @@
   }
 
   &__description {
-    padding: @padding-md;
+    position: relative;
+    flex-shrink: 0;
+    padding: 20px @padding-md;
     color: @action-sheet-description-color;
     font-size: @action-sheet-description-font-size;
     line-height: @action-sheet-description-line-height;
     text-align: center;
+
+    &::after {
+      .hairline-bottom(@cell-border-color, @padding-md, @padding-md);
+    }
+  }
+
+  &__loading-icon .van-loading__spinner {
+    width: @action-sheet-loading-icon-size;
+    height: @action-sheet-loading-icon-size;
   }
 
   &__close {

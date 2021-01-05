@@ -14,7 +14,6 @@
   cursor: pointer;
   transition: opacity @animation-duration-fast;
   -webkit-appearance: none;
-  -webkit-text-size-adjust: 100%;
 
   &::before {
     position: absolute;
@@ -54,10 +53,10 @@
     border: @button-border-width solid @button-primary-border-color;
   }
 
-  &--info {
-    color: @button-info-color;
-    background-color: @button-info-background-color;
-    border: @button-border-width solid @button-info-border-color;
+  &--success {
+    color: @button-success-color;
+    background-color: @button-success-background-color;
+    border: @button-border-width solid @button-success-border-color;
   }
 
   &--danger {
@@ -79,8 +78,8 @@
       color: @button-primary-background-color;
     }
 
-    &.van-button--info {
-      color: @button-info-background-color;
+    &.van-button--success {
+      color: @button-success-background-color;
     }
 
     &.van-button--danger {
@@ -95,7 +94,6 @@
   &--large {
     width: 100%;
     height: @button-large-height;
-    line-height: @button-large-line-height;
   }
 
   &--normal {
@@ -104,25 +102,20 @@
   }
 
   &--small {
-    min-width: @button-small-min-width;
     height: @button-small-height;
     padding: 0 @padding-xs;
     font-size: @button-small-font-size;
-    line-height: @button-small-line-height;
   }
 
   &__loading {
-    display: inline-block;
     color: inherit;
-    vertical-align: top;
+    font-size: inherit;
   }
 
   &--mini {
-    display: inline-block;
-    min-width: @button-mini-min-width;
     height: @button-mini-height;
+    padding: 0 @padding-base;
     font-size: @button-mini-font-size;
-    line-height: @button-mini-line-height;
 
     & + .van-button--mini {
       margin-left: @padding-base;
@@ -151,18 +144,31 @@
     border-radius: 0;
   }
 
+  // align-items are ignored when flex container is a button in legacy safari
+  // see: https://bugs.webkit.org/show_bug.cgi?id=169700
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    // fix icon vertical align
+    // see: https://github.com/youzan/vant/issues/7617
+    &::before {
+      content: ' ';
+    }
+  }
+
   &__icon {
-    min-width: 1em;
     font-size: 1.2em;
     line-height: inherit;
-    vertical-align: top;
   }
 
   &__icon + &__text,
-  &__loading + &__text {
-    display: inline-block;
-    margin-left: 5px;
-    vertical-align: top;
+  &__loading + &__text,
+  &__text + &__icon,
+  &__text + &__loading {
+    margin-left: @padding-base;
   }
 
   &--hairline {

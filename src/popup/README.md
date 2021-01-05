@@ -3,10 +3,11 @@
 ### Install
 
 ```js
-import Vue from 'vue';
+import { createApp } from 'vue';
 import { Popup } from 'vant';
 
-Vue.use(Popup);
+const app = createApp();
+app.use(Popup);
 ```
 
 ## Usage
@@ -15,49 +16,46 @@ Vue.use(Popup);
 
 ```html
 <van-cell is-link @click="showPopup">Show Popup</van-cell>
-<van-popup v-model="show">Content</van-popup>
+<van-popup v-model:show="show">Content</van-popup>
 ```
 
 ```js
-export default {
-  data() {
-    return {
-      show: false
-    }
-  },
+import { ref } from 'vue';
 
-  methods: {
-    showPopup() {
-      this.show = true;
-    }
-  }
+export default {
+  setup() {
+    const show = ref(false);
+    const showPopup = () => {
+      show.value = true;
+    };
+    return {
+      show,
+      showPopup,
+    };
+  },
 };
 ```
 
 ### Position
 
-Use `position` prop to set popup display position
+Use `position` prop to set popup display position.
 
 ```html
-<van-popup
-  v-model="show"
-  position="top"
-  :style="{ height: '30%' }"
-/>
+<van-popup v-model:show="show" position="top" :style="{ height: '30%' }" />
 ```
 
 ### Close Icon
 
 ```html
 <van-popup
-  v-model="show"
+  v-model:show="show"
   closeable
   position="bottom"
   :style="{ height: '30%' }"
 />
 <!-- Custom Icon -->
 <van-popup
-  v-model="show"
+  v-model:show="show"
   closeable
   close-icon="close"
   position="bottom"
@@ -65,7 +63,7 @@ Use `position` prop to set popup display position
 />
 <!-- Icon Position -->
 <van-popup
-  v-model="show"
+  v-model:show="show"
   closeable
   close-icon-position="top-left"
   position="bottom"
@@ -77,7 +75,7 @@ Use `position` prop to set popup display position
 
 ```html
 <van-popup
-  v-model="show"
+  v-model:show="show"
   round
   position="bottom"
   :style="{ height: '30%' }"
@@ -86,62 +84,80 @@ Use `position` prop to set popup display position
 
 ### Get Container
 
-Use `get-container` prop to specify mount location
+Use `teleport` prop to specify mount location.
 
 ```html
-<!-- mount to body -->
-<van-popup v-model="show" get-container="body" />
+<!-- teleport to body -->
+<van-popup v-model:show="show" teleport="body" />
 
-<!-- mount to #app -->
-<van-popup v-model="show" get-container="#app" />
+<!-- teleport to #app -->
+<van-popup v-model:show="show" teleport="#app" />
 
-<!-- Specify the mount location by function -->
-<van-popup v-model="show" :get-container="getContainer" />
+<!-- teleport to Element -->
+<van-popup v-model:show="show" :teleport="myContainer" />
 ```
 
 ```js
 export default {
-  methods: {
-    getContainer() {
-      return document.querySelector('.my-container');
-    }
-  }
-}
+  setup() {
+    const myContainer = document.querySelector('.my-container');
+    return {
+      myContainer,
+    };
+  },
+};
 ```
 
-> Tips: The get-container prop cannot be used on the root node
+> Tips: The teleport prop cannot be used on the root node
 
 ## API
 
 ### Props
 
 | Attribute | Description | Type | Default |
-|------|------|------|------|
-| v-model | Whether to show popup | *boolean* | `false` |
-| overlay | Whether to show overlay | *boolean* | `true` |
-| position | Can be set to `top` `bottom` `right` `left` | *string* | `center` |
-| overlay-class | Custom overlay class | *string* | - |
-| overlay-style | Custom overlay style | *object* | - |
-| duration | Transition duration, unit second | *number \| string* | `0.3` |
-| round `v2.0.7` | Whether to show round corner | *boolean* | `false` |
-| lock-scroll | Whether to lock background scroll | *boolean* | `true` |
-| lazy-render | Whether to lazy render util appeared | *boolean* | `true` |
-| close-on-popstate `v2.2.10` | Whether to close when popstate | *boolean* | `false` |
-| close-on-click-overlay | Whether to close when click overlay | *boolean* | `true` |
-| closeable `v2.2.0` | Whether to show close icon | *boolean* | `false` |
-| close-icon `v2.2.0` | Close icon name | *string* | `cross` |
-| close-icon-position `v2.2.2` | Close Icon Position，can be set to `top-left` `bottom-left` `bottom-right` | *string* | `top-right` |
-| transition | Transition, equivalent to `name` prop of [transtion](https://vuejs.org/v2/api/#transition) | *string* | - |
-| get-container | Return the mount node for Popup | *string \| () => Element* | - |
-| safe-area-inset-bottom `v2.2.1` | Whether to enable bottom safe area adaptation | *boolean* | `false` |
+| --- | --- | --- | --- |
+| v-model:show | Whether to show popup | _boolean_ | `false` |
+| overlay | Whether to show overlay | _boolean_ | `true` |
+| position | Can be set to `top` `bottom` `right` `left` | _string_ | `center` |
+| overlay-class | Custom overlay class | _string_ | - |
+| overlay-style | Custom overlay style | _object_ | - |
+| duration | Transition duration, unit second | _number \| string_ | `0.3` |
+| round | Whether to show round corner | _boolean_ | `false` |
+| lock-scroll | Whether to lock background scroll | _boolean_ | `true` |
+| lazy-render | Whether to lazy render util appeared | _boolean_ | `true` |
+| close-on-popstate | Whether to close when popstate | _boolean_ | `false` |
+| close-on-click-overlay | Whether to close when overlay is clicked | _boolean_ | `true` |
+| closeable | Whether to show close icon | _boolean_ | `false` |
+| close-icon | Close icon name | _string_ | `cross` |
+| close-icon-position | Close Icon Position，can be set to `top-left` `bottom-left` `bottom-right` | _string_ | `top-right` |
+| transition | Transition, equivalent to `name` prop of [transtion](https://v3.vuejs.org/api/built-in-components.html#transition) | _string_ | - |
+| transition-appear `v2.10.14` | Whether to apply transition on initial render | _boolean_ | `false` |
+| teleport | Return the mount node for Popup | _string \| Element_ | - |
+| safe-area-inset-bottom `v2.2.1` | Whether to enable bottom safe area adaptation | _boolean_ | `false` |
 
 ### Events
 
 | Event | Description | Arguments |
-|------|------|------|
-| click | Triggered when click Popup | *event: Event* |
-| open | Triggered when open Popup | - |
-| close | Triggered when close Popup | - |
-| opened | Triggered when opened Popup | - |
-| closed | Triggered when closed Popup | - |
-| click-overlay | Triggered when click overlay | - |
+| --- | --- | --- |
+| click | Emitted when Popup is clicked | _event: Event_ |
+| click-overlay | Emitted when overlay is clicked | - |
+| click-close-icon `v2.11.0` | Emitted when close icon is clicked | _event: Event_ |
+| open | Emitted when opening Popup | - |
+| close | Emitted when closing Popup | - |
+| opened | Emitted when Popup is opened | - |
+| closed | Emitted when Popup is closed | - |
+
+### Less Variables
+
+How to use: [Custom Theme](#/en-US/theme).
+
+| Name | Default Value | Description |
+| --- | --- | --- |
+| @popup-background-color | `@white` | - |
+| @popup-transition | `transform @animation-duration-base` | - |
+| @popup-round-border-radius | `16px` | - |
+| @popup-close-icon-size | `22px` | - |
+| @popup-close-icon-color | `@gray-5` | - |
+| @popup-close-icon-active-color | `@gray-6` | - |
+| @popup-close-icon-margin | `16px` | - |
+| @popup-close-icon-z-index | `1` | - |

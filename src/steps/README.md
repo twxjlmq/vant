@@ -3,11 +3,12 @@
 ### Install
 
 ```js
-import Vue from 'vue';
+import { createApp } from 'vue';
 import { Step, Steps } from 'vant';
 
-Vue.use(Step);
-Vue.use(Steps);
+const app = createApp();
+app.use(Step);
+app.use(Steps);
 ```
 
 ## Usage
@@ -24,23 +25,20 @@ Vue.use(Steps);
 ```
 
 ```js
+import { ref } from 'vue';
+
 export default {
-  data() {
-    return {
-      active: 1
-    };
-  }
-}
+  steup() {
+    const active = ref(1);
+    return { active };
+  },
+};
 ```
 
 ### Custom Style
 
 ```html
-<van-steps
-  :active="active"
-  active-icon="success"
-  active-color="#38f"
->
+<van-steps :active="active" active-icon="success" active-color="#38f">
   <van-step>Step1</van-step>
   <van-step>Step2</van-step>
   <van-step>Step3</van-step>
@@ -72,22 +70,42 @@ export default {
 ### Steps Props
 
 | Attribute | Description | Type | Default |
-|------|------|------|------|
-| active | Active step | *number \| string* | `0` |
-| direction | Can be set to `vertical` | *string* | `horizontal` |
-| active-color | Active step color | *string* | `#07c160` |
-| active-icon | Active icon name | *string* | `checked` |
-| inactive-icon | Active icon name | *string* | - |
+| --- | --- | --- | --- |
+| active | Active step | _number \| string_ | `0` |
+| direction | Can be set to `vertical` | _string_ | `horizontal` |
+| active-color | Active step color | _string_ | `#07c160` |
+| inactive-color `v2.9.1` | Inactive step color | _string_ | `#969799` |
+| active-icon | Active icon name | _string_ | `checked` |
+| inactive-icon | Inactive icon name | _string_ | - |
 
 ### Step Slots
 
-| Name | Description |
-|------|------|
-| active-icon | Custom active icon |
+| Name          | Description          |
+| ------------- | -------------------- |
+| active-icon   | Custom active icon   |
 | inactive-icon | Custom inactive icon |
 
 ### Steps Events
 
 | Event | Description | Arguments |
-|------|------|------|
-| click-step `v2.5.9` | Triggered when a step's title or icon is clicked | *index: number* |
+| --- | --- | --- |
+| click-step `v2.5.9` | Emitted when a step's title or icon is clicked | _index: number_ |
+
+### Less Variables
+
+How to use: [Custom Theme](#/en-US/theme).
+
+| Name                             | Default Value   | Description |
+| -------------------------------- | --------------- | ----------- |
+| @step-text-color                 | `@gray-6`       | -           |
+| @step-active-color               | `@green`        | -           |
+| @step-process-text-color         | `@text-color`   | -           |
+| @step-font-size                  | `@font-size-md` | -           |
+| @step-line-color                 | `@border-color` | -           |
+| @step-finish-line-color          | `@green`        | -           |
+| @step-finish-text-color          | `@text-color`   | -           |
+| @step-icon-size                  | `12px`          | -           |
+| @step-circle-size                | `5px`           | -           |
+| @step-circle-color               | `@gray-6`       | -           |
+| @step-horizontal-title-font-size | `@font-size-sm` | -           |
+| @steps-background-color          | `@white`        | -           |

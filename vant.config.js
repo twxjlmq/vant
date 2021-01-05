@@ -1,9 +1,12 @@
 module.exports = {
   name: 'vant',
   build: {
+    srcDir: 'src',
     skipInstall: ['lazyload'],
     site: {
-      publicPath: 'https://b.yzcdn.cn/vant/',
+      publicPath:
+        (typeof window === 'undefined' && process.env.PUBLIC_PATH) ||
+        'https://b.yzcdn.cn/vant/',
     },
     vetur: {
       tagPrefix: 'van-',
@@ -11,31 +14,51 @@ module.exports = {
   },
   site: {
     defaultLang: 'en-US',
-    versions: [{ label: '1.x', link: 'https://youzan.github.io/vant/1.x/' }],
+    versions: [
+      { label: 'Vant 1.x', link: '/vant/1.x/' },
+      { label: 'Vant 2.x', link: '/vant/' },
+      { label: 'Vant Weapp', link: '/vant-weapp/' },
+    ],
     baiduAnalytics: {
       seed: 'ad6b5732c36321f2dafed737ac2da92f',
+    },
+    htmlPluginOptions: {
+      meta: {
+        'docsearch:version': '3.x',
+      },
     },
     locales: {
       'zh-CN': {
         title: 'Vant',
         description: '轻量、可靠的移动端 Vue 组件库',
         logo: 'https://img.yzcdn.cn/vant/logo.png',
-        langLabel: '中文',
+        langLabel: '中',
         links: [
-          {
-            logo: 'https://b.yzcdn.cn/vant/logo/weapp.svg',
-            url: '/vant-weapp',
-          },
           {
             logo: 'https://b.yzcdn.cn/vant/logo/github.svg',
             url: 'https://github.com/youzan/vant',
           },
         ],
-        searchConfig: {
-          apiKey: '90067aecdaa2c85220e2783cd305caac',
-          indexName: 'vant',
-          placeholder: '搜索文档...',
-        },
+        // TODO
+        // searchConfig: {
+        //   apiKey: '90067aecdaa2c85220e2783cd305caac',
+        //   indexName: 'vant',
+        //   searchParameters: {
+        //     facetFilters: ['lang:zh-CN', 'version:3.x'],
+        //   },
+        //   transformItems(items) {
+        //     if (location.hostname !== 'youzan.github.io') {
+        //       items.forEach((item) => {
+        //         if (item.url) {
+        //           item.url =
+        //             item.url &&
+        //             item.url.replace('youzan.github.io', location.hostname);
+        //         }
+        //       });
+        //     }
+        //     return items;
+        //   },
+        // },
         nav: [
           {
             title: '开发指南',
@@ -49,8 +72,16 @@ module.exports = {
                 title: '快速上手',
               },
               {
-                path: 'changelog',
+                path: 'advanced-usage',
+                title: '进阶用法',
+              },
+              {
+                path: 'changelog-v3',
                 title: '更新日志',
+              },
+              {
+                path: 'migrate-from-v2',
+                title: '从 v2 升级',
               },
               {
                 path: 'theme',
@@ -105,6 +136,10 @@ module.exports = {
                 path: 'style',
                 title: 'Style 内置样式',
               },
+              {
+                path: 'toast',
+                title: 'Toast 轻提示',
+              },
             ],
           },
           {
@@ -113,6 +148,10 @@ module.exports = {
               {
                 path: 'calendar',
                 title: 'Calendar 日历',
+              },
+              {
+                path: 'cascader',
+                title: 'Cascader 级联选择',
               },
               {
                 path: 'checkbox',
@@ -177,7 +216,7 @@ module.exports = {
             items: [
               {
                 path: 'action-sheet',
-                title: 'ActionSheet 上拉菜单',
+                title: 'ActionSheet 动作面板',
               },
               {
                 path: 'dialog',
@@ -204,18 +243,22 @@ module.exports = {
                 title: 'PullRefresh 下拉刷新',
               },
               {
-                path: 'swipe-cell',
-                title: 'SwipeCell 滑动单元格',
+                path: 'share-sheet',
+                title: 'ShareSheet 分享面板',
               },
               {
-                path: 'toast',
-                title: 'Toast 轻提示',
+                path: 'swipe-cell',
+                title: 'SwipeCell 滑动单元格',
               },
             ],
           },
           {
             title: '展示组件',
             items: [
+              {
+                path: 'badge',
+                title: 'Badge 徽标',
+              },
               {
                 path: 'circle',
                 title: 'Circle 环形进度条',
@@ -231,6 +274,10 @@ module.exports = {
               {
                 path: 'divider',
                 title: 'Divider 分割线',
+              },
+              {
+                path: 'empty',
+                title: 'Empty 空状态',
               },
               {
                 path: 'image-preview',
@@ -249,8 +296,8 @@ module.exports = {
                 title: 'NoticeBar 通知栏',
               },
               {
-                path: 'panel',
-                title: 'Panel 面板',
+                path: 'popover',
+                title: 'Popover 气泡弹出框',
               },
               {
                 path: 'progress',
@@ -274,13 +321,17 @@ module.exports = {
               },
               {
                 path: 'tag',
-                title: 'Tag 标记',
+                title: 'Tag 标签',
               },
             ],
           },
           {
             title: '导航组件',
             items: [
+              {
+                path: 'action-bar',
+                title: 'ActionBar 动作栏',
+              },
               {
                 path: 'grid',
                 title: 'Grid 宫格',
@@ -336,32 +387,23 @@ module.exports = {
               },
               {
                 path: 'contact-card',
-                title: 'Contact 联系人',
+                title: 'ContactCard 联系人卡片',
+              },
+              {
+                path: 'contact-edit',
+                title: 'ContactEdit 联系人编辑',
+              },
+              {
+                path: 'contact-list',
+                title: 'ContactList 联系人列表',
               },
               {
                 path: 'coupon-list',
                 title: 'Coupon 优惠券',
               },
               {
-                path: 'goods-action',
-                title: 'GoodsAction 商品导航',
-              },
-              {
                 path: 'submit-bar',
                 title: 'SubmitBar 提交订单栏',
-              },
-              {
-                path: 'sku',
-                title: 'Sku 商品规格',
-              },
-            ],
-          },
-          {
-            title: '废弃',
-            items: [
-              {
-                path: 'switch-cell',
-                title: 'SwitchCell 开关单元格',
               },
             ],
           },
@@ -371,22 +413,21 @@ module.exports = {
         title: 'Vant',
         description: 'Mobile UI Components built on Vue',
         logo: 'https://img.yzcdn.cn/vant/logo.png',
-        langLabel: 'En',
+        langLabel: 'EN',
         links: [
-          {
-            logo: 'https://b.yzcdn.cn/vant/logo/weapp.svg',
-            url: '/vant-weapp',
-          },
           {
             logo: 'https://b.yzcdn.cn/vant/logo/github.svg',
             url: 'https://github.com/youzan/vant',
           },
         ],
-        searchConfig: {
-          apiKey: '90067aecdaa2c85220e2783cd305caac',
-          indexName: 'vant',
-          placeholder: 'Search...',
-        },
+        // TODO
+        // searchConfig: {
+        //   apiKey: '90067aecdaa2c85220e2783cd305caac',
+        //   indexName: 'vant',
+        //   searchParameters: {
+        //     facetFilters: ['lang:en-US', 'version:3.x'],
+        //   },
+        // },
         nav: [
           {
             title: 'Essentials',
@@ -400,7 +441,11 @@ module.exports = {
                 title: 'Quickstart',
               },
               {
-                path: 'changelog',
+                path: 'advanced-usage',
+                title: 'Advanced Usage',
+              },
+              {
+                path: 'changelog-v3',
                 title: 'Changelog',
               },
               {
@@ -444,6 +489,10 @@ module.exports = {
                 path: 'style',
                 title: 'Built-in style',
               },
+              {
+                path: 'toast',
+                title: 'Toast',
+              },
             ],
           },
           {
@@ -452,6 +501,10 @@ module.exports = {
               {
                 path: 'calendar',
                 title: 'Calendar',
+              },
+              {
+                path: 'cascader',
+                title: 'Cascader',
               },
               {
                 path: 'checkbox',
@@ -506,10 +559,6 @@ module.exports = {
                 title: 'Switch',
               },
               {
-                path: 'switch-cell',
-                title: 'SwitchCell',
-              },
-              {
                 path: 'uploader',
                 title: 'Uploader',
               },
@@ -547,18 +596,22 @@ module.exports = {
                 title: 'PullRefresh',
               },
               {
-                path: 'swipe-cell',
-                title: 'SwipeCell',
+                path: 'share-sheet',
+                title: 'ShareSheet',
               },
               {
-                path: 'toast',
-                title: 'Toast',
+                path: 'swipe-cell',
+                title: 'SwipeCell',
               },
             ],
           },
           {
             title: 'Display Components',
             items: [
+              {
+                path: 'badge',
+                title: 'Badge',
+              },
               {
                 path: 'circle',
                 title: 'Circle',
@@ -574,6 +627,10 @@ module.exports = {
               {
                 path: 'divider',
                 title: 'Divider',
+              },
+              {
+                path: 'empty',
+                title: 'Empty',
               },
               {
                 path: 'image-preview',
@@ -592,8 +649,8 @@ module.exports = {
                 title: 'NoticeBar',
               },
               {
-                path: 'panel',
-                title: 'Panel',
+                path: 'popover',
+                title: 'Popover',
               },
               {
                 path: 'progress',
@@ -624,6 +681,10 @@ module.exports = {
           {
             title: 'Navigation Components',
             items: [
+              {
+                path: 'action-bar',
+                title: 'ActionBar',
+              },
               {
                 path: 'grid',
                 title: 'Grid',
@@ -679,32 +740,23 @@ module.exports = {
               },
               {
                 path: 'contact-card',
-                title: 'Contact',
+                title: 'ContactCard',
+              },
+              {
+                path: 'contact-edit',
+                title: 'ContactEdit',
+              },
+              {
+                path: 'contact-list',
+                title: 'ContactList',
               },
               {
                 path: 'coupon-list',
                 title: 'Coupon',
               },
               {
-                path: 'goods-action',
-                title: 'GoodsAction',
-              },
-              {
                 path: 'submit-bar',
                 title: 'SubmitBar',
-              },
-              {
-                path: 'sku',
-                title: 'Sku',
-              },
-            ],
-          },
-          {
-            title: 'Deprecated',
-            items: [
-              {
-                path: 'switch-cell',
-                title: 'SwitchCell',
               },
             ],
           },

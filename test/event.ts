@@ -1,7 +1,7 @@
-import Vue from 'vue';
-import { Wrapper } from '@vue/test-utils';
+import { ComponentPublicInstance, nextTick } from 'vue';
+import { VueWrapper } from '@vue/test-utils';
 
-function getTouch(el: HTMLElement | Window, x: number, y: number) {
+function getTouch(el: Element | Window, x: number, y: number) {
   return {
     identifier: Date.now(),
     target: el,
@@ -18,10 +18,10 @@ function getTouch(el: HTMLElement | Window, x: number, y: number) {
 
 // Trigger pointer/touch event
 export function trigger(
-  wrapper: Wrapper<Vue> | HTMLElement | Window,
+  wrapper: VueWrapper<ComponentPublicInstance> | HTMLElement | Window,
   eventName: string,
-  x: number = 0,
-  y: number = 0,
+  x = 0,
+  y = 0,
   options: any = {}
 ) {
   const el = 'element' in wrapper ? wrapper.element : wrapper;
@@ -43,11 +43,13 @@ export function trigger(
   });
 
   el.dispatchEvent(event);
+
+  return nextTick();
 }
 
 // simulate drag gesture
 export function triggerDrag(
-  el: Wrapper<Vue> | HTMLElement,
+  el: VueWrapper<ComponentPublicInstance> | HTMLElement,
   x = 0,
   y = 0
 ): void {

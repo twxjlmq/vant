@@ -1,42 +1,30 @@
-import { createNamespace } from '../utils';
-import { stopPropagation } from '../utils/dom/event';
-import { BORDER_TOP } from '../utils/constant';
-import { BindEventMixin } from '../mixins/bind-event';
+import { ref, watch, computed, Teleport, Transition } from 'vue';
+import { createNamespace, stopPropagation } from '../utils';
+import { useClickAway } from '@vant/use';
 import Key from './Key';
 
-const [createComponent, bem, t] = createNamespace('number-keyboard');
-const CLOSE_KEY_THEME = ['blue', 'big'];
-const DELETE_KEY_THEME = ['delete', 'big', 'gray'];
+const [createComponent, bem] = createNamespace('number-keyboard');
 
 export default createComponent({
-  mixins: [
-    BindEventMixin(function(bind) {
-      if (this.hideOnClickOutside) {
-        bind(document.body, 'touchstart', this.onBlur);
-      }
-    }),
-  ],
-
-  model: {
-    event: 'update:value',
-  },
-
   props: {
     show: Boolean,
     title: String,
     zIndex: [Number, String],
+    teleport: [String, Object],
+    randomKeyOrder: Boolean,
     closeButtonText: String,
     deleteButtonText: String,
+    closeButtonLoading: Boolean,
     theme: {
       type: String,
       default: 'default',
     },
-    value: {
+    modelValue: {
       type: String,
       default: '',
     },
     extraKey: {
-      type: String,
+      type: [String, Array],
       default: '',
     },
     maxlength: {
@@ -61,171 +49,220 @@ export default createComponent({
     },
   },
 
-  watch: {
-    show(val) {
-      if (!this.transition) {
-        this.$emit(val ? 'show' : 'hide');
-      }
-    },
-  },
+  emits: [
+    'show',
+    'hide',
+    'blur',
+    'input',
+    'close',
+    'delete',
+    'update:modelValue',
+  ],
 
-  computed: {
-    keys() {
+  setup(props, { emit, slots }) {
+    const root = ref();
+
+    const genBasicKeys = () => {
       const keys = [];
       for (let i = 1; i <= 9; i++) {
         keys.push({ text: i });
       }
 
-      switch (this.theme) {
-        case 'default':
-          keys.push(
-            { text: this.extraKey, theme: ['gray'], type: 'extra' },
-            { text: 0 },
-            {
-              theme: ['gray'],
-              text: this.showDeleteKey ? this.deleteText : '',
-              type: this.showDeleteKey ? 'delete' : '',
-            }
-          );
-          break;
-        case 'custom':
-          keys.push(
-            { text: 0, theme: ['middle'] },
-            { text: this.extraKey, type: 'extra' }
-          );
-          break;
+      if (props.randomKeyOrder) {
+        keys.sort(() => (Math.random() > 0.5 ? 1 : -1));
       }
 
       return keys;
-    },
+    };
 
-    deleteText() {
-      return this.deleteButtonText || t('delete');
-    },
-  },
+    const genDefaultKeys = () => [
+      ...genBasicKeys(),
+      { text: props.extraKey, type: 'extra' },
+      { text: 0 },
+      {
+        text: props.showDeleteKey ? props.deleteButtonText : '',
+        type: props.showDeleteKey ? 'delete' : '',
+      },
+    ];
 
-  methods: {
-    onBlur() {
-      this.show && this.$emit('blur');
-    },
+    const genCustomKeys = () => {
+      const keys = genBasicKeys();
+      const { extraKey } = props;
+      const extraKeys = Array.isArray(extraKey) ? extraKey : [extraKey];
 
-    onClose() {
-      this.$emit('close');
-      this.onBlur();
-    },
+      if (extraKeys.length === 1) {
+        keys.push(
+          { text: 0, wider: true },
+          { text: extraKeys[0], type: 'extra' }
+        );
+      } else if (extraKeys.length === 2) {
+        keys.push(
+          { text: extraKeys[0], type: 'extra' },
+          { text: 0 },
+          { text: extraKeys[1], type: 'extra' }
+        );
+      }
 
-    onAnimationEnd() {
-      this.$emit(this.show ? 'show' : 'hide');
-    },
+      return keys;
+    };
 
-    onPress(text, type) {
+    const keys = computed(() =>
+      props.theme === 'custom' ? genCustomKeys() : genDefaultKeys()
+    );
+
+    const onBlur = () => {
+      if (props.show) {
+        emit('blur');
+      }
+    };
+
+    const onClose = () => {
+      emit('close');
+      onBlur();
+    };
+
+    const onAnimationEnd = () => {
+      emit(props.show ? 'show' : 'hide');
+    };
+
+    const onPress = (text, type) => {
       if (text === '') {
+        if (type === 'extra') {
+          onBlur();
+        }
         return;
       }
 
-      const { value } = this;
+      const value = props.modelValue;
 
       if (type === 'delete') {
-        this.$emit('delete');
-        this.$emit('update:value', value.slice(0, value.length - 1));
+        emit('delete');
+        emit('update:modelValue', value.slice(0, value.length - 1));
       } else if (type === 'close') {
-        this.onClose();
-      } else if (value.length < this.maxlength) {
-        this.$emit('input', text);
-        this.$emit('update:value', value + text);
+        onClose();
+      } else if (value.length < props.maxlength) {
+        emit('input', text);
+        emit('update:modelValue', value + text);
       }
-    },
+    };
 
-    genTitle() {
-      const { title, theme, closeButtonText } = this;
-      const titleLeft = this.slots('title-left');
+    const renderTitle = () => {
+      const { title, theme, closeButtonText } = props;
+      const leftSlot = slots['title-left'];
       const showClose = closeButtonText && theme === 'default';
-      const showTitle = title || showClose || titleLeft;
+      const showTitle = title || showClose || leftSlot;
 
       if (!showTitle) {
         return;
       }
 
       return (
-        <div class={[bem('title'), BORDER_TOP]}>
-          {titleLeft && <span class={bem('title-left')}>{titleLeft}</span>}
-          {title && <span>{title}</span>}
+        <div class={bem('header')}>
+          {leftSlot && <span class={bem('title-left')}>{leftSlot()}</span>}
+          {title && <h2 class={bem('title')}>{title}</h2>}
           {showClose && (
-            <span
-              role="button"
-              tabindex="0"
-              class={bem('close')}
-              onClick={this.onClose}
-            >
+            <button type="button" class={bem('close')} onClick={onClose}>
               {closeButtonText}
-            </span>
+            </button>
           )}
         </div>
       );
-    },
+    };
 
-    genKeys() {
-      return this.keys.map(key => (
-        <Key
-          key={key.text}
-          text={key.text}
-          type={key.type}
-          theme={key.theme}
-          onPress={this.onPress}
-        >
-          {key.type === 'delete' && this.slots('delete')}
-          {key.type === 'extra' && this.slots('extra-key')}
-        </Key>
-      ));
-    },
+    const renderKeys = () => {
+      return keys.value.map((key) => {
+        const slots = {};
 
-    genSidebar() {
-      if (this.theme === 'custom') {
+        if (key.type === 'delete') {
+          slots.default = slots.delete;
+        }
+        if (key.type === 'extra') {
+          slots.default = slots['extra-key'];
+        }
+
+        return (
+          <Key
+            v-slots={slots}
+            key={key.text}
+            text={key.text}
+            type={key.type}
+            wider={key.wider}
+            color={key.color}
+            onPress={onPress}
+          />
+        );
+      });
+    };
+
+    const renderSidebar = () => {
+      if (props.theme === 'custom') {
         return (
           <div class={bem('sidebar')}>
-            {this.showDeleteKey && (
+            {props.showDeleteKey && (
               <Key
-                text={this.deleteText}
+                v-slots={{ delete: slots.delete }}
+                large
+                text={props.deleteButtonText}
                 type="delete"
-                theme={DELETE_KEY_THEME}
-                onPress={this.onPress}
-              >
-                {this.slots('delete')}
-              </Key>
+                onPress={onPress}
+              />
             )}
             <Key
-              text={this.closeButtonText}
+              large
+              text={props.closeButtonText}
               type="close"
-              theme={CLOSE_KEY_THEME}
-              onPress={this.onPress}
+              color="blue"
+              loading={props.closeButtonLoading}
+              onPress={onPress}
             />
           </div>
         );
       }
-    },
-  },
+    };
 
-  render() {
-    return (
-      <transition name={this.transition ? 'van-slide-up' : ''}>
-        <div
-          vShow={this.show}
-          style={{ zIndex: this.zIndex }}
-          class={bem([
-            this.theme,
-            { 'safe-area-inset-bottom': this.safeAreaInsetBottom },
-          ])}
-          onTouchstart={stopPropagation}
-          onAnimationend={this.onAnimationEnd}
-          onWebkitAnimationEnd={this.onAnimationEnd}
-        >
-          {this.genTitle()}
-          <div class={bem('body')}>
-            {this.genKeys()}
-            {this.genSidebar()}
-          </div>
-        </div>
-      </transition>
+    watch(
+      () => props.show,
+      (value) => {
+        if (!props.transition) {
+          emit(value ? 'show' : 'hide');
+        }
+      }
     );
+
+    if (props.hideOnClickOutside) {
+      useClickAway(root, onClose, { eventName: 'touchstart' });
+    }
+
+    return () => {
+      const Title = renderTitle();
+      const Content = (
+        <Transition name={props.transition ? 'van-slide-up' : ''}>
+          <div
+            v-show={props.show}
+            ref={root}
+            style={{ zIndex: props.zIndex }}
+            class={bem({
+              unfit: !props.safeAreaInsetBottom,
+              'with-title': !!Title,
+            })}
+            onTouchstart={stopPropagation}
+            onAnimationend={onAnimationEnd}
+            onWebkitAnimationEnd={onAnimationEnd}
+          >
+            {Title}
+            <div class={bem('body')}>
+              <div class={bem('keys')}>{renderKeys()}</div>
+              {renderSidebar()}
+            </div>
+          </div>
+        </Transition>
+      );
+
+      if (props.teleport) {
+        return <Teleport to={props.teleport}>{Content}</Teleport>;
+      }
+
+      return Content;
+    };
   },
 });

@@ -3,10 +3,11 @@
 ### Install
 
 ```js
-import Vue from 'vue';
+import { createApp } from 'vue';
 import { Uploader } from 'vant';
 
-Vue.use(Uploader);
+const app = createApp();
+app.use(Uploader);
 ```
 
 ## Usage
@@ -19,11 +20,15 @@ Vue.use(Uploader);
 
 ```js
 export default {
-  methods: {
-    afterRead(file) {
-      console.log(file)
-    }
-  }
+  setup() {
+    const afterRead = (file) => {
+      console.log(file);
+    };
+
+    return {
+      afterRead,
+    };
+  },
 };
 ```
 
@@ -34,20 +39,20 @@ export default {
 ```
 
 ```js
-export default {
-  data() {
-    return {
-      fileList: [
-        { url: 'https://img.yzcdn.cn/vant/leaf.jpg' }
-      ]
-    }
-  }
-};
-```
-### Disabled
+import { ref } from 'vue';
 
-```html
-<van-uploader disabled />
+export default {
+  setup() {
+    const fileList = ref([
+      { url: 'https://img.yzcdn.cn/vant/leaf.jpg' },
+      { url: 'https://cloud-image', isImage: true },
+    ]);
+
+    return {
+      fileList,
+    };
+  },
+};
 ```
 
 ### Upload Status
@@ -57,25 +62,24 @@ export default {
 ```
 
 ```js
+import { ref } from 'vue';
+
 export default {
-  data() {
-    return {
-      fileList: [
-        {
-          url: 'https://img.yzcdn.cn/vant/leaf.jpg',
-          status: 'uploading',
-          message: 'Uploading...'
-        },
-        {
-          url: 'https://img.yzcdn.cn/vant/tree.jpg',
-          status: 'failed',
-          message: 'Failed'
-        }
-      ]
-    }
-  },
-  methods: {
-    afterRead(file) {
+  setup() {
+    const fileList = ref([
+      {
+        url: 'https://img.yzcdn.cn/vant/leaf.jpg',
+        status: 'uploading',
+        message: 'Uploading...',
+      },
+      {
+        url: 'https://img.yzcdn.cn/vant/tree.jpg',
+        status: 'failed',
+        message: 'Failed',
+      },
+    ]);
+
+    const afterRead = (file) => {
       file.status = 'uploading';
       file.message = 'Uploading...';
 
@@ -83,37 +87,89 @@ export default {
         file.status = 'failed';
         file.message = 'Failed';
       }, 1000);
-    }
-  }
+    };
+
+    return {
+      fileList,
+      afterRead,
+    };
+  },
 };
 ```
 
 ### Max Count
 
 ```html
-<van-uploader
-  v-model="fileList"
-  multiple
-  :max-count="2"
-/>
+<van-uploader v-model="fileList" multiple :max-count="2" />
 ```
 
 ```js
+import { ref } from 'vue';
+
 export default {
-  data() {
+  setup() {
+    const fileList = ref([]);
+
     return {
-      fileList: []
-    }
-  }
+      fileList,
+    };
+  },
 };
 ```
 
-### Upload Style
+### Max Size
+
+```html
+<van-uploader multiple :max-size="500 * 1024" @oversize="onOversize" />
+```
+
+```js
+import { Toast } from 'vant';
+
+export default {
+  setup() {
+    const onOversize = (file) => {
+      console.log(file);
+      Toast('File size cannot exceed 500kb');
+    };
+
+    return {
+      onOversize,
+    };
+  },
+};
+```
+
+### Custom Upload Area
 
 ```html
 <van-uploader>
-  <van-button icon="photo" type="primary">Upload Image</van-button>
+  <van-button icon="plus" type="primary">Upload Image</van-button>
 </van-uploader>
+```
+
+### Preview Cover
+
+```html
+<van-uploader v-model="fileList">
+  <template #preview-cover="{ file }">
+    <div class="preview-cover van-ellipsis">{{ file.name }}</div>
+  </template>
+</van-uploader>
+
+<style>
+  .preview-cover {
+    position: absolute;
+    bottom: 0;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 4px;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3);
+  }
+</style>
 ```
 
 ### Before Read
@@ -126,29 +182,80 @@ export default {
 import { Toast } from 'vant';
 
 export default {
-  methods: {
-    beforeRead(file) {
+  setup() {
+    // 返回布尔值
+    const beforeRead = (file) => {
       if (file.type !== 'image/jpeg') {
         Toast('Please upload an image in jpg format');
         return false;
       }
       return true;
-    },
-    asyncBeforeRead(file) {
+    };
+
+    // 返回 Promise
+    const asyncBeforeRead = (file) => {
       return new Promise((resolve, reject) => {
         if (file.type !== 'image/jpeg') {
           Toast('Please upload an image in jpg format');
           reject();
         } else {
-          let img = new File(["foo"], "bar.jpg", {
-            type: "image/jpeg",
+          let img = new File(['foo'], 'bar.jpg', {
+            type: 'image/jpeg',
           });
           resolve(img);
         }
       });
-    }
+    };
+
+    return {
+      beforeRead,
+      asyncBeforeRead,
+    };
+  },
+};
+```
+
+### Disable Uploader
+
+Use `disabled` prop to disable uploader.
+
+```html
+<van-uploader disabled />
+```
+
+### Customize Single Preview Image Style
+
+```html
+<van-uploader v-model="fileList" :deletable="false" />
+```
+
+```js
+import { ref } from 'vue';
+import { Toast } from 'vant';
+
+export default {
+  setup() {
+    const fileList = ref([
+      { url: 'https://img.yzcdn.cn/vant/leaf.jpg' },
+      {
+        url: 'https://img.yzcdn.cn/vant/sand.jpg',
+        deletable: true,
+        beforeDelete: () => {
+          Toast('Customize the events and styles of a single preview image');
+        },
+      },
+      {
+        url: 'https://img.yzcdn.cn/vant/tree.jpg',
+        deletable: true,
+        imageFit: 'contain',
+        previewSize: 120,
+      },
+    ]);
+    return {
+      fileList:
+    };
   }
-}
+};
 ```
 
 ## API
@@ -156,62 +263,97 @@ export default {
 ### Props
 
 | Attribute | Description | Type | Default |
-|------|------|------|------|
-| accept | Accepted [file type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#Unique_file_type_specifiers) | *string* | `image/*` |
-| name `v2.0.3` | Input name | *number \| string* | - |
-| preview-size | Size of preview image | *number \| string* | `80px` |
-| preview-image `v2.1.5` | Whether to show image preview | *boolean* | `true` |
-| preview-full-image | Whethe to show full screen image preview when click image | *boolean* | `true` |
-| multiple | Whether to enable multiple selection pictures | *boolean* | `false` |
-| disabled | Whether to disabled the upload | *boolean* | `false` |
-| deletable `v2.2.12` | Whether to show delete icon | *boolean* | `true` |
-| show-upload `v2.5.6` | Whether to show upload area | *boolean* | `true` |
-| capture | Capture，can be set to `camera` | *string* | - |
-| after-read | Hook after reading the file | *Function* | - |
-| before-read | Hook before reading the file, return false to stop reading the file, can return Promise | *Function* | - |
-| before-delete | Hook before delete the file, return false to stop reading the file, can return Promise | *Function* | - |
-| max-size | Max size of file | *number \| string* | - |
-| max-count | Max count of image | *number \| string* | - |
-| result-type `v2.2.7` | Type of file read result, can be set to `file` `text` | *string* | `dataUrl` |
-| upload-text | Upload text | *string* | - |
-| image-fit `v2.1.5` | Preview image fit mode | *string* | `cover` |
-| upload-icon `v2.5.4` | Upload icon | *string* | `photograph` |
+| --- | --- | --- | --- |
+| v-model | List of uploaded files | _FileListItem[]_ | - |
+| accept | Accepted [file type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#Unique_file_type_specifiers) | _string_ | `image/*` |
+| name | Input name | _number \| string_ | - |
+| preview-size | Size of preview image | _number \| string_ | `80px` |
+| preview-image | Whether to show image preview | _boolean_ | `true` |
+| preview-full-image | Whethe to show full screen image preview when image is clicked | _boolean_ | `true` |
+| preview-options `v2.9.3` | Options of full screen image preview，see [ImagePreview](#/en-US/image-preview) | _object_ | - |
+| multiple | Whether to enable multiple selection pictures | _boolean_ | `false` |
+| disabled | Whether to disabled the upload | _boolean_ | `false` |
+| deletable | Whether to show delete icon | _boolean_ | `true` |
+| show-upload `v2.5.6` | Whether to show upload area | _boolean_ | `true` |
+| lazy-load `v2.6.2` | Whether to enable lazy load，should register [Lazyload](#/en-US/lazyload) component | _boolean_ | `false` |
+| capture | Capture，can be set to `camera` | _string_ | - |
+| after-read | Hook after reading the file | _Function_ | - |
+| before-read | Hook before reading the file, return false to stop reading the file, can return Promise | _Function_ | - |
+| before-delete | Hook before delete the file, return false to stop reading the file, can return Promise | _Function_ | - |
+| max-size | Max size of file | _number \| string_ | - |
+| max-count | Max count of image | _number \| string_ | - |
+| result-type | Type of file read result, can be set to `file` `text` | _string_ | `dataUrl` |
+| upload-text | Upload text | _string_ | - |
+| image-fit | Preview image fit mode | _string_ | `cover` |
+| upload-icon `v2.5.4` | Upload icon | _string_ | `photograph` |
 
 ### Events
 
 | Event | Description | Arguments |
-|------|------|------|
-| oversize | Triggered when file size over limit | Same as after-read |
-| click-preview | Triggered when click preview image | Same as after-read |
-| close-preview | Triggered when close full screen image preview | - |
-| delete | Triggered when delete preview file | Same as after-read |
+| --- | --- | --- |
+| oversize | Emitted when file size over limit | Same as after-read |
+| click-preview | Emitted when preview image is clicked | Same as after-read |
+| close-preview | Emitted when the full screen image preview is closed | - |
+| delete | Emitted when preview file is deleted | Same as after-read |
 
 ### Slots
 
-| Name | Description |
-|------|------|
-| default | Custom icon |
+| Name | Description | SlotProps |
+| --- | --- | --- |
+| default | Custom icon | - |
+| preview-cover `v2.9.1` | Custom content that covers the image preview | `item: FileListItem` |
 
 ### Parematers of before-read、after-read、before-delete
 
-| Attribute | Description | Type |
-|------|------|------|
-| file | File object | *object* |
-| detail | Detail info, contains name and index | *object* |
+| Attribute | Description                          | Type     |
+| --------- | ------------------------------------ | -------- |
+| file      | File object                          | _object_ |
+| detail    | Detail info, contains name and index | _object_ |
 
 ### ResultType
 
-| Value | Description |
-|------|------|
-| file | Result contains File object |
-| text | Result contains File object and text content |
+| Value   | Description                                    |
+| ------- | ---------------------------------------------- |
+| file    | Result contains File object                    |
+| text    | Result contains File object and text content   |
 | dataUrl | Result contains File object and base64 content |
 
 ### Methods
 
-Use [ref](https://vuejs.org/v2/api/#ref) to get Uploader instance and call instance methods
+Use [ref](https://v3.vuejs.org/guide/component-template-refs.html) to get Uploader instance and call instance methods.
 
 | Name | Description | Attribute | Return value |
-|------|------|------|------|
+| --- | --- | --- | --- |
 | closeImagePreview | Close full screen image preview | - | - |
 | chooseFile `v2.5.6` | Trigger choosing files, works with the user action context only because of browser security | - | - |
+
+### Less Variables
+
+How to use: [Custom Theme](#/en-US/theme).
+
+| Name                               | Default Value        | Description |
+| ---------------------------------- | -------------------- | ----------- |
+| @uploader-size                     | `80px`               | -           |
+| @uploader-icon-size                | `24px`               | -           |
+| @uploader-icon-color               | `@gray-4`            | -           |
+| @uploader-text-color               | `@gray-6`            | -           |
+| @uploader-text-font-size           | `@font-size-sm`      | -           |
+| @uploader-upload-background-color  | `@gray-1`            | -           |
+| @uploader-upload-active-color      | `@active-color`      | -           |
+| @uploader-delete-color             | `@white`             | -           |
+| @uploader-delete-icon-size         | `14px`               | -           |
+| @uploader-delete-background-color  | `rgba(0, 0, 0, 0.7)` | -           |
+| @uploader-file-background-color    | `@background-color`  | -           |
+| @uploader-file-icon-size           | `20px`               | -           |
+| @uploader-file-icon-color          | `@gray-7`            | -           |
+| @uploader-file-name-padding        | `0 @padding-base`    | -           |
+| @uploader-file-name-margin-top     | `@padding-xs`        | -           |
+| @uploader-file-name-font-size      | `@font-size-sm`      | -           |
+| @uploader-file-name-text-color     | `@gray-7`            | -           |
+| @uploader-mask-background-color    | `fade(@gray-8, 88%)` | -           |
+| @uploader-mask-icon-size           | `22px`               | -           |
+| @uploader-mask-message-font-size   | `@font-size-sm`      | -           |
+| @uploader-mask-message-line-height | `@line-height-xs`    | -           |
+| @uploader-loading-icon-size        | `22px`               | -           |
+| @uploader-loading-icon-color       | `@white`             | -           |
+| @uploader-disabled-opacity         | `@disabled-opacity`  | -           |

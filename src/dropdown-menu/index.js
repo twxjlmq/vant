@@ -1,23 +1,22 @@
-// Utils
-import { createNamespace } from '../utils';
-import { BORDER_TOP_BOTTOM } from '../utils/constant';
-import { getScroller } from '../utils/dom/scroll';
+import { ref, computed } from 'vue';
 
-// Mixins
-import { ParentMixin } from '../mixins/relation';
-import { ClickOutsideMixin } from '../mixins/click-outside';
+// Utils
+import { createNamespace, isDef } from '../utils';
+
+// Composition
+import {
+  useRect,
+  useChildren,
+  useClickAway,
+  useScrollParent,
+  useEventListener,
+} from '@vant/use';
 
 const [createComponent, bem] = createNamespace('dropdown-menu');
 
-export default createComponent({
-  mixins: [
-    ParentMixin('vanDropdownMenu'),
-    ClickOutsideMixin({
-      event: 'click',
-      method: 'onClickOutside',
-    }),
-  ],
+export const DROPDOWN_KEY = 'vanDropdownMenu';
 
+export default createComponent({
   props: {
     zIndex: [Number, String],
     activeColor: String,
@@ -33,89 +32,117 @@ export default createComponent({
       type: String,
       default: 'down',
     },
+    closeOnClickOutside: {
+      type: Boolean,
+      default: true,
+    },
     closeOnClickOverlay: {
       type: Boolean,
       default: true,
     },
   },
 
-  data() {
-    return {
-      offset: 0,
+  setup(props, { slots }) {
+    const root = ref();
+    const offset = ref(0);
+    const barRef = ref();
+
+    const { children, linkChildren } = useChildren(DROPDOWN_KEY);
+    const scrollParent = useScrollParent(root);
+
+    const opened = computed(() =>
+      children.some((item) => item.state.showWrapper)
+    );
+
+    const barStyle = computed(() => {
+      if (opened.value && isDef(props.zIndex)) {
+        return {
+          zIndex: 1 + props.zIndex,
+        };
+      }
+    });
+
+    const onClickAway = () => {
+      if (props.closeOnClickOutside) {
+        children.forEach((item) => {
+          item.toggle(false);
+        });
+      }
     };
-  },
 
-  computed: {
-    scroller() {
-      return getScroller(this.$el);
-    },
-  },
-
-  methods: {
-    updateOffset() {
-      if (!this.$refs.menu) {
-        return;
+    const updateOffset = () => {
+      if (barRef.value) {
+        const rect = useRect(barRef);
+        if (props.direction === 'down') {
+          offset.value = rect.bottom;
+        } else {
+          offset.value = window.innerHeight - rect.top;
+        }
       }
+    };
 
-      const rect = this.$refs.menu.getBoundingClientRect();
-
-      if (this.direction === 'down') {
-        this.offset = rect.bottom;
-      } else {
-        this.offset = window.innerHeight - rect.top;
+    const onScroll = () => {
+      if (opened.value) {
+        updateOffset();
       }
-    },
+    };
 
-    toggleItem(active) {
-      this.children.forEach((item, index) => {
+    const toggleItem = (active) => {
+      children.forEach((item, index) => {
         if (index === active) {
+          updateOffset();
           item.toggle();
-        } else if (item.showPopup) {
+        } else if (item.state.showPopup) {
           item.toggle(false, { immediate: true });
         }
       });
-    },
+    };
 
-    onClickOutside() {
-      this.children.forEach(item => {
-        item.toggle(false);
-      });
-    },
-  },
+    const renderTitle = (item, index) => {
+      const { showPopup } = item.state;
+      const { disabled, titleClass } = item;
 
-  render() {
-    const Titles = this.children.map((item, index) => (
-      <div
-        role="button"
-        tabindex={item.disabled ? -1 : 0}
-        class={bem('item', { disabled: item.disabled })}
-        onClick={() => {
-          if (!item.disabled) {
-            this.toggleItem(index);
-          }
-        }}
-      >
-        <span
-          class={[
-            bem('title', {
-              active: item.showPopup,
-              down: item.showPopup === (this.direction === 'down'),
-            }),
-            item.titleClass,
-          ]}
-          style={{ color: item.showPopup ? this.activeColor : '' }}
+      return (
+        <div
+          role="button"
+          tabindex={disabled ? -1 : 0}
+          class={bem('item', { disabled })}
+          onClick={() => {
+            if (!disabled) {
+              toggleItem(index);
+            }
+          }}
         >
-          <div class="van-ellipsis">
-            {item.slots('title') || item.displayTitle}
-          </div>
-        </span>
-      </div>
-    ));
+          <span
+            class={[
+              bem('title', {
+                down: showPopup === (props.direction === 'down'),
+                active: showPopup,
+              }),
+              titleClass,
+            ]}
+            style={{ color: showPopup ? props.activeColor : '' }}
+          >
+            <div class="van-ellipsis">{item.renderTitle()}</div>
+          </span>
+        </div>
+      );
+    };
 
-    return (
-      <div ref="menu" class={[bem(), BORDER_TOP_BOTTOM]}>
-        {Titles}
-        {this.slots('default')}
+    linkChildren({ props, offset });
+    useClickAway(root, onClickAway);
+    useEventListener('scroll', onScroll, { target: scrollParent });
+
+    return () => (
+      <div ref={root} class={bem()}>
+        <div
+          ref={barRef}
+          style={barStyle.value}
+          class={bem('bar', { opened: opened.value })}
+        >
+          {children.map(renderTitle)}
+        </div>
+        {slots.default?.()}
       </div>
     );
   },

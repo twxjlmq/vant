@@ -1,81 +1,101 @@
+import { computed } from 'vue';
 import { createNamespace } from '../utils';
 import { BORDER } from '../utils/constant';
-import { ChildrenMixin } from '../mixins/relation';
+import { STEPS_KEY } from '../steps';
+import { useParent } from '@vant/use';
 import Icon from '../icon';
 
 const [createComponent, bem] = createNamespace('step');
 
 export default createComponent({
-  mixins: [ChildrenMixin('vanSteps')],
+  setup(props, { slots }) {
+    const { parent, index } = useParent(STEPS_KEY);
 
-  computed: {
-    status() {
-      if (this.index < this.parent.active) {
+    const getStatus = () => {
+      const active = +parent.props.active;
+      if (index.value < active) {
         return 'finish';
       }
-      if (this.index === +this.parent.active) {
+      if (index.value === active) {
         return 'process';
       }
-    },
+    };
 
-    active() {
-      return this.status === 'process';
-    },
-  },
+    const isActive = () => getStatus() === 'process';
 
-  methods: {
-    genCircle() {
-      const { activeIcon, activeColor, inactiveIcon } = this.parent;
+    const lineStyle = computed(() => {
+      const { activeColor, inactiveColor } = parent.props;
 
-      if (this.active) {
+      if (getStatus() === 'finish') {
+        return { background: activeColor };
+      }
+
+      return { background: inactiveColor };
+    });
+
+    const titleStyle = computed(() => {
+      const { activeColor, inactiveColor } = parent.props;
+
+      if (isActive()) {
+        return { color: activeColor };
+      }
+
+      if (!getStatus()) {
+        return { color: inactiveColor };
+      }
+    });
+
+    const onClickStep = () => {
+      parent.emit('click-step', index.value);
+    };
+
+    const renderCircle = () => {
+      const { activeIcon, activeColor, inactiveIcon } = parent.props;
+
+      if (isActive()) {
+        if (slots['active-icon']) {
+          return slots['active-icon']();
+        }
+
         return (
-          this.slots('active-icon') || (
-            <Icon
-              class={bem('icon', 'active')}
-              name={activeIcon}
-              color={activeColor}
-            />
-          )
+          <Icon
+            class={bem('icon', 'active')}
+            name={activeIcon}
+            color={activeColor}
+          />
         );
       }
 
-      const inactiveIconSlot = this.slots('inactive-icon');
-
-      if (inactiveIcon || inactiveIconSlot) {
-        return (
-          inactiveIconSlot || <Icon class={bem('icon')} name={inactiveIcon} />
-        );
+      if (slots['inactive-icon']) {
+        return slots['inactive-icon']();
       }
 
-      return <i class={bem('circle')} />;
-    },
+      if (inactiveIcon) {
+        return <Icon class={bem('icon')} name={inactiveIcon} />;
+      }
 
-    onClickStep() {
-      this.parent.$emit('click-step', this.index);
-    },
-  },
+      return <i class={bem('circle')} style={lineStyle.value} />;
+    };
 
-  render() {
-    const { status, active } = this;
-    const { activeColor, direction } = this.parent;
+    return () => {
+      const { direction } = parent.props;
+      const status = getStatus();
 
-    const titleStyle = active && { color: activeColor };
-    const lineStyle = status === 'finish' && { background: activeColor };
-
-    return (
-      <div class={[BORDER, bem([direction, { [status]: status }])]}>
-        <div
-          class={bem('title', { active })}
-          style={titleStyle}
-          onClick={this.onClickStep}
-        >
-          {this.slots()}
+      return (
+        <div class={[BORDER, bem([direction, { [status]: status }])]}>
+          <div
+            class={bem('title', { active: isActive() })}
+            style={titleStyle.value}
+            onClick={onClickStep}
+          >
+            {slots.default?.()}
+          </div>
+          <div class={bem('circle-container')} onClick={onClickStep}>
+            {renderCircle()}
+          </div>
+          <div class={bem('line')} style={lineStyle.value} />
         </div>
-        <div class={bem('circle-container')} onClick={this.onClickStep}>
-          {this.genCircle()}
-        </div>
-        <div class={bem('line')} style={lineStyle} />
-      </div>
-    );
+      );
+    };
   },
 });

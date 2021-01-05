@@ -3,11 +3,12 @@
 ### Install
 
 ```js
-import Vue from 'vue';
+import { createApp } from 'vue';
 import { IndexBar } from 'vant';
 
-Vue.use(IndexBar);
-Vue.use(IndexAnchor);
+const app = createApp();
+app.use(IndexBar);
+app.use(IndexAnchor);
 ```
 
 ## Usage
@@ -50,12 +51,12 @@ Vue.use(IndexAnchor);
 
 ```js
 export default {
-  data() {
+  setup() {
     return {
-      indexList: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    }
-  }
-}
+      indexList: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    };
+  },
+};
 ```
 
 ## API
@@ -63,27 +64,56 @@ export default {
 ### IndexBar Props
 
 | Attribute | Description | Type | Default |
-|------|------|------|------|
-| index-list | Index List | *string[] \| number[]* | `A-Z` |
-| z-index | z-index | *number \| string* | `1` |
-| sticky | Whether to enable anchor sticky top | *boolean* | `true` |
-| sticky-offset-top `v2.0.7` | Anchor offset top when sticky | *number* | `0` |
-| highlight-color | Index character highlight color | *string* | `#07c160` | - |
+| --- | --- | --- | --- |
+| index-list | Index List | _string[] \| number[]_ | `A-Z` |
+| z-index | z-index | _number \| string_ | `1` |
+| sticky | Whether to enable anchor sticky top | _boolean_ | `true` |
+| sticky-offset-top | Anchor offset top when sticky | _number_ | `0` |
+| highlight-color | Index character highlight color | _string_ | `#ee0a24` | - |
 
 ### IndexAnchor Props
 
-| Attribute | Description | Type | Default |
-|------|------|------|------|
-| index | Index | *number \| string* | - |
+| Attribute | Description | Type               | Default |
+| --------- | ----------- | ------------------ | ------- |
+| index     | Index       | _number \| string_ | -       |
 
 ### IndexBar Events
 
 | Event | Description | Arguments |
-|------|------|------|
-| select | Triggered when select index | index |
+| --- | --- | --- |
+| select | Emitted when an index is selected | _index: number \| string_ |
+| change `v2.10.10` | Emitted when active index changed | _index: number \| string_ |
 
 ### IndexAnchor Slots
 
-| Name | Description |
-|------|------|
+| Name    | Description                           |
+| ------- | ------------------------------------- |
 | default | Anchor content, show index by default |
+
+### Methods
+
+Use [ref](https://v3.vuejs.org/guide/component-template-refs.html) to get IndexBar instance and call instance methods.
+
+| Name | Description | Attribute | Return value |
+| --- | --- | --- | --- |
+| scrollTo | scroll to target element | _index: number \| string_ | - |
+
+### Less Variables
+
+How to use: [Custom Theme](#/en-US/theme).
+
+| Name                                  | Default Value       | Description |
+| ------------------------------------- | ------------------- | ----------- |
+| @index-bar-sidebar-z-index            | `2`                 | -           |
+| @index-bar-index-font-size            | `@font-size-xs`     | -           |
+| @index-bar-index-line-height          | `@line-height-xs`   | -           |
+| @index-bar-index-active-color         | `@red`              | -           |
+| @index-anchor-z-index                 | `1`                 | -           |
+| @index-anchor-padding                 | `0 @padding-md`     | -           |
+| @index-anchor-text-color              | `@text-color`       | -           |
+| @index-anchor-font-weight             | `@font-weight-bold` | -           |
+| @index-anchor-font-size               | `@font-size-md`     | -           |
+| @index-anchor-line-height             | `32px`              | -           |
+| @index-anchor-background-color        | `transparent`       | -           |
+| @index-anchor-sticky-text-color       | `@red`              | -           |
+| @index-anchor-sticky-background-color | `@white`            | -           |

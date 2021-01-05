@@ -1,105 +1,163 @@
 <template>
-  <demo-section>
-    <demo-block :title="t('title1')">
-      <van-datetime-picker
-        v-model="currentDate1"
-        type="datetime"
-        :min-date="minDate"
-        :max-date="maxDate"
-      />
-    </demo-block>
+  <demo-block card :title="t('dateType')">
+    <van-datetime-picker
+      v-model="value.date"
+      type="date"
+      :title="t('dateType')"
+      :min-date="minDate"
+      :max-date="maxDate"
+    />
+  </demo-block>
 
-    <demo-block :title="t('title2')">
-      <van-datetime-picker
-        v-model="currentDate2"
-        type="date"
-        :min-date="minDate"
-        :max-date="maxDate"
-      />
-    </demo-block>
+  <demo-block card :title="t('yearMonthType')">
+    <van-datetime-picker
+      v-model="value.yearMonth"
+      type="year-month"
+      :title="t('yearMonthType')"
+      :min-date="minDate"
+      :max-date="maxDate"
+      :formatter="formatter"
+    />
+  </demo-block>
 
-    <demo-block :title="t('title3')">
-      <van-datetime-picker
-        v-model="currentDate3"
-        type="year-month"
-        :min-date="minDate"
-        :max-date="maxDate"
-        :formatter="formatter"
-      />
-    </demo-block>
+  <demo-block v-if="!isWeapp" card :title="t('monthDayType')">
+    <van-datetime-picker
+      v-model="value.monthDayType"
+      type="month-day"
+      :title="t('monthDayType')"
+      :min-date="minDate"
+      :max-date="maxDate"
+      :formatter="formatter"
+    />
+  </demo-block>
 
-    <demo-block :title="t('title4')">
-      <van-datetime-picker
-        v-model="currentTime1"
-        type="time"
-        :min-hour="10"
-        :max-hour="20"
-      />
-    </demo-block>
+  <demo-block card :title="t('timeType')">
+    <van-datetime-picker
+      v-model="value.time"
+      type="time"
+      :title="t('timeType')"
+      :min-hour="10"
+      :max-hour="20"
+    />
+  </demo-block>
 
-    <demo-block :title="t('optionFilter')">
-      <van-datetime-picker
-        v-model="currentTime2"
-        type="time"
-        :filter="filter"
-      />
-    </demo-block>
-  </demo-section>
+  <demo-block card :title="t('datetimeType')">
+    <van-datetime-picker
+      v-model="value.datetime"
+      type="datetime"
+      :title="t('datetimeType')"
+      :min-date="minDate"
+      :max-date="maxDate"
+    />
+  </demo-block>
+
+  <demo-block v-if="!isWeapp" card :title="t('datehourType')">
+    <van-datetime-picker
+      v-model="value.datehour"
+      type="datehour"
+      :title="t('datehourType')"
+      :min-date="minDate"
+      :max-date="maxDate"
+    />
+  </demo-block>
+
+  <demo-block card :title="t('optionFilter')">
+    <van-datetime-picker
+      v-model="value.optionFilter"
+      type="time"
+      :title="t('optionFilter')"
+      :filter="filter"
+    />
+  </demo-block>
+
+  <demo-block v-if="!isWeapp" card :title="t('sortColumns')">
+    <van-datetime-picker
+      v-model="value.sortColumnsDate"
+      type="date"
+      :title="t('sortColumns')"
+      :columns-order="['month', 'day', 'year']"
+      :min-date="minDate"
+      :max-date="maxDate"
+      :formatter="formatter"
+    />
+  </demo-block>
 </template>
 
-<script>
+<script lang="ts">
+import { reactive } from 'vue';
+import { useTranslate } from '@demo/use-translate';
+
+const i18n = {
+  'zh-CN': {
+    day: '日',
+    year: '年',
+    month: '月',
+    timeType: '选择时间',
+    dateType: '选择年月日',
+    datetimeType: '选择完整时间',
+    datehourType: '选择年月日小时',
+    monthDayType: '选择月日',
+    yearMonthType: '选择年月',
+    optionFilter: '选项过滤器',
+    sortColumns: '自定义列排序',
+  },
+  'en-US': {
+    day: ' Day',
+    year: ' Year',
+    month: ' Month',
+    timeType: 'Choose Time',
+    dateType: 'Choose Date',
+    datetimeType: 'Choose DateTime',
+    datehourType: 'Choose DateHour',
+    monthDayType: 'Choose Month-Day',
+    yearMonthType: 'Choose Year-Month',
+    optionFilter: 'Option Filter',
+    sortColumns: 'Columns Order',
+  },
+};
+
 export default {
-  i18n: {
-    'zh-CN': {
-      title1: '选择完整时间',
-      title2: '选择日期（年月日）',
-      title3: '选择日期（年月）',
-      title4: '选择时间',
-      year: '年',
-      month: '月',
-      optionFilter: '选项过滤器',
-    },
-    'en-US': {
-      title1: 'Choose DateTime',
-      title2: 'Choose Date',
-      title3: 'Choose Year-Month',
-      title4: 'Choose Time',
-      year: ' Year',
-      month: ' Month',
-      optionFilter: 'Option Filter',
-    },
-  },
+  setup() {
+    const t = useTranslate(i18n);
+    const value = reactive({
+      date: null,
+      time: '12:00',
+      datetime: new Date(2020, 0, 1),
+      datehour: new Date(2020, 0, 1),
+      monthDay: new Date(2020, 0, 1),
+      yearMonth: new Date(2020, 0, 1),
+      optionFilter: '12:00',
+      sortColumnsDate: new Date(2020, 0, 1),
+    });
 
-  data() {
-    return {
-      minDate: new Date(2020, 0, 1),
-      maxDate: new Date(2025, 10, 1),
-      currentDate1: new Date(2020, 0, 1),
-      currentDate2: null,
-      currentDate3: new Date(2020, 0, 1),
-      currentTime1: '12:00',
-      currentTime2: '12:00',
+    const filter = (type: string, values: string[]) => {
+      if (type === 'minute') {
+        return values.filter((value) => Number(value) % 5 === 0);
+      }
+      return values;
     };
-  },
 
-  methods: {
-    formatter(type, value) {
+    const formatter = (type: string, value: string) => {
       if (type === 'year') {
-        return value + this.t('year');
+        return value + t('year');
       }
       if (type === 'month') {
-        return value + this.t('month');
+        return value + t('month');
+      }
+      if (type === 'day') {
+        return value + t('day');
       }
       return value;
-    },
+    };
 
-    filter(type, values) {
-      if (type === 'minute') {
-        return values.filter(value => value % 5 === 0);
-      }
-
-      return values;
-    },
+    return {
+      t,
+      value,
+      filter,
+      minDate: new Date(2020, 0, 1),
+      maxDate: new Date(2025, 10, 1),
+      formatter,
+    };
   },
 };
 </script>

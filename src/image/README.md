@@ -3,10 +3,11 @@
 ### Install
 
 ```js
-import Vue from 'vue';
-import { Image } from 'vant';
+import { createApp } from 'vue';
+import { Image as VanImage } from 'vant';
 
-Vue.use(Image);
+const app = createApp();
+app.use(VanImage);
 ```
 
 ## Usage
@@ -14,11 +15,7 @@ Vue.use(Image);
 ### Basic Usage
 
 ```html
-<van-image
-  width="100"
-  height="100"
-  src="https://img.yzcdn.cn/vant/cat.jpeg"
-/>
+<van-image width="100" height="100" src="https://img.yzcdn.cn/vant/cat.jpeg" />
 ```
 
 ### Fit Mode
@@ -34,7 +31,7 @@ Vue.use(Image);
 
 ### Round
 
-Show round image, it may not works at `fit=contain` and `fit=scale-down`
+Show round image, it may not works at `fit=contain` and `fit=scale-down`.
 
 ```html
 <van-image
@@ -57,10 +54,11 @@ Show round image, it may not works at `fit=contain` and `fit=scale-down`
 ```
 
 ```js
-import Vue from 'vue';
+import { createApp } from 'vue';
 import { Lazyload } from 'vant';
 
-Vue.use(Lazyload);
+const app = createApp();
+app.use(Lazyload);
 ```
 
 ## API
@@ -68,24 +66,25 @@ Vue.use(Lazyload);
 ### Props
 
 | Attribute | Description | Type | Default |
-|------|------|------|------|
-| src | Src | *string* | - |
-| fit | Fit mode | *string* | `fill` |
-| alt | Alt | *string* | - |
-| width | Width | *number \| string* | - |
-| height | Height | *number \| string* | - |
-| radius `v2.1.6` | Border Radius | *number \| string* | `0` |
-| round | Whether to be round | *boolean* | `false` |
-| lazy-load | Whether to enable lazy load，should register [Lazyload](#/en-US/lazyload) component | *boolean* | `false` |
-| show-error `v2.0.9` | Whether to show error placeholder | *boolean* | `true` |
-| show-loading `v2.0.9` | Whether to show loading placeholder | *boolean* | `true` |
-| error-icon `v2.4.2` | Error icon | *string* | `warning-o` |
-| loading-icon `v2.4.2` | Loading icon | *string* | `photo-o` |
+| --- | --- | --- | --- |
+| src | Src | _string_ | - |
+| fit | Fit mode | _string_ | `fill` |
+| alt | Alt | _string_ | - |
+| width | Width | _number \| string_ | - |
+| height | Height | _number \| string_ | - |
+| radius | Border Radius | _number \| string_ | `0` |
+| round | Whether to be round | _boolean_ | `false` |
+| lazy-load | Whether to enable lazy load，should register [Lazyload](#/en-US/lazyload) component | _boolean_ | `false` |
+| show-error | Whether to show error placeholder | _boolean_ | `true` |
+| show-loading | Whether to show loading placeholder | _boolean_ | `true` |
+| error-icon `v2.4.2` | Error icon | _string_ | `photo-fail` |
+| loading-icon `v2.4.2` | Loading icon | _string_ | `photo` |
+| icon-prefix `v2.10.12` | Icon className prefix | _string_ | `van-icon` |
 
 ### fit optional value
 
 | name | desctription |
-|------|------|
+| --- | --- |
 | contain | Keep aspect ratio, fully display the long side of the image |
 | cover | Keep aspect ratio, fully display the short side of the image, cutting the long side |
 | fill | Stretch and resize image to fill the content box |
@@ -94,15 +93,30 @@ Vue.use(Lazyload);
 
 ### Events
 
-| Event | Description | Arguments |
-|------|------|------|
-| click | Triggered when click image | *event: Event* |
-| load | Triggered when image loaded | - |
-| error | Triggered when image load failed | - |
+| Event | Description                    | Arguments      |
+| ----- | ------------------------------ | -------------- |
+| click | Emitted when image is clicked  | _event: Event_ |
+| load  | Emitted when image loaded      | -              |
+| error | Emitted when image load failed | -              |
 
 ### Slots
 
-| Name | Description |
-|------|------|
-| loading | Custom loading placeholder |
-| error | Custom error placeholder |
+| Name             | Description                        |
+| ---------------- | ---------------------------------- |
+| default `v2.9.0` | Custom the content below the image |
+| loading          | Custom loading placeholder         |
+| error            | Custom error placeholder           |
+
+### Less Variables
+
+How to use: [Custom Theme](#/en-US/theme).
+
+| Name                                | Default Value       | Description |
+| ----------------------------------- | ------------------- | ----------- |
+| @image-placeholder-text-color       | `@gray-6`           | -           |
+| @image-placeholder-font-size        | `@font-size-md`     | -           |
+| @image-placeholder-background-color | `@background-color` | -           |
+| @image-loading-icon-size            | `32px`              | -           |
+| @image-loading-icon-color           | `@gray-4`           | -           |
+| @image-error-icon-size              | `32px`              | -           |
+| @image-error-icon-color             | `@gray-4`           | -           |

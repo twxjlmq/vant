@@ -14,7 +14,7 @@ Vant Cli 是一个 Vue 组件库构建工具，通过 Vant Cli 可以快速搭�
 执行以下命令可以快速创建一个基于 Vant Cli 的项目：
 
 ```bash
-npx create-vant-cli-app
+yarn create vant-cli-app
 ```
 
 ### 手动安装
@@ -35,6 +35,7 @@ yarn add @vant/cli --dev
     "dev": "vant-cli dev",
     "test": "vant-cli test",
     "lint": "vant-cli lint",
+    "build": "vant-cli build",
     "release": "vant-cli release",
     "build-site": "vant-cli build-site"
   },
@@ -45,14 +46,8 @@ yarn add @vant/cli --dev
     }
   },
   "lint-staged": {
-    "*.{ts,tsx,js,jsx,vue}": [
-      "eslint",
-      "git add"
-    ],
-    "*.{vue,css,less,scss}": [
-      "stylelint",
-      "git add"
-    ]
+    "*.{js,jsx,ts,tsx,vue}": "eslint --fix",
+    "*.{vue,css,less,scss}": "stylelint --fix"
   },
   "eslintConfig": {
     "root": true,
@@ -68,14 +63,13 @@ yarn add @vant/cli --dev
 }
 ```
 
-## 命令
+## 详细文档
 
-参见[命令](https://github.com/youzan/vant/tree/dev/packages/vant-cli/docs/commands.md)。
+- [命令](https://github.com/youzan/vant/tree/dev/packages/vant-cli/docs/commands.md)
+- [配置指南](https://github.com/youzan/vant/tree/dev/packages/vant-cli/docs/config.md)
+- [目录结构](https://github.com/youzan/vant/tree/dev/packages/vant-cli/docs/directory.md)
+- [更新日志](https://github.com/youzan/vant/tree/dev/packages/vant-cli/changelog.md)
 
-## 配置
+## 关于桌面端组件
 
-参见[配置指南](https://github.com/youzan/vant/tree/dev/packages/vant-cli/docs/config.md)。
-
-## 更新日志
-
-参见[更新日志](https://github.com/youzan/vant/tree/dev/packages/vant-cli/changelog.md)。
+目前 Vant Cli 仅支持移动端组件的预览，桌面端组件暂不支持预览（欢迎 PR）。

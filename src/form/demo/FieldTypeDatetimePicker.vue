@@ -1,54 +1,55 @@
 <template>
-  <div class="van-hairline--bottom">
-    <van-field
-      readonly
-      clickable
-      name="datetimePicker"
-      :value="value"
-      :border="false"
-      :label="t('label')"
-      :placeholder="t('placeholder')"
-      @click="showPicker = true"
-    />
-    <van-popup v-model="showPicker" position="bottom">
-      <van-datetime-picker
-        type="time"
-        @confirm="onConfirm"
-        @cancel="onCancel"
-      />
-    </van-popup>
-  </div>
+  <van-field
+    v-model="value"
+    readonly
+    clickable
+    name="datetimePicker"
+    :label="t('label')"
+    :placeholder="t('placeholder')"
+    @click="showPicker = true"
+  />
+  <van-popup v-model:show="showPicker" round position="bottom" teleport="body">
+    <van-datetime-picker type="time" @confirm="onConfirm" @cancel="onCancel" />
+  </van-popup>
 </template>
 
 <script>
-export default {
-  i18n: {
-    'zh-CN': {
-      label: '时间选择',
-      placeholder: '点击选择时间',
-    },
-    'en-US': {
-      label: 'Datetime Picker',
-      placeholder: 'Select time',
-    },
-  },
+import { reactive, toRefs } from 'vue';
+import { useTranslate } from '@demo/use-translate';
 
-  data() {
-    return {
+const i18n = {
+  'zh-CN': {
+    label: '时间选择',
+    placeholder: '点击选择时间',
+  },
+  'en-US': {
+    label: 'Datetime Picker',
+    placeholder: 'Select time',
+  },
+};
+
+export default {
+  setup() {
+    const t = useTranslate(i18n);
+    const state = reactive({
       value: '',
       showPicker: false,
-    };
-  },
+    });
 
-  methods: {
-    onConfirm(time) {
-      console.log('time', time);
-      this.value = time;
-      this.showPicker = false;
-    },
-    onCancel() {
-      this.showPicker = false;
-    },
+    const onConfirm = (time) => {
+      state.value = time;
+      state.showPicker = false;
+    };
+    const onCancel = () => {
+      state.showPicker = false;
+    };
+
+    return {
+      ...toRefs(state),
+      t,
+      onCancel,
+      onConfirm,
+    };
   },
 };
 </script>

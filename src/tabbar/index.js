@@ -1,19 +1,27 @@
-import { createNamespace } from '../utils';
-import { ParentMixin } from '../mixins/relation';
+import { ref } from 'vue';
+
+// Utils
+import { createNamespace, isDef } from '../utils';
 import { BORDER_TOP_BOTTOM } from '../utils/constant';
+import { callInterceptor } from '../utils/interceptor';
+
+// Composition
+import { useChildren } from '@vant/use';
+import { usePlaceholder } from '../composables/use-placeholder';
 
 const [createComponent, bem] = createNamespace('tabbar');
 
-export default createComponent({
-  mixins: [ParentMixin('vanTabbar')],
+export const TABBAR_KEY = 'vanTabbar';
 
+export default createComponent({
   props: {
     route: Boolean,
     zIndex: [Number, String],
+    placeholder: Boolean,
     activeColor: String,
+    beforeChange: Function,
     inactiveColor: String,
-    safeAreaInsetBottom: Boolean,
-    value: {
+    modelValue: {
       type: [Number, String],
       default: 0,
     },
@@ -25,42 +33,61 @@ export default createComponent({
       type: Boolean,
       default: true,
     },
-  },
-
-  watch: {
-    value: 'setActiveItem',
-    children: 'setActiveItem',
-  },
-
-  methods: {
-    setActiveItem() {
-      this.children.forEach((item, index) => {
-        item.active = (item.name || index) === this.value;
-      });
+    safeAreaInsetBottom: {
+      type: Boolean,
+      default: null,
     },
+  },
 
-    onChange(active) {
-      if (active !== this.value) {
-        this.$emit('input', active);
-        this.$emit('change', active);
+  emits: ['change', 'update:modelValue'],
+
+  setup(props, { emit, slots }) {
+    const root = ref();
+    const { linkChildren } = useChildren(TABBAR_KEY);
+    const renderPlaceholder = usePlaceholder(root, bem);
+
+    const isUnfit = () => {
+      if (isDef(props.safeAreaInsetBottom)) {
+        return !props.safeAreaInsetBottom;
       }
-    },
-  },
+      // enable safe-area-inset-bottom by default when fixed
+      return !props.fixed;
+    };
 
-  render() {
-    return (
-      <div
-        style={{ zIndex: this.zIndex }}
-        class={[
-          { [BORDER_TOP_BOTTOM]: this.border },
-          bem({
-            fixed: this.fixed,
-            'safe-area-inset-bottom': this.safeAreaInsetBottom,
-          }),
-        ]}
-      >
-        {this.slots()}
-      </div>
-    );
+    const renderTabbar = () => {
+      const { fixed, zIndex, border } = props;
+      const unfit = isUnfit();
+      return (
+        <div
+          ref={root}
+          style={{ zIndex }}
+          class={[bem({ unfit, fixed }), { [BORDER_TOP_BOTTOM]: border }]}
+        >
+          {slots.default?.()}
+        </div>
+      );
+    };
+
+    const setActive = (active) => {
+      if (active !== props.modelValue) {
+        callInterceptor({
+          interceptor: props.beforeChange,
+          args: [active],
+          done() {
+            emit('update:modelValue', active);
+            emit('change', active);
+          },
+        });
+      }
+    };
+
+    linkChildren({ props, setActive });
+
+    return () => {
+      if (props.fixed && props.placeholder) {
+        return renderPlaceholder(renderTabbar);
+      }
+      return renderTabbar();
+    };
   },
 });

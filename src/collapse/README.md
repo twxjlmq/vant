@@ -3,34 +3,36 @@
 ### Install
 
 ```js
-import Vue from 'vue';
+import { createApp } from 'vue';
 import { Collapse, CollapseItem } from 'vant';
 
-Vue.use(Collapse);
-Vue.use(CollapseItem);
+const app = createApp();
+app.use(Collapse);
+app.use(CollapseItem);
 ```
 
 ## Usage
 
 ### Basic Usage
 
-Use `v-model` to control the name of active panels
+Use `v-model` to control the name of active panels.
 
 ```html
 <van-collapse v-model="activeNames">
   <van-collapse-item title="Title1" name="1">Content</van-collapse-item>
   <van-collapse-item title="Title2" name="2">Content</van-collapse-item>
-  <van-collapse-item title="Title3" name="3" disabled>Content</van-collapse-item>
+  <van-collapse-item title="Title3" name="3">Content</van-collapse-item>
 </van-collapse>
 ```
 
 ```js
+import { ref } from 'vue';
+
 export default {
-  data() {
-    return {
-      activeNames: ['1']
-    };
-  }
+  setup() {
+    const activeNames = ref(['1']);
+    return { activeNames };
+  },
 };
 ```
 
@@ -47,13 +49,30 @@ In accordion mode, only one panel can be expanded at the same time.
 ```
 
 ```js
+import { ref } from 'vue';
+
 export default {
-  data() {
-    return {
-      activeName: '1'
-    };
-  }
+  setup() {
+    const activeName = ref('1');
+    return { activeName };
+  },
 };
+```
+
+### Disabled
+
+Use the `disabled` prop to disable CollaseItem.
+
+```html
+<van-collapse v-model="activeNames">
+  <van-collapse-item title="Title1" name="1">Content</van-collapse-item>
+  <van-collapse-item title="Title2" name="2" disabled>
+    Content
+  </van-collapse-item>
+  <van-collapse-item title="Title3" name="3" disabled>
+    Content
+  </van-collapse-item>
+</van-collapse>
 ```
 
 ### Custom title
@@ -73,12 +92,13 @@ export default {
 ```
 
 ```js
+import { ref } from 'vue';
+
 export default {
-  data() {
-    return {
-      activeNames: ['1']
-    };
-  }
+  setup() {
+    const activeNames = ref(['1']);
+    return { activeNames };
+  },
 };
 ```
 
@@ -87,40 +107,62 @@ export default {
 ### Collapse Props
 
 | Attribute | Description | Type | Default |
-|------|------|------|------|
-| v-model | Names of current active panels | accordion mode： *number \| string*<br>non-accordion mode：*(number \| string)[]* | - |
-| accordion | Whether to be accordion mode | *boolean* | `false` |
-| border | Whether to show outer border | *boolean* | `true` |
+| --- | --- | --- | --- |
+| v-model | Names of current active panels | accordion mode： _number \| string_<br>non-accordion mode：_(number \| string)[]_ | - |
+| accordion | Whether to be accordion mode | _boolean_ | `false` |
+| border | Whether to show outer border | _boolean_ | `true` |
 
 ### Collapse Events
 
-| Event | Description | Arguments |
-|------|------|------|
-| change | Triggered when switch panel | activeNames |
+| Event  | Description                  | Arguments   |
+| ------ | ---------------------------- | ----------- |
+| change | Emitted when switching panel | activeNames |
 
 ### CollapseItem Props
 
 | Attribute | Description | Type | Default |
-|------|------|------|------|
-| name | Name | *number \| string* | `index` |
-| icon | Left Icon | *string* | - |
-| size | Title size，can be set to `large` | *string* | - |
-| title | Title | *number \| string* | - |
-| value | Right text | *number \| string* | - |
-| label | Description below the title | *string* | - |
-| border | Whether to show inner border | *boolean* | `true` |
-| disabled | Whether to disabled collapse | *boolean* | `false` |
-| is-link | Whether to show link icon | *boolean* | `true` |
-| title-class | Title className | *string* | - |
-| value-class | Value className | *string* | - |
-| label-class | Label className | *string* | - |
+| --- | --- | --- | --- |
+| name | Name | _number \| string_ | `index` |
+| icon | Left Icon | _string_ | - |
+| size | Title size，can be set to `large` | _string_ | - |
+| title | Title | _number \| string_ | - |
+| value | Right text | _number \| string_ | - |
+| label | Description below the title | _string_ | - |
+| border | Whether to show inner border | _boolean_ | `true` |
+| disabled | Whether to disabled collapse | _boolean_ | `false` |
+| is-link | Whether to show link icon | _boolean_ | `true` |
+| title-class | Title className | _string_ | - |
+| value-class | Value className | _string_ | - |
+| label-class | Label className | _string_ | - |
 
 ### CollapseItem Slots
 
-| Name | Description |
-|------|------|
-| default | Content |
-| value | Custom value |
-| icon | Custom icon |
-| title | Custom title |
+| Name       | Description       |
+| ---------- | ----------------- |
+| default    | Content           |
+| value      | Custom value      |
+| icon       | Custom icon       |
+| title      | Custom title      |
 | right-icon | Custom right icon |
+
+### CollapseItem Methods
+
+Use [ref](https://v3.vuejs.org/guide/component-template-refs.html) to get CollapseItem instance and call instance methods.
+
+| Name | Description | Attribute | Return value |
+| --- | --- | --- | --- |
+| toggle `v2.10.9` | Toggle expanded status | _expanded: boolean_ | - |
+
+### Less Variables
+
+How to use: [Custom Theme](#/en-US/theme).
+
+| Name | Default Value | Description |
+| --- | --- | --- |
+| @collapse-item-transition-duration | `@animation-duration-base` | - |
+| @collapse-item-content-padding | `@padding-sm @padding-md` | - |
+| @collapse-item-content-font-size | `@font-size-md` | - |
+| @collapse-item-content-line-height | `1.5` | - |
+| @collapse-item-content-text-color | `@gray-6` | - |
+| @collapse-item-content-background-color | `@white` | - |
+| @collapse-item-title-disabled-color | `@gray-5` | - |

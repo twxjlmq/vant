@@ -1,10 +1,11 @@
 {
   "name": "@vant/stylelint-config",
-  "version": "1.2.1",
+  "version": "1.4.2",
   "description": "stylelint config of vant.",
   "main": "index.js",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "license": "MIT",
   "repository": "https://github.com/youzan/vant/tree/dev/packages/vant-stylelint-config",
@@ -12,8 +13,7 @@
     "stylelint": "^13.0.0"
   },
   "dependencies": {
-    "stylelint-config-rational-order": "^0.1.2",
-    "stylelint-config-standard": "^20.0.0",
-    "stylelint-order": "^4.0.0"
+    "stylelint-config-prettier": "^8.0.1",
+    "stylelint-config-standard": "^20.0.0"
   }
 }

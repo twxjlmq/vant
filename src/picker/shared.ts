@@ -1,30 +1,33 @@
 export type SharedPickerProps = {
   title?: string;
   loading?: boolean;
-  itemHeight: number;
+  itemHeight?: number;
   showToolbar?: boolean;
   visibleItemCount: number | string;
   cancelButtonText?: string;
   confirmButtonText?: string;
 };
 
+export const PICKER_KEY = 'vanPicker';
+
 export const pickerProps = {
   title: String,
   loading: Boolean,
-  showToolbar: Boolean,
+  readonly: Boolean,
+  allowHtml: Boolean,
   cancelButtonText: String,
   confirmButtonText: String,
-  allowHtml: {
+  itemHeight: {
+    type: [Number, String],
+    default: 44,
+  },
+  showToolbar: {
     type: Boolean,
     default: true,
   },
   visibleItemCount: {
     type: [Number, String],
-    default: 5,
-  },
-  itemHeight: {
-    type: [Number, String],
-    default: 44,
+    default: 6,
   },
   swipeDuration: {
     type: [Number, String],

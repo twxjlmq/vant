@@ -7,10 +7,11 @@ A list component to show items and control loading status.
 ### Install
 
 ```js
-import Vue from 'vue';
+import { createApp } from 'vue';
 import { List } from 'vant';
 
-Vue.use(List);
+const app = createApp();
+app.use(List);
 ```
 
 ## Usage
@@ -19,123 +20,143 @@ Vue.use(List);
 
 ```html
 <van-list
-  v-model="loading"
-  :finished="finished"
+  v-model:loading="state.loading"
+  :finished="state.finished"
   finished-text="Finished"
   @load="onLoad"
 >
-  <van-cell v-for="item in list" :key="item" :title="item" />
+  <van-cell v-for="item in state.list" :key="item" :title="item" />
 </van-list>
 ```
 
 ```js
+import { reactive } from 'vue';
+
 export default {
-  data() {
-    return {
+  setup() {
+    const state = reactive({
       list: [],
       loading: false,
-      finished: false
-    };
-  },
-  methods: {
-    onLoad() {
+      finished: false,
+    });
+
+    const onLoad = () => {
       setTimeout(() => {
         for (let i = 0; i < 10; i++) {
-          this.list.push(this.list.length + 1);
+          state.list.push(state.list.length + 1);
         }
-        this.loading = false;
+        state.loading = false;
 
-        if (this.list.length >= 40) {
-          this.finished = true;
+        if (state.list.length >= 40) {
+          state.finished = true;
         }
       }, 1000);
-    }
-  }
-}
+    };
+
+    return {
+      state,
+      onLoad,
+    };
+  },
+};
 ```
 
 ### Error Info
 
 ```html
 <van-list
-  v-model="loading"
-  :error.sync="error"
+  v-model:loading="state.loading"
+  v-model:error="state.error"
   error-text="Request failed. Click to reload"
   @load="onLoad"
 >
-  <van-cell v-for="item in list" :key="item" :title="item" />
+  <van-cell v-for="item in state.list" :key="item" :title="item" />
 </van-list>
 ```
 
 ```js
+import { reactive } from 'vue';
+
 export default {
-  data() {
-    return {
+  setup() {
+    const state = reactive({
       list: [],
       error: false,
-      loading: false
+      loading: false,
+    });
+
+    const onLoad = () => {
+      fetchSomeThing().catch(() => {
+        state.error = true;
+      });
+    };
+
+    return {
+      state,
+      onLoad,
     };
   },
-  methods: {
-    onLoad() {
-      fetchSomeThing().catch(() => {
-        this.error = true;
-      })
-    }
-  }
-}
+};
 ```
 
 ### PullRefresh
 
 ```html
-<van-pull-refresh v-model="refreshing" @refresh="onRefresh">
+<van-pull-refresh v-model="state.refreshing" @refresh="onRefresh">
   <van-list
-    v-model="loading"
-    :finished="finished"
+    v-model:loading="state.loading"
+    :finished="state.finished"
     finished-text="Finished"
     @load="onLoad"
   >
-    <van-cell v-for="item in list" :key="item" :title="item" />
+    <van-cell v-for="item in state.list" :key="item" :title="item" />
   </van-list>
 </van-pull-refresh>
 ```
 
 ```js
+import { reactive } from 'vue';
+
 export default {
-  data() {
-    return {
+  setup() {
+    const state = reactive({
       list: [],
       loading: false,
       finished: false,
-      refreshing: false
-    };
-  },
-  methods: {
-    onLoad() {
+      refreshing: false,
+    });
+
+    const onLoad = () => {
       setTimeout(() => {
-        if (this.refreshing) {
-          this.list = [];
-          this.refreshing = false;
+        if (state.refreshing) {
+          state.list = [];
+          state.refreshing = false;
         }
 
         for (let i = 0; i < 10; i++) {
-          this.list.push(this.list.length + 1);
+          state.list.push(state.list.length + 1);
         }
-        this.loading = false;
+        state.loading = false;
 
-        if (this.list.length >= 40) {
-          this.finished = true;
+        if (state.list.length >= 40) {
+          state.finished = true;
         }
       }, 1000);
-    },
-    onRefresh() {
-      this.finished = false;
-      this.loading = true;
-      this.onLoad();
-    }
-  }
-}
+    };
+
+    const onRefresh = () => {
+      state.finished = false;
+      state.loading = true;
+      onLoad();
+    };
+
+    return {
+      state,
+      onLoad,
+      onRefresh,
+    };
+  },
+};
 ```
 
 ## API
@@ -143,36 +164,47 @@ export default {
 ### Props
 
 | Attribute | Description | Type | Default |
-|------|------|------|------|
-| v-model | Whether to show loading info，the `load` event will not be triggered when loading | *boolean* | `false` |
-| finished | Whether loading is finished，the `load` event will not be triggered when finished | *boolean* | `false` |
-| error | Whether loading is error，the `load` event will be triggered only when error text clicked, the `sync` modifier is needed | *boolean* | `false` |
-| offset | The load event will be triggered when the distance between the scrollbar and the bottom is less than offset | *number \| string* | `300` |
-| loading-text | Loading text | *string* | `Loading...` |
-| finished-text | Finished text | *string* | - |
-| error-text | Error loaded text | *string* | - |
-| immediate-check | Whether to check loading position immediately after mounted | *boolean* | `true` |
-| direction | Scroll direction，can be set to `up` | *string* | `down` |
+| --- | --- | --- | --- |
+| v-model:loading | Whether to show loading info，the `load` event will not be Emitted when loading | _boolean_ | `false` |
+| finished | Whether loading is finished，the `load` event will not be Emitted when finished | _boolean_ | `false` |
+| error | Whether loading is error，the `load` event will be Emitted only when error text clicked, the `sync` modifier is needed | _boolean_ | `false` |
+| offset | The load event will be Emitted when the distance between the scrollbar and the bottom is less than offset | _number \| string_ | `300` |
+| loading-text | Loading text | _string_ | `Loading...` |
+| finished-text | Finished text | _string_ | - |
+| error-text | Error loaded text | _string_ | - |
+| immediate-check | Whether to check loading position immediately after mounted | _boolean_ | `true` |
+| direction | Scroll direction，can be set to `up` | _string_ | `down` |
 
 ### Events
 
 | Event | Description | Arguments |
-|------|------|------|
-| load | Triggered when the distance between the scrollbar and the bottom is less than offset | - |
+| --- | --- | --- |
+| load | Emitted when the distance between the scrollbar and the bottom is less than offset | - |
 
 ### Methods
 
-Use [ref](https://vuejs.org/v2/api/#ref) to get List instance and call instance methods
+Use [ref](https://v3.vuejs.org/guide/component-template-refs.html) to get List instance and call instance methods.
 
-| Name | Description | Attribute | Return value |
-|------|------|------|------|
-| check | Check scroll position | - | - |
+| Name  | Description           | Attribute | Return value |
+| ----- | --------------------- | --------- | ------------ |
+| check | Check scroll position | -         | -            |
 
 ### Slots
 
-| Name | Description |
-|------|------|
-| default | List content |
-| loading | Custom loading tips |
+| Name     | Description          |
+| -------- | -------------------- |
+| default  | List content         |
+| loading  | Custom loading tips  |
 | finished | Custom finished tips |
-| error | Custom error tips |
+| error    | Custom error tips    |
+
+### Less Variables
+
+How to use: [Custom Theme](#/en-US/theme).
+
+| Name                    | Default Value   | Description |
+| ----------------------- | --------------- | ----------- |
+| @list-icon-margin-right | `5px`           | -           |
+| @list-text-color        | `@gray-6`       | -           |
+| @list-text-font-size    | `@font-size-md` | -           |
+| @list-text-line-height  | `50px`          | -           |

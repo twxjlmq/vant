@@ -3,18 +3,19 @@
 ### Install
 
 ```js
-import Vue from 'vue';
+import { createApp } from 'vue';
 import { Swipe, SwipeItem } from 'vant';
 
-Vue.use(Swipe);
-Vue.use(SwipeItem);
+const app = createApp();
+app.use(Swipe);
+app.use(SwipeItem);
 ```
 
 ## Usage
 
 ### Basic Usage
 
-Use `autoplay` prop to set autoplay interval
+Use `autoplay` prop to set autoplay interval.
 
 ```html
 <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
@@ -25,44 +26,38 @@ Use `autoplay` prop to set autoplay interval
 </van-swipe>
 
 <style>
-.my-swipe .van-swipe-item {
-  color: #fff;
-  font-size: 20px;
-  line-height: 150px;
-  text-align: center;
-  background-color: #39a9ed;
-}
+  .my-swipe .van-swipe-item {
+    color: #fff;
+    font-size: 20px;
+    line-height: 150px;
+    text-align: center;
+    background-color: #39a9ed;
+  }
 </style>
 ```
 
-### Image Lazyload
+### Lazy Render
 
-Use [Lazyload](#/en-US/lazyload) component to lazyload image
+Use `lazy-render` prop to enable lazy rendering.
 
 ```html
-<van-swipe>
-  <van-swipe-item v-for="(image, index) in images" :key="index">
-    <img v-lazy="image" />
+<van-swipe :autoplay="3000" lazy-render>
+  <van-swipe-item v-for="image in images" :key="image">
+    <img :src="image" />
   </van-swipe-item>
 </van-swipe>
 ```
 
 ```js
-import Vue from 'vue';
-import { Lazyload } from 'vant';
-
-Vue.use(Lazyload);
-
 export default {
-  data() {
-    return {
-      images: [
-        'https://img.yzcdn.cn/vant/apple-1.jpg',
-        'https://img.yzcdn.cn/vant/apple-2.jpg'
-      ]
-    }
-  }
-}
+  setup() {
+    const images = [
+      'https://img.yzcdn.cn/vant/apple-1.jpg',
+      'https://img.yzcdn.cn/vant/apple-2.jpg',
+    ];
+    return { images };
+  },
+};
 ```
 
 ### Change Event
@@ -80,12 +75,13 @@ export default {
 import { Toast } from 'vant';
 
 export default {
-  methods: {
-    onChange(index) {
+  setup() {
+    const onChange = (index) => {
       Toast('Current Swipe index:' + index);
-    }
-  }
-}
+    };
+    return { onChange };
+  },
+};
 ```
 
 ### Vertical Scrolling
@@ -110,7 +106,7 @@ export default {
 </van-swipe>
 ```
 
-> It's not supported to set SwipeItem size in the loop mode
+> It's not supported to set SwipeItem size in the loop mode.
 
 ### Custom Indicator
 
@@ -121,37 +117,37 @@ export default {
   <van-swipe-item>3</van-swipe-item>
   <van-swipe-item>4</van-swipe-item>
   <template #indicator>
-    <div class="custom-indicator">
-      {{ current + 1 }}/4
-    </div>
+    <div class="custom-indicator">{{ current + 1 }}/4</div>
   </template>
 </van-swipe>
 
 <style>
-.custom-indicator {
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
-  padding: 2px 5px;
-  font-size: 12px;
-  background: rgba(0, 0, 0, 0.1);
-}
+  .custom-indicator {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    padding: 2px 5px;
+    font-size: 12px;
+    background: rgba(0, 0, 0, 0.1);
+  }
 </style>
 ```
 
 ```js
+import { ref } from 'vue';
+
 export default {
-  data() {
+  setup() {
+    const current = ref(0);
+    const onChange = (index) => {
+      current.value = index;
+    };
     return {
-      current: 0
-    }
+      current,
+      onChange,
+    };
   },
-  methods: {
-    onChange(index) {
-      this.current = index;
-    }
-  }
-}
+};
 ```
 
 ## API
@@ -159,52 +155,65 @@ export default {
 ### Swipe Props
 
 | Attribute | Description | Type | Default |
-|------|------|------|------|
-| autoplay | Autoplay interval (ms) | *number \| string* | - |
-| duration | Animation duration (ms) | *number \| string* | `500` |
-| initial-swipe | Index of initial swipe, start from 0 | *number \| string* | `0` |
-| width | Set Swiper Item Width | *number \| string* | `0` |
-| height | Set Swiper Item Height | *number \| string* | `0` |
-| loop | Whether to enable loop | *boolean* | `true` |
-| show-indicators | Whether to show indicators | *boolean* | `true` |
-| vertical | Whether to be vertical Scrolling | *boolean* | `false` |
-| touchable | Whether to allow swipe by touch gesture | *boolean* | `true` |
-| stop-propagation `v2.1.0` | Whether to stop touchmove event propagation | *boolean* | `false` |
-| lazy-render `v2.5.8` | Whether to enable lazy render | *boolean* | `false` |
-| indicator-color | Indicator color | *string* | `#1989fa` |
+| --- | --- | --- | --- |
+| autoplay | Autoplay interval (ms) | _number \| string_ | - |
+| duration | Animation duration (ms) | _number \| string_ | `500` |
+| initial-swipe | Index of initial swipe, start from 0 | _number \| string_ | `0` |
+| width | Set Swiper Item Width | _number \| string_ | `0` |
+| height | Set Swiper Item Height | _number \| string_ | `0` |
+| loop | Whether to enable loop | _boolean_ | `true` |
+| show-indicators | Whether to show indicators | _boolean_ | `true` |
+| vertical | Whether to be vertical Scrolling | _boolean_ | `false` |
+| touchable | Whether to allow swipe by touch gesture | _boolean_ | `true` |
+| stop-propagation | Whether to stop touchmove event propagation | _boolean_ | `false` |
+| lazy-render `v2.5.8` | Whether to enable lazy render | _boolean_ | `false` |
+| indicator-color | Indicator color | _string_ | `#1989fa` |
 
 ### Swipe Events
 
-| Event | Description | Arguments |
-|------|------|------|
-| change | Triggered when current swipe change | index: index of current swipe |
+| Event  | Description                        | Arguments                     |
+| ------ | ---------------------------------- | ----------------------------- |
+| change | Emitted when current swipe changed | index: index of current swipe |
 
 ### SwipeItem Events
 
-| Event | Description | Arguments |
-|------|------|------|
-| click | Triggered when clicked | *event: Event* |
+| Event | Description                       | Arguments      |
+| ----- | --------------------------------- | -------------- |
+| click | Emitted when component is clicked | _event: Event_ |
 
 ### Swipe Methods
 
-Use [ref](https://vuejs.org/v2/api/#ref) to get Swipe instance and call instance methods
+Use [ref](https://v3.vuejs.org/guide/component-template-refs.html) to get Swipe instance and call instance methods..
 
 | Name | Description | Attribute | Return value |
-|------|------|------|------|
+| --- | --- | --- | --- |
 | prev `v2.4.2` | Swipe to prev item | - | - |
 | next `v2.4.2` | Swipe to next item | - | - |
-| swipeTo | Swipe to target index | index: target index, options: Options | void |
-| resize `v2.2.14` | Resize Swipe when container element resized | - | void |
+| swipeTo | Swipe to target index | index: target index, options: Options | - |
+| resize | Resize Swipe when container element resized or visibility changed | - | - |
 
 ### swipeTo Options
 
-| Name | Description | Type |
-|------|------|------|------|
-| immediate | Whether to skip animation | *boolean* |
+| Name      | Description               | Type      |
+| --------- | ------------------------- | --------- |
+| immediate | Whether to skip animation | _boolean_ |
 
 ### Swipe Slots
 
-| Name | Description |
-|------|------|
-| default | Content |
+| Name      | Description      |
+| --------- | ---------------- |
+| default   | Content          |
 | indicator | Custom indicator |
+
+### Less Variables
+
+How to use: [Custom Theme](#/en-US/theme).
+
+| Name                                       | Default Value   | Description |
+| ------------------------------------------ | --------------- | ----------- |
+| @swipe-indicator-size                      | `6px`           | -           |
+| @swipe-indicator-margin                    | `@padding-sm`   | -           |
+| @swipe-indicator-active-opacity            | `1`             | -           |
+| @swipe-indicator-inactive-opacity          | `0.3`           | -           |
+| @swipe-indicator-active-background-color   | `@blue`         | -           |
+| @swipe-indicator-inactive-background-color | `@border-color` | -           |

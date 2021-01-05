@@ -6,11 +6,13 @@
 
   &__avatar {
     flex-shrink: 0;
+    width: @skeleton-avatar-size;
+    height: @skeleton-avatar-size;
     margin-right: @padding-md;
     background-color: @skeleton-avatar-background-color;
 
     &--round {
-      border-radius: 100%;
+      border-radius: @border-radius-max;
     }
   }
 
@@ -29,6 +31,7 @@
   }
 
   &__title {
+    width: @skeleton-title-width;
     margin: 0;
   }
 
@@ -45,6 +48,13 @@
   &--animate {
     animation: van-skeleton-blink @skeleton-animation-duration ease-in-out
       infinite;
+  }
+
+  &--round {
+    .van-skeleton__row,
+    .van-skeleton__title {
+      border-radius: @border-radius-max;
+    }
   }
 }
 

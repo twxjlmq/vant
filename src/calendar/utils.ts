@@ -4,8 +4,6 @@ const [createComponent, bem, t] = createNamespace('calendar');
 
 export { createComponent, bem, t };
 
-export const ROW_HEIGHT = 64;
-
 export function formatMonthTitle(date: Date) {
   return t('monthTitle', date.getFullYear(), date.getMonth() + 1);
 }
@@ -36,7 +34,7 @@ export function compareDay(day1: Date, day2: Date) {
   return compareMonthResult;
 }
 
-function getDayByOffset(date: Date, offset: number) {
+export function getDayByOffset(date: Date, offset: number) {
   date = new Date(date);
   date.setDate(date.getDate() + offset);
 
@@ -57,16 +55,20 @@ export function calcDateNum(date: [Date, Date]) {
   return (day2 - day1) / (1000 * 60 * 60 * 24) + 1;
 }
 
+export function copyDate(dates: Date) {
+  return new Date(dates);
+}
+
 export function copyDates(dates: Date | Date[]) {
   if (Array.isArray(dates)) {
-    return dates.map(date => {
+    return dates.map((date) => {
       if (date === null) {
         return date;
       }
 
-      return new Date(date);
+      return copyDate(date);
     });
   }
 
-  return new Date(dates);
+  return copyDate(dates);
 }

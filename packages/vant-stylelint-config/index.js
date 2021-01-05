@@ -1,16 +1,17 @@
 module.exports = {
-  extends: ['stylelint-config-standard', 'stylelint-config-rational-order'],
+  extends: ['stylelint-config-standard', 'stylelint-config-prettier'],
   rules: {
-    'order/properties-order': [],
-    'at-rule-no-unknown': null,
-    'number-leading-zero': null,
     'no-descending-specificity': null,
-    'declaration-colon-newline-after': null,
-    'font-family-no-missing-generic-family-keyword': null,
     'selector-pseudo-element-no-unknown': [
       true,
       {
         ignorePseudoElements: ['v-deep'],
+      },
+    ],
+    'selector-pseudo-class-no-unknown': [
+      true,
+      {
+        ignorePseudoClasses: ['deep'],
       },
     ],
   },

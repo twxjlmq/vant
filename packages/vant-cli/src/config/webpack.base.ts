@@ -1,19 +1,17 @@
 import sass from 'sass';
+import webpack from 'webpack';
 import FriendlyErrorsPlugin from '@nuxt/friendly-errors-webpack-plugin';
 import { VueLoaderPlugin } from 'vue-loader';
+import { join } from 'path';
+import { consola } from '../common/logger';
+import { existsSync } from 'fs';
+import { WebpackConfig } from '../common/types';
 import {
-  CACHE_DIR,
+  CWD,
   STYLE_EXTS,
   SCRIPT_EXTS,
   POSTCSS_CONFIG_FILE,
 } from '../common/constant';
-
-const CACHE_LOADER = {
-  loader: 'cache-loader',
-  options: {
-    cacheDirectory: CACHE_DIR,
-  },
-};
 
 const CSS_LOADERS = [
   'style-loader',
@@ -21,14 +19,53 @@ const CSS_LOADERS = [
   {
     loader: 'postcss-loader',
     options: {
-      config: {
-        path: POSTCSS_CONFIG_FILE,
-      },
+      postcssOptions: require(POSTCSS_CONFIG_FILE),
     },
   },
 ];
 
-export const baseConfig = {
+const plugins = [
+  new webpack.DefinePlugin({
+    __VUE_OPTIONS_API__: 'true',
+    __VUE_PROD_DEVTOOLS__: 'false',
+  }),
+  new VueLoaderPlugin(),
+  new FriendlyErrorsPlugin({
+    clearConsole: false,
+    logLevel: 'WARNING',
+  }),
+];
+
+const tsconfigPath = join(CWD, 'tsconfig.json');
+if (existsSync(tsconfigPath)) {
+  const ForkTsCheckerPlugin = require('fork-ts-checker-webpack-plugin');
+  plugins.push(
+    new ForkTsCheckerPlugin({
+      typescript: {
+        extensions: {
+          vue: {
+            enabled: true,
+            compiler: '@vue/compiler-sfc',
+          },
+        },
+      },
+      logger: {
+        issues: {
+          // skip info message
+          log() {},
+          warn(message: string) {
+            consola.warn(message);
+          },
+          error(message: string) {
+            consola.error(message);
+          },
+        },
+      },
+    })
+  );
+}
+
+export const baseConfig: WebpackConfig = {
   mode: 'development',
   resolve: {
     extensions: [...SCRIPT_EXTS, ...STYLE_EXTS],
@@ -38,7 +75,6 @@ export const baseConfig = {
       {
         test: /\.vue$/,
         use: [
-          CACHE_LOADER,
           {
             loader: 'vue-loader',
             options: {
@@ -52,7 +88,7 @@ export const baseConfig = {
       {
         test: /\.(js|ts|jsx|tsx)$/,
         exclude: /node_modules\/(?!(@vant\/cli))/,
-        use: [CACHE_LOADER, 'babel-loader'],
+        use: ['babel-loader'],
       },
       {
         test: /\.css$/,
@@ -79,15 +115,15 @@ export const baseConfig = {
       },
       {
         test: /\.md$/,
-        use: [CACHE_LOADER, 'vue-loader', '@vant/markdown-loader'],
+        use: ['@vant/markdown-loader'],
       },
     ],
   },
-  plugins: [
-    new VueLoaderPlugin(),
-    new FriendlyErrorsPlugin({
-      clearConsole: false,
-      logLevel: 'WARNING',
-    }),
-  ],
+  plugins,
+  cache: {
+    type: 'filesystem',
+    buildDependencies: {
+      config: [__filename],
+    },
+  },
 };

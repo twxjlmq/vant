@@ -11,6 +11,7 @@
     - [site.nav](#sitenav)
     - [site.versions](#siteversions)
     - [site.baiduAnalytics](#sitebaiduanalytics)
+    - [site.searchConfig](#sitesearchconfig)
   - [Webpack](#webpack)
   - [Babel](#babel)
     - [默认配置](#-1)
@@ -30,8 +31,8 @@ module.exports = {
   // 构建配置
   build: {
     site: {
-      publicPath: '/demo-ui/'
-    }
+      publicPath: '/demo-ui/',
+    },
   },
   // 文档站点配置
   site: {
@@ -48,21 +49,21 @@ module.exports = {
         items: [
           {
             path: 'home',
-            title: '介绍'
-          }
-        ]
+            title: '介绍',
+          },
+        ],
       },
       {
         title: '基础组件',
         items: [
           {
             path: 'my-button',
-            title: 'MyButton 按钮'
-          }
-        ]
-      }
-    ]
-  }
+            title: 'MyButton 按钮',
+          },
+        ],
+      },
+    ],
+  },
 };
 ```
 
@@ -84,9 +85,9 @@ CSS 预处理器配置，目前支持`less`和`sass`两种预处理器，默认�
 module.exports = {
   build: {
     css: {
-      preprocessor: 'sass'
-    }
-  }
+      preprocessor: 'sass',
+    },
+  },
 };
 ```
 
@@ -103,9 +104,22 @@ module.exports = {
 module.exports = {
   build: {
     site: {
-      publicPath: '/demo-ui/'
-    }
-  }
+      publicPath: '/demo-ui/',
+    },
+  },
+};
+```
+
+### build.srcDir
+
+- Type: `string`
+- Default: `src`
+
+```js
+module.exports = {
+  build: {
+    srcDir: 'myDir',
+  },
 };
 ```
 
@@ -150,12 +164,12 @@ module.exports = {
             // 导航项路由
             path: 'home',
             // 导航项文案
-            title: '介绍'
-          }
-        ]
-      }
-    ]
-  }
+            title: '介绍',
+          },
+        ],
+      },
+    ],
+  },
 };
 ```
 
@@ -172,10 +186,10 @@ module.exports = {
     versions: [
       {
         label: '1.x',
-        link: 'https://youzan.github.io/vant/1.x/'
-      }
-    ]
-  }
+        link: 'https://youzan.github.io/vant/1.x/',
+      },
+    ],
+  },
 };
 ```
 
@@ -193,11 +207,27 @@ module.exports = {
       // 打开百度统计 ->『管理』->『代码获取』
       // 找到下面这串 URL: "https://hm.baidu.com/hm.js?xxxxx"
       // 将 `xxxxx` 填写在 seed 中即可
-      seed: 'xxxxx'
-    }
-  }
+      seed: 'xxxxx',
+    },
+  },
 };
 ```
+
+### site.searchConfig
+
+- Type: `object`
+- Default: `undefined`
+
+文档网站的搜索配置，基于 algolia 提供的 docsearch 服务实现。
+
+配置内容参见 [docsearch](https://docsearch.algolia.com/docs/behavior)。
+
+### site.htmlPluginOptions
+
+- Type: `object`
+- Default: `undefined`
+
+html-webpack-plugin 的配置项，详见 [Options](https://github.com/jantimon/html-webpack-plugin#options)。
 
 ## Webpack
 
@@ -208,8 +238,8 @@ module.exports = {
 ```js
 module.exports = {
   devServer: {
-    port: 9000
-  }
+    port: 9000,
+  },
 };
 ```
 
@@ -223,7 +253,7 @@ module.exports = {
 
 ```js
 module.exports = {
-  presets: ['@vant/cli/preset']
+  presets: ['@vant/cli/preset'],
 };
 ```
 
@@ -270,8 +300,8 @@ module.exports = {
 ```js
 module.exports = {
   plugins: {
-    autoprefixer: {}
-  }
+    autoprefixer: {},
+  },
 };
 ```
 

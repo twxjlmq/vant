@@ -1,16 +1,30 @@
-export function formatNumber(value: string, allowDot: boolean) {
-  if (allowDot) {
-    const dotIndex = value.indexOf('.');
+export type FieldValidateTrigger = 'onSubmit' | 'onChange' | 'onBlur';
 
-    if (dotIndex > -1) {
-      value =
-        value.slice(0, dotIndex + 1) + value.slice(dotIndex).replace(/\./g, '');
-    }
-  } else {
-    value = value.split('.')[0];
+export type FieldRule = {
+  pattern?: RegExp;
+  trigger?: FieldValidateTrigger;
+  message?: string | ((value: unknown, rule: FieldRule) => string);
+  required?: boolean;
+  validator?: (value: unknown, rule: FieldRule) => boolean | Promise<boolean>;
+  formatter?: (value: unknown, rule: FieldRule) => unknown;
+};
+
+function isEmptyValue(value: unknown) {
+  if (Array.isArray(value)) {
+    return !value.length;
   }
+  if (value === 0) {
+    return false;
+  }
+  return !value;
+}
 
-  const regExp = allowDot ? /[^0-9.]/g : /\D/g;
-
-  return value.replace(regExp, '');
+export function runSyncRule(value: unknown, rule: FieldRule) {
+  if (rule.required && isEmptyValue(value)) {
+    return false;
+  }
+  if (rule.pattern && !rule.pattern.test(String(value))) {
+    return false;
+  }
+  return true;
 }

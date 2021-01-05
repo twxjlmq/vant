@@ -3,10 +3,11 @@
 ### Install
 
 ```js
-import Vue from 'vue';
+import { createApp } from 'vue';
 import { Circle } from 'vant';
 
-Vue.use(Circle);
+const app = createApp();
+app.use(Circle);
 ```
 
 ## Usage
@@ -15,7 +16,7 @@ Vue.use(Circle);
 
 ```html
 <van-circle
-  v-model="currentRate"
+  v-model:current-rate="currentRate"
   :rate="30"
   :speed="100"
   :text="text"
@@ -23,17 +24,18 @@ Vue.use(Circle);
 ```
 
 ```js
+import { ref, computed } from 'vue';
+
 export default {
-  data() {
+  setup() {
+    const currentRate = ref(0);
+    const text = computed(() => currentRate.value.toFixed(0) + '%');
+
     return {
-      currentRate: 0
+      text,
+      currentRate,
     };
   },
-  computed: {
-    text() {
-      return this.currentRate.toFixed(0) + '%'
-    }
-  }
 };
 ```
 
@@ -41,7 +43,7 @@ export default {
 
 ```html
 <van-circle
-  v-model="currentRate"
+  v-model:current-rate="currentRate"
   :rate="rate"
   :stroke-width="60"
   text="Custom Width"
@@ -52,7 +54,7 @@ export default {
 
 ```html
 <van-circle
-  v-model="currentRate"
+  v-model:current-rate="currentRate"
   :rate="rate"
   layer-color="#ebedf0"
   text="Custom Color"
@@ -63,7 +65,7 @@ export default {
 
 ```html
 <van-circle
-  v-model="currentRate"
+  v-model:current-rate="currentRate"
   :rate="rate"
   :color="gradientColor"
   text="Gradient"
@@ -71,16 +73,21 @@ export default {
 ```
 
 ```js
+import { ref } from 'vue';
+
 export default {
-  data() {
-    return {
-      currentRate: 0,
-      gradientColor: {
-        '0%': '#3fecff',
-        '100%': '#6149f6'
-      }
+  setup() {
+    const currentRate = ref(0);
+    const gradientColor = {
+      '0%': '#3fecff',
+      '100%': '#6149f6',
     };
-  }
+
+    return {
+      currentRate,
+      gradientColor,
+    };
+  },
 };
 ```
 
@@ -88,7 +95,7 @@ export default {
 
 ```html
 <van-circle
-  v-model="currentRate"
+  v-model:current-rate="currentRate"
   :rate="rate"
   :clockwise="false"
   text="Counter Clockwise"
@@ -99,7 +106,7 @@ export default {
 
 ```html
 <van-circle
-  v-model="currentRate"
+  v-model:current-rate="currentRate"
   :rate="rate"
   size="120px"
   text="Custom Size"
@@ -111,21 +118,35 @@ export default {
 ### Props
 
 | Attribute | Description | Type | Default |
-|------|------|------|------|
-| v-model | Current rate | *number* | - |
-| rate | Target rate | *number \| string* | `100` |
-| size | Circle size | *number \| string* | `100px` |
-| color `v2.1.4` | Progress color, passing object to render gradient | *string \| object* | `#1989fa` |
-| layer-color | Layer color | *string* | `white` |
-| fill | Fill color | *string* | `none` |
-| speed | Animate speed（rate/s）| *number \| string* | `0` |
-| text | Text | *string* | - |
-| stroke-width | Stroke width | *number \| string* | `40` |
-| stroke-linecap `v2.2.15` | Stroke linecap，can be set to `sqaure` `butt` | *string* | `round` |
-| clockwise | Whether to be clockwise | *boolean* | `true` |
+| --- | --- | --- | --- |
+| v-model:current-rate | Current rate | _number_ | - |
+| rate | Target rate | _number \| string_ | `100` |
+| size | Circle size | _number \| string_ | `100px` |
+| color | Progress color, passing object to render gradient | _string \| object_ | `#1989fa` |
+| layer-color | Layer color | _string_ | `white` |
+| fill | Fill color | _string_ | `none` |
+| speed | Animate speed（rate/s） | _number \| string_ | `0` |
+| text | Text | _string_ | - |
+| stroke-width | Stroke width | _number \| string_ | `40` |
+| stroke-linecap | Stroke linecap，can be set to `sqaure` `butt` | _string_ | `round` |
+| clockwise | Whether to be clockwise | _boolean_ | `true` |
 
 ### Slots
 
-| Name | Description |
-|------|------|
+| Name    | Description         |
+| ------- | ------------------- |
 | default | custom text content |
+
+### Less Variables
+
+How to use: [Custom Theme](#/en-US/theme).
+
+| Name                     | Default Value       | Description |
+| ------------------------ | ------------------- | ----------- |
+| @circle-size             | `100px`             | -           |
+| @circle-color            | `@blue`             | -           |
+| @circle-layer-color      | `@white`            | -           |
+| @circle-text-color       | `@text-color`       | -           |
+| @circle-text-font-weight | `@font-weight-bold` | -           |
+| @circle-text-font-size   | `@font-size-md`     | -           |
+| @circle-text-line-height | `@line-height-md`   | -           |

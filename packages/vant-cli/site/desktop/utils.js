@@ -2,11 +2,9 @@ export function scrollToAnchor(selector) {
   let count = 0;
 
   const timer = setInterval(() => {
-    const el = document.querySelector(selector);
+    const el = document.querySelector('#' + selector);
     if (el) {
-      el.scrollIntoView({
-        behavior: 'smooth',
-      });
+      el.scrollIntoView();
       clearInterval(timer);
     } else {
       count++;

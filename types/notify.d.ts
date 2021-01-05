@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import { VanComponent } from './component';
 
 export type NotifyMessage = string | number;
 
@@ -15,7 +15,7 @@ export type NotifyOptions = {
   onClick?: ((event: Event) => void) | null;
 };
 
-export interface VanNotify extends Vue {
+export interface VanNotify {
   message: NotifyMessage;
   color: string;
   background: string;
@@ -30,10 +30,11 @@ export interface Notify {
   defaultOptions: NotifyOptions;
   setDefaultOptions(options: NotifyOptions): void;
   resetDefaultOptions(): void;
+  Component: typeof VanComponent;
 }
 
-declare module 'vue/types/vue' {
-  interface Vue {
+declare module '@vue/runtime-core' {
+  interface ComponentCustomProperties {
     $notify: Notify;
   }
 }

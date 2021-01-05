@@ -39,13 +39,14 @@ export default {
 <style lang="less">
 .demo-nav {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 56px;
-  line-height: 56px;
-  text-align: center;
   background-color: #fff;
 
   &__title {
-    font-weight: 500;
+    font-weight: 600;
     font-size: 17px;
     text-transform: capitalize;
   }

@@ -1,28 +1,19 @@
-import { createNamespace } from '../utils';
+import { ref, watch, computed, reactive, nextTick, onMounted } from 'vue';
+import { createNamespace, pick } from '../utils';
+import { useExpose } from '../composables/use-expose';
 import { pickerProps } from '../picker/shared';
 import Picker from '../picker';
 
 const [createComponent, bem] = createNamespace('area');
 
-const PLACEHOLDER_CODE = '000000';
+const EMPTY_CODE = '000000';
 
 function isOverseaCode(code) {
   return code[0] === '9';
 }
 
-function pickSlots(instance, keys) {
-  const { $slots, $scopedSlots } = instance;
-  const scopedSlots = {};
-
-  keys.forEach(key => {
-    if ($scopedSlots[key]) {
-      scopedSlots[key] = $scopedSlots[key];
-    } else if ($slots[key]) {
-      scopedSlots[key] = () => $slots[key];
-    }
-  });
-
-  return scopedSlots;
+function clone(obj) {
+  return JSON.parse(JSON.stringify(obj));
 }
 
 export default createComponent({
@@ -47,109 +38,100 @@ export default createComponent({
     },
   },
 
-  data() {
-    return {
-      code: this.value,
+  emits: ['change', 'confirm'],
+
+  setup(props, { emit, slots }) {
+    const pickerRef = ref();
+
+    const state = reactive({
+      code: props.value,
       columns: [{ values: [] }, { values: [] }, { values: [] }],
-    };
-  },
+    });
 
-  computed: {
-    province() {
-      return this.areaList.province_list || {};
-    },
-
-    city() {
-      return this.areaList.city_list || {};
-    },
-
-    county() {
-      return this.areaList.county_list || {};
-    },
-
-    displayColumns() {
-      return this.columns.slice(0, +this.columnsNum);
-    },
-
-    placeholderMap() {
+    const areaList = computed(() => {
+      const { areaList } = props;
       return {
-        province: this.columnsPlaceholder[0] || '',
-        city: this.columnsPlaceholder[1] || '',
-        county: this.columnsPlaceholder[2] || '',
+        province: areaList.province_list || {},
+        city: areaList.city_list || {},
+        county: areaList.county_list || {},
       };
-    },
-  },
+    });
 
-  watch: {
-    value(val) {
-      this.code = val;
-      this.setValues();
-    },
+    const placeholderMap = computed(() => {
+      const { columnsPlaceholder } = props;
+      return {
+        province: columnsPlaceholder[0] || '',
+        city: columnsPlaceholder[1] || '',
+        county: columnsPlaceholder[2] || '',
+      };
+    });
 
-    areaList: {
-      deep: true,
-      handler: 'setValues',
-    },
+    const getDefaultCode = () => {
+      if (props.columnsPlaceholder.length) {
+        return EMPTY_CODE;
+      }
 
-    columnsNum() {
-      this.$nextTick(() => {
-        this.setValues();
-      });
-    },
-  },
+      const { county, city } = areaList.value;
 
-  mounted() {
-    this.setValues();
-  },
+      const countyCodes = Object.keys(county);
+      if (countyCodes[0]) {
+        return countyCodes[0];
+      }
 
-  methods: {
+      const cityCodes = Object.keys(city);
+      if (cityCodes[0]) {
+        return cityCodes[0];
+      }
+
+      return '';
+    };
+
     // get list by code
-    getList(type, code) {
+    const getList = (type, code) => {
       let result = [];
       if (type !== 'province' && !code) {
         return result;
       }
 
-      const list = this[type];
-      result = Object.keys(list).map(listCode => ({
+      const list = areaList.value[type];
+      result = Object.keys(list).map((listCode) => ({
         code: listCode,
         name: list[listCode],
       }));
 
       if (code) {
         // oversea code
-        if (this.isOverseaCode(code) && type === 'city') {
+        if (type === 'city' && props.isOverseaCode(code)) {
           code = '9';
         }
-
-        result = result.filter(item => item.code.indexOf(code) === 0);
+        result = result.filter((item) => item.code.indexOf(code) === 0);
       }
 
-      if (this.placeholderMap[type] && result.length) {
+      if (placeholderMap.value[type] && result.length) {
         // set columns placeholder
         let codeFill = '';
         if (type === 'city') {
-          codeFill = PLACEHOLDER_CODE.slice(2, 4);
+          codeFill = EMPTY_CODE.slice(2, 4);
         } else if (type === 'county') {
-          codeFill = PLACEHOLDER_CODE.slice(4, 6);
+          codeFill = EMPTY_CODE.slice(4, 6);
         }
 
         result.unshift({
-          code: `${code}${codeFill}`,
-          name: this.placeholderMap[type],
+          code: code + codeFill,
+          name: placeholderMap.value[type],
         });
       }
 
       return result;
-    },
+    };
 
     // get index by code
-    getIndex(type, code) {
+    const getIndex = (type, code) => {
       let compareNum = type === 'province' ? 2 : type === 'city' ? 4 : 6;
-      const list = this.getList(type, code.slice(0, compareNum - 2));
+      const list = getList(type, code.slice(0, compareNum - 2));
 
       // oversea code
-      if (this.isOverseaCode(code) && type === 'province') {
+      if (props.isOverseaCode(code) && type === 'province') {
         compareNum = 1;
       }
 
@@ -162,57 +144,17 @@ export default createComponent({
       }
 
       return 0;
-    },
+    };
 
-    // parse output columns data
-    parseOutputValues(values) {
-      return values.map((value, index) => {
-        // save undefined value
-        if (!value) return value;
-
-        value = JSON.parse(JSON.stringify(value));
-
-        if (!value.code || value.name === this.columnsPlaceholder[index]) {
-          value.code = '';
-          value.name = '';
-        }
-
-        return value;
-      });
-    },
-
-    onChange(picker, values, index) {
-      this.code = values[index].code;
-      this.setValues();
-
-      let getValues = picker.getValues();
-      getValues = this.parseOutputValues(getValues);
-
-      this.$emit('change', picker, getValues, index);
-    },
-
-    onConfirm(values, index) {
-      values = this.parseOutputValues(values);
-      this.setValues();
-      this.$emit('confirm', values, index);
-    },
-
-    setValues() {
-      let { code } = this;
-
+    const setValues = () => {
+      let { code } = state;
       if (!code) {
-        if (this.columnsPlaceholder.length) {
-          code = PLACEHOLDER_CODE;
-        } else if (Object.keys(this.county)[0]) {
-          code = Object.keys(this.county)[0];
-        } else {
-          code = '';
-        }
+        code = getDefaultCode();
       }
 
-      const { picker } = this.$refs;
-      const province = this.getList('province');
-      const city = this.getList('city', code.slice(0, 2));
+      const picker = pickerRef.value;
+      const province = getList('province');
+      const city = getList('city', code.slice(0, 2));
 
       if (!picker) {
         return;
@@ -224,28 +166,45 @@ export default createComponent({
       if (
         city.length &&
         code.slice(2, 4) === '00' &&
-        !this.isOverseaCode(code)
+        !props.isOverseaCode(code)
       ) {
         [{ code }] = city;
       }
 
-      picker.setColumnValues(2, this.getList('county', code.slice(0, 4)));
+      picker.setColumnValues(2, getList('county', code.slice(0, 4)));
       picker.setIndexes([
-        this.getIndex('province', code),
-        this.getIndex('city', code),
-        this.getIndex('county', code),
+        getIndex('province', code),
+        getIndex('city', code),
+        getIndex('county', code),
       ]);
-    },
+    };
 
-    getValues() {
-      const { picker } = this.$refs;
-      let getValues = picker ? picker.getValues().filter(value => !!value) : [];
-      getValues = this.parseOutputValues(getValues);
-      return getValues;
-    },
+    // parse output columns data
+    const parseValues = (values) => {
+      return values.map((value, index) => {
+        if (value) {
+          value = clone(value);
 
-    getArea() {
-      const values = this.getValues();
+          if (!value.code || value.name === props.columnsPlaceholder[index]) {
+            value.code = '';
+            value.name = '';
+          }
+        }
+
+        return value;
+      });
+    };
+
+    const getValues = () => {
+      if (pickerRef.value) {
+        const values = pickerRef.value.getValues().filter((value) => !!value);
+        return parseValues(values);
+      }
+      return [];
+    };
+
+    const getArea = () => {
+      const values = getValues();
       const area = {
         code: '',
         country: '',
@@ -258,14 +217,14 @@ export default createComponent({
         return area;
       }
 
-      const names = values.map(item => item.name);
-      const validValues = values.filter(value => !!value.code);
+      const names = values.map((item) => item.name);
+      const validValues = values.filter((value) => !!value.code);
 
       area.code = validValues.length
         ? validValues[validValues.length - 1].code
         : '';
 
-      if (this.isOverseaCode(area.code)) {
+      if (props.isOverseaCode(area.code)) {
         area.country = names[1] || '';
         area.province = names[2] || '';
       } else {
@@ -275,43 +234,71 @@ export default createComponent({
       }
 
       return area;
-    },
-
-    // @exposed-api
-    reset(code) {
-      this.code = code || '';
-      this.setValues();
-    },
-  },
-
-  render() {
-    const on = {
-      ...this.$listeners,
-      change: this.onChange,
-      confirm: this.onConfirm,
     };
 
-    return (
-      <Picker
-        ref="picker"
-        class={bem()}
-        showToolbar
-        valueKey="name"
-        title={this.title}
-        loading={this.loading}
-        columns={this.displayColumns}
-        itemHeight={this.itemHeight}
-        swipeDuration={this.swipeDuration}
-        visibleItemCount={this.visibleItemCount}
-        cancelButtonText={this.cancelButtonText}
-        confirmButtonText={this.confirmButtonText}
-        scopedSlots={pickSlots(this, [
-          'title',
-          'columns-top',
-          'columns-bottom',
-        ])}
-        {...{ on }}
-      />
+    const reset = (newCode = '') => {
+      state.code = newCode;
+      setValues();
+    };
+
+    const onChange = (values, index) => {
+      state.code = values[index].code;
+      setValues();
+
+      const parsedValues = parseValues(pickerRef.value.getValues());
+      emit('change', parsedValues, index);
+    };
+
+    const onConfirm = (values, index) => {
+      setValues();
+      emit('confirm', parseValues(values), index);
+    };
+
+    onMounted(setValues);
+
+    watch(
+      () => props.value,
+      (value) => {
+        state.code = value;
+        setValues();
+      }
     );
+
+    watch(() => props.areaList, setValues, { deep: true });
+
+    watch(
+      () => props.columnsNum,
+      () => {
+        nextTick(setValues);
+      }
+    );
+
+    useExpose({ reset, getArea });
+
+    return () => {
+      const columns = state.columns.slice(0, +props.columnsNum);
+
+      return (
+        <Picker
+          v-slots={pick(slots, ['title', 'columns-top', 'columns-bottom'])}
+          ref={pickerRef}
+          class={bem()}
+          columns={columns}
+          valueKey="name"
+          onChange={onChange}
+          onConfirm={onConfirm}
+          {...pick(props, [
+            'title',
+            'loading',
+            'readonly',
+            'itemHeight',
+            'swipeDuration',
+            'visibleItemCount',
+            'cancelButtonText',
+            'confirmButtonText',
+          ])}
+        />
+      );
+    };
   },
 });
